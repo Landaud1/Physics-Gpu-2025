@@ -90,4 +90,16 @@ module top(
         .ena(PRA_EN),
         .enb(PRB_EN)
     );
+    
+    // GRAM instantiation
+    gram gram(
+        .clka(CLK),
+        .wea(gram_write_enable),
+        .addra(gram_address_write),
+        .dina(gram_data_in),
+        .clkb(gram_clk),
+        .enb(gram_read_enable),
+        .addrb(gram_address_read),
+        .doutb(gram_data_out)  // Connect to doutb signal
+    );
 endmodule
