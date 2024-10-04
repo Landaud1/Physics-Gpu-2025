@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a200tisbg484-1L" LaunchTime="1727900884" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/testbench.dcp">
-  <File Type="PA-TCL" Name="testbench.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="testbench_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="testbench_reports.tcl"/>
-  <File Type="RDS-RDS" Name="testbench.vds"/>
-  <File Type="RDS-UTIL" Name="testbench_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="testbench_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="testbench.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="testbench_timing_summary_synth.rpt"/>
+<GenRun Id="synth_1" LaunchPart="xc7a200tisbg484-1L" LaunchTime="1728060298" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/testbench.dcp">
   <File Type="VDS-TIMING-PB" Name="testbench_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="testbench_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="testbench.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="testbench_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="testbench_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="testbench_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="testbench.vds"/>
+  <File Type="REPORTS-TCL" Name="testbench_reports.tcl"/>
+  <File Type="PA-TCL" Name="testbench.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/new/top.sv">
+    <File Path="$PSRCDIR/sources_1/new/testbench.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/testbench.sv">
+    <File Path="$PSRCDIR/sources_1/new/top.sv">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -55,5 +56,4 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="gram"/>
 </GenRun>

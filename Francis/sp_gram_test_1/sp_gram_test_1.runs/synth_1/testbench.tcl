@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "H:/Senior Project/sp_gram_test_1/sp_gram_test_1.runs/synth_1/testbench.tcl"
+  variable script "/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.runs/synth_1/testbench.tcl"
   variable category "vivado_synth"
 }
 
@@ -56,30 +56,21 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 5
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a200tisbg484-1L
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.cache/wt} [current_project]
-set_property parent.project_path {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.xpr} [current_project]
-set_property XPM_LIBRARIES XPM_MEMORY [current_project]
+set_property webtalk.parent_dir /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.cache/wt [current_project]
+set_property parent.project_path /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo {h:/Senior Project/sp_gram_test_1/sp_gram_test_1.cache/ip} [current_project]
+set_property ip_output_repo /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib -sv {
-  {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.srcs/sources_1/new/top.sv}
-  {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.srcs/sources_1/new/testbench.sv}
-}
-read_ip -quiet {{H:/Senior Project/sp_gram_test_1/sp_gram_test_1.srcs/sources_1/ip/gram/gram.xci}}
-set_property used_in_implementation false [get_files -all {{h:/Senior Project/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram/gram_ooc.xdc}}]
-
+read_verilog -library xil_defaultlib -sv /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.srcs/sources_1/new/testbench.sv
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -91,7 +82,7 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 }
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.srcs/utils_1/imports/synth_1/testbench.dcp}
+read_checkpoint -auto_incremental -incremental /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.srcs/utils_1/imports/synth_1/testbench.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
