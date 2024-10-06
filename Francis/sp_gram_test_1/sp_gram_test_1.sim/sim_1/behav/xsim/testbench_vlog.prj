@@ -3,6 +3,7 @@ verilog xil_defaultlib  \
 "../../../../sp_gram_test_1.gen/sources_1/ip/gram/sim/gram.v" \
 
 sv xil_defaultlib  \
+"../../../../sp_gram_test_1.srcs/sources_1/new/blank_fill_test.sv" \
 "../../../../sp_gram_test_1.srcs/sources_1/new/read_write_test.v" \
 "../../../../sp_gram_test_1.srcs/sources_1/new/testbench.sv" \
 

@@ -4,16 +4,18 @@ module testbench();
     
     logic        clk;
     logic        reset;
+    logic        start_op;
     
     // instantiate top
     read_write_test rwt(clk, reset);
     
-    blank_fill_test bft(clk, reset);
+    blank_fill_test bft(clk, reset, start_op);
 
     // reset signal
     initial begin
         reset = 1;
         #88 reset = 0;
+        start_op = 1;
     end
         
     // initiate clock

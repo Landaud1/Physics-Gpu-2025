@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="999,992 ps"></ZoomStartTime>
-      <ZoomEndTime time="1,000,002 ps"></ZoomEndTime>
-      <Cursor1Time time="1,000,000 ps"></Cursor1Time>
+      <ZoomStartTime time="591,864,634,989 ps"></ZoomStartTime>
+      <ZoomEndTime time="591,864,635,003 ps"></ZoomEndTime>
+      <Cursor1Time time="591,864,634,992 ps"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="261"></NameColumnWidth>
-      <ValueColumnWidth column_width="102"></ValueColumnWidth>
+      <ValueColumnWidth column_width="98"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="5" />
+   <WVObjectSize size="7" />
    <wvobject type="logic" fp_name="/testbench/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -28,41 +28,37 @@
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/testbench/rwt/state">
+   <wvobject type="logic" fp_name="/testbench/bft/start_op">
+      <obj_property name="ElementShortName">start_op</obj_property>
+      <obj_property name="ObjectShortName">start_op</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/bft/end_op">
+      <obj_property name="ElementShortName">end_op[0:0]</obj_property>
+      <obj_property name="ObjectShortName">end_op[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/bft/state">
       <obj_property name="ElementShortName">state[3:0]</obj_property>
       <obj_property name="ObjectShortName">state[3:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/testbench/rwt/output_data">
-      <obj_property name="ElementShortName">output_data[3:0]</obj_property>
-      <obj_property name="ObjectShortName">output_data[3:0]</obj_property>
+   <wvobject type="array" fp_name="/testbench/bft/curr_mem">
+      <obj_property name="ElementShortName">curr_mem[19:0]</obj_property>
+      <obj_property name="ObjectShortName">curr_mem[19:0]</obj_property>
    </wvobject>
    <wvobject type="group" fp_name="group16">
       <obj_property name="label">RAM</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject type="array" fp_name="/testbench/rwt/write_enable">
+      <wvobject type="array" fp_name="/testbench/bft/write_enable">
          <obj_property name="ElementShortName">write_enable[0:0]</obj_property>
          <obj_property name="ObjectShortName">write_enable[0:0]</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/testbench/rwt/read_enable">
-         <obj_property name="ElementShortName">read_enable[0:0]</obj_property>
-         <obj_property name="ObjectShortName">read_enable[0:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/rwt/address_write">
+      <wvobject type="array" fp_name="/testbench/bft/address_write">
          <obj_property name="ElementShortName">address_write[19:0]</obj_property>
          <obj_property name="ObjectShortName">address_write[19:0]</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/testbench/rwt/address_read">
-         <obj_property name="ElementShortName">address_read[19:0]</obj_property>
-         <obj_property name="ObjectShortName">address_read[19:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/rwt/data_in">
+      <wvobject type="array" fp_name="/testbench/bft/data_in">
          <obj_property name="ElementShortName">data_in[3:0]</obj_property>
          <obj_property name="ObjectShortName">data_in[3:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/rwt/data_out">
-         <obj_property name="ElementShortName">data_out[3:0]</obj_property>
-         <obj_property name="ObjectShortName">data_out[3:0]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

@@ -3,7 +3,7 @@
 
 module blank_fill_test(
     input  logic        clk,
-    input  logic        reset
+    input  logic        reset,
     input  logic        start_op
     );
     
@@ -14,9 +14,14 @@ module blank_fill_test(
     logic [19:0] address_read = 5'h00000;
     logic [3:0] data_in = 1'h0;
     logic [3:0] data_out = 1'h0;
-    logic [0:0] op_buffer = 1'h0;
-    logic [0:0] end_op = 1'h0;
+    logic [0:0] end_op = 1'b0;
    
+    logic [3:0] default_color = 4'b1101;
+    logic [19:0] max_mem = 20'd921600;
+    logic [19:0] curr_mem = 20'd0;
+    
+    logic [3:0] state = 4'b0;
+    
     // Instantiate gram
     /* module gram
         input  logic clka,
@@ -44,25 +49,41 @@ module blank_fill_test(
     always_ff @ (posedge clk) begin
         
         // Reset condition
-        if reset begin
-            write_enable = 0;
-            read_enable = 0;
-            address_write = 5'h00000;
-            address_read = 5'h00000;
-            data_in = 1'h0;
-            data_out = 1'h0;
-            op_buffer = 1'h0;
-            end_op = 1'h0;
-        end
-        
-        // Set buffer condition
-        if start_op && ~op_buffer begin
-            op_buffer <= ~op_buffer;
-        end     
-        
-        // Fill
-        if start_op && ~end_op begin
-            
+        if (reset) begin
+            write_enable <= 0;
+            address_write <= 5'h00000;
+            curr_mem <= 20'b0;
+            end_op <= 1'b0;
+            state <= 4'b0;
+        end else begin
+            case (state)
+                4'h0: begin
+                    if (start_op) begin
+                        state <= 4'h1;
+                    end
+                end
+                4'h1: begin
+                    if (curr_mem < max_mem) begin
+                        write_enable <= 1'b1;
+                        address_write <= curr_mem;
+                        data_in <= default_color;
+                        state <= 4'h2;
+                    end else begin
+                        end_op <= 1'b1;
+                        write_enable <= 1'b0;
+                        state <= 4'hf;
+                    end
+                end
+                4'h2: 
+                    begin
+                        write_enable <= 1'b0;
+                        curr_mem <= curr_mem + 1;
+                        state <= 4'h1;
+                    end
+                4'hf: begin end                     
+                     
+                     
+            endcase                                     
         end
     end
     

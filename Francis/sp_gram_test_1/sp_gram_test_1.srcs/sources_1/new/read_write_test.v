@@ -4,7 +4,7 @@ module read_write_test(
     input  logic        clk,
     input  logic        reset
     );
-    
+/* 
     // Variable Declarations
     logic [0:0] write_enable = 0;
     logic [0:0] read_enable = 0;
@@ -18,17 +18,17 @@ module read_write_test(
     
     // Instantiate gram
     
-    /* module gram
-        input  logic clka,
-        input  logic [0:0] wea,
-        input  logic [19:0] addra,
-        input  logic [3:0] dina,
-        input  logic clkb,
-        input  logic enb,
-        input  logic [19:0] addrb,
-        output logic [3:0] doutb
+    // module gram
+    //  input  logic clka,
+    //  input  logic [0:0] wea,
+    //  input  logic [19:0] addra,
+    //  input  logic [3:0] dina,
+    //  input  logic clkb,
+    //  input  logic enb,
+    //  input  logic [19:0] addrb,
+    //  output logic [3:0] doutb
     
-     a = write, b = read*/
+    // a = write, b = read
 
     gram gram(
         .clka(clk),
@@ -83,6 +83,6 @@ module read_write_test(
             endcase
         end
     end
-   
+*/   
 
 endmodule
