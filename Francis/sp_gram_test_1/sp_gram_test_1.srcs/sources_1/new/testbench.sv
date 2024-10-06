@@ -6,7 +6,9 @@ module testbench();
     logic        reset;
     
     // instantiate top
-    top top(clk, reset);
+    read_write_test rwt(clk, reset);
+    
+    blank_fill_test bft(clk, reset);
 
     // reset signal
     initial begin
