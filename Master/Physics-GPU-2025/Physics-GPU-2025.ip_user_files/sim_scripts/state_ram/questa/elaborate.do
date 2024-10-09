@@ -1,1 +1,1 @@
-vopt -64 -l elaborate.log +acc=npr -suppress 10016  -L xil_defaultlib -L blk_mem_gen_v8_4_8 -L unisims_ver -L unimacro_ver -L secureip -work xil_defaultlib xil_defaultlib.state_ram xil_defaultlib.glbl -o state_ram_opt
+vopt -64 -l elaborate.log +acc=npr -suppress 10016  -L xil_defaultlib -L xpm -L blk_mem_gen_v8_4_8 -L unisims_ver -L unimacro_ver -L secureip -work xil_defaultlib xil_defaultlib.state_ram xil_defaultlib.glbl -o state_ram_opt

@@ -55,9 +55,7 @@ module top(
         .clka(CLK),
         .clkb(CLK),
         .wea(SRA_WE),
-        .web(SRB_WE),
-        .ena(SRA_EN),
-        .enb(SRB_EN)
+        .web(SRB_WE)
     );
     
     // Physics Engine
@@ -86,9 +84,7 @@ module top(
         
         .clka(CLK),
         .clkb(CLK),
-        .wea(PRA_WE),
-        .ena(PRA_EN),
-        .enb(PRB_EN)
+        .wea(PRA_WE)
     );
     
     // GRAM instantiation
