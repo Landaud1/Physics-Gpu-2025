@@ -8,6 +8,7 @@ module top(
     
     // General Signals
     logic VSYNC;
+    logic [9:0] N_OBJECTS;
     
     
     // Host I/F to state ram signals
@@ -63,6 +64,7 @@ module top(
         .VSYNC(VSYNC),
         .reset(RESET),
         .clk(CLK),
+        .N_OBJECTS(N_OBJECTS),
         
         .SR_ADDR(SRB_ADDR),
         .SR_READ(SRB_READ_DATA),
