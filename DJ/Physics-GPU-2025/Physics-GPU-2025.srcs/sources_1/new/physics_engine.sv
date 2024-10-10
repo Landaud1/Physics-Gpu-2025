@@ -43,6 +43,28 @@ module physics_engine(
         .a_y(a_y)
     );
     
+    // Physics engine internal RAMs
+    
+    // Acceleration RAM: holds a_x and a_y values for a fixed j and iterating i
+    
+    pe_ram acc_ram(
+        .addra(),
+        .clka(CLK),
+        .dina(),
+        .douta(),
+        .wea()
+    );
+    
+    // Sum RAM: holds running x_sum and y_sum for each object
+    
+    pe_ram sum_ram(
+        .addra(),
+        .clka(CLK),
+        .dina(),
+        .douta(),
+        .wea()
+    );
+    
     // Finite State Machine
     always @(posedge CLK) begin
         
