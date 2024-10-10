@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="591,864,634,989 ps"></ZoomStartTime>
-      <ZoomEndTime time="591,864,635,003 ps"></ZoomEndTime>
-      <Cursor1Time time="591,864,634,992 ps"></Cursor1Time>
+      <ZoomStartTime time="32,083.534 ns"></ZoomStartTime>
+      <ZoomEndTime time="32,212.335 ns"></ZoomEndTime>
+      <Cursor1Time time="32,105.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="261"></NameColumnWidth>
-      <ValueColumnWidth column_width="98"></ValueColumnWidth>
+      <ValueColumnWidth column_width="94"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="7" />
+   <WVObjectSize size="8" />
    <wvobject type="logic" fp_name="/testbench/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -44,6 +44,10 @@
       <obj_property name="ElementShortName">curr_mem[19:0]</obj_property>
       <obj_property name="ObjectShortName">curr_mem[19:0]</obj_property>
    </wvobject>
+   <wvobject type="array" fp_name="/testbench/bft/test_output">
+      <obj_property name="ElementShortName">test_output[3:0]</obj_property>
+      <obj_property name="ObjectShortName">test_output[3:0]</obj_property>
+   </wvobject>
    <wvobject type="group" fp_name="group16">
       <obj_property name="label">RAM</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -52,13 +56,25 @@
          <obj_property name="ElementShortName">write_enable[0:0]</obj_property>
          <obj_property name="ObjectShortName">write_enable[0:0]</obj_property>
       </wvobject>
+      <wvobject type="array" fp_name="/testbench/bft/read_enable">
+         <obj_property name="ElementShortName">read_enable[0:0]</obj_property>
+         <obj_property name="ObjectShortName">read_enable[0:0]</obj_property>
+      </wvobject>
       <wvobject type="array" fp_name="/testbench/bft/address_write">
          <obj_property name="ElementShortName">address_write[19:0]</obj_property>
          <obj_property name="ObjectShortName">address_write[19:0]</obj_property>
       </wvobject>
+      <wvobject type="array" fp_name="/testbench/bft/address_read">
+         <obj_property name="ElementShortName">address_read[19:0]</obj_property>
+         <obj_property name="ObjectShortName">address_read[19:0]</obj_property>
+      </wvobject>
       <wvobject type="array" fp_name="/testbench/bft/data_in">
          <obj_property name="ElementShortName">data_in[3:0]</obj_property>
          <obj_property name="ObjectShortName">data_in[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/bft/data_out">
+         <obj_property name="ElementShortName">data_out[3:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out[3:0]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

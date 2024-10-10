@@ -4,7 +4,7 @@ module read_write_test(
     input  logic        clk,
     input  logic        reset
     );
-/* 
+ 
     // Variable Declarations
     logic [0:0] write_enable = 0;
     logic [0:0] read_enable = 0;
@@ -58,9 +58,6 @@ module read_write_test(
                 end
                 1: begin
                     write_enable <= 1'b1;
-                    state <= 4'h2;
-                end
-                2: begin
                     address_write <= 20'b00000000000000001111;
                     data_in <= 4'b1010;
                     state <= 4'h3;
@@ -71,9 +68,6 @@ module read_write_test(
                 end 
                 4: begin
                     read_enable <= 1'b1;
-                    state <= 4'h5;
-                end
-                5: begin
                     address_read <= 20'b00000000000000001111;  
                     state <= 4'h6;
                 end
@@ -83,6 +77,6 @@ module read_write_test(
             endcase
         end
     end
-*/   
+
 
 endmodule

@@ -11,66 +11,58 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="66.451 ns"></ZoomEndTime>
-      <Cursor1Time time="0.000 ns"></Cursor1Time>
+      <ZoomStartTime time="927.391 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,014.522 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="261"></NameColumnWidth>
-      <ValueColumnWidth column_width="110"></ValueColumnWidth>
+      <ValueColumnWidth column_width="106"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="6" />
-   <wvobject fp_name="/testbench/clk" type="logic">
+   <WVObjectSize size="11" />
+   <wvobject type="logic" fp_name="/testbench/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/reset" type="logic">
+   <wvobject type="logic" fp_name="/testbench/reset">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/top/state" type="array">
-      <obj_property name="ElementShortName">state[1:0]</obj_property>
-      <obj_property name="ObjectShortName">state[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/top/out1" type="array">
-      <obj_property name="ElementShortName">out1[3:0]</obj_property>
-      <obj_property name="ObjectShortName">out1[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/top/out2" type="array">
-      <obj_property name="ElementShortName">out2[3:0]</obj_property>
-      <obj_property name="ObjectShortName">out2[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="group6" type="group">
+   <wvobject type="group" fp_name="group6">
       <obj_property name="label">I/O IP Block</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/testbench/top/write_enable" type="array">
-         <obj_property name="ElementShortName">write_enable[0:0]</obj_property>
-         <obj_property name="ObjectShortName">write_enable[0:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/testbench/top/read_enable" type="array">
-         <obj_property name="ElementShortName">read_enable[0:0]</obj_property>
-         <obj_property name="ObjectShortName">read_enable[0:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/testbench/top/data_in" type="array">
-         <obj_property name="ElementShortName">data_in[3:0]</obj_property>
-         <obj_property name="ObjectShortName">data_in[3:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/testbench/top/data_out" type="array">
-         <obj_property name="ElementShortName">data_out[3:0]</obj_property>
-         <obj_property name="ObjectShortName">data_out[3:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/testbench/top/address_write" type="array">
-         <obj_property name="ElementShortName">address_write[19:0]</obj_property>
-         <obj_property name="ObjectShortName">address_write[19:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/testbench/top/address_read" type="array">
-         <obj_property name="ElementShortName">address_read[19:0]</obj_property>
-         <obj_property name="ObjectShortName">address_read[19:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/testbench/top/state_pulse" type="array">
-         <obj_property name="ElementShortName">state_pulse[0:0]</obj_property>
-         <obj_property name="ObjectShortName">state_pulse[0:0]</obj_property>
-      </wvobject>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/rwt/write_enable">
+      <obj_property name="ElementShortName">write_enable[0:0]</obj_property>
+      <obj_property name="ObjectShortName">write_enable[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/rwt/read_enable">
+      <obj_property name="ElementShortName">read_enable[0:0]</obj_property>
+      <obj_property name="ObjectShortName">read_enable[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/rwt/address_write">
+      <obj_property name="ElementShortName">address_write[19:0]</obj_property>
+      <obj_property name="ObjectShortName">address_write[19:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/rwt/address_read">
+      <obj_property name="ElementShortName">address_read[19:0]</obj_property>
+      <obj_property name="ObjectShortName">address_read[19:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/rwt/data_in">
+      <obj_property name="ElementShortName">data_in[3:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/rwt/data_out">
+      <obj_property name="ElementShortName">data_out[3:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/rwt/state">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/rwt/output_data">
+      <obj_property name="ElementShortName">output_data[3:0]</obj_property>
+      <obj_property name="ObjectShortName">output_data[3:0]</obj_property>
    </wvobject>
 </wave_config>
