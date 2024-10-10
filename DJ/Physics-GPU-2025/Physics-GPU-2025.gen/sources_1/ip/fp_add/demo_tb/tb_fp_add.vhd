@@ -85,7 +85,7 @@ architecture tb of tb_fp_add is
   constant CLOCK_PERIOD : time := 100 ns;
   constant T_HOLD       : time := 10 ns;
   constant T_STROBE     : time := CLOCK_PERIOD - (1 ns);
-  constant DUT_DELAY    : time := CLOCK_PERIOD * 12;
+  constant DUT_DELAY    : time := CLOCK_PERIOD * 15;
 
   -----------------------------------------------------------------------
   -- Testbench types and signals
@@ -104,9 +104,6 @@ architecture tb of tb_fp_add is
   -- Note: denormalized numbers are treated as zero, and signalling NaNs are treated as quiet NaNs.
   -- Out Of Range just means the value is larger than VHDL can support in a Real type
   type floating_point_special_t is (normal, zero_pos, zero_neg, inf_pos, inf_neg, nan, out_of_range);
-
-  -- Enumerated type for the operation type to be signaled on the OPERATION channel
-  type operation_t is (add, subtract);
 
   -----------------------------------------------------------------------
   -- Functions
@@ -321,41 +318,6 @@ architecture tb of tb_fp_add is
 
 
 
-  -- Function to convert an operation type into a std_logic_vector operation code
-  function op_to_opcode(op : operation_t)  -- operation type
-    return std_logic_vector is
-    variable opcode : std_logic_vector(7 downto 0);
-  begin
-
-    case op is
-      when add =>
-        opcode := "00000000";
-      when subtract =>
-        opcode := "00000001";
-    end case;
-
-    return opcode;
-  end function op_to_opcode;
-
-  -- Function to convert a std_logic_vector operation code into an operation type
-  function opcode_to_op(opcode : std_logic_vector(7 downto 0))  -- operation code
-    return operation_t is
-    variable op : operation_t;
-  begin
-
-    case opcode is
-      when "00000000" =>
-        op := add;
-      when "00000001" =>
-        op := subtract;
-      when others =>
-        report "ERROR: opcode_to_op: illegal opcode"
-        severity failure;
-    end case;
-
-    return op;
-  end function opcode_to_op;
-
   -----------------------------------------------------------------------
   -- DUT signals
   -----------------------------------------------------------------------
@@ -366,22 +328,17 @@ architecture tb of tb_fp_add is
   -- A operand slave channel signals
   signal s_axis_a_tvalid         : std_logic := '0';  -- payload is valid
   signal s_axis_a_tready         : std_logic := '1';  -- slave is ready
-  signal s_axis_a_tdata          : std_logic_vector(31 downto 0) := (others => '0');  -- data payload
+  signal s_axis_a_tdata          : std_logic_vector(63 downto 0) := (others => '0');  -- data payload
 
   -- B operand slave channel signals
   signal s_axis_b_tvalid         : std_logic := '0';  -- payload is valid
   signal s_axis_b_tready         : std_logic := '1';  -- slave is ready
-  signal s_axis_b_tdata          : std_logic_vector(31 downto 0) := (others => '0');  -- data payload
-
-  -- Operation slave channel signals
-  signal s_axis_operation_tvalid : std_logic := '0';  -- payload is valid
-  signal s_axis_operation_tready : std_logic := '1';  -- slave is ready
-  signal s_axis_operation_tdata  : std_logic_vector(7 downto 0) := op_to_opcode(add);  -- data payload
+  signal s_axis_b_tdata          : std_logic_vector(63 downto 0) := (others => '0');  -- data payload
 
   -- Result master channel signals
   signal m_axis_result_tvalid    : std_logic := '0';
   signal m_axis_result_tready    : std_logic := '1';
-  signal m_axis_result_tdata     : std_logic_vector(31 downto 0) := (others => '0');  -- data payload
+  signal m_axis_result_tdata     : std_logic_vector(63 downto 0) := (others => '0');  -- data payload
 
   -----------------------------------------------------------------------
   -- Aliases for AXI channel TDATA and TUSER fields
@@ -394,27 +351,24 @@ architecture tb of tb_fp_add is
   signal s_axis_a_tdata_real    : real := 0.0;  -- floating-point value using VHDL 'real' data type
   signal s_axis_a_tdata_special : floating_point_special_t := normal;  -- indicate special values
   signal s_axis_a_tdata_sign    : std_logic := '0';  -- sign bit
-  signal s_axis_a_tdata_exp     : std_logic_vector(7 downto 0) := (others => '0');  -- exponent (biased)
-  signal s_axis_a_tdata_mant    : std_logic_vector(22 downto 0) := (others => '0');  -- mantissa (without hidden bit)
+  signal s_axis_a_tdata_exp     : std_logic_vector(10 downto 0) := (others => '0');  -- exponent (biased)
+  signal s_axis_a_tdata_mant    : std_logic_vector(51 downto 0) := (others => '0');  -- mantissa (without hidden bit)
 
   -- B operand slave channel alias signals
   signal s_axis_b_tdata_real    : real := 0.0;  -- floating-point value using VHDL 'real' data type
   signal s_axis_b_tdata_special : floating_point_special_t := normal;  -- indicate special values
   signal s_axis_b_tdata_sign    : std_logic := '0';  -- sign bit
-  signal s_axis_b_tdata_exp     : std_logic_vector(7 downto 0) := (others => '0');  -- exponent (biased)
-  signal s_axis_b_tdata_mant    : std_logic_vector(22 downto 0) := (others => '0');  -- mantissa (without hidden bit)
+  signal s_axis_b_tdata_exp     : std_logic_vector(10 downto 0) := (others => '0');  -- exponent (biased)
+  signal s_axis_b_tdata_mant    : std_logic_vector(51 downto 0) := (others => '0');  -- mantissa (without hidden bit)
 
 
-
-  -- Operation slave channel alias signals
-  signal s_axis_operation_tdata_op : operation_t;  -- decoded operation
 
   -- Result master channel alias signals
   signal m_axis_result_tdata_real     : real := 0.0;  -- floating-point value using VHDL 'real' data type
   signal m_axis_result_tdata_special  : floating_point_special_t := normal;  -- indicate special values
   signal m_axis_result_tdata_sign     : std_logic := '0';  -- sign bit
-  signal m_axis_result_tdata_exp     : std_logic_vector(7 downto 0) := (others => '0');  -- exponent (biased)
-  signal m_axis_result_tdata_mant    : std_logic_vector(22 downto 0) := (others => '0');  -- mantissa (without hidden bit)
+  signal m_axis_result_tdata_exp     : std_logic_vector(10 downto 0) := (others => '0');  -- exponent (biased)
+  signal m_axis_result_tdata_mant    : std_logic_vector(51 downto 0) := (others => '0');  -- mantissa (without hidden bit)
 
 begin
 
@@ -434,10 +388,6 @@ begin
       s_axis_b_tvalid         => s_axis_b_tvalid,
       s_axis_b_tready         => s_axis_b_tready,
       s_axis_b_tdata          => s_axis_b_tdata,
-      -- AXI4-Stream slave channel for operation control information
-      s_axis_operation_tvalid => s_axis_operation_tvalid,
-      s_axis_operation_tready => s_axis_operation_tready,
-      s_axis_operation_tdata  => s_axis_operation_tdata,
       -- AXI4-Stream master channel for output result
       m_axis_result_tvalid    => m_axis_result_tvalid,
       m_axis_result_tready    => m_axis_result_tready,
@@ -485,12 +435,12 @@ begin
 
     -- Run the same consecutive series of 100 operations, while demonstrating use and effect of AXI handshaking signals
     sim_phase <= phase_axi_handshake;
-    wait for 142 * CLOCK_PERIOD;
+    wait for 137 * CLOCK_PERIOD;
 
 
     -- Run operations that demonstrate the use of special floating-point values (+/- zero, +/- infinity, Not a Number)
     sim_phase <= phase_special;
-    wait for 23 * CLOCK_PERIOD;
+    wait for 14 * CLOCK_PERIOD;
     -- Allow operations in progress to complete and the results to be produced
     wait for DUT_DELAY;
 
@@ -510,7 +460,7 @@ begin
   stimuli_a : process
 
     -- Procedure to drive a single transaction on the A channel
-    procedure drive_a_single(tdata : std_logic_vector(31 downto 0);
+    procedure drive_a_single(tdata : std_logic_vector(63 downto 0);
                              variable abort : out boolean) is
     begin
       -- Drive AXI signals
@@ -535,14 +485,14 @@ begin
                       count   : positive := 1;
                       step    : real     := 0.0) is
       variable value     : real := data;
-      variable value_slv : std_logic_vector(31 downto 0);
-      variable tdata     : std_logic_vector(31 downto 0);
+      variable value_slv : std_logic_vector(63 downto 0);
+      variable tdata     : std_logic_vector(63 downto 0);
       variable ip_count  : natural := 0;
       variable abort     : boolean;
     begin
       count_loop : loop
         -- Convert data from real to std_logic_vector
-        value_slv := real_to_flt(value, special, 32, 24);
+        value_slv := real_to_flt(value, special, 64, 53);
         -- Set up AXI signals
         tdata := value_slv;
         -- Drive AXI transaction
@@ -560,7 +510,7 @@ begin
 
 
 
-    variable tdata : std_logic_vector(31 downto 0) := (others => '0');
+    variable tdata : std_logic_vector(63 downto 0) := (others => '0');
     variable abort : boolean;
 
   begin
@@ -613,46 +563,22 @@ begin
     -- plus zero + minus zero : result = plus zero
     drive_a(0.0, zero_pos);
     -- very small number + -(slightly larger very small number) : underflow, result = minus zero
-    tdata(31) := '0';  -- sign bit
-    tdata(30 downto 23) := std_logic_vector(to_unsigned(1, 8));  -- biased exponent = smallest
-    tdata(22 downto 0) := (others => '0');  -- mantissa without hidden bit = [1].0
+    tdata(63) := '0';  -- sign bit
+    tdata(62 downto 52) := std_logic_vector(to_unsigned(1, 11));  -- biased exponent = smallest
+    tdata(51 downto 0) := (others => '0');  -- mantissa without hidden bit = [1].0
     drive_a_single(tdata, abort);
     -- plus infinity + 2 : result = plus infinity
     drive_a(0.0, inf_pos);
     -- minus infinity + 2 : result = minus infinity
     drive_a(0.0, inf_neg);
     -- very large number + very large number : overflow, result = plus infinity
-    tdata(31) := '0';  -- sign bit
-    tdata(30 downto 23) := std_logic_vector(to_unsigned(254, 8));  -- biased exponent = largest
-    tdata(22 downto 0) := (others => '1');  -- mantissa without hidden bit = largest
+    tdata(63) := '0';  -- sign bit
+    tdata(62 downto 52) := std_logic_vector(to_unsigned(2046, 11));  -- biased exponent = largest
+    tdata(51 downto 0) := (others => '1');  -- mantissa without hidden bit = largest
     drive_a_single(tdata, abort);
     -- plus infinity + minus infinity : invalid operation, result = Not a Number
     drive_a(0.0, inf_pos);
     -- Not a Number + 2 : result = Not a Number
-    drive_a(0.0, nan);
-    -- plus zero - 2 : result = -2
-    drive_a(0.0, zero_pos);
-    -- minus zero - 2 : result = -2
-    drive_a(0.0, zero_neg);
-    -- plus zero - minus zero : result = plus zero
-    drive_a(0.0, zero_pos);
-    -- very small number - slightly larger very small number : underflow, result = minus zero
-    tdata(31) := '0';  -- sign bit
-    tdata(30 downto 23) := std_logic_vector(to_unsigned(1, 8));  -- biased exponent = smallest
-    tdata(22 downto 0) := (others => '0');  -- mantissa without hidden bit = [1].0
-    drive_a_single(tdata, abort);
-    -- plus infinity - 2 : result = plus infinity
-    drive_a(0.0, inf_pos);
-    -- minus infinity - 2 : result = minus infinity
-    drive_a(0.0, inf_neg);
-    -- very large number - -(very large number) : overflow, result = plus infinity
-    tdata(31) := '0';  -- sign bit
-    tdata(30 downto 23) := std_logic_vector(to_unsigned(254, 8));  -- biased exponent = largest
-    tdata(22 downto 0) := (others => '1');  -- mantissa without hidden bit = largest
-    drive_a_single(tdata, abort);
-    -- plus infinity - plus infinity : invalid operation, result = Not a Number
-    drive_a(0.0, inf_pos);
-    -- Not a Number - 2 : result = Not a Number
     drive_a(0.0, nan);
     -- End of test
     wait;
@@ -667,7 +593,7 @@ begin
   stimuli_b : process
 
     -- Procedure to drive a single transaction on the B channel
-    procedure drive_b_single(tdata : std_logic_vector(31 downto 0);
+    procedure drive_b_single(tdata : std_logic_vector(63 downto 0);
                              variable abort : out boolean) is
     begin
       -- Drive AXI signals
@@ -692,14 +618,14 @@ begin
                       count   : positive := 1;
                       step    : real     := 0.0) is
       variable value     : real := data;
-      variable value_slv : std_logic_vector(31 downto 0);
-      variable tdata     : std_logic_vector(31 downto 0);
+      variable value_slv : std_logic_vector(63 downto 0);
+      variable tdata     : std_logic_vector(63 downto 0);
       variable ip_count  : natural := 0;
       variable abort     : boolean;
     begin
       count_loop : loop
         -- Convert data from real to std_logic_vector
-        value_slv := real_to_flt(value, special, 32, 24);
+        value_slv := real_to_flt(value, special, 64, 53);
         -- Set up AXI signals
         tdata  := value_slv;
         -- Drive AXI transaction
@@ -712,7 +638,7 @@ begin
       end loop count_loop;
     end procedure drive_b;
 
-    variable tdata : std_logic_vector(31 downto 0) := (others => '0');
+    variable tdata : std_logic_vector(63 downto 0) := (others => '0');
     variable abort : boolean;
 
   begin
@@ -764,47 +690,22 @@ begin
     -- plus zero + minus zero : result = plus zero
     drive_b(0.0, zero_neg);
     -- very small number + -(slightly larger very small number) : underflow, result = minus zero
-    tdata(31) := '1';  -- sign bit
-    tdata(30 downto 23) := std_logic_vector(to_unsigned(1, 8));  -- biased exponent = smallest
-    tdata(22 downto 0) := (21 => '1', others => '0');  -- mantissa without hidden bit = [1].25
+    tdata(63) := '1';  -- sign bit
+    tdata(62 downto 52) := std_logic_vector(to_unsigned(1, 11));  -- biased exponent = smallest
+    tdata(51 downto 0) := (50 => '1', others => '0');  -- mantissa without hidden bit = [1].25
     drive_b_single(tdata, abort);
     -- plus infinity + 2 : result = plus infinity
     drive_b(2.0, normal);
     -- minus infinity + 2 : result = minus infinity
     drive_b(2.0, normal);
     -- very large number + very large number: overflow, result = plus infinity
-    tdata(31) := '0';  -- sign bit
-    tdata(30 downto 23) := std_logic_vector(to_unsigned(254, 8));  -- biased exponent = largest
-    tdata(22 downto 0) := (others => '1');  -- mantissa without hidden bit = largest
+    tdata(63) := '0';  -- sign bit
+    tdata(62 downto 52) := std_logic_vector(to_unsigned(2046, 11));  -- biased exponent = largest
+    tdata(51 downto 0) := (others => '1');  -- mantissa without hidden bit = largest
     drive_b_single(tdata, abort);
     -- plus infinity + minus infinity : invalid operation, result = Not a Number
     drive_b(0.0, inf_neg);
     -- Not a Number + 2 : result = Not a Number
-    drive_b(2.0, normal);
-
-    -- plus zero - 2 : result = -2
-    drive_b(2.0, normal);
-    -- minus zero - 2 : result = -2
-    drive_b(2.0, normal);
-    -- plus zero - minus zero : result = plus zero
-    drive_b(0.0, zero_neg);
-    -- very small number - slightly larger very small number : underflow, result = minus zero
-    tdata(31) := '0';  -- sign bit
-    tdata(30 downto 23) := std_logic_vector(to_unsigned(1, 8));  -- biased exponent = smallest
-    tdata(22 downto 0) := (21 => '1', others => '0');  -- mantissa without hidden bit = [1].25
-    drive_b_single(tdata, abort);
-    -- plus infinity - 2 : result = plus infinity
-    drive_b(2.0, normal);
-    -- minus infinity - 2 : result = minus infinity
-    drive_b(2.0, normal);
-    -- very large number - -(very large number): overflow, result = plus infinity
-    tdata(31) := '1';  -- sign bit
-    tdata(30 downto 23) := std_logic_vector(to_unsigned(254, 8));  -- biased exponent = largest
-    tdata(22 downto 0) := (others => '1');  -- mantissa without hidden bit = largest
-    drive_b_single(tdata, abort);
-    -- plus infinity - plus infinity : invalid operation, result = Not a Number
-    drive_b(0.0, inf_pos);
-    -- Not a Number - 2 : result = Not a Number
     drive_b(2.0, normal);
 
 
@@ -818,96 +719,6 @@ begin
 
 
   -----------------------------------------------------------------------
-  -- Generate inputs on the OPERATION slave channel
-  -----------------------------------------------------------------------
-
-  stimuli_operation : process
-
-    -- Procedure to drive a series of transactions with constant data values on the OPERATION channel.
-    -- operation is the type of operation for every transaction
-    -- count is the number of transactions to drive
-    procedure drive_operation(operation : operation_t;
-                              count     : positive := 1) is
-      variable opcode   : std_logic_vector(7 downto 0);
-      variable ip_count : natural := 0;
-    begin
-      count_loop : loop
-        -- Select operation code
-        opcode := op_to_opcode(operation);
-        -- Set up AXI signals
-        s_axis_operation_tvalid <= '1';
-        s_axis_operation_tdata  <= opcode;
-        wait_loop : loop
-          wait until rising_edge(aclk);
-          exit when s_axis_operation_tready = '1';
-        end loop wait_loop;
-        ip_count := ip_count + 1;
-        exit count_loop when ip_count >= count;
-        wait for T_HOLD;
-      end loop count_loop;
-      -- End of AXI transactions
-      wait for T_HOLD;
-      s_axis_operation_tvalid <= '0';
-    end procedure drive_operation;
-
-  begin
-
-    -- Wait for simulation control to signal the first phase
-    wait until sim_phase = phase_single;
-    wait for T_HOLD;  -- drive inputs T_HOLD after the rising edge of the clock
-
-    -- Run a single operation, and wait for the result
-    drive_operation(add);
-
-    -- Wait for simulation control to signal the next phase
-    wait until sim_phase = phase_consecutive;
-    wait for T_HOLD;  -- drive inputs T_HOLD after the rising edge of the clock
-
-    -- Run a consecutive series of 100 operations with incrementing data
-    -- The incrementing data is on the A channel and the B channel is constant.
-    -- Do 50 additions, then 50 subtractions
-    drive_operation(add, 50);
-    drive_operation(subtract, 50);
-
-    -- Wait for simulation control to signal the next phase
-    wait until sim_phase = phase_axi_handshake;
-    wait for T_HOLD;  -- drive inputs T_HOLD after the rising edge of the clock
-
-    -- Run the same consecutive series of 100 operations, while demonstrating use and effect of AXI handshaking signals
-    -- 25 normal consecutive transactions
-    drive_operation(add, 25);
-    -- No transactions for 5 clock cycles
-    wait for 5 * CLOCK_PERIOD;
-    -- 5 normal consecutive transactions
-    drive_operation(add, 5);
-    -- No transactions for 5 clock cycles
-    wait for 15 * CLOCK_PERIOD;
-    -- 20 normal consecutive transactions
-    drive_operation(add, 20);
-    -- 50 normal consecutive transactions
-    drive_operation(subtract, 50);
-
-    -- Wait for simulation control to signal the next phase
-    wait until sim_phase = phase_special;
-    wait for T_HOLD;  -- drive inputs T_HOLD after the rising edge of the clock
-
-    -- Run operations that demonstrate the use of special floating-point values (+/- zero, +/- infinity, Not a Number)
-    -- 9 add operations
-    drive_operation(add, 9);
-
-    -- 9 subtract operations
-    drive_operation(subtract, 9);
-
-
-
-
-    -- End of test
-    wait;
-
-  end process stimuli_operation;
-
-
-  -----------------------------------------------------------------------
   -- Check outputs
   -----------------------------------------------------------------------
 
@@ -916,7 +727,7 @@ begin
     -- Previous values of RESULT master channel signals
     variable result_tvalid_prev : std_logic := '0';
     variable result_tready_prev : std_logic := '1';
-    variable result_tdata_prev  : std_logic_vector(31 downto 0) := (others => '0');
+    variable result_tdata_prev  : std_logic_vector(63 downto 0) := (others => '0');
   begin
 
     -- Check outputs T_STROBE time after rising edge of clock
@@ -962,28 +773,25 @@ begin
   -----------------------------------------------------------------------
 
   -- A operand slave channel alias signals
-  s_axis_a_tdata_real    <= flt_to_real(s_axis_a_tdata(31 downto 0), 32, 24);
-  s_axis_a_tdata_special <= flt_to_special(s_axis_a_tdata(31 downto 0), 32, 24);
-  s_axis_a_tdata_sign    <= s_axis_a_tdata(31);
-  s_axis_a_tdata_exp     <= s_axis_a_tdata(30 downto 23);
-  s_axis_a_tdata_mant    <= s_axis_a_tdata(22 downto 0);
+  s_axis_a_tdata_real    <= flt_to_real(s_axis_a_tdata(63 downto 0), 64, 53);
+  s_axis_a_tdata_special <= flt_to_special(s_axis_a_tdata(63 downto 0), 64, 53);
+  s_axis_a_tdata_sign    <= s_axis_a_tdata(63);
+  s_axis_a_tdata_exp     <= s_axis_a_tdata(62 downto 52);
+  s_axis_a_tdata_mant    <= s_axis_a_tdata(51 downto 0);
 
   -- B operand slave channel alias signals
-  s_axis_b_tdata_real    <= flt_to_real(s_axis_b_tdata(31 downto 0), 32, 24);
-  s_axis_b_tdata_special <= flt_to_special(s_axis_b_tdata(31 downto 0), 32, 24);
-  s_axis_b_tdata_sign    <= s_axis_b_tdata(31);
-  s_axis_b_tdata_exp     <= s_axis_b_tdata(30 downto 23);
-  s_axis_b_tdata_mant    <= s_axis_b_tdata(22 downto 0);
-
-  -- Operation slave channel alias signals
-  s_axis_operation_tdata_op <= opcode_to_op(s_axis_operation_tdata(7 downto 0));
+  s_axis_b_tdata_real    <= flt_to_real(s_axis_b_tdata(63 downto 0), 64, 53);
+  s_axis_b_tdata_special <= flt_to_special(s_axis_b_tdata(63 downto 0), 64, 53);
+  s_axis_b_tdata_sign    <= s_axis_b_tdata(63);
+  s_axis_b_tdata_exp     <= s_axis_b_tdata(62 downto 52);
+  s_axis_b_tdata_mant    <= s_axis_b_tdata(51 downto 0);
 
   -- Result master channel alias signals
-  m_axis_result_tdata_real     <= flt_to_real(m_axis_result_tdata(31 downto 0), 32, 24) when m_axis_result_tvalid = '1';
-  m_axis_result_tdata_special  <= flt_to_special(m_axis_result_tdata(31 downto 0), 32, 24) when m_axis_result_tvalid = '1';
-  m_axis_result_tdata_sign     <= m_axis_result_tdata(31) when m_axis_result_tvalid = '1';
-  m_axis_result_tdata_exp      <= m_axis_result_tdata(30 downto 23) when m_axis_result_tvalid = '1';
-  m_axis_result_tdata_mant     <= m_axis_result_tdata(22 downto 0) when m_axis_result_tvalid = '1';
+  m_axis_result_tdata_real     <= flt_to_real(m_axis_result_tdata(63 downto 0), 64, 53) when m_axis_result_tvalid = '1';
+  m_axis_result_tdata_special  <= flt_to_special(m_axis_result_tdata(63 downto 0), 64, 53) when m_axis_result_tvalid = '1';
+  m_axis_result_tdata_sign     <= m_axis_result_tdata(63) when m_axis_result_tvalid = '1';
+  m_axis_result_tdata_exp      <= m_axis_result_tdata(62 downto 52) when m_axis_result_tvalid = '1';
+  m_axis_result_tdata_mant     <= m_axis_result_tdata(51 downto 0) when m_axis_result_tvalid = '1';
 
 end tb;
 
