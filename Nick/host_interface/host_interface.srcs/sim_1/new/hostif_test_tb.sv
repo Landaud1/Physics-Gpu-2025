@@ -1,10 +1,5 @@
-`timescale 1ns / 1ps
-
-
-
 
 module hostif_test_tb();
-
 
     // Testbench signals
     logic clk100MHZ;
@@ -24,6 +19,8 @@ module hostif_test_tb();
     logic xfc;
     logic xfc_p1;
     logic transfer;
+    logic [2:0] current_state;   // To track the current state
+    logic next_state;
 
     // Instantiate the DUT (Device Under Test)
     hostif_test dut (
@@ -42,21 +39,27 @@ module hostif_test_tb();
         .state_ram_byte_enable(state_ram_byte_enable),
         .xfc(xfc),
         .xfc_p1(xfc_p1),
-        .transfer(transfer)
+        .transfer(transfer),
+        .current_state(current_state),
+        .next_state(next_state)  // Connect current state for monitoring
     );
+    
+    
 
     // Clock generation
     initial begin
         clk100MHZ = 0;
-        forever #(10 / 2) clk100MHZ = ~clk100MHZ;
+        forever #(10 / 2) clk100MHZ = ~clk100MHZ; // 100 MHz clock
     end
 
-    // Testbench procedure
+    // Automatically toggle `hostif_psoc_fpga_xfc_raw` every 100 time units
+    always begin
+        #100;
+        hostif_psoc_fpga_xfc_raw = ~hostif_psoc_fpga_xfc_raw;  // Toggle the signal
+    end
+
+    // Simulation control and waveform dump
     initial begin
-    
-        $monitor("Time: %0t, clk100MHZ: %b", $time, clk100MHZ);
-        
-        
         // Initialize inputs
         cpu_resetn_raw = 0;
         hostif_psoc_fpga_xfc_raw = 0;
@@ -67,41 +70,11 @@ module hostif_test_tb();
         #20;
         cpu_resetn_raw = 1;
 
-        // Apply some test stimuli
-        // Toggle `hostif_psoc_fpga_xfc_raw` to simulate the transfer signal
-        @(posedge clk100MHZ);
-        hostif_psoc_fpga_xfc_raw = 1;
-        @(posedge clk100MHZ);
-        hostif_psoc_fpga_xfc_raw = 0;
-        @(posedge clk100MHZ);
-        hostif_psoc_fpga_xfc_raw = 1;
-        @(posedge clk100MHZ);
-        hostif_psoc_fpga_xfc_raw = 0;
-        @(posedge clk100MHZ);
-        hostif_psoc_fpga_xfc_raw = 1;
-        @(posedge clk100MHZ);
-        hostif_psoc_fpga_xfc_raw = 0;
-        @(posedge clk100MHZ);
-        hostif_psoc_fpga_xfc_raw = 1;
-        @(posedge clk100MHZ);
-        hostif_psoc_fpga_xfc_raw = 0;
-        @(posedge clk100MHZ);
-        hostif_psoc_fpga_xfc_raw = 1;
-        @(posedge clk100MHZ);
-        hostif_psoc_fpga_xfc_raw = 0;
-        
-        // Monitor state changes in the DUT
-        repeat (10) @(posedge clk100MHZ);
-
-        // Check the state transitions and other outputs as needed
-        // Add assertions or print messages for debugging
-
-        // Finish simulation
-        #10;
+   
+        // Run simulation for a fixed period and finish
+        #1000;  // Run the simulation for 1000 time units
         $finish;
     end
- 
-
 endmodule
 
 
