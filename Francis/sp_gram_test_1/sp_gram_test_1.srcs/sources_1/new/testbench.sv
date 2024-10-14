@@ -10,6 +10,8 @@ module testbench();
     read_write_test rwt(clk, reset);
     
     blank_fill_test bft(clk, reset, start_op);
+    
+    vid_time_counter_test vtct(clk, reset, start_op);
 
     // reset signal
     initial begin
@@ -22,6 +24,6 @@ module testbench();
     initial begin
         clk = 0;
         while (1)
-            #5 clk = ~clk;
+            #6.734ns clk = ~clk;
     end
 endmodule
