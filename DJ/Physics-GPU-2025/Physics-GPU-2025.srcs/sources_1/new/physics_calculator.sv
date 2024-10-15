@@ -4,11 +4,19 @@
 `timescale 1ns / 1ps
 
 module physics_calculator(
+    input logic clk,
+    
+    input logic valid_in,
+    input logic [9:0] addr_in,
+    
     input logic [63:0]  x_i,
     input logic [63:0]  x_j,
     input logic [63:0]  y_i,
     input logic [63:0]  y_j,
     input logic [63:0]  m_i,
+    
+    output logic valid_out,
+    output logic [9:0] addr_out,
     
     output logic [63:0] a_x,
     output logic [63:0] a_y
