@@ -42,13 +42,20 @@ module hostif_test(
     
     output logic [2:0] current_state,
     
-    output logic next_state
+    output logic [2:0] next_state
  
     
 );
 
 logic [31:0] out_data;          // build this up 1 bytes at a time
 logic [15:0] out_addr;          // build this up 1 bytes at a time
+
+logic reset_p1, reset;
+
+logic [2:0] current_state_in,next_state_in;     
+
+assign current_state = current_state_in;
+assign next_state = next_state_in;
 
 //assign out_data = regs_data;
 //assign out_data = state_ram_data;
@@ -86,7 +93,7 @@ end
                 if (transfer) // just got fourth byte, which is DATA BYTE 4
                     out_data[31:17] <= hostif_psoc_data;
              `STATE_S6:
-                              // just got fifth byte, which is DATA BYTE 5
+                              // activae we to write to SRAM 
                     state_ram_we <=1'b1;
                     
                      
@@ -95,7 +102,7 @@ end
     end    
 end
 
-logic reset_p1, reset;
+
 
 // Double ranking to address/minimize the possibility of metastability
 always_ff @ (posedge clk100MHZ)
@@ -104,10 +111,7 @@ begin
     reset       <= reset_p1;            // 2nd flop delay, reset is the signal to use
 end
 
-    // Internal signal
-   
-   
-    
+ 
     // Synchronize raw inputs and delay xfc by 1 clock cycle
     always_ff @(posedge clk100MHZ or posedge reset) begin
         if (reset) begin
@@ -123,64 +127,64 @@ end
     assign transfer = xfc ^ xfc_p1;
 
     // State transition logic
-    always_ff @(posedge clk100MHZ or posedge reset) begin
+    always_ff @(posedge clk100MHZ) begin
         if (reset) begin
-            current_state <= `STATE_S0;
+            current_state_in <= `STATE_S0;
         end else begin
-            current_state <= next_state;
+            current_state_in <= next_state_in;
         end
     end
 
     // State machine
-  always_ff @ (posedge clk100MHZ)
+ always_comb
   begin
-
-        case (current_state)
+        next_state_in = current_state_in;
+        case (current_state_in)
             `STATE_S0: begin
                 // Handle state S0 logic
-                if (transfer) begin
-                    next_state = `STATE_S1;
+                if (transfer == 1'b1) begin
+                    next_state_in = `STATE_S1;
                 end
             end
 
             `STATE_S1: begin
                 // Handle state S1 logic
-                if (transfer) begin
-                    next_state = `STATE_S2;
+                if (transfer == 1'b1) begin
+                    next_state_in = `STATE_S2;
                 end
             end
 
             `STATE_S2: begin
                 // Handle state S2 logic
-                if (transfer) begin
-                    next_state = `STATE_S3;
+                if (transfer == 1'b1) begin
+                    next_state_in = `STATE_S3;
                 end
             end
 
             `STATE_S3: begin
                 // Handle state S3 logic
-                if (transfer) begin
-                    next_state = `STATE_S4;
+                if (transfer == 1'b1) begin
+                    next_state_in = `STATE_S4;
                 end
             end
 
             `STATE_S4: begin
                 // Handle state S4 logic and wrap back to S0
-                if (transfer) begin
-                    next_state = `STATE_S5;
+                if (transfer == 1'b1) begin
+                    next_state_in = `STATE_S5;
                 end
             end
             
             `STATE_S5: begin
                 // Handle state S4 logic and wrap back to S0
-                if (transfer) begin
-                    next_state = `STATE_S6;
+                if (transfer == 1'b1) begin
+                    next_state_in = `STATE_S6;
                 end
             end
             `STATE_S6: begin
                 // Handle state S4 logic and wrap back to S0
        
-                    next_state = `STATE_S0;
+                    next_state_in = `STATE_S0;
                 end
            
 
@@ -188,10 +192,6 @@ end
     end
 
 endmodule
-
-
-
-
 
 
 

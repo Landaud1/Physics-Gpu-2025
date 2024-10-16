@@ -1,4 +1,3 @@
-
 module hostif_test_tb();
 
     // Testbench signals
@@ -20,7 +19,7 @@ module hostif_test_tb();
     logic xfc_p1;
     logic transfer;
     logic [2:0] current_state;   // To track the current state
-    logic next_state;
+    logic [2:0] next_state;
 
     // Instantiate the DUT (Device Under Test)
     hostif_test dut (
@@ -76,5 +75,4 @@ module hostif_test_tb();
         $finish;
     end
 endmodule
-
 

@@ -5,7 +5,7 @@ Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 16 for port 'state_ram_addr' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:37]
+WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 16 for port 'state_ram_addr' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:36]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
