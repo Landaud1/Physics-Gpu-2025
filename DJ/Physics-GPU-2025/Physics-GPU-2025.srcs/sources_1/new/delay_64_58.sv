@@ -7,13 +7,13 @@ module delay_64_58(
     output logic [64:0] out
     );
     
-    logic [64:0] [PIPE_LEN - 1:0] pipeline;
+    logic [`PIPE_LEN - 1:0] [64:0] pipeline;
     assign pipeline[0] = in;
-    assign out = pipeline[PIPE_LEN - 1];
+    assign out = pipeline[`PIPE_LEN - 1];
     
     
     generate
-        for (genvar i = 0; i < PIPE_LEN - 1; i = i + 1) begin
+        for (genvar i = 0; i < `PIPE_LEN - 1; i = i + 1) begin
             always_ff @(posedge clk) begin
                 pipeline[i + 1] <= pipeline[i];
             end
