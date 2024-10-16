@@ -3,11 +3,11 @@
 
 module delay_64_58(
     input logic clk,
-    input logic [63:0] in,
-    output logic [63:0] out
+    input logic [64:0] in,
+    output logic [64:0] out
     );
     
-    logic [63:0] [PIPE_LEN - 1:0] pipeline;
+    logic [64:0] [PIPE_LEN - 1:0] pipeline;
     assign pipeline[0] = in;
     assign out = pipeline[PIPE_LEN - 1];
     

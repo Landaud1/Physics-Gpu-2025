@@ -105,9 +105,6 @@ architecture tb of tb_fp_sub is
   -- Out Of Range just means the value is larger than VHDL can support in a Real type
   type floating_point_special_t is (normal, zero_pos, zero_neg, inf_pos, inf_neg, nan, out_of_range);
 
-  -- Enumerated type for the operation type to be signaled on the OPERATION channel
-  type operation_t is (add, subtract);
-
   -----------------------------------------------------------------------
   -- Functions
   -----------------------------------------------------------------------
@@ -321,41 +318,6 @@ architecture tb of tb_fp_sub is
 
 
 
-  -- Function to convert an operation type into a std_logic_vector operation code
-  function op_to_opcode(op : operation_t)  -- operation type
-    return std_logic_vector is
-    variable opcode : std_logic_vector(7 downto 0);
-  begin
-
-    case op is
-      when add =>
-        opcode := "00000000";
-      when subtract =>
-        opcode := "00000001";
-    end case;
-
-    return opcode;
-  end function op_to_opcode;
-
-  -- Function to convert a std_logic_vector operation code into an operation type
-  function opcode_to_op(opcode : std_logic_vector(7 downto 0))  -- operation code
-    return operation_t is
-    variable op : operation_t;
-  begin
-
-    case opcode is
-      when "00000000" =>
-        op := add;
-      when "00000001" =>
-        op := subtract;
-      when others =>
-        report "ERROR: opcode_to_op: illegal opcode"
-        severity failure;
-    end case;
-
-    return op;
-  end function opcode_to_op;
-
   -----------------------------------------------------------------------
   -- DUT signals
   -----------------------------------------------------------------------
@@ -373,14 +335,8 @@ architecture tb of tb_fp_sub is
   signal s_axis_b_tready         : std_logic := '1';  -- slave is ready
   signal s_axis_b_tdata          : std_logic_vector(63 downto 0) := (others => '0');  -- data payload
 
-  -- Operation slave channel signals
-  signal s_axis_operation_tvalid : std_logic := '0';  -- payload is valid
-  signal s_axis_operation_tready : std_logic := '1';  -- slave is ready
-  signal s_axis_operation_tdata  : std_logic_vector(7 downto 0) := op_to_opcode(add);  -- data payload
-
   -- Result master channel signals
   signal m_axis_result_tvalid    : std_logic := '0';
-  signal m_axis_result_tready    : std_logic := '1';
   signal m_axis_result_tdata     : std_logic_vector(63 downto 0) := (others => '0');  -- data payload
 
   -----------------------------------------------------------------------
@@ -405,9 +361,6 @@ architecture tb of tb_fp_sub is
   signal s_axis_b_tdata_mant    : std_logic_vector(51 downto 0) := (others => '0');  -- mantissa (without hidden bit)
 
 
-
-  -- Operation slave channel alias signals
-  signal s_axis_operation_tdata_op : operation_t;  -- decoded operation
 
   -- Result master channel alias signals
   signal m_axis_result_tdata_real     : real := 0.0;  -- floating-point value using VHDL 'real' data type
@@ -434,13 +387,8 @@ begin
       s_axis_b_tvalid         => s_axis_b_tvalid,
       s_axis_b_tready         => s_axis_b_tready,
       s_axis_b_tdata          => s_axis_b_tdata,
-      -- AXI4-Stream slave channel for operation control information
-      s_axis_operation_tvalid => s_axis_operation_tvalid,
-      s_axis_operation_tready => s_axis_operation_tready,
-      s_axis_operation_tdata  => s_axis_operation_tdata,
       -- AXI4-Stream master channel for output result
       m_axis_result_tvalid    => m_axis_result_tvalid,
-      m_axis_result_tready    => m_axis_result_tready,
       m_axis_result_tdata     => m_axis_result_tdata
       );
 
@@ -485,12 +433,12 @@ begin
 
     -- Run the same consecutive series of 100 operations, while demonstrating use and effect of AXI handshaking signals
     sim_phase <= phase_axi_handshake;
-    wait for 142 * CLOCK_PERIOD;
+    wait for 127 * CLOCK_PERIOD;
 
 
     -- Run operations that demonstrate the use of special floating-point values (+/- zero, +/- infinity, Not a Number)
     sim_phase <= phase_special;
-    wait for 23 * CLOCK_PERIOD;
+    wait for 14 * CLOCK_PERIOD;
     -- Allow operations in progress to complete and the results to be produced
     wait for DUT_DELAY;
 
@@ -503,8 +451,6 @@ begin
 
   -----------------------------------------------------------------------
   -- Generate inputs on the A operand slave channel
-  -- This process also drives:
-  -- + RESULT master channel TREADY input
   -----------------------------------------------------------------------
 
   stimuli_a : process
@@ -596,8 +542,6 @@ begin
     wait for 15 * CLOCK_PERIOD;
     -- 20 normal consecutive transactions
     drive_a(3.1, normal, 20, 0.1);
-    -- Apply backpressure (not ready for result) for 10 clock cycles, then release
-    m_axis_result_tready <= '0', '1' after 10 * CLOCK_PERIOD;
   -- 50 normal consecutive transactions
   drive_a(5.1, normal, 50, 0.1);
 
@@ -606,30 +550,6 @@ begin
     wait for T_HOLD;  -- drive inputs T_HOLD after the rising edge of the clock
 
     -- Run operations that demonstrate the use of special floating-point values (+/- zero, +/- infinity, Not a Number)
-    -- plus zero + 2 : result = 2
-    drive_a(0.0, zero_pos);
-    -- minus zero + 2 : result = 2
-    drive_a(0.0, zero_neg);
-    -- plus zero + minus zero : result = plus zero
-    drive_a(0.0, zero_pos);
-    -- very small number + -(slightly larger very small number) : underflow, result = minus zero
-    tdata(63) := '0';  -- sign bit
-    tdata(62 downto 52) := std_logic_vector(to_unsigned(1, 11));  -- biased exponent = smallest
-    tdata(51 downto 0) := (others => '0');  -- mantissa without hidden bit = [1].0
-    drive_a_single(tdata, abort);
-    -- plus infinity + 2 : result = plus infinity
-    drive_a(0.0, inf_pos);
-    -- minus infinity + 2 : result = minus infinity
-    drive_a(0.0, inf_neg);
-    -- very large number + very large number : overflow, result = plus infinity
-    tdata(63) := '0';  -- sign bit
-    tdata(62 downto 52) := std_logic_vector(to_unsigned(2046, 11));  -- biased exponent = largest
-    tdata(51 downto 0) := (others => '1');  -- mantissa without hidden bit = largest
-    drive_a_single(tdata, abort);
-    -- plus infinity + minus infinity : invalid operation, result = Not a Number
-    drive_a(0.0, inf_pos);
-    -- Not a Number + 2 : result = Not a Number
-    drive_a(0.0, nan);
     -- plus zero - 2 : result = -2
     drive_a(0.0, zero_pos);
     -- minus zero - 2 : result = -2
@@ -757,31 +677,6 @@ begin
     wait for T_HOLD;  -- drive inputs T_HOLD after the rising edge of the clock
 
     -- Run operations that demonstrate the use of special floating-point values (+/- zero, +/- infinity, Not a Number)
-    -- plus zero + 2 : result = 2
-    drive_b(2.0, normal);
-    -- minus zero + 2 : result = 2
-    drive_b(2.0, normal);
-    -- plus zero + minus zero : result = plus zero
-    drive_b(0.0, zero_neg);
-    -- very small number + -(slightly larger very small number) : underflow, result = minus zero
-    tdata(63) := '1';  -- sign bit
-    tdata(62 downto 52) := std_logic_vector(to_unsigned(1, 11));  -- biased exponent = smallest
-    tdata(51 downto 0) := (50 => '1', others => '0');  -- mantissa without hidden bit = [1].25
-    drive_b_single(tdata, abort);
-    -- plus infinity + 2 : result = plus infinity
-    drive_b(2.0, normal);
-    -- minus infinity + 2 : result = minus infinity
-    drive_b(2.0, normal);
-    -- very large number + very large number: overflow, result = plus infinity
-    tdata(63) := '0';  -- sign bit
-    tdata(62 downto 52) := std_logic_vector(to_unsigned(2046, 11));  -- biased exponent = largest
-    tdata(51 downto 0) := (others => '1');  -- mantissa without hidden bit = largest
-    drive_b_single(tdata, abort);
-    -- plus infinity + minus infinity : invalid operation, result = Not a Number
-    drive_b(0.0, inf_neg);
-    -- Not a Number + 2 : result = Not a Number
-    drive_b(2.0, normal);
-
     -- plus zero - 2 : result = -2
     drive_b(2.0, normal);
     -- minus zero - 2 : result = -2
@@ -818,105 +713,11 @@ begin
 
 
   -----------------------------------------------------------------------
-  -- Generate inputs on the OPERATION slave channel
-  -----------------------------------------------------------------------
-
-  stimuli_operation : process
-
-    -- Procedure to drive a series of transactions with constant data values on the OPERATION channel.
-    -- operation is the type of operation for every transaction
-    -- count is the number of transactions to drive
-    procedure drive_operation(operation : operation_t;
-                              count     : positive := 1) is
-      variable opcode   : std_logic_vector(7 downto 0);
-      variable ip_count : natural := 0;
-    begin
-      count_loop : loop
-        -- Select operation code
-        opcode := op_to_opcode(operation);
-        -- Set up AXI signals
-        s_axis_operation_tvalid <= '1';
-        s_axis_operation_tdata  <= opcode;
-        wait_loop : loop
-          wait until rising_edge(aclk);
-          exit when s_axis_operation_tready = '1';
-        end loop wait_loop;
-        ip_count := ip_count + 1;
-        exit count_loop when ip_count >= count;
-        wait for T_HOLD;
-      end loop count_loop;
-      -- End of AXI transactions
-      wait for T_HOLD;
-      s_axis_operation_tvalid <= '0';
-    end procedure drive_operation;
-
-  begin
-
-    -- Wait for simulation control to signal the first phase
-    wait until sim_phase = phase_single;
-    wait for T_HOLD;  -- drive inputs T_HOLD after the rising edge of the clock
-
-    -- Run a single operation, and wait for the result
-    drive_operation(add);
-
-    -- Wait for simulation control to signal the next phase
-    wait until sim_phase = phase_consecutive;
-    wait for T_HOLD;  -- drive inputs T_HOLD after the rising edge of the clock
-
-    -- Run a consecutive series of 100 operations with incrementing data
-    -- The incrementing data is on the A channel and the B channel is constant.
-    -- Do 50 additions, then 50 subtractions
-    drive_operation(add, 50);
-    drive_operation(subtract, 50);
-
-    -- Wait for simulation control to signal the next phase
-    wait until sim_phase = phase_axi_handshake;
-    wait for T_HOLD;  -- drive inputs T_HOLD after the rising edge of the clock
-
-    -- Run the same consecutive series of 100 operations, while demonstrating use and effect of AXI handshaking signals
-    -- 25 normal consecutive transactions
-    drive_operation(add, 25);
-    -- No transactions for 5 clock cycles
-    wait for 5 * CLOCK_PERIOD;
-    -- 5 normal consecutive transactions
-    drive_operation(add, 5);
-    -- No transactions for 5 clock cycles
-    wait for 15 * CLOCK_PERIOD;
-    -- 20 normal consecutive transactions
-    drive_operation(add, 20);
-    -- 50 normal consecutive transactions
-    drive_operation(subtract, 50);
-
-    -- Wait for simulation control to signal the next phase
-    wait until sim_phase = phase_special;
-    wait for T_HOLD;  -- drive inputs T_HOLD after the rising edge of the clock
-
-    -- Run operations that demonstrate the use of special floating-point values (+/- zero, +/- infinity, Not a Number)
-    -- 9 add operations
-    drive_operation(add, 9);
-
-    -- 9 subtract operations
-    drive_operation(subtract, 9);
-
-
-
-
-    -- End of test
-    wait;
-
-  end process stimuli_operation;
-
-
-  -----------------------------------------------------------------------
   -- Check outputs
   -----------------------------------------------------------------------
 
   check_outputs : process
     variable check_ok : boolean := true;
-    -- Previous values of RESULT master channel signals
-    variable result_tvalid_prev : std_logic := '0';
-    variable result_tready_prev : std_logic := '1';
-    variable result_tdata_prev  : std_logic_vector(63 downto 0) := (others => '0');
   begin
 
     -- Check outputs T_STROBE time after rising edge of clock
@@ -927,7 +728,6 @@ begin
     -- which would make this demonstration testbench unwieldy.
     -- Instead, check the protocol of the RESULT master channel:
     -- check that the payload is valid (not X) when TVALID is high
-    -- and check that the payload does not change while TVALID is high until TREADY goes high
 
     if m_axis_result_tvalid = '1' then
       if is_x(m_axis_result_tdata) then
@@ -935,24 +735,10 @@ begin
         check_ok := false;
       end if;
 
-      if result_tvalid_prev = '1' and result_tready_prev = '0' then  -- payload must be the same as last cycle
-        if m_axis_result_tdata /= result_tdata_prev then
-          report "ERROR: m_axis_result_tdata changed while m_axis_result_tvalid was high and m_axis_result_tready was low" severity error;
-          check_ok := false;
-        end if;
-      end if;
-
     end if;
 
     assert check_ok
       report "ERROR: terminating test with failures." severity failure;
-
-    -- Record payload values for checking next clock cycle
-    if check_ok then
-      result_tvalid_prev := m_axis_result_tvalid;
-      result_tready_prev := m_axis_result_tready;
-      result_tdata_prev  := m_axis_result_tdata;
-    end if;
 
   end process check_outputs;
 
@@ -974,9 +760,6 @@ begin
   s_axis_b_tdata_sign    <= s_axis_b_tdata(63);
   s_axis_b_tdata_exp     <= s_axis_b_tdata(62 downto 52);
   s_axis_b_tdata_mant    <= s_axis_b_tdata(51 downto 0);
-
-  -- Operation slave channel alias signals
-  s_axis_operation_tdata_op <= opcode_to_op(s_axis_operation_tdata(7 downto 0));
 
   -- Result master channel alias signals
   m_axis_result_tdata_real     <= flt_to_real(m_axis_result_tdata(63 downto 0), 64, 53) when m_axis_result_tvalid = '1';

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="fp_sqrt_synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1728513615">
+<GenRun Id="fp_sqrt_synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1729038646">
+  <File Type="VDS-TIMING-PB" Name="fp_sqrt_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="fp_sqrt_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="fp_sqrt.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="fp_sqrt_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="fp_sqrt_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="fp_sqrt_drc_synth.rpt"/>
   <File Type="RDS-RDS" Name="fp_sqrt.vds"/>
   <File Type="REPORTS-TCL" Name="fp_sqrt_reports.tcl"/>
   <File Type="PA-TCL" Name="fp_sqrt.tcl"/>
-  <File Type="RDS-DCP" Name="fp_sqrt.dcp"/>
-  <File Type="RDS-UTIL" Name="fp_sqrt_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="fp_sqrt_utilization_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/fp_sqrt" RelGenDir="$PGENDIR/fp_sqrt">
     <File Path="$PSRCDIR/sources_1/ip/fp_sqrt/fp_sqrt.xci">
       <FileInfo>
