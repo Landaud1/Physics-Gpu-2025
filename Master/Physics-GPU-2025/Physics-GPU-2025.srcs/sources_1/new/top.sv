@@ -17,28 +17,37 @@ module top(
     logic [511:0] SRA_READ_DATA; // Might look into deleting, host i/f can't read
     logic [9:0] SRA_ADDR;
     logic SRA_WE;
-    logic SRA_EN;
     
     // state ram to physics engine signals
     logic [511:0] SRB_WRITE_DATA; 
     logic [511:0] SRB_READ_DATA; 
     logic [9:0] SRB_ADDR;
     logic SRB_WE;
-    logic SRB_EN; // Change to always enabled?
     
     
     // Physics engine to position ram signals
-    logic [20:0] PRA_WRITE_DATA; // SRA stands for state ram side A
+    logic [20:0] PRA_WRITE_DATA;
     logic [9:0] PRA_ADDR;
     logic PRA_WE;
-    logic PRA_EN;
     
-    // state ram to physics engine signals
+    // Position ram to render engine signals
     // Francis you will be using these!
     logic [20:0] PRB_READ_DATA; 
     logic [9:0] PRB_ADDR;
     logic PRB_WE;
-    logic PRB_EN;
+    
+    
+    // Host IF to attribute ram signals
+    // Nick you will be using these
+    logic [11:0] ARA_WRITE_DATA;
+    logic [9:0] ARA_ADDR;
+    logic ARA_WE;
+    
+    // state ram to Render engine signals
+    // Francis you will be using these!
+    logic [11:0] ARB_READ_DATA; 
+    logic [9:0] ARB_ADDR;
+    logic ARB_WE;
     
     
     // State ram:  connects between host I/F and physics engine
@@ -87,6 +96,21 @@ module top(
         .clka(CLK),
         .clkb(CLK),
         .wea(PRA_WE)
+    );
+    
+    // Attribute ram
+    // Holds data about width, height, color of objects
+    attribute_ram ar(
+        .addra(ARA_ADDR),
+        .addrb(ARB_ADDR),
+        
+        .dina(ARA_WRITE_DATA),
+        
+        .doutb(ARB_READ_DATA),
+        
+        .clka(CLK),
+        .clkb(CLK),
+        .wea(ARA_WE)
     );
     
     // GRAM instantiation
