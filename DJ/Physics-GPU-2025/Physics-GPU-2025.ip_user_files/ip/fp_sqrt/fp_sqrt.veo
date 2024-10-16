@@ -60,7 +60,6 @@ fp_sqrt your_instance_name (
   .s_axis_a_tready(s_axis_a_tready),            // output wire s_axis_a_tready
   .s_axis_a_tdata(s_axis_a_tdata),              // input wire [63 : 0] s_axis_a_tdata
   .m_axis_result_tvalid(m_axis_result_tvalid),  // output wire m_axis_result_tvalid
-  .m_axis_result_tready(m_axis_result_tready),  // input wire m_axis_result_tready
   .m_axis_result_tdata(m_axis_result_tdata)    // output wire [63 : 0] m_axis_result_tdata
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------

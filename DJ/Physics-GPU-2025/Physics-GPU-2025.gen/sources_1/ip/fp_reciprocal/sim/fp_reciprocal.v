@@ -59,7 +59,6 @@ module fp_reciprocal (
   s_axis_a_tready,
   s_axis_a_tdata,
   m_axis_result_tvalid,
-  m_axis_result_tready,
   m_axis_result_tdata
 );
 
@@ -75,9 +74,7 @@ output wire s_axis_a_tready;
 input wire [63 : 0] s_axis_a_tdata;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_RESULT TVALID" *)
 output wire m_axis_result_tvalid;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_RESULT TREADY" *)
-input wire m_axis_result_tready;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXIS_RESULT, TDATA_NUM_BYTES 8, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXIS_RESULT, TDATA_NUM_BYTES 8, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_RESULT TDATA" *)
 output wire [63 : 0] m_axis_result_tdata;
 
@@ -133,7 +130,7 @@ output wire [63 : 0] m_axis_result_tdata;
     .C_HAS_ACCUM_INPUT_OVERFLOW(0),
     .C_HAS_ACLKEN(0),
     .C_HAS_ARESETN(0),
-    .C_THROTTLE_SCHEME(1),
+    .C_THROTTLE_SCHEME(4),
     .C_HAS_A_TUSER(0),
     .C_HAS_A_TLAST(0),
     .C_HAS_B(0),
@@ -184,7 +181,7 @@ output wire [63 : 0] m_axis_result_tdata;
     .s_axis_operation_tuser(1'B0),
     .s_axis_operation_tlast(1'H0),
     .m_axis_result_tvalid(m_axis_result_tvalid),
-    .m_axis_result_tready(m_axis_result_tready),
+    .m_axis_result_tready(1'H0),
     .m_axis_result_tdata(m_axis_result_tdata),
     .m_axis_result_tuser(),
     .m_axis_result_tlast()

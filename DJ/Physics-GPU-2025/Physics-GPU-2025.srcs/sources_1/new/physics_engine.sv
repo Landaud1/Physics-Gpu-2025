@@ -32,13 +32,20 @@ module physics_engine(
     
     // Physics Calculator
     logic [63:0] x_i, x_j, y_i, y_j, m_i, a_x, a_y;
+    logic acc_wea;
+    logic [9:0] acc_addr;
     
     physics_calculator pc(
+        .clk(CLK),
+        .valid_in(),
+        .addr_in(),
         .x_i(x_i),
         .x_j(x_j),
         .y_i(y_i),
         .y_j(y_j),
         .m_i(m_i),
+        .valid_out(acc_wea),
+        .addr_out(acc_addr),
         .a_x(a_x),
         .a_y(a_y)
     );
@@ -48,11 +55,11 @@ module physics_engine(
     // Acceleration RAM: holds a_x and a_y values for a fixed j and iterating i
     
     pe_ram acc_ram(
-        .addra(),
+        .addra(acc_addr),
         .clka(CLK),
-        .dina(),
+        .dina({a_x, a_y}),
         .douta(),
-        .wea()
+        .wea(acc_wea)
     );
     
     // Sum RAM: holds running x_sum and y_sum for each object

@@ -60,11 +60,7 @@ COMPONENT fp_sub
     s_axis_b_tvalid : IN STD_LOGIC;
     s_axis_b_tready : OUT STD_LOGIC;
     s_axis_b_tdata : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
-    s_axis_operation_tvalid : IN STD_LOGIC;
-    s_axis_operation_tready : OUT STD_LOGIC;
-    s_axis_operation_tdata : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
     m_axis_result_tvalid : OUT STD_LOGIC;
-    m_axis_result_tready : IN STD_LOGIC;
     m_axis_result_tdata : OUT STD_LOGIC_VECTOR(63 DOWNTO 0) 
   );
 END COMPONENT;
@@ -83,11 +79,7 @@ your_instance_name : fp_sub
     s_axis_b_tvalid => s_axis_b_tvalid,
     s_axis_b_tready => s_axis_b_tready,
     s_axis_b_tdata => s_axis_b_tdata,
-    s_axis_operation_tvalid => s_axis_operation_tvalid,
-    s_axis_operation_tready => s_axis_operation_tready,
-    s_axis_operation_tdata => s_axis_operation_tdata,
     m_axis_result_tvalid => m_axis_result_tvalid,
-    m_axis_result_tready => m_axis_result_tready,
     m_axis_result_tdata => m_axis_result_tdata
   );
 -- INST_TAG_END ------ End INSTANTIATION Template ---------
