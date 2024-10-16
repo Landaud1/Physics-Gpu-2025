@@ -38,7 +38,7 @@ module read_write_test(
         .clkb(clk),
         .enb(read_enable),
         .addrb(address_read),
-        .doutb(data_out)  // Connect to doutb signal
+        .doutb(data_out)
     );
    
  
