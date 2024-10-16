@@ -11,56 +11,56 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,000.000 ns"></ZoomEndTime>
+      <ZoomStartTime time="112.220 ns"></ZoomStartTime>
+      <ZoomEndTime time="186.706 ns"></ZoomEndTime>
       <Cursor1Time time="297.420 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="276"></NameColumnWidth>
-      <ValueColumnWidth column_width="96"></ValueColumnWidth>
+      <ValueColumnWidth column_width="92"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="8" />
-   <wvobject fp_name="/hostif_test_tb/clk100MHZ" type="logic">
+   <wvobject type="logic" fp_name="/hostif_test_tb/clk100MHZ">
       <obj_property name="ElementShortName">clk100MHZ</obj_property>
       <obj_property name="ObjectShortName">clk100MHZ</obj_property>
       <obj_property name="CustomSignalColor">#FFFFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/cpu_resetn_raw" type="logic">
+   <wvobject type="logic" fp_name="/hostif_test_tb/cpu_resetn_raw">
       <obj_property name="ElementShortName">cpu_resetn_raw</obj_property>
       <obj_property name="ObjectShortName">cpu_resetn_raw</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/hostif_psoc_fpga_xfc_raw" type="logic">
+   <wvobject type="logic" fp_name="/hostif_test_tb/hostif_psoc_fpga_xfc_raw">
       <obj_property name="ElementShortName">hostif_psoc_fpga_xfc_raw</obj_property>
       <obj_property name="ObjectShortName">hostif_psoc_fpga_xfc_raw</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/xfc" type="logic">
+   <wvobject type="logic" fp_name="/hostif_test_tb/xfc">
       <obj_property name="ElementShortName">xfc</obj_property>
       <obj_property name="ObjectShortName">xfc</obj_property>
       <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/xfc_p1" type="logic">
+   <wvobject type="logic" fp_name="/hostif_test_tb/xfc_p1">
       <obj_property name="ElementShortName">xfc_p1</obj_property>
       <obj_property name="ObjectShortName">xfc_p1</obj_property>
       <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/transfer" type="logic">
+   <wvobject type="logic" fp_name="/hostif_test_tb/transfer">
       <obj_property name="ElementShortName">transfer</obj_property>
       <obj_property name="ObjectShortName">transfer</obj_property>
       <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/current_state" type="array">
+   <wvobject type="array" fp_name="/hostif_test_tb/current_state">
       <obj_property name="ElementShortName">current_state[2:0]</obj_property>
       <obj_property name="ObjectShortName">current_state[2:0]</obj_property>
       <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/next_state" type="array">
+   <wvobject type="array" fp_name="/hostif_test_tb/next_state">
       <obj_property name="ElementShortName">next_state[2:0]</obj_property>
       <obj_property name="ObjectShortName">next_state[2:0]</obj_property>
       <obj_property name="CustomSignalColor">#800000</obj_property>

@@ -32,9 +32,14 @@ module hostif_test(
     output logic regs_we,            // register write enable
     
     output logic [31:0] state_ram_data, // state RAM data output
-    output logic [15:0] state_ram_addr,  // state RAM address output
+    output logic [15:0] state_ram_addr,  // state RAM address output 
     output logic state_ram_we,          // state RAM write enable
-    output logic [15:0] state_ram_byte_enable, // state RAM byte enable
+ //  output logic [15:0] state_ram_byte_enable, // state RAM byte enable (decoding of four lowest addr bits)
+    
+    output logic [11:0] attribute_ram_data,  //attribute ram
+    output logic [9:0] attribute_ram_addr,
+    output logic attribute_ram_we,
+    
     
     output logic xfc,
     output logic xfc_p1,
@@ -47,21 +52,31 @@ module hostif_test(
     
 );
 
+assign current_state = current_state_in;  //internal wires for current_state
+assign next_state = next_state_in; //internal wire for next_state
+logic [2:0] current_state_in,next_state_in; 
+
 logic [31:0] out_data;          // build this up 1 bytes at a time
 logic [15:0] out_addr;          // build this up 1 bytes at a time
+logic out_we;
 
-logic reset_p1, reset;
+logic reset_p1, reset;  //reset signals that flop resetn
 
-logic [2:0] current_state_in,next_state_in;     
+    
 
-assign current_state = current_state_in;
-assign next_state = next_state_in;
+assign  regs_data = out_data;
+assign  state_ram_data =-out_data;
+assign  attribute_ram_data = out_data;
 
-//assign out_data = regs_data;
-//assign out_data = state_ram_data;
+assign regs_addr =  out_addr;
+assign state_ram_addr = out_addr; //flip
+assign attribute_ram_addr = out_addr;
 
-//assign out_addr = regs_addr;
-//assign out_addr = state_ram_addr;
+assign regs_we = out_we && (out_addr[15:14] == 2'b10); 
+assign state_ram_we = out_we && (out_addr[15:14]== 2'b00); 
+assign attribute_ram_we = out_we && (out_addr[15:14] == 2'b01);
+
+//capture data bits 
 
 always_ff @ (posedge clk100MHZ)
 begin
@@ -91,12 +106,12 @@ end
                     out_data[23:16] <= hostif_psoc_data;
              `STATE_S5:
                 if (transfer) // just got fourth byte, which is DATA BYTE 4
-                    out_data[31:17] <= hostif_psoc_data;
+                    out_data[31:24] <= hostif_psoc_data;
              `STATE_S6:
                               // activae we to write to SRAM 
-                    state_ram_we <=1'b1;
+                    state_ram_we = 1'b1; //create generic we
                     
-                     
+                    
         endcase
             
     end    
@@ -176,7 +191,7 @@ end
             end
             
             `STATE_S5: begin
-                // Handle state S4 logic and wrap back to S0
+                // Handle state S5 
                 if (transfer == 1'b1) begin
                     next_state_in = `STATE_S6;
                 end
