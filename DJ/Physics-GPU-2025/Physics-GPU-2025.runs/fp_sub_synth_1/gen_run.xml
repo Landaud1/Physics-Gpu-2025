@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="fp_sub_synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1729037810">
-  <File Type="VDS-TIMING-PB" Name="fp_sub_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="fp_sub_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="fp_sub.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="fp_sub_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="fp_sub_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="fp_sub_drc_synth.rpt"/>
   <File Type="RDS-RDS" Name="fp_sub.vds"/>
   <File Type="REPORTS-TCL" Name="fp_sub_reports.tcl"/>
   <File Type="PA-TCL" Name="fp_sub.tcl"/>
+  <File Type="RDS-DCP" Name="fp_sub.dcp"/>
+  <File Type="RDS-UTIL" Name="fp_sub_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="fp_sub_utilization_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/fp_sub" RelGenDir="$PGENDIR/fp_sub">
     <File Path="$PSRCDIR/sources_1/ip/fp_sub/fp_sub.xci">
       <FileInfo>

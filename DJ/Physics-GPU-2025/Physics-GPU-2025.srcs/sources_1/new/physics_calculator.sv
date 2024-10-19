@@ -6,7 +6,7 @@
 module physics_calculator(
     input logic clk,
     
-    input logic valid_in, // active low
+    input logic valid_in,
     input logic [9:0] addr_in,
     
     input logic [63:0]  x_i,
@@ -189,9 +189,17 @@ module physics_calculator(
     
     // Recioprocals
     
+    // These can cause 1/0 issues. In those cases result will be multiplied by 0 anyway, so cheap fix here, force to 1 beforehand.
+    logic [63:0] r_effective, r2_effective;
+    
+    always_comb begin
+        r_effective = r ? r : 0;
+        r2_effective = r2 ? r2 : 0;
+    end
+    
     fp_reciprocal r_1_reciprocal(
         .aclk(clk),
-        .s_axis_a_tdata(r[63:0]),
+        .s_axis_a_tdata(r_effective),
         .s_axis_a_tvalid(r_h),
         
         .m_axis_result_tdata(r_1[63:0]),
@@ -200,7 +208,7 @@ module physics_calculator(
     
     fp_reciprocal r2_1_reciprocal(
         .aclk(clk),
-        .s_axis_a_tdata(r2[63:0]),
+        .s_axis_a_tdata(r2_effective),
         .s_axis_a_tvalid(r2_h),
         
         .m_axis_result_tdata(r2_1[63:0]),
