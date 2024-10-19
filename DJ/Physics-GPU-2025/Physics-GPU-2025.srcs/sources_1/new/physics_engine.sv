@@ -11,9 +11,11 @@ module physics_engine(
     
     output logic [511:0] sr_write,
     output logic [9:0] sr_addr,
+    output logic sr_wen,
     
     output logic [20:0] pr_write,
-    output logic [9:0] pr_addr
+    output logic [9:0] pr_addr,
+    output logic pr_wen
     );
     
     logic [9:0] i, j;
@@ -43,8 +45,8 @@ module physics_engine(
             // pIng is 1
             x_read = ping_x_read;
             y_read = ping_y_read;
-            ping_x_read = x_read;
-            ping_y_read = y_read;
+            ping_x_write = x_write;
+            ping_y_write = y_write;
         end else begin     
             // pOng is 0   
             x_read = pong_x_read;
@@ -114,7 +116,7 @@ module physics_engine(
         .addra(acc_write_addr),
         .dina({a_x, a_y}),
         .addrb(i),
-        .douta(acc_ram_read_data),
+        .doutb(acc_ram_read_data),
         .wea(acc_wea)
     );
     
@@ -191,6 +193,8 @@ module physics_engine(
                     if (phys_calc_finished) begin
                         sum_calc_valid <= 1;
                         state <= 3;
+                    end else begin
+                        state <= 2;
                     end
                 end
                 
@@ -198,8 +202,9 @@ module physics_engine(
                 // State 3: Add calculated a_x and a_ys to their respective sums.
                 3: begin
                     if (i < n_objects) begin
-                        // Still i's left to sum, iterate.
+                        // Still i's left to sum, iterate and run state again.
                         i <= i+1;
+                        state <= 3;
                     end else if (j < n_objects) begin
                         // all i's are used up, but there are still j's. iterate j and run it back
                         i <= 0;
