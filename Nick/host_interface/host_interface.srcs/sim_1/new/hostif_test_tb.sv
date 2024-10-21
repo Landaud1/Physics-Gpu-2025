@@ -2,7 +2,7 @@ module hostif_test_tb();
 
     // Testbench signals
     logic clk100MHZ;
-    logic [7:0] hostif_psoc_data;
+    logic [7:0] hostif_psoc_data [0:5];
     logic cpu_resetn_raw;
     logic hostif_psoc_fpga_xfc_raw;
     logic hostif_psoc_reset_raw;
@@ -14,12 +14,14 @@ module hostif_test_tb();
     logic [31:0] state_ram_data;
     logic [9:0] state_ram_addr;
     logic state_ram_we;
-    logic [15:0] state_ram_byte_enable;
+    //logic [15:0] state_ram_byte_enable;
     logic xfc;
     logic xfc_p1;
     logic transfer;
     logic [2:0] current_state;   // To track the current state
     logic [2:0] next_state;
+    logic [31:0] out_data;
+    logic [15:0] out_addr;
 
     // Instantiate the DUT (Device Under Test)
     hostif_test dut (
@@ -35,16 +37,16 @@ module hostif_test_tb();
         .state_ram_data(state_ram_data),
         .state_ram_addr(state_ram_addr),
         .state_ram_we(state_ram_we),
-        .state_ram_byte_enable(state_ram_byte_enable),
+     //   .state_ram_byte_enable(state_ram_byte_enable),
         .xfc(xfc),
         .xfc_p1(xfc_p1),
         .transfer(transfer),
         .current_state(current_state),
-        .next_state(next_state)  // Connect current state for monitoring
+        .next_state(next_state),  // Connect current state for monitoring
+        .out_data(out_data),
+        .out_addr(out_addr)
     );
     
-    
-
     // Clock generation
     initial begin
         clk100MHZ = 0;
@@ -57,22 +59,29 @@ module hostif_test_tb();
         hostif_psoc_fpga_xfc_raw = ~hostif_psoc_fpga_xfc_raw;  // Toggle the signal
     end
 
-    // Simulation control and waveform dump
+    // Drive new data into `hostif_psoc_data` with each state transition
     initial begin
         // Initialize inputs
         cpu_resetn_raw = 0;
         hostif_psoc_fpga_xfc_raw = 0;
         hostif_psoc_reset_raw = 0;
-        hostif_psoc_data = 8'b0;
+        hostif_psoc_data = 2'h00;  //----- fix this unpacking problem
 
         // Apply reset
         #20;
         cpu_resetn_raw = 1;
 
-   
+        
+
         // Run simulation for a fixed period and finish
         #1000;  // Run the simulation for 1000 time units
         $finish;
+    end
+
+    // Monitor important signals during simulation
+    initial begin
+        $monitor("Time: %0t | Current State: %b | Next State: %b | Transfer: %b | hostif_psoc_data: %h | out_data: %h | out_addr: %h",
+                 $time, current_state, next_state, transfer, hostif_psoc_data, regs_data, regs_addr);
     end
 endmodule
 
