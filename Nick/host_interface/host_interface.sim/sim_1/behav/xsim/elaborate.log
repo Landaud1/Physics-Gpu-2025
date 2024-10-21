@@ -1,0 +1,27 @@
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 16 for port 'state_ram_addr' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:38]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:68]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:69]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:70]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:71]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:72]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:73]
+WARNING: [VRFC 10-3823] variable 'regs_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:137]
+WARNING: [VRFC 10-3823] variable 'state_ram_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:138]
+WARNING: [VRFC 10-3823] variable 'attribute_ram_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:139]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4100] "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.hostif_test
+Compiling module xil_defaultlib.hostif_test_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot hostif_test_tb_behav

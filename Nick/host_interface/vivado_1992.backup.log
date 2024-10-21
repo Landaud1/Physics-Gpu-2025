@@ -3,13 +3,13 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Mon Oct 21 17:27:46 2024
-# Process ID: 17860
+# Start of session at: Mon Oct 21 14:39:14 2024
+# Process ID: 1992
 # Current directory: H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3972 H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent28180 H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.xpr
 # Log file: H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/vivado.log
 # Journal file: H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface\vivado.jou
-# Running On        :ARM128-04
+# Running On        :ARM148-06
 # Platform          :Windows Server 2016 or Windows 10
 # Operating System  :22631
 # Processor Detail  :12th Gen Intel(R) Core(TM) i7-12700
@@ -19,7 +19,7 @@
 # Host memory       :34050 MB
 # Swap memory       :5100 MB
 # Total Virtual     :39151 MB
-# Available Virtual :28586 MB
+# Available Virtual :28766 MB
 #-----------------------------------------------------------
 start_gui
 open_project H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.xpr
@@ -108,16 +108,26 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 availab
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+INFO: [Project 1-313] Project file moved from '/drive/sda2/home/rameyn1/Physics-Gpu-2025/Nick/host_interface' since last save.
 INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.gen/sources_1'.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.1/data/ip'.
-open_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 1541.789 ; gain = 415.715
+open_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:09 . Memory (MB): peak = 1575.363 ; gain = 310.746
 update_compile_order -fileset sources_1
 WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
 WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
 WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
 WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
 launch_simulation
@@ -135,135 +145,8 @@ INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Senior_Project/P
 "xvlog --incr --relax -L uvm -prj hostif_test_tb_vlog.prj"
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module hostif_test
-WARNING: [VRFC 10-9336] redeclaration of ANSI port 'xfc' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:48]
-WARNING: [VRFC 10-9336] redeclaration of ANSI port 'transfer' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:49]
-WARNING: [VRFC 10-9336] redeclaration of ANSI port 'hostif_psoc_data' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:51]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:77]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:78]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:79]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:80]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:81]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:82]
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module hostif_test_tb
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log"
-Vivado Simulator v2024.1
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 16 for port 'state_ram_addr' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:38]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:77]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:78]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:79]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:80]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:81]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:82]
-WARNING: [VRFC 10-3823] variable 'regs_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:176]
-WARNING: [VRFC 10-3823] variable 'state_ram_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:177]
-Completed static elaboration
-Starting simulation data flow analysis
-WARNING: [XSIM 43-4100] "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.hostif_test
-Compiling module xil_defaultlib.hostif_test_tb
-ERROR: [XSIM 43-3178] "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv" Line 83. Memory hostif_psoc_data is not a legal argument for printing. 
-INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
-INFO: [USF-XSim-99] Step results log file:'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/elaborate.log'
-ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/elaborate.log' file for more information.
-ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
-ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
-launch_simulation
-Command: launch_simulation 
-INFO: [Vivado 12-12493] Simulation top is 'hostif_test_tb'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
-INFO: [SIM-utils-54] Inspecting design source files for 'hostif_test_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -L uvm -prj hostif_test_tb_vlog.prj"
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log"
-Vivado Simulator v2024.1
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 16 for port 'state_ram_addr' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:38]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:77]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:78]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:79]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:80]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:81]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:82]
-WARNING: [VRFC 10-3823] variable 'regs_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:176]
-WARNING: [VRFC 10-3823] variable 'state_ram_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:177]
-Completed static elaboration
-Starting simulation data flow analysis
-WARNING: [XSIM 43-4100] "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.hostif_test
-Compiling module xil_defaultlib.hostif_test_tb
-ERROR: [XSIM 43-3178] "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv" Line 83. Memory hostif_psoc_data is not a legal argument for printing. 
-INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
-INFO: [USF-XSim-99] Step results log file:'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/elaborate.log'
-ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/elaborate.log' file for more information.
-ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
-ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
-ERROR: [Common 17-180] Spawn failed: No error
-reset_simulation -simset sim_1 -mode behavioral
-INFO: [Vivado 12-2266] Removing simulation data...
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
-INFO: [Vivado 12-2267] Reset complete
-ERROR: [Common 17-180] Spawn failed: No error
-launch_simulation
-Command: launch_simulation 
-INFO: [Vivado 12-12493] Simulation top is 'hostif_test_tb'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
-INFO: [SIM-utils-54] Inspecting design source files for 'hostif_test_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -L uvm -prj hostif_test_tb_vlog.prj"
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module hostif_test
-WARNING: [VRFC 10-9336] redeclaration of ANSI port 'xfc' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:48]
-WARNING: [VRFC 10-9336] redeclaration of ANSI port 'transfer' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:49]
-WARNING: [VRFC 10-9336] redeclaration of ANSI port 'hostif_psoc_data' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:51]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:77]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:78]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:79]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:80]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:81]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:82]
+WARNING: [VRFC 10-3380] identifier 'current_state_in' is used before its declaration [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:55]
+WARNING: [VRFC 10-3380] identifier 'next_state_in' is used before its declaration [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:56]
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module hostif_test_tb
 INFO: [VRFC 10-2263] Analyzing Verilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
@@ -279,13 +162,239 @@ Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 16 for port 'state_ram_addr' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:38]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:77]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:78]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:79]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:80]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:81]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:82]
+ERROR: [VRFC 10-3180] cannot find port 'state_ram_byte_enable' on this module [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:38]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+ERROR: [Common 17-180] Spawn failed: No error
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'hostif_test_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'hostif_test_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj hostif_test_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hostif_test
+WARNING: [VRFC 10-3380] identifier 'current_state_in' is used before its declaration [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:55]
+WARNING: [VRFC 10-3380] identifier 'next_state_in' is used before its declaration [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:56]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hostif_test_tb
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3180] cannot find port 'state_ram_byte_enable' on this module [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:38]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'hostif_test_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'hostif_test_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj hostif_test_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hostif_test
+WARNING: [VRFC 10-3380] identifier 'current_state_in' is used before its declaration [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:55]
+WARNING: [VRFC 10-3380] identifier 'next_state_in' is used before its declaration [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:56]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hostif_test_tb
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 16 for port 'state_ram_addr' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:36]
+WARNING: [VRFC 10-3823] variable 'state_ram_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:82]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.hostif_test
+Compiling module xil_defaultlib.hostif_test_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot hostif_test_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "hostif_test_tb_behav -key {Behavioral:sim_1:Functional:hostif_test_tb} -tclbatch {hostif_test_tb.tcl} -view {H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+open_wave_config H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg
+source hostif_test_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+# run 1000ns
+Time: 0 | Current State: xxx | Next State: xxx | Transfer: x | hostif_psoc_data: 00 | out_data: xxxxxxxx | out_addr: x
+Time: 15000 | Current State: xxx | Next State: xxx | Transfer: 0 | hostif_psoc_data: 00 | out_data: xxxxxxxx | out_addr: x
+Time: 25000 | Current State: 000 | Next State: 000 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 0
+Time: 105000 | Current State: 000 | Next State: 001 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 0
+Time: 115000 | Current State: 001 | Next State: 001 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 0
+Time: 120000 | Current State: 001 | Next State: 001 | Transfer: 0 | hostif_psoc_data: a1 | out_data: 00000000 | out_addr: 0
+Time: 205000 | Current State: 001 | Next State: 010 | Transfer: 1 | hostif_psoc_data: a1 | out_data: 00000000 | out_addr: 0
+Time: 215000 | Current State: 010 | Next State: 010 | Transfer: 0 | hostif_psoc_data: a1 | out_data: 00000000 | out_addr: 0
+Time: 305000 | Current State: 010 | Next State: 011 | Transfer: 1 | hostif_psoc_data: a1 | out_data: 00000000 | out_addr: 0
+Time: 315000 | Current State: 011 | Next State: 011 | Transfer: 0 | hostif_psoc_data: a1 | out_data: 000000a1 | out_addr: 0
+Time: 320000 | Current State: 011 | Next State: 011 | Transfer: 0 | hostif_psoc_data: b2 | out_data: 000000a1 | out_addr: 0
+Time: 405000 | Current State: 011 | Next State: 100 | Transfer: 1 | hostif_psoc_data: b2 | out_data: 000000a1 | out_addr: 0
+Time: 415000 | Current State: 100 | Next State: 100 | Transfer: 0 | hostif_psoc_data: b2 | out_data: 0000b2a1 | out_addr: 0
+Time: 505000 | Current State: 100 | Next State: 101 | Transfer: 1 | hostif_psoc_data: b2 | out_data: 0000b2a1 | out_addr: 0
+Time: 515000 | Current State: 101 | Next State: 101 | Transfer: 0 | hostif_psoc_data: b2 | out_data: 00b2b2a1 | out_addr: 0
+Time: 520000 | Current State: 101 | Next State: 101 | Transfer: 0 | hostif_psoc_data: c3 | out_data: 00b2b2a1 | out_addr: 0
+Time: 605000 | Current State: 101 | Next State: 110 | Transfer: 1 | hostif_psoc_data: c3 | out_data: 00b2b2a1 | out_addr: 0
+Time: 615000 | Current State: 110 | Next State: 000 | Transfer: 0 | hostif_psoc_data: c3 | out_data: c3b2b2a1 | out_addr: 0
+Time: 625000 | Current State: 000 | Next State: 000 | Transfer: 0 | hostif_psoc_data: c3 | out_data: c3b2b2a1 | out_addr: 0
+Time: 705000 | Current State: 000 | Next State: 001 | Transfer: 1 | hostif_psoc_data: c3 | out_data: c3b2b2a1 | out_addr: 0
+Time: 715000 | Current State: 001 | Next State: 001 | Transfer: 0 | hostif_psoc_data: c3 | out_data: c3b2b2a1 | out_addr: 3
+Time: 720000 | Current State: 001 | Next State: 001 | Transfer: 0 | hostif_psoc_data: d4 | out_data: c3b2b2a1 | out_addr: 3
+Time: 805000 | Current State: 001 | Next State: 010 | Transfer: 1 | hostif_psoc_data: d4 | out_data: c3b2b2a1 | out_addr: 3
+Time: 815000 | Current State: 010 | Next State: 010 | Transfer: 0 | hostif_psoc_data: d4 | out_data: c3b2b2a1 | out_addr: 3
+Time: 905000 | Current State: 010 | Next State: 011 | Transfer: 1 | hostif_psoc_data: d4 | out_data: c3b2b2a1 | out_addr: 3
+Time: 915000 | Current State: 011 | Next State: 011 | Transfer: 0 | hostif_psoc_data: d4 | out_data: c3b2b2d4 | out_addr: 3
+Time: 920000 | Current State: 011 | Next State: 011 | Transfer: 0 | hostif_psoc_data: e5 | out_data: c3b2b2d4 | out_addr: 3
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'hostif_test_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 1622.129 ; gain = 8.047
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+save_wave_config {H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg}
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'hostif_test_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'hostif_test_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj hostif_test_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hostif_test
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'xfc' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:45]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'transfer' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:46]
+ERROR: [VRFC 10-2989] 'out_data' is not declared [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:141]
+ERROR: [VRFC 10-2989] 'out_addr' is not declared [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:142]
+ERROR: [VRFC 10-2989] 'out_addr' is not declared [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:145]
+ERROR: [VRFC 10-2989] 'out_addr' is not declared [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:146]
+ERROR: [VRFC 10-2989] 'out_data' is not declared [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:147]
+ERROR: [VRFC 10-2989] 'out_data' is not declared [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:148]
+ERROR: [VRFC 10-2989] 'out_data' is not declared [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:149]
+ERROR: [VRFC 10-2989] 'out_data' is not declared [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:150]
+ERROR: [VRFC 10-8530] module 'hostif_test' is ignored due to previous errors [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:10]
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'hostif_test_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'hostif_test_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj hostif_test_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hostif_test
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'xfc' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:45]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'transfer' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:46]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hostif_test_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 16 for port 'state_ram_addr' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:36]
 WARNING: [VRFC 10-3823] variable 'regs_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:176]
 WARNING: [VRFC 10-3823] variable 'state_ram_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:177]
 Completed static elaboration
@@ -296,7 +405,95 @@ Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.hostif_test
 Compiling module xil_defaultlib.hostif_test_tb
-ERROR: [XSIM 43-3178] "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv" Line 83. Memory hostif_psoc_data is not a legal argument for printing. 
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot hostif_test_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "hostif_test_tb_behav -key {Behavioral:sim_1:Functional:hostif_test_tb} -tclbatch {hostif_test_tb.tcl} -view {H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+open_wave_config H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg
+source hostif_test_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+# run 1000ns
+Time: 0 | Current State: xxx | Next State: 000 | Transfer: x | hostif_psoc_data: 00 | out_data: xxxxxxxx | out_addr: x
+Time: 5000 | Current State: 000 | Next State: 000 | Transfer: 0 | hostif_psoc_data: 00 | out_data: xxxxxxxx | out_addr: x
+Time: 15000 | Current State: 000 | Next State: 000 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 0
+Time: 105000 | Current State: 000 | Next State: 001 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 0
+Time: 115000 | Current State: 001 | Next State: 001 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 1
+Time: 205000 | Current State: 001 | Next State: 010 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 1
+Time: 215000 | Current State: 010 | Next State: 010 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 1
+Time: 305000 | Current State: 010 | Next State: 011 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 1
+Time: 315000 | Current State: 011 | Next State: 011 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 000000c3 | out_addr: 1
+Time: 405000 | Current State: 011 | Next State: 100 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 000000c3 | out_addr: 1
+Time: 415000 | Current State: 100 | Next State: 100 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 0000d4c3 | out_addr: 1
+Time: 505000 | Current State: 100 | Next State: 101 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 0000d4c3 | out_addr: 1
+Time: 515000 | Current State: 101 | Next State: 101 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00e5d4c3 | out_addr: 1
+Time: 605000 | Current State: 101 | Next State: 110 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 00e5d4c3 | out_addr: 1
+Time: 615000 | Current State: 110 | Next State: 110 | Transfer: 0 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 705000 | Current State: 110 | Next State: 000 | Transfer: 1 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 715000 | Current State: 000 | Next State: 000 | Transfer: 0 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 805000 | Current State: 000 | Next State: 001 | Transfer: 1 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 815000 | Current State: 001 | Next State: 001 | Transfer: 0 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 905000 | Current State: 001 | Next State: 010 | Transfer: 1 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 915000 | Current State: 010 | Next State: 010 | Transfer: 0 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'hostif_test_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 2701.031 ; gain = 0.000
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'hostif_test_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'hostif_test_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj hostif_test_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hostif_test
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'xfc' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:45]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'transfer' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:46]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hostif_test_tb
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3180] cannot find port 'out_addr' on this module [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:47]
+ERROR: [VRFC 10-3180] cannot find port 'out_data' on this module [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:46]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
 INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
 INFO: [USF-XSim-99] Step results log file:'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/elaborate.log'
 ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/elaborate.log' file for more information.
@@ -324,13 +521,6 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu
 INFO: [VRFC 10-311] analyzing module hostif_test
 WARNING: [VRFC 10-9336] redeclaration of ANSI port 'xfc' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:48]
 WARNING: [VRFC 10-9336] redeclaration of ANSI port 'transfer' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:49]
-WARNING: [VRFC 10-9336] redeclaration of ANSI port 'hostif_psoc_data' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:51]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:77]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:78]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:79]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:80]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:81]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:82]
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module hostif_test_tb
 INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
@@ -345,12 +535,8 @@ Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
 WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 16 for port 'state_ram_addr' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:38]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:77]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:78]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:79]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:80]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:81]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:82]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 32 for port 'out_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:46]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 16 for port 'out_addr' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:47]
 WARNING: [VRFC 10-3823] variable 'regs_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:176]
 WARNING: [VRFC 10-3823] variable 'state_ram_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:177]
 Completed static elaboration
@@ -383,267 +569,30 @@ source hostif_test_tb.tcl
 # }
 # log_wave -r /
 # run 1000ns
-INFO: [Common 17-41] Interrupt caught. Command should exit soon.
-run: Time (s): cpu = 00:00:37 ; elapsed = 00:00:43 . Memory (MB): peak = 1613.078 ; gain = 0.000
-INFO: [Common 17-344] 'run' was cancelled
-INFO: [Common 17-344] 'source' was cancelled
-xsim: Time (s): cpu = 00:00:37 ; elapsed = 00:00:47 . Memory (MB): peak = 1613.078 ; gain = 16.137
-INFO: [Common 17-344] 'xsim' was cancelled
-INFO: [Vivado 12-5357] 'simulate' step aborted
-launch_simulation: Time (s): cpu = 00:00:37 ; elapsed = 00:00:52 . Memory (MB): peak = 1613.078 ; gain = 16.137
-INFO: [Common 17-344] 'launch_simulation' was cancelled
-close_sim
-INFO: [Simtcl 6-16] Simulation closed
-launch_simulation
-Command: launch_simulation 
-INFO: [Vivado 12-12493] Simulation top is 'hostif_test_tb'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
-INFO: [SIM-utils-54] Inspecting design source files for 'hostif_test_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -L uvm -prj hostif_test_tb_vlog.prj"
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log"
-Vivado Simulator v2024.1
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 16 for port 'state_ram_addr' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:38]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:77]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:78]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:79]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:80]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:81]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:82]
-WARNING: [VRFC 10-3823] variable 'regs_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:176]
-WARNING: [VRFC 10-3823] variable 'state_ram_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:177]
-Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
-INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
-INFO: [USF-XSim-4] XSim::Simulate design
-INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-INFO: [USF-XSim-98] *** Running xsim
-   with args "hostif_test_tb_behav -key {Behavioral:sim_1:Functional:hostif_test_tb} -tclbatch {hostif_test_tb.tcl} -view {H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg} -log {simulate.log}"
-INFO: [USF-XSim-8] Loading simulator feature
-Time resolution is 1 ps
-open_wave_config H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg
-source hostif_test_tb.tcl
-# set curr_wave [current_wave_config]
-# if { [string length $curr_wave] == 0 } {
-#   if { [llength [get_objects]] > 0} {
-#     add_wave /
-#     set_property needs_save false [current_wave_config]
-#   } else {
-#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
-#   }
-# }
-# log_wave -r /
-# run 1000ns
-INFO: [Common 17-41] Interrupt caught. Command should exit soon.
-run: Time (s): cpu = 00:00:43 ; elapsed = 00:00:51 . Memory (MB): peak = 1618.664 ; gain = 5.586
-INFO: [Common 17-344] 'run' was cancelled
-INFO: [Common 17-344] 'source' was cancelled
-xsim: Time (s): cpu = 00:00:43 ; elapsed = 00:00:55 . Memory (MB): peak = 1618.664 ; gain = 5.586
-INFO: [Common 17-344] 'xsim' was cancelled
-INFO: [Vivado 12-5357] 'simulate' step aborted
-launch_simulation: Time (s): cpu = 00:00:43 ; elapsed = 00:00:58 . Memory (MB): peak = 1618.664 ; gain = 5.586
-INFO: [Common 17-344] 'launch_simulation' was cancelled
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
-ERROR: [Common 17-180] Spawn failed: No error
-close_sim
-INFO: [Simtcl 6-16] Simulation closed
-launch_simulation
-Command: launch_simulation 
-INFO: [Vivado 12-12493] Simulation top is 'hostif_test_tb'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
-INFO: [SIM-utils-54] Inspecting design source files for 'hostif_test_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -L uvm -prj hostif_test_tb_vlog.prj"
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module hostif_test
-WARNING: [VRFC 10-9336] redeclaration of ANSI port 'xfc' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:48]
-WARNING: [VRFC 10-9336] redeclaration of ANSI port 'transfer' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:49]
-WARNING: [VRFC 10-9336] redeclaration of ANSI port 'hostif_psoc_data' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:51]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:77]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:78]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:79]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:80]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:81]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:82]
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module hostif_test_tb
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log"
-Vivado Simulator v2024.1
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 16 for port 'state_ram_addr' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:38]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:77]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:78]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:79]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:80]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:81]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:82]
-WARNING: [VRFC 10-3823] variable 'regs_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:176]
-WARNING: [VRFC 10-3823] variable 'state_ram_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:177]
-Completed static elaboration
-Starting simulation data flow analysis
-WARNING: [XSIM 43-4100] "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.hostif_test
-Compiling module xil_defaultlib.hostif_test_tb
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot hostif_test_tb_behav
-INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
-INFO: [USF-XSim-4] XSim::Simulate design
-INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-INFO: [USF-XSim-98] *** Running xsim
-   with args "hostif_test_tb_behav -key {Behavioral:sim_1:Functional:hostif_test_tb} -tclbatch {hostif_test_tb.tcl} -view {H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg} -log {simulate.log}"
-INFO: [USF-XSim-8] Loading simulator feature
-Time resolution is 1 ps
-open_wave_config H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg
-source hostif_test_tb.tcl
-# set curr_wave [current_wave_config]
-# if { [string length $curr_wave] == 0 } {
-#   if { [llength [get_objects]] > 0} {
-#     add_wave /
-#     set_property needs_save false [current_wave_config]
-#   } else {
-#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
-#   }
-# }
-# log_wave -r /
-# run 1000ns
+Time: 0 | Current State: xxx | Next State: 000 | Transfer: x | hostif_psoc_data: 00 | out_data: xxxxxxxx | out_addr: x
+Time: 5000 | Current State: 000 | Next State: 000 | Transfer: 0 | hostif_psoc_data: 00 | out_data: xxxxxxxx | out_addr: x
+Time: 15000 | Current State: 000 | Next State: 000 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 0
+Time: 105000 | Current State: 000 | Next State: 001 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 0
+Time: 115000 | Current State: 001 | Next State: 001 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 1
+Time: 205000 | Current State: 001 | Next State: 010 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 1
+Time: 215000 | Current State: 010 | Next State: 010 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 1
+Time: 305000 | Current State: 010 | Next State: 011 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 1
+Time: 315000 | Current State: 011 | Next State: 011 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 000000c3 | out_addr: 1
+Time: 405000 | Current State: 011 | Next State: 100 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 000000c3 | out_addr: 1
+Time: 415000 | Current State: 100 | Next State: 100 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 0000d4c3 | out_addr: 1
+Time: 505000 | Current State: 100 | Next State: 101 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 0000d4c3 | out_addr: 1
+Time: 515000 | Current State: 101 | Next State: 101 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00e5d4c3 | out_addr: 1
+Time: 605000 | Current State: 101 | Next State: 110 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 00e5d4c3 | out_addr: 1
+Time: 615000 | Current State: 110 | Next State: 110 | Transfer: 0 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 705000 | Current State: 110 | Next State: 000 | Transfer: 1 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 715000 | Current State: 000 | Next State: 000 | Transfer: 0 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 805000 | Current State: 000 | Next State: 001 | Transfer: 1 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 815000 | Current State: 001 | Next State: 001 | Transfer: 0 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 905000 | Current State: 001 | Next State: 010 | Transfer: 1 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 915000 | Current State: 010 | Next State: 010 | Transfer: 0 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'hostif_test_tb_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 1618.664 ; gain = 0.000
-current_wave_config {hostif_test_tb_behav.wcfg}
-hostif_test_tb_behav.wcfg
-add_wave {{/hostif_test_tb/dut}} 
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
-close_sim
-INFO: [Simtcl 6-16] Simulation closed
-launch_simulation
-Command: launch_simulation 
-INFO: [Vivado 12-12493] Simulation top is 'hostif_test_tb'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
-INFO: [SIM-utils-54] Inspecting design source files for 'hostif_test_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -L uvm -prj hostif_test_tb_vlog.prj"
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module hostif_test
-WARNING: [VRFC 10-9336] redeclaration of ANSI port 'xfc' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:48]
-WARNING: [VRFC 10-9336] redeclaration of ANSI port 'transfer' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:49]
-WARNING: [VRFC 10-9336] redeclaration of ANSI port 'hostif_psoc_data' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:51]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:77]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:78]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:79]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:80]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:81]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:82]
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module hostif_test_tb
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log"
-Vivado Simulator v2024.1
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 16 for port 'state_ram_addr' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:38]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:77]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:78]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:79]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:80]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:81]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:82]
-WARNING: [VRFC 10-3823] variable 'regs_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:176]
-WARNING: [VRFC 10-3823] variable 'state_ram_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:177]
-Completed static elaboration
-Starting simulation data flow analysis
-WARNING: [XSIM 43-4100] "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.hostif_test
-Compiling module xil_defaultlib.hostif_test_tb
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot hostif_test_tb_behav
-INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
-INFO: [USF-XSim-4] XSim::Simulate design
-INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
-INFO: [USF-XSim-98] *** Running xsim
-   with args "hostif_test_tb_behav -key {Behavioral:sim_1:Functional:hostif_test_tb} -tclbatch {hostif_test_tb.tcl} -view {H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg} -log {simulate.log}"
-INFO: [USF-XSim-8] Loading simulator feature
-Time resolution is 1 ps
-open_wave_config H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg
-source hostif_test_tb.tcl
-# set curr_wave [current_wave_config]
-# if { [string length $curr_wave] == 0 } {
-#   if { [llength [get_objects]] > 0} {
-#     add_wave /
-#     set_property needs_save false [current_wave_config]
-#   } else {
-#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
-#   }
-# }
-# log_wave -r /
-# run 1000ns
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'hostif_test_tb_behav' loaded.
-INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 2716.523 ; gain = 0.000
-save_wave_config {H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg}
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
-current_wave_config {hostif_test_tb_behav.wcfg}
-H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg
-add_wave {{/hostif_test_tb/dut}} 
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 2701.031 ; gain = 0.000
 WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
 WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
 WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
@@ -666,16 +615,11 @@ INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Senior_Project/P
 "xvlog --incr --relax -L uvm -prj hostif_test_tb_vlog.prj"
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module hostif_test
-WARNING: [VRFC 10-9336] redeclaration of ANSI port 'hostif_psoc_data' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:45]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:68]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:69]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:70]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:71]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:72]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:73]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'xfc' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:48]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'transfer' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:49]
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module hostif_test_tb
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
 "xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log"
@@ -687,15 +631,9 @@ Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
 WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 16 for port 'state_ram_addr' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:38]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:68]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:69]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:70]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:71]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:72]
-WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:73]
-WARNING: [VRFC 10-3823] variable 'regs_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:137]
-WARNING: [VRFC 10-3823] variable 'state_ram_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:138]
-WARNING: [VRFC 10-3823] variable 'attribute_ram_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:139]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 16 for port 'out_addr' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:47]
+WARNING: [VRFC 10-3823] variable 'regs_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:176]
+WARNING: [VRFC 10-3823] variable 'state_ram_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:177]
 Completed static elaboration
 Starting simulation data flow analysis
 WARNING: [XSIM 43-4100] "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
@@ -714,7 +652,6 @@ INFO: [USF-XSim-98] *** Running xsim
 INFO: [USF-XSim-8] Loading simulator feature
 Time resolution is 1 ps
 open_wave_config H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg
-WARNING: Simulation object /hostif_test_tb/dut/xilinx_isim_temp_0_ln12_blkAssignCaching was not found in the design.
 source hostif_test_tb.tcl
 # set curr_wave [current_wave_config]
 # if { [string length $curr_wave] == 0 } {
@@ -727,14 +664,222 @@ source hostif_test_tb.tcl
 # }
 # log_wave -r /
 # run 1000ns
+Time: 0 | Current State: xxx | Next State: 000 | Transfer: x | hostif_psoc_data: 00 | out_data: xxxxxxxx | out_addr: x
+Time: 5000 | Current State: 000 | Next State: 000 | Transfer: 0 | hostif_psoc_data: 00 | out_data: xxxxxxxx | out_addr: x
+Time: 15000 | Current State: 000 | Next State: 000 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 0
+Time: 105000 | Current State: 000 | Next State: 001 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 0
+Time: 115000 | Current State: 001 | Next State: 001 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 1
+Time: 205000 | Current State: 001 | Next State: 010 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 1
+Time: 215000 | Current State: 010 | Next State: 010 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 1
+Time: 305000 | Current State: 010 | Next State: 011 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 1
+Time: 315000 | Current State: 011 | Next State: 011 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 000000c3 | out_addr: 1
+Time: 405000 | Current State: 011 | Next State: 100 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 000000c3 | out_addr: 1
+Time: 415000 | Current State: 100 | Next State: 100 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 0000d4c3 | out_addr: 1
+Time: 505000 | Current State: 100 | Next State: 101 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 0000d4c3 | out_addr: 1
+Time: 515000 | Current State: 101 | Next State: 101 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00e5d4c3 | out_addr: 1
+Time: 605000 | Current State: 101 | Next State: 110 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 00e5d4c3 | out_addr: 1
+Time: 615000 | Current State: 110 | Next State: 110 | Transfer: 0 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 705000 | Current State: 110 | Next State: 000 | Transfer: 1 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 715000 | Current State: 000 | Next State: 000 | Transfer: 0 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 805000 | Current State: 000 | Next State: 001 | Transfer: 1 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 815000 | Current State: 001 | Next State: 001 | Transfer: 0 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 905000 | Current State: 001 | Next State: 010 | Transfer: 1 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 915000 | Current State: 010 | Next State: 010 | Transfer: 0 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'hostif_test_tb_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 2716.523 ; gain = 0.000
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 2704.812 ; gain = 0.000
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+ERROR: [Common 17-180] Spawn failed: No error
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'hostif_test_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'hostif_test_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj hostif_test_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hostif_test
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'xfc' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:48]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'transfer' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:49]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hostif_test_tb
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 16 for port 'state_ram_addr' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:38]
+WARNING: [VRFC 10-3823] variable 'regs_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:176]
+WARNING: [VRFC 10-3823] variable 'state_ram_we' might have multiple concurrent drivers [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:177]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4100] "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.hostif_test
+Compiling module xil_defaultlib.hostif_test_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot hostif_test_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "hostif_test_tb_behav -key {Behavioral:sim_1:Functional:hostif_test_tb} -tclbatch {hostif_test_tb.tcl} -view {H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+open_wave_config H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg
+source hostif_test_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+# run 1000ns
+Time: 0 | Current State: xxx | Next State: 000 | Transfer: x | hostif_psoc_data: 00 | out_data: xxxxxxxx | out_addr: x
+Time: 5000 | Current State: 000 | Next State: 000 | Transfer: 0 | hostif_psoc_data: 00 | out_data: xxxxxxxx | out_addr: x
+Time: 15000 | Current State: 000 | Next State: 000 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 0
+Time: 105000 | Current State: 000 | Next State: 001 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 0
+Time: 115000 | Current State: 001 | Next State: 001 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 1
+Time: 205000 | Current State: 001 | Next State: 010 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 1
+Time: 215000 | Current State: 010 | Next State: 010 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 1
+Time: 305000 | Current State: 010 | Next State: 011 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 00000000 | out_addr: 1
+Time: 315000 | Current State: 011 | Next State: 011 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 000000c3 | out_addr: 1
+Time: 405000 | Current State: 011 | Next State: 100 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 000000c3 | out_addr: 1
+Time: 415000 | Current State: 100 | Next State: 100 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 0000d4c3 | out_addr: 1
+Time: 505000 | Current State: 100 | Next State: 101 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 0000d4c3 | out_addr: 1
+Time: 515000 | Current State: 101 | Next State: 101 | Transfer: 0 | hostif_psoc_data: 00 | out_data: 00e5d4c3 | out_addr: 1
+Time: 605000 | Current State: 101 | Next State: 110 | Transfer: 1 | hostif_psoc_data: 00 | out_data: 00e5d4c3 | out_addr: 1
+Time: 615000 | Current State: 110 | Next State: 110 | Transfer: 0 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 705000 | Current State: 110 | Next State: 000 | Transfer: 1 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 715000 | Current State: 000 | Next State: 000 | Transfer: 0 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 805000 | Current State: 000 | Next State: 001 | Transfer: 1 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 815000 | Current State: 001 | Next State: 001 | Transfer: 0 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 905000 | Current State: 001 | Next State: 010 | Transfer: 1 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+Time: 915000 | Current State: 010 | Next State: 010 | Transfer: 0 | hostif_psoc_data: 00 | out_data: f6e5d4c3 | out_addr: 1
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'hostif_test_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 2704.812 ; gain = 0.000
 WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
 WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
 WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
 WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
 close_sim
 INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'hostif_test_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'hostif_test_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj hostif_test_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hostif_test
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'xfc' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:48]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'transfer' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:49]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'hostif_psoc_data' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:51]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:77]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:78]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:79]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:80]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:81]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:82]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hostif_test_tb
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot hostif_test_tb_behav xil_defaultlib.hostif_test_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 16 for port 'state_ram_addr' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:38]
+ERROR: [VRFC 10-395] cannot assign a packed type to an unpacked type [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:29]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+ERROR: [Common 17-180] Spawn failed: No error
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'hostif_test_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'hostif_test_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj hostif_test_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hostif_test
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'xfc' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:48]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'transfer' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:49]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'hostif_psoc_data' is not allowed [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:51]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:77]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:78]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:79]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:80]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:81]
+WARNING: [VRFC 10-9578] illegal assignment to variable input port 'hostif_psoc_data' [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sources_1/new/hostif_test.sv:82]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hostif_test_tb
+ERROR: [VRFC 10-395] cannot assign a packed type to an unpacked type [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:68]
+ERROR: [VRFC 10-8530] module 'hostif_test_tb' is ignored due to previous errors [H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/sim_1/new/hostif_test_tb.sv:1]
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sources_1\new\hostif_test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.srcs\sim_1\new\hostif_test_tb.sv:]
+ERROR: [Common 17-180] Spawn failed: No error
 exit
-INFO: [Common 17-206] Exiting Vivado at Mon Oct 21 17:59:59 2024...
+INFO: [Common 17-206] Exiting Vivado at Mon Oct 21 15:21:01 2024...

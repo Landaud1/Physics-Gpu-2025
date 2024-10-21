@@ -3,13 +3,13 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Mon Oct 21 17:27:46 2024
-# Process ID: 17860
+# Start of session at: Mon Oct 21 14:39:14 2024
+# Process ID: 1992
 # Current directory: H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3972 H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent28180 H:\Senior_Project\Physics-Gpu-2025\Nick\host_interface\host_interface.xpr
 # Log file: H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/vivado.log
 # Journal file: H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface\vivado.jou
-# Running On        :ARM128-04
+# Running On        :ARM148-06
 # Platform          :Windows Server 2016 or Windows 10
 # Operating System  :22631
 # Processor Detail  :12th Gen Intel(R) Core(TM) i7-12700
@@ -19,38 +19,36 @@
 # Host memory       :34050 MB
 # Swap memory       :5100 MB
 # Total Virtual     :39151 MB
-# Available Virtual :28586 MB
+# Available Virtual :28766 MB
 #-----------------------------------------------------------
 start_gui
 open_project H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/host_interface.xpr
 update_compile_order -fileset sources_1
 launch_simulation
 launch_simulation
-reset_simulation -simset sim_1 -mode behavioral
-launch_simulation
-launch_simulation
-open_wave_config H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg
-source hostif_test_tb.tcl
-close_sim
-launch_simulation
-open_wave_config H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg
-source hostif_test_tb.tcl
-close_sim
-launch_simulation
-open_wave_config H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg
-source hostif_test_tb.tcl
-current_wave_config {hostif_test_tb_behav.wcfg}
-add_wave {{/hostif_test_tb/dut}} 
-close_sim
 launch_simulation
 open_wave_config H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg
 source hostif_test_tb.tcl
 save_wave_config {H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg}
-current_wave_config {hostif_test_tb_behav.wcfg}
-add_wave {{/hostif_test_tb/dut}} 
+close_sim
+launch_simulation
+launch_simulation
+open_wave_config H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg
+source hostif_test_tb.tcl
+close_sim
+launch_simulation
+launch_simulation
+open_wave_config H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg
+source hostif_test_tb.tcl
 save_wave_config {H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg}
 close_sim
 launch_simulation
 open_wave_config H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg
 source hostif_test_tb.tcl
 close_sim
+launch_simulation
+open_wave_config H:/Senior_Project/Physics-Gpu-2025/Nick/host_interface/hostif_test_tb_behav.wcfg
+source hostif_test_tb.tcl
+close_sim
+launch_simulation
+launch_simulation

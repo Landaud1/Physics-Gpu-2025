@@ -65,7 +65,12 @@ module hostif_test_tb();
         cpu_resetn_raw = 0;
         hostif_psoc_fpga_xfc_raw = 0;
         hostif_psoc_reset_raw = 0;
-        hostif_psoc_data = 2'h00;  //----- fix this unpacking problem
+        hostif_psoc_data [0] = 2'h00;  //----- fix this unpacking problem
+        hostif_psoc_data [1] = 2'h00;  //----- fix this unpacking problem
+        hostif_psoc_data [2] = 2'h00;  //----- fix this unpacking problem
+        hostif_psoc_data [3] = 2'h00;  //----- fix this unpacking problem
+        hostif_psoc_data [4] = 2'h00;  //----- fix this unpacking problem
+        hostif_psoc_data [5] = 2'h00;  //----- fix this unpacking problem
 
         // Apply reset
         #20;
@@ -79,9 +84,9 @@ module hostif_test_tb();
     end
 
     // Monitor important signals during simulation
-    initial begin
-        $monitor("Time: %0t | Current State: %b | Next State: %b | Transfer: %b | hostif_psoc_data: %h | out_data: %h | out_addr: %h",
-                 $time, current_state, next_state, transfer, hostif_psoc_data, regs_data, regs_addr);
-    end
+//    initial begin
+//        $monitor("Time: %0t | Current State: %b | Next State: %b | Transfer: %b | hostif_psoc_data: %h | out_data: %h | out_addr: %h",
+//                 $time, current_state, next_state, transfer, hostif_psoc_data, regs_data, regs_addr);
+//    end
 endmodule
 
