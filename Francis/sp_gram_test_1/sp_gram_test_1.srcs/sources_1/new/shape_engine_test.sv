@@ -91,6 +91,7 @@ module shape_engine_test(
                     */
                     data_in_mem <= 33'b000000001000000000100001000101111;
                     state_mem <= 4'h3;
+                end
                 3: begin
                     n <= 2; // Change this depending on n
                 end               
