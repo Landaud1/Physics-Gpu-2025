@@ -1,0 +1,2 @@
+simple_33_x_10_ABRAM.v,verilog,xil_defaultlib,../../../../sp_gram_test_1.gen/sources_1/ip/simple_33_x_10_ABRAM/sim/simple_33_x_10_ABRAM.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v
