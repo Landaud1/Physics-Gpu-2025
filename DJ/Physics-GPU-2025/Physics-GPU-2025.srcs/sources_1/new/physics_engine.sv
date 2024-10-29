@@ -21,9 +21,9 @@ module physics_engine(
     logic [9:0] i, j;
     
     // Basic object data from state ram
-    logic [63:0] vx, vy, mass;
+    logic [63:0] x, y, vx, vy, mass;
     
-    assign x     = sr_read[ 63: 0];
+    assign x     = sr_read[ 63:  0];
     assign y     = sr_read[127: 64];
     assign vx    = sr_read[191:128];
     assign vy    = sr_read[255:192];
@@ -94,6 +94,36 @@ module physics_engine(
         .result(sum_ram_write_data)
     );
     
+    
+    // Float to fixed: converts the floating point position values to fixed values for the position ram
+    logic [31:0] x_int, y_int;
+    logic ftf_valid;
+    
+    assign pr_write = {y_int[9:0], x_int[10:0]};
+    
+    float_to_fixed ftf_x(
+        .aclk(clk),
+        .s_axis_a_tdata(sum_ram_read_data[63:0]),
+        .s_axis_a_tvalid(ftf_valid),
+        
+        .m_axis_result_tdata(x_int),
+        .m_axis_result_tvalid(pr_wen)
+    );
+    
+    float_to_fixed ftf_y(
+        .aclk(clk),
+        .s_axis_a_tdata(sum_ram_read_data[127:64]),
+        .s_axis_a_tvalid(ftf_valid),
+        
+        .m_axis_result_tdata(y_int)
+    );
+    
+    delay_10_7 ftf_delay(
+        .clk(clk),
+        .in(i),
+        .out(pr_addr)
+    );
+    
     // Physics engine internal RAMs
     
     // Acceleration RAM: holds a_x and a_y values for a fixed j and iterating i
@@ -119,7 +149,7 @@ module physics_engine(
     
     
     // Finite State Machine
-    logic [2:0] state;
+    logic [3:0] state;
     always @(posedge clk) begin
         if (reset) begin
             i <= 0;
@@ -206,6 +236,7 @@ module physics_engine(
                     end else begin
                         // All objects are done calculating, let's record the new information.
                         sum_calc_valid <= 0;
+                        j <= 0;
                         i <= 0;
                         state <= 4;
                     end
@@ -228,7 +259,7 @@ module physics_engine(
                 end
                 
                 
-                // State 5: 
+                // State 5: add solved sums to current velocities
                 5: begin
                     if (i < n_objects) begin
                         sum_calc_valid <= 1;
@@ -242,6 +273,83 @@ module physics_engine(
                     end
                 end
                 
+                
+                // State 6: Wait until sum calc is done doing it's thing
+                6: begin
+                    if (sum_calc_finished) begin
+                        // Sum calc is done, time to load up our new velocities to the state ram
+                        i <= 0;
+                        state <= 7;
+                    end else begin
+                        state <= 6;
+                    end
+                end
+                
+                
+                // State 7: Load new velocities to state ram
+                7: begin
+                    if (i < n_objects) begin
+                        sr_addr <= i;
+                        sr_write <= {x, y, sum_ram_read_data, mass, 192'b0};
+                        sr_wen <= 1;
+                        state <= 7;
+                    end else begin
+                        sr_wen <= 0;
+                        state <= 8;
+                    end
+                end
+                
+                
+                // State 8: Add solved velocities to positions
+                8: begin
+                    if (i < n_objects) begin
+                        sum_calc_valid <= 1;
+                        sr_addr <= i;
+                        i <= i + 1;
+                        sum_calc_in <= {x, y};
+                        state <= 8;
+                    end else begin
+                        sum_calc_valid <= 0;
+                        state <= 9;
+                    end
+                end
+                
+                // State 9: Wait until sum calc is done doing it's thing
+                9: begin
+                    if (sum_calc_finished) begin
+                        // Sum calc is done, time to load up our new positions to the state ram and position ram
+                        i <= 0;
+                        state <= 10;
+                    end else begin
+                        state <= 9;
+                    end
+                end
+                
+                
+                // State 10: Write new positions to state ram and position ram
+                10: begin
+                    if (i < n_objects) begin
+                        // Write to position ram
+                        ftf_valid <= 1;
+                        // Write to state ram
+                        sr_addr <= i;
+                        sr_write <= {x, y, sum_ram_read_data, mass, 192'b0};
+                        
+                        i <= i + 1;
+                        state <= 10;
+                    end else begin
+                        ftf_valid <= 0;
+                        state <= 11;
+                    end
+                end
+                
+                
+                // State 11: all done. Wait for vsync
+                11: begin
+                    if (vsync) begin
+                        state <= 0;
+                    end
+                end
             endcase
         end
     end
