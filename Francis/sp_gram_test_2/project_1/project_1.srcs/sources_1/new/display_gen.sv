@@ -6,23 +6,19 @@ module display_gen(
     output              hdmi_tx_clk_p,  // Assigned by rgb2dvi
     output              hdmi_tx_clk_n,  // Assigned by rgb2dvi
     output [2:0]        hdmi_tx_p,      // Assigned by rgb2dvi
-    output [2:0]        hdmi_tx_n,      // Assigned by rgb2dvi
-    output [19:0]       rd_addr         // This determines the address to read from the GRAM
-    );
+    output [2:0]        hdmi_tx_n      // Assigned by rgb2dvi
+);
     
     // VTC Signals and instantiation
     
-    logic [10:0]    vtc_x, vtc_y;
-    logic           valid_output;
-    
-    vid_time_counter_test(
+    vid_time_counter vtc(
         .clk(clk),
         .reset(reset),
-        .curr_x(vtc_x),
-        .curr_y(vtc_y),
-        .valid_output(valid_output)
+        .adr_out(),
+        .valid_output()
     );
     
+    // RGB2DVI Signals and instantiation
     
     rgb2dvi_0 rgb2dvi (
     // Out
@@ -41,7 +37,6 @@ module display_gen(
         //.SerialClk  (SerialClk  )
     );
     
-    // Always comb block to calculate read address according to valid_output
     
     // Always comb block to assign rgb values to vid_pData (8 bits of rgb each) based on predefined parameter color values and GRAM output
     
