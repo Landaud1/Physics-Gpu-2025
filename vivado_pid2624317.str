@@ -1,0 +1,102 @@
+/*
+
+AMD Vivado v2024.1 (64-bit) [Major: 2024, Minor: 1]
+SW Build: 5076996 on Wed May 22 18:36:09 MDT 2024
+IP Build: 5075265 on Wed May 22 21:45:21 MDT 2024
+IP Build: 5075265 on Wed May 22 21:45:21 MDT 2024
+
+Process ID (PID): 2624317
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Wed Oct 23 13:05:42 EDT 2024
+Time zone: 	Eastern Standard Time (America/New_York)
+
+OS: Ubuntu
+OS Version: 6.5.0-41-generic
+OS Architecture: amd64
+Available processors (cores): 64
+LSB Release Description: DISTRIB_ID=Ubuntu
+
+Display: 70
+Screen size: 1920x1080
+Local screen bounds: x = 0, y = 27, width = 1920, height = 1053
+Screen resolution (DPI): 100
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+OS font scaling: 100%
+Anti-Alias Enabled: false
+
+Java version: 	21.0.1 64-bit
+JavaFX version: 21.0.1
+Java home: 	/tools/Vivado/2024.1/tps/lnx64/jre21.0.1_12
+Java executable: 	/tools/Vivado/2024.1/tps/lnx64/jre21.0.1_12/bin/java
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Dsun.java2d.uiScale.enabled=false, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, -XX:+UseStringDeduplication, -XX:MaxGCPauseMillis=200, -XX:+ParallelRefProcEnabled, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.base/sun.security.action=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, -XX:NewSize=80m, -XX:MaxNewSize=80m, -Xms512m, -Xmx4072m, -Xss10m, -Xrs]
+Java initial memory (-Xms): 	512 MB
+Java maximum memory (-Xmx):	 3 GB
+
+User name: 	rameyn1
+User home directory: /drive/sda2/home/rameyn1
+User working directory: /drive/sda2/home/rameyn1/Physics-Gpu-2025
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /tools/Vivado
+HDI_APPROOT: /tools/Vivado/2024.1
+RDI_DATADIR: /tools/SharedData/2024.1/data:/tools/Vivado/2024.1/data
+RDI_BINDIR: /tools/Vivado/2024.1/bin
+
+Vivado preferences file: /home/rameyn1/.Xilinx/Vivado/2024.1/vivado.xml
+Vivado preferences directory: /home/rameyn1/.Xilinx/Vivado/2024.1/
+Vivado layouts directory: /drive/sda2/home/rameyn1/.Xilinx/Vivado/2024.1/data/layouts
+PlanAhead jar file: 	/tools/Vivado/2024.1/lib/classes/planAhead.jar
+Vivado log file: 	/drive/sda2/home/rameyn1/Physics-Gpu-2025/vivado.log
+Vivado journal file: 	/drive/sda2/home/rameyn1/Physics-Gpu-2025/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-2624317-zelda
+Non-Default Parameters:	[]
+
+Xilinx & AMD Environment Variables
+--------------------------------------------------------------------------------------------
+GNOME_SHELL_SESSION_MODE: ubuntu
+RDI_APPROOT: /tools/Vivado/2024.1
+RDI_BASEROOT: /tools/Vivado
+RDI_BINROOT: /tools/Vivado/2024.1/bin
+RDI_BUILD: yes
+RDI_DATADIR: /tools/SharedData/2024.1/data:/tools/Vivado/2024.1/data
+RDI_INSTALLROOT: /tools
+RDI_INSTALLVER: 2024.1
+RDI_JAVA_PLATFORM: 
+RDI_JAVA_VERSION: 21.0.1_12
+RDI_LIBDIR: /tools/Vivado/2024.1/lib/lnx64.o/Ubuntu/22:/tools/Vivado/2024.1/lib/lnx64.o/Ubuntu:/tools/Vivado/2024.1/lib/lnx64.o
+RDI_OPT_EXT: .o
+RDI_PATCHROOT: 
+RDI_PLATFORM: lnx64
+RDI_PREPEND_PATH: /tools/Vivado/2024.1/ids_lite/ISE/bin/lin64
+RDI_PROG: /tools/Vivado/2024.1/bin/unwrapped/lnx64.o/vivado
+RDI_SESSION_INFO: /home/rameyn1/Physics-Gpu-2025:zelda_1729703122_2624277
+RDI_SHARED_DATA: /tools/SharedData/2024.1/data
+RDI_TPS_ROOT: /tools/Vivado/2024.1/tps/lnx64
+RDI_USE_JDK21: True
+SHELL: /bin/bash
+XILINX: /tools/Vivado/2024.1/ids_lite/ISE
+XILINX_DSP: /tools/Vivado/2024.1/ids_lite/ISE
+XILINX_HLS: /tools/Vitis_HLS/2024.1
+XILINX_PLANAHEAD: /tools/Vivado/2024.1
+XILINX_VIVADO: /tools/Vivado/2024.1
+XILINX_VIVADO_HLS: /tools/Vivado/2024.1
+
+
+GUI allocated memory:	512 MB
+GUI max memory:		4,072 MB
+Engine allocated memory: 1,614 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,664 MB. GUI used memory: 67 MB. Current time: 10/23/24, 1:05:43 PM EDT

@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Wed Oct 23 13:09:07 2024
+# Process ID: 2631716
+# Current directory: /drive/sda2/home/rameyn1/Physics-Gpu-2025
+# Command line: vivado
+# Log file: /drive/sda2/home/rameyn1/Physics-Gpu-2025/vivado.log
+# Journal file: /drive/sda2/home/rameyn1/Physics-Gpu-2025/vivado.jou
+# Running On        :zelda
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 22.04.4 LTS
+# Processor Detail  :Intel(R) Xeon(R) CPU E5-2683 v4 @ 2.10GHz
+# CPU Frequency     :1197.177 MHz
+# CPU Physical cores:32
+# CPU Logical cores :64
+# Host memory       :135063 MB
+# Swap memory       :2147 MB
+# Total Virtual     :137211 MB
+# Available Virtual :96268 MB
+#-----------------------------------------------------------
+start_gui
+open_project /drive/sda2/home/rameyn1/Physics-Gpu-2025/Nick/host_interface/host_interface.xpr
+update_compile_order -fileset sources_1

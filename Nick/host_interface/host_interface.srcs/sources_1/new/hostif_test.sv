@@ -66,7 +66,7 @@ module hostif_test (
     // Preload data into the `hostif_psoc_data` array for simulation
     always_comb begin
         hostif_psoc_data[0] = 8'hA1;  // Address byte 1 (low)
-        hostif_psoc_data[1] = 8'hB2;  // Address byte 2 (high)
+        hostif_psoc_data[1] = 8'h02;  // Address byte 2 (high)
         hostif_psoc_data[2] = 8'hC3;  // Data byte 1
         hostif_psoc_data[3] = 8'hD4;  // Data byte 2
         hostif_psoc_data[4] = 8'hE5;  // Data byte 3
@@ -111,7 +111,7 @@ module hostif_test (
             `STATE_S3: if (transfer) next_state_in = `STATE_S4; // Move to STATE_S4 on transfer
             `STATE_S4: if (transfer) next_state_in = `STATE_S5; // Move to STATE_S5 on transfer
             `STATE_S5: if (transfer) next_state_in = `STATE_S6; // Move to STATE_S6 on transfer
-            `STATE_S6: if (transfer) next_state_in = `STATE_S0; // Wrap around to STATE_S0 on transfer
+            `STATE_S6:               next_state_in = `STATE_S0; // Wrap around to STATE_S0 on transfer
             default: next_state_in = `STATE_S0; // Safe default state
         endcase
     end
@@ -134,7 +134,6 @@ module hostif_test (
     end
 
     // Write enable signals for registers and RAM
-    assign regs_we = (current_state_in == `STATE_S6); // Write enable for registers in STATE_S6
-    assign state_ram_we = (current_state_in == `STATE_S6); // Write enable for state RAM in STATE_S6
-    assign attribute_ram_we = (current_state_in == `STATE_S6); // Write enable for attribute RAM in STATE_S6
+    assign out_we = (current_state_in == `STATE_S6); // Write enable for registers in STATE_S6
+   
 endmodule

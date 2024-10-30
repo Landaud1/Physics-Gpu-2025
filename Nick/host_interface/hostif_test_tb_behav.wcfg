@@ -11,179 +11,115 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="166.670 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,166.670 ns"></ZoomEndTime>
-      <Cursor1Time time="0.000 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="846.597 ns"></ZoomEndTime>
+      <Cursor1Time time="234.234 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="276"></NameColumnWidth>
-      <ValueColumnWidth column_width="80"></ValueColumnWidth>
+      <ValueColumnWidth column_width="68"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="38" />
-   <wvobject fp_name="/hostif_test_tb/clk100MHZ" type="logic">
+   <WVObjectSize size="22" />
+   <wvobject type="logic" fp_name="/hostif_test_tb/clk100MHZ">
       <obj_property name="ElementShortName">clk100MHZ</obj_property>
       <obj_property name="ObjectShortName">clk100MHZ</obj_property>
       <obj_property name="CustomSignalColor">#FFFFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/cpu_resetn_raw" type="logic">
+   <wvobject type="logic" fp_name="/hostif_test_tb/cpu_resetn_raw">
       <obj_property name="ElementShortName">cpu_resetn_raw</obj_property>
       <obj_property name="ObjectShortName">cpu_resetn_raw</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/hostif_psoc_fpga_xfc_raw" type="logic">
+   <wvobject type="logic" fp_name="/hostif_test_tb/hostif_psoc_fpga_xfc_raw">
       <obj_property name="ElementShortName">hostif_psoc_fpga_xfc_raw</obj_property>
       <obj_property name="ObjectShortName">hostif_psoc_fpga_xfc_raw</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/xfc" type="logic">
+   <wvobject type="logic" fp_name="/hostif_test_tb/xfc">
       <obj_property name="ElementShortName">xfc</obj_property>
       <obj_property name="ObjectShortName">xfc</obj_property>
       <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/xfc_p1" type="logic">
+   <wvobject type="logic" fp_name="/hostif_test_tb/xfc_p1">
       <obj_property name="ElementShortName">xfc_p1</obj_property>
       <obj_property name="ObjectShortName">xfc_p1</obj_property>
       <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/transfer" type="logic">
+   <wvobject type="logic" fp_name="/hostif_test_tb/transfer">
       <obj_property name="ElementShortName">transfer</obj_property>
       <obj_property name="ObjectShortName">transfer</obj_property>
       <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/current_state" type="array">
+   <wvobject type="array" fp_name="/hostif_test_tb/current_state">
       <obj_property name="ElementShortName">current_state[2:0]</obj_property>
       <obj_property name="ObjectShortName">current_state[2:0]</obj_property>
       <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/next_state" type="array">
+   <wvobject type="array" fp_name="/hostif_test_tb/next_state">
       <obj_property name="ElementShortName">next_state[2:0]</obj_property>
       <obj_property name="ObjectShortName">next_state[2:0]</obj_property>
       <obj_property name="CustomSignalColor">#800000</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/hostif_psoc_data" type="array">
+   <wvobject type="array" fp_name="/hostif_test_tb/hostif_psoc_data">
       <obj_property name="ElementShortName">hostif_psoc_data[0:5][7:0]</obj_property>
       <obj_property name="ObjectShortName">hostif_psoc_data[0:5][7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/out_data" type="array">
+   <wvobject type="array" fp_name="/hostif_test_tb/out_data">
       <obj_property name="ElementShortName">out_data[31:0]</obj_property>
       <obj_property name="ObjectShortName">out_data[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/out_addr" type="array">
+   <wvobject type="array" fp_name="/hostif_test_tb/out_addr">
       <obj_property name="ElementShortName">out_addr[15:0]</obj_property>
       <obj_property name="ObjectShortName">out_addr[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/clk100MHZ" type="logic">
-      <obj_property name="ElementShortName">clk100MHZ</obj_property>
-      <obj_property name="ObjectShortName">clk100MHZ</obj_property>
-   </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/hostif_psoc_data" type="array">
-      <obj_property name="ElementShortName">hostif_psoc_data[0:5][7:0]</obj_property>
-      <obj_property name="ObjectShortName">hostif_psoc_data[0:5][7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/cpu_resetn_raw" type="logic">
-      <obj_property name="ElementShortName">cpu_resetn_raw</obj_property>
-      <obj_property name="ObjectShortName">cpu_resetn_raw</obj_property>
-   </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/hostif_psoc_fpga_xfc_raw" type="logic">
-      <obj_property name="ElementShortName">hostif_psoc_fpga_xfc_raw</obj_property>
-      <obj_property name="ObjectShortName">hostif_psoc_fpga_xfc_raw</obj_property>
-   </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/hostif_psoc_reset_raw" type="logic">
-      <obj_property name="ElementShortName">hostif_psoc_reset_raw</obj_property>
-      <obj_property name="ObjectShortName">hostif_psoc_reset_raw</obj_property>
-   </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/hostif_fpga_psoc_xfc" type="logic">
-      <obj_property name="ElementShortName">hostif_fpga_psoc_xfc</obj_property>
-      <obj_property name="ObjectShortName">hostif_fpga_psoc_xfc</obj_property>
-   </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/regs_data" type="array">
+   <wvobject type="array" fp_name="/hostif_test_tb/dut/regs_data">
       <obj_property name="ElementShortName">regs_data[31:0]</obj_property>
       <obj_property name="ObjectShortName">regs_data[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/regs_addr" type="array">
+   <wvobject type="array" fp_name="/hostif_test_tb/dut/regs_addr">
       <obj_property name="ElementShortName">regs_addr[3:0]</obj_property>
       <obj_property name="ObjectShortName">regs_addr[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/regs_we" type="logic">
+   <wvobject type="logic" fp_name="/hostif_test_tb/dut/regs_we">
       <obj_property name="ElementShortName">regs_we</obj_property>
       <obj_property name="ObjectShortName">regs_we</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/state_ram_data" type="array">
+   <wvobject type="array" fp_name="/hostif_test_tb/dut/state_ram_data">
       <obj_property name="ElementShortName">state_ram_data[31:0]</obj_property>
       <obj_property name="ObjectShortName">state_ram_data[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/state_ram_addr" type="array">
+   <wvobject type="array" fp_name="/hostif_test_tb/dut/state_ram_addr">
       <obj_property name="ElementShortName">state_ram_addr[15:0]</obj_property>
       <obj_property name="ObjectShortName">state_ram_addr[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/state_ram_we" type="logic">
+   <wvobject type="logic" fp_name="/hostif_test_tb/dut/state_ram_we">
       <obj_property name="ElementShortName">state_ram_we</obj_property>
       <obj_property name="ObjectShortName">state_ram_we</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/attribute_ram_data" type="array">
+   <wvobject type="array" fp_name="/hostif_test_tb/dut/attribute_ram_data">
       <obj_property name="ElementShortName">attribute_ram_data[11:0]</obj_property>
       <obj_property name="ObjectShortName">attribute_ram_data[11:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/attribute_ram_addr" type="array">
+   <wvobject type="array" fp_name="/hostif_test_tb/dut/attribute_ram_addr">
       <obj_property name="ElementShortName">attribute_ram_addr[9:0]</obj_property>
       <obj_property name="ObjectShortName">attribute_ram_addr[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/attribute_ram_we" type="logic">
+   <wvobject type="logic" fp_name="/hostif_test_tb/dut/attribute_ram_we">
       <obj_property name="ElementShortName">attribute_ram_we</obj_property>
       <obj_property name="ObjectShortName">attribute_ram_we</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/xfc" type="logic">
-      <obj_property name="ElementShortName">xfc</obj_property>
-      <obj_property name="ObjectShortName">xfc</obj_property>
-   </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/xfc_p1" type="logic">
-      <obj_property name="ElementShortName">xfc_p1</obj_property>
-      <obj_property name="ObjectShortName">xfc_p1</obj_property>
-   </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/transfer" type="logic">
-      <obj_property name="ElementShortName">transfer</obj_property>
-      <obj_property name="ObjectShortName">transfer</obj_property>
-   </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/current_state" type="array">
-      <obj_property name="ElementShortName">current_state[2:0]</obj_property>
-      <obj_property name="ObjectShortName">current_state[2:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/next_state" type="array">
-      <obj_property name="ElementShortName">next_state[2:0]</obj_property>
-      <obj_property name="ObjectShortName">next_state[2:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/out_data" type="array">
-      <obj_property name="ElementShortName">out_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">out_data[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/out_addr" type="array">
-      <obj_property name="ElementShortName">out_addr[15:0]</obj_property>
-      <obj_property name="ObjectShortName">out_addr[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/out_we" type="logic">
+   <wvobject type="logic" fp_name="/hostif_test_tb/dut/out_we">
       <obj_property name="ElementShortName">out_we</obj_property>
       <obj_property name="ObjectShortName">out_we</obj_property>
    </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/reset" type="logic">
-      <obj_property name="ElementShortName">reset</obj_property>
-      <obj_property name="ObjectShortName">reset</obj_property>
-   </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/current_state_in" type="array">
+   <wvobject type="array" fp_name="/hostif_test_tb/dut/current_state_in">
       <obj_property name="ElementShortName">current_state_in[2:0]</obj_property>
       <obj_property name="ObjectShortName">current_state_in[2:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/next_state_in" type="array">
-      <obj_property name="ElementShortName">next_state_in[2:0]</obj_property>
-      <obj_property name="ObjectShortName">next_state_in[2:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/hostif_test_tb/dut/xilinx_isim_temp_0_ln12_blkAssignCaching" type="array">
-      <obj_property name="ElementShortName">xilinx_isim_temp_0_ln12_blkAssignCaching[0:5][7:0]</obj_property>
-      <obj_property name="ObjectShortName">xilinx_isim_temp_0_ln12_blkAssignCaching[0:5][7:0]</obj_property>
    </wvobject>
 </wave_config>
