@@ -79,7 +79,7 @@ module hostif_test_tb();
         
 
         // Run simulation for a fixed period and finish
-        #1000;  // Run the simulation for 1000 time units
+        #10000;  // Run the simulation for 1000 time units
         $finish;
     end
 

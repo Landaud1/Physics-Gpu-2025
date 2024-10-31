@@ -50,9 +50,9 @@ module hostif_test (
     assign next_state = next_state_in;         // Assign next state output
 
     // Register, state RAM, and attribute RAM data and address assignments
-    assign regs_data = out_data;
-    assign state_ram_data = out_data;
-    assign attribute_ram_data = out_data;
+//    assign regs_data = out_data;
+//    assign state_ram_data = out_data;
+//    assign attribute_ram_data = out_data;
 
     assign regs_addr = out_addr;
     assign state_ram_addr = out_addr; // Flipped
@@ -135,5 +135,31 @@ module hostif_test (
 
     // Write enable signals for registers and RAM
     assign out_we = (current_state_in == `STATE_S6); // Write enable for registers in STATE_S6
-   
+    
+    
+always_ff @ (posedge clk100MHZ) begin
+    if (reset) begin
+        regs_data <= 0;
+    end else if (regs_we) begin
+        regs_data <= out_data;
+    end
+end
+
+always_ff @ (posedge clk100MHZ) begin
+    if (reset) begin
+        state_ram_data <= 0;
+    end else if (state_ram_we) begin
+        state_ram_data <= out_data;
+    end
+end
+
+always_ff @ (posedge clk100MHZ) begin
+    if (reset) begin
+        attribute_ram_data <= 0;
+    end else if (attribute_ram_we) begin
+        attribute_ram_data <= out_data;
+    end
+end
+
+
 endmodule

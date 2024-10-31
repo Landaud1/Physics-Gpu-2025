@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="846.597 ns"></ZoomEndTime>
-      <Cursor1Time time="234.234 ns"></Cursor1Time>
+      <ZoomEndTime time="1,194.663 ns"></ZoomEndTime>
+      <Cursor1Time time="39.883 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="276"></NameColumnWidth>
-      <ValueColumnWidth column_width="68"></ValueColumnWidth>
+      <NameColumnWidth column_width="274"></NameColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="22" />
+   <WVObjectSize size="21" />
    <wvobject type="logic" fp_name="/hostif_test_tb/clk100MHZ">
       <obj_property name="ElementShortName">clk100MHZ</obj_property>
       <obj_property name="ObjectShortName">clk100MHZ</obj_property>
@@ -117,9 +117,5 @@
    <wvobject type="logic" fp_name="/hostif_test_tb/dut/out_we">
       <obj_property name="ElementShortName">out_we</obj_property>
       <obj_property name="ObjectShortName">out_we</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hostif_test_tb/dut/current_state_in">
-      <obj_property name="ElementShortName">current_state_in[2:0]</obj_property>
-      <obj_property name="ObjectShortName">current_state_in[2:0]</obj_property>
    </wvobject>
 </wave_config>
