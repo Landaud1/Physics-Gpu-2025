@@ -14,8 +14,8 @@ module display_gen(
     vid_time_counter vtc(
         .clk(clk),
         .reset(reset),
-        .adr_out(),
-        .valid_output()
+        .adr_out(adr_out),
+        .valid_output(valid_output)
     );
     
     // RGB2DVI Signals and instantiation

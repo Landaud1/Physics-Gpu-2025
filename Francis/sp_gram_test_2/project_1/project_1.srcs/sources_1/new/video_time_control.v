@@ -7,45 +7,40 @@ module vid_time_counter (
     output logic        valid_output
 );
 
+    // Signal Declarations for v_tc_0 outputs
+    logic vid_pHSync, vid_pVSync;
+    logic h_blank, v_blank;
+
     // VTC Instantiation
-    v_tc_0 vtc (
+    v_tc_0 vtc(
         .clk(clk),
         .clken(1'b1),
         .gen_clken(1'b1),
-        .resetn(~reset),    
-         
-        .active_video_out(valid_output),  
-        .hsync_out(vid_pHSync),           
-        .vsync_out(vid_pVSync),           
-        .hblank_out(hblank_out),          
-        .vblank_out(vblank_out)           
+        .resetn(~reset),
+        .active_video_out(valid_output),
+        .hsync_out(vid_pHSync),
+        .vsync_out(vid_pVSync),
+        .hblank_out(h_blank),
+        .vblank_out(v_blank)
     );
-
-    // Constants
-    parameter int X_BLANK_LEN = 1650;
-    parameter int Y_BLANK_WID = 750;
-    parameter int X_UNBLANKED_LEN = 1280;
-    parameter int Y_UNBLANKED_WID = 720;
-    parameter int FRAME_COUNT = 60;
-
+    
     // Pixel Counters
     logic [10:0] curr_x, curr_y;
     
-    always_ff @(posedge clk) begin
+    always_ff @(posedge clk or posedge reset) begin
         if (reset) begin
             curr_x <= 0;
             curr_y <= 0;
-        end else if (hblank_out) begin
-            curr_x <= 0;
-            if (vblank_out) begin
-                curr_y <= 0;
-            end else begin
-                curr_y <= curr_y + 1;
+        end else if (~h_blank) begin
+            // Increment X counter and wrap
+            curr_x <= (curr_x < 1279) ? curr_x + 1 : 0;
+            // Increment Y counter on X wrap
+            if (curr_x == 1279) begin
+                curr_y <= (curr_y < 719) ? curr_y + 1 : 0; // Wrap after 719
             end
-        end else begin
-            curr_x <= curr_x + 1;
         end
     end
+    
 
     // RAM Address
     assign adr_out = curr_x + ((curr_y * 5) << 8); // = curr_x + curr_y * 1280

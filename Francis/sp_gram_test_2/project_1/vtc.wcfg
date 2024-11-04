@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="dvi_constants" />
+            <top_module name="glbl" />
+            <top_module name="ipif_pkg" />
+            <top_module name="tb" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="1.684 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,001.684 ns"></ZoomEndTime>
+      <Cursor1Time time="20.202 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="261"></NameColumnWidth>
+      <ValueColumnWidth column_width="82"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="8" />
+   <wvobject type="logic" fp_name="/tb/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb/top_0/dg/vtc/valid_output">
+      <obj_property name="ElementShortName">valid_output</obj_property>
+      <obj_property name="ObjectShortName">valid_output</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb/top_0/dg/vtc/adr_out">
+      <obj_property name="ElementShortName">adr_out[19:0]</obj_property>
+      <obj_property name="ObjectShortName">adr_out[19:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb/top_0/dg/vtc/curr_x">
+      <obj_property name="ElementShortName">curr_x[10:0]</obj_property>
+      <obj_property name="ObjectShortName">curr_x[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb/top_0/dg/vtc/hblank_out">
+      <obj_property name="ElementShortName">hblank_out</obj_property>
+      <obj_property name="ObjectShortName">hblank_out</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb/top_0/dg/vtc/curr_y">
+      <obj_property name="ElementShortName">curr_y[10:0]</obj_property>
+      <obj_property name="ObjectShortName">curr_y[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb/top_0/dg/vtc/vblank_out">
+      <obj_property name="ElementShortName">vblank_out</obj_property>
+      <obj_property name="ObjectShortName">vblank_out</obj_property>
+   </wvobject>
+</wave_config>

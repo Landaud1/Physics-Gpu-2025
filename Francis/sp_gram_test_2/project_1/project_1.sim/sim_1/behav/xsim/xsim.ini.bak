@@ -488,3 +488,4 @@ dp_videoaxi4s_bridge_v1_0_3=$RDI_DATADIR/xsim/ip/dp_videoaxi4s_bridge_v1_0_3
 sid_v8_0_21=$RDI_DATADIR/xsim/ip/sid_v8_0_21
 blk_mem_gen_v8_3_7=$RDI_DATADIR/xsim/ip/blk_mem_gen_v8_3_7
 noc2_sc_v1_0_0=$RDI_DATADIR/xsim/ip/noc2_sc_v1_0_0
+xil_defaultlib=xsim.dir/xil_defaultlib
