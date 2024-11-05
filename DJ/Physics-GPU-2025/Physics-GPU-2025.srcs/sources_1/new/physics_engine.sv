@@ -72,14 +72,28 @@ module physics_engine(
     );
     
     // Sum calc: adds solved acceleration to running sum
-    logic [9:0] sum_ram_write_addr;
-    logic sum_ram_wea, sum_calc_valid;
-    logic [127:0] sum_ram_write_data, sum_ram_read_data, acc_ram_read_data, sum_calc_in;
+    logic [9:0] sum_calc_addr_out, sum_ram_write_addr;
+    logic sum_calc_valid_out, sum_ram_wea, sum_calc_valid;
+    logic [127:0] sum_calc_out, sum_ram_write_data, sum_ram_read_data, acc_ram_read_data, sum_calc_in;
     
     logic sum_calc_finished;
     always_ff @(posedge clk) begin
         if (sum_ram_write_addr == n_objectsm1) begin
             sum_calc_finished <= 1;
+        end
+    end
+    
+    // Input to sum ram is either sum calc out, or zero
+    logic sum_ram_clear;
+    always_comb begin
+        if (sum_ram_clear) begin
+            sum_ram_write_addr = i;
+            sum_ram_wea = 1;
+            sum_ram_write_data = 128'b0;
+        end else begin
+            sum_ram_write_addr = sum_calc_addr_out;
+            sum_ram_wea = sum_calc_valid_out;
+            sum_ram_write_data = sum_calc_out;
         end
     end
     
@@ -89,9 +103,9 @@ module physics_engine(
         .addr_in(i),
         .in_1(sum_ram_read_data),
         .in_2(sum_calc_in),
-        .valid_out(sum_ram_wea),
-        .addr_out(sum_ram_write_addr),
-        .result(sum_ram_write_data)
+        .valid_out(sum_calc_valid_out),
+        .addr_out(sum_calc_addr_out),
+        .result(sum_calc_out)
     );
     
     
@@ -157,6 +171,7 @@ module physics_engine(
             state <= 0;
             phys_calc_finished <= 0;
             sum_calc_finished <= 0;
+            sum_ram_clear <= 0;
         end else begin
             case (state)
             
@@ -333,19 +348,33 @@ module physics_engine(
                         ftf_valid <= 1;
                         // Write to state ram
                         sr_addr <= i;
-                        sr_write <= {x, y, sum_ram_read_data, mass, 192'b0};
-                        
+                        sr_write <= {sum_ram_read_data, vx, vy, mass, 192'b0};
                         i <= i + 1;
                         state <= 10;
                     end else begin
+                        i <= 0;
+                        sum_ram_clear <= 1;
                         ftf_valid <= 0;
                         state <= 11;
                     end
                 end
                 
                 
-                // State 11: all done. Wait for vsync
+                // State 11: Clear out sum ram
                 11: begin
+                    if (i < n_objects) begin
+                        i <= i + 1;
+                        state <= 11;
+                    end else begin
+                        i <= 0;
+                        sum_ram_clear <= 0;
+                        state <= 12;
+                    end
+                end
+                
+                
+                // State 12: all done. Wait for vsync
+                12: begin
                     if (vsync) begin
                         state <= 0;
                     end

@@ -1,26 +1,19 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 10/29/2024 07:39:21 PM
-// Design Name: 
-// Module Name: tb_phys_eng
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
-
-module tb_phys_eng(
-
+module tb_phys_eng();
+    
+    logic clk, vsync, reset;
+    logic [9:0] n_objects, sr_addr, pr_addr;
+    logic [511:0] sr_read. sr_write;
+    
+    
+    physics_engine pe(
+        .vsync(vsync),
+        .clk(clk),
+        .reset(reset),
+        
+        .n_objects(n_objects),
+        .sr_read(sr_read),
+        .sr_write(sr_write)
     );
 endmodule
