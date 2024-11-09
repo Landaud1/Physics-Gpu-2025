@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include "./initcons.c"
+
+int main(void){
+    struct display_object* object_list = initcons_list();
+    FILE *output_file = fopen( "state_ram_init.coe", "wb");
+
+    fprintf(output_file, "memory_initialization_radix=16;\nmemory_initialization_vector=\n");
+
+    for (int i = 0; i < n_objects; ++i){
+        // insert object data
+        fprintf(output_file, "%016lX", *((long *)(&object_list[i].x)));
+        fprintf(output_file, "%016lX", *((long *)(&object_list[i].y)));
+        fprintf(output_file, "%016lX", *((long *)(&object_list[i].vx)));
+        fprintf(output_file, "%016lX", *((long *)(&object_list[i].vy)));
+        fprintf(output_file, "%016lX", *((long *)(&object_list[i].mass)));
+
+        // Fill remainder of width with zeroes
+        for (int j = 0; j < 48; ++j){
+            fprintf(output_file, "0");
+        }
+        fprintf(output_file, ",\n");
+    }
+
+    // Fill remainder of depth with zeroes
+    for (int i = n_objects; i < 1023; ++i){
+        for (int j = 0; j < 128; ++j){
+            fprintf(output_file, "0");
+        }
+        fprintf(output_file, ",\n");
+    }
+
+    // Final line terminates
+    for (int j = 0; j < 128; ++j){
+        fprintf(output_file, "0");
+    }
+    fprintf(output_file, ";");
+
+    fclose(output_file);
+}
