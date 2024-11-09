@@ -1,12 +1,20 @@
+// This program is to generate .coe files used to initialize the state ram for the physics engine testbench
+// Access initcons.c to change initial conditions
+// Use Talha's matlab script to get simulated values to compare to
+
 #include <stdio.h>
 #include "./initcons.c"
 
 int main(void){
+
+    // Gather initial conditions
     struct display_object* object_list = initcons_list();
     FILE *output_file = fopen( "state_ram_init.coe", "wb");
 
+    // Create file
     fprintf(output_file, "memory_initialization_radix=16;\nmemory_initialization_vector=\n");
 
+    // Fill out memory slots for objects
     for (int i = 0; i < n_objects; ++i){
         // insert object data
         fprintf(output_file, "%016lX", *((long *)(&object_list[i].x)));
