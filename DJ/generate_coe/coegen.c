@@ -16,17 +16,18 @@ int main(void){
 
     // Fill out memory slots for objects
     for (int i = 0; i < n_objects; ++i){
-        // insert object data
-        fprintf(output_file, "%016lX", *((long *)(&object_list[i].x)));
-        fprintf(output_file, "%016lX", *((long *)(&object_list[i].y)));
-        fprintf(output_file, "%016lX", *((long *)(&object_list[i].vx)));
-        fprintf(output_file, "%016lX", *((long *)(&object_list[i].vy)));
-        fprintf(output_file, "%016lX", *((long *)(&object_list[i].mass)));
 
         // Fill remainder of width with zeroes
         for (int j = 0; j < 48; ++j){
             fprintf(output_file, "0");
         }
+
+        // insert object data
+        fprintf(output_file, "%016lX", *((long *)(&object_list[i].mass)));
+        fprintf(output_file, "%016lX", *((long *)(&object_list[i].vy)));
+        fprintf(output_file, "%016lX", *((long *)(&object_list[i].vx)));
+        fprintf(output_file, "%016lX", *((long *)(&object_list[i].y)));
+        fprintf(output_file, "%016lX", *((long *)(&object_list[i].x)));
         fprintf(output_file, ",\n");
     }
 
