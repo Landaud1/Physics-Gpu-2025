@@ -51,11 +51,6 @@ module hostif_test (
     assign current_state = current_state_in;  // Assign current state output
     assign next_state = next_state_in;         // Assign next state output
 
-    // Register, state RAM, and attribute RAM data and address assignments
-//    assign regs_data = out_data;
-//    assign state_ram_data = out_data;
-//    assign attribute_ram_data = out_data;
-
     assign regs_addr = out_addr;
     assign state_ram_addr = out_addr; // Flipped
     assign attribute_ram_addr = out_addr;

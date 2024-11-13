@@ -38,14 +38,13 @@ module hostif_test_tb();
         .state_ram_data(state_ram_data),
         .state_ram_addr(state_ram_addr),
         .state_ram_we(state_ram_we),
-     //   .state_ram_byte_enable(state_ram_byte_enable),
         .xfc(xfc),
         .xfc_p1(xfc_p1),
         .transfer(transfer),
         .current_state(current_state),
         .next_state(next_state),  // Connect current state for monitoring
         .out_data(out_data),
-        .out_addr(out_addr)
+        .out_addr(out_addr),
         .led(led)
         
     );
