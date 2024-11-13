@@ -22,6 +22,7 @@ module hostif_test_tb();
     logic [2:0] next_state;
     logic [31:0] out_data;
     logic [15:0] out_addr;
+    logic [7:0] led;
 
     // Instantiate the DUT (Device Under Test)
     hostif_test dut (
@@ -45,6 +46,8 @@ module hostif_test_tb();
         .next_state(next_state),  // Connect current state for monitoring
         .out_data(out_data),
         .out_addr(out_addr)
+        .led(led)
+        
     );
     
     // Clock generation

@@ -38,6 +38,8 @@ module hostif_test (
     output logic [31:0] out_data,         // Build this up 1 byte at a time
     output logic [15:0] out_addr,         // Build this up 1 byte at a time
     output logic out_we                    // Write enable for output
+    
+    output logic [7:0] led;
 );
 
     // Internal logic signals
@@ -161,5 +163,15 @@ always_ff @ (posedge clk100MHZ) begin
     end
 end
 
+
+
+
+logic [47:0] packed_data;  // 6 * 8 bits for all elements in hostif_psoc_data
+
+// Concatenate the unpacked array into a packed vector
+assign packed_data = {hostif_psoc_data[5], hostif_psoc_data[4], hostif_psoc_data[3], hostif_psoc_data[2], hostif_psoc_data[1], hostif_psoc_data[0]};
+
+// Assign selected bits from packed_data to led_out
+assign led = packed_data[7:0];  // Choose the lowest 8 bits, for example
 
 endmodule
