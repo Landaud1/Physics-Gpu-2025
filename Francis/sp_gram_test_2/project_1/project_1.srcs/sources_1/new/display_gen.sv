@@ -3,13 +3,21 @@
 module display_gen(
     input  logic        clk,
     input  logic        reset,
-    output              hdmi_tx_clk_p,  // Assigned by rgb2dvi
-    output              hdmi_tx_clk_n,  // Assigned by rgb2dvi
-    output [2:0]        hdmi_tx_p,      // Assigned by rgb2dvi
-    output [2:0]        hdmi_tx_n      // Assigned by rgb2dvi
+    input  logic        start_op
 );
+    // GRAM instantiation
+    logic [19:0] adr_read = '0;
+    logic [3:0] data_out = '0;
+    
+    graphic_ram gram(
+        .clk(clk),
+        .adr_read(adr_read),
+        .data_out(data_out)
+    );
     
     // VTC Signals and instantiation
+    
+    logic [19:0] adr_out = '0;
     
     vid_time_counter vtc(
         .clk(clk),
@@ -37,10 +45,17 @@ module display_gen(
         //.SerialClk  (SerialClk  )
     );
     
-    
+    logic [3:0] decode_me; 
     // Always comb block to assign rgb values to vid_pData (8 bits of rgb each) based on predefined parameter color values and GRAM output
     
     // Always ff block to read from GRAM on posedge clk based on valid_output
-    
+    always_ff @ (posedge clk or posedge reset) begin
+        if (reset) begin
+            adr_read <= '0;
+            decode_me <= '0;
+        end else if (start_op) begin
+            adr_read <= 20'b00000000000000000100;
+        end
+    end
     
 endmodule

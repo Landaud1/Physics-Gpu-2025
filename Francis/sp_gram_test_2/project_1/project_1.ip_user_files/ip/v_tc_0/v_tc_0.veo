@@ -57,42 +57,14 @@
 v_tc_0 your_instance_name (
   .clk(clk),                            // input wire clk
   .clken(clken),                        // input wire clken
-  .s_axi_aclk(s_axi_aclk),              // input wire s_axi_aclk
-  .s_axi_aclken(s_axi_aclken),          // input wire s_axi_aclken
-  .det_clken(det_clken),                // input wire det_clken
   .gen_clken(gen_clken),                // input wire gen_clken
   .sof_state(sof_state),                // input wire sof_state
-  .hsync_in(hsync_in),                  // input wire hsync_in
-  .hblank_in(hblank_in),                // input wire hblank_in
-  .vsync_in(vsync_in),                  // input wire vsync_in
-  .vblank_in(vblank_in),                // input wire vblank_in
-  .active_video_in(active_video_in),    // input wire active_video_in
   .hsync_out(hsync_out),                // output wire hsync_out
   .hblank_out(hblank_out),              // output wire hblank_out
   .vsync_out(vsync_out),                // output wire vsync_out
   .vblank_out(vblank_out),              // output wire vblank_out
   .active_video_out(active_video_out),  // output wire active_video_out
   .resetn(resetn),                      // input wire resetn
-  .s_axi_aresetn(s_axi_aresetn),        // input wire s_axi_aresetn
-  .s_axi_awaddr(s_axi_awaddr),          // input wire [8 : 0] s_axi_awaddr
-  .s_axi_awvalid(s_axi_awvalid),        // input wire s_axi_awvalid
-  .s_axi_awready(s_axi_awready),        // output wire s_axi_awready
-  .s_axi_wdata(s_axi_wdata),            // input wire [31 : 0] s_axi_wdata
-  .s_axi_wstrb(s_axi_wstrb),            // input wire [3 : 0] s_axi_wstrb
-  .s_axi_wvalid(s_axi_wvalid),          // input wire s_axi_wvalid
-  .s_axi_wready(s_axi_wready),          // output wire s_axi_wready
-  .s_axi_bresp(s_axi_bresp),            // output wire [1 : 0] s_axi_bresp
-  .s_axi_bvalid(s_axi_bvalid),          // output wire s_axi_bvalid
-  .s_axi_bready(s_axi_bready),          // input wire s_axi_bready
-  .s_axi_araddr(s_axi_araddr),          // input wire [8 : 0] s_axi_araddr
-  .s_axi_arvalid(s_axi_arvalid),        // input wire s_axi_arvalid
-  .s_axi_arready(s_axi_arready),        // output wire s_axi_arready
-  .s_axi_rdata(s_axi_rdata),            // output wire [31 : 0] s_axi_rdata
-  .s_axi_rresp(s_axi_rresp),            // output wire [1 : 0] s_axi_rresp
-  .s_axi_rvalid(s_axi_rvalid),          // output wire s_axi_rvalid
-  .s_axi_rready(s_axi_rready),          // input wire s_axi_rready
-  .irq(irq),                            // output wire irq
-  .fsync_in(fsync_in),                  // input wire fsync_in
   .fsync_out(fsync_out)                // output wire [0 : 0] fsync_out
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------

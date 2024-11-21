@@ -16,11 +16,9 @@ module shape_engine_test(
     
     gram gram(
         .clka(clk),
-        .wea(write_enable),
         .addra(address_write),
         .dina(data_in),
         .clkb(clk),
-        .enb(read_enable),
         .addrb(address_read),
         .doutb(data_out)
     );

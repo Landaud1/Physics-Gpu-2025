@@ -1,7 +1,7 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
 "../../../../sp_gram_test_1.gen/sources_1/ip/simple_33_x_10_ABRAM/sim/simple_33_x_10_ABRAM.v" \
-"../../../../sp_gram_test_1.gen/sources_1/ip/gram/sim/gram.v" \
+"../../../../sp_gram_test_1.gen/sources_1/ip/gram_1/sim/gram.v" \
 
 sv xil_defaultlib  \
 "../../../../sp_gram_test_1.srcs/sources_1/new/blank_fill_test.sv" \

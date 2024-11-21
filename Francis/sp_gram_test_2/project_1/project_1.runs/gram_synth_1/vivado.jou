@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Tue Oct 29 11:28:28 2024
-# Process ID: 948317
+# Start of session at: Thu Nov 21 14:43:27 2024
+# Process ID: 563126
 # Current directory: /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_1/project_1.runs/gram_synth_1
 # Command line: vivado -log gram.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source gram.tcl
 # Log file: /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_1/project_1.runs/gram_synth_1/gram.vds
@@ -13,12 +13,12 @@
 # Platform          :Ubuntu
 # Operating System  :Ubuntu 22.04.4 LTS
 # Processor Detail  :Intel(R) Xeon(R) CPU E5-2683 v4 @ 2.10GHz
-# CPU Frequency     :1197.576 MHz
+# CPU Frequency     :1197.321 MHz
 # CPU Physical cores:32
 # CPU Logical cores :64
 # Host memory       :135063 MB
 # Swap memory       :2147 MB
 # Total Virtual     :137211 MB
-# Available Virtual :104669 MB
+# Available Virtual :103204 MB
 #-----------------------------------------------------------
 source gram.tcl -notrace

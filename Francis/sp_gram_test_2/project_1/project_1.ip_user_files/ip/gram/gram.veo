@@ -60,7 +60,6 @@ gram your_instance_name (
   .addra(addra),  // input wire [19 : 0] addra
   .dina(dina),    // input wire [3 : 0] dina
   .clkb(clkb),    // input wire clkb
-  .enb(enb),      // input wire enb
   .addrb(addrb),  // input wire [19 : 0] addrb
   .doutb(doutb)  // output wire [3 : 0] doutb
 );
