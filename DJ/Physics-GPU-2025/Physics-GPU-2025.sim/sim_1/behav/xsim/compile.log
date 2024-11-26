@@ -1,0 +1,19 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/landaud1/other/Senior_proj/Physics-Gpu-2025/DJ/Physics-GPU-2025/Physics-GPU-2025.gen/sources_1/ip/position_ram/sim/position_ram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module position_ram
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/landaud1/other/Senior_proj/Physics-Gpu-2025/DJ/Physics-GPU-2025/Physics-GPU-2025.gen/sources_1/ip/state_ram/sim/state_ram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module state_ram
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/landaud1/other/Senior_proj/Physics-Gpu-2025/DJ/Physics-GPU-2025/Physics-GPU-2025.gen/sources_1/ip/pe_ram/sim/pe_ram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pe_ram
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/landaud1/other/Senior_proj/Physics-Gpu-2025/DJ/Physics-GPU-2025/Physics-GPU-2025.gen/sources_1/ip/float_to_fixed/sim/float_to_fixed.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module float_to_fixed
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/landaud1/other/Senior_proj/Physics-Gpu-2025/DJ/Physics-GPU-2025/Physics-GPU-2025.srcs/sources_1/new/delay_10_7.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module delay_10_7
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/landaud1/other/Senior_proj/Physics-Gpu-2025/DJ/Physics-GPU-2025/Physics-GPU-2025.srcs/sources_1/new/delay_11_15.sv" into library xil_defaultlib
+WARNING: [VRFC 10-9157] macro 'PIPE_LEN' is redefined [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/DJ/Physics-GPU-2025/Physics-GPU-2025.srcs/sources_1/new/delay_11_15.sv:1]
+INFO: [VRFC 10-311] analyzing module delay_11_15
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/landaud1/other/Senior_proj/Physics-Gpu-2025/DJ/Physics-GPU-2025/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module physics_engine
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/landaud1/other/Senior_proj/Physics-Gpu-2025/DJ/Physics-GPU-2025/Physics-GPU-2025.srcs/sources_1/new/sum_calc.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sum_calc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/landaud1/other/Senior_proj/Physics-Gpu-2025/DJ/Physics-GPU-2025/Physics-GPU-2025.srcs/sources_1/new/tb_phys_eng.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_phys_eng

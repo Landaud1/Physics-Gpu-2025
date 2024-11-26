@@ -7,6 +7,28 @@ module tb_phys_eng();
     logic [511:0] sr_read, sr_write;
     logic [20:0] pr_write;
     
+    assign n_objects = 3;
+    
+    
+    logic [127:0] cycle_count;
+    initial begin
+        vsync = 0;
+        cycle_count = 0;
+        clk = 0;
+        while(1) begin
+            #5
+            clk = ~clk;
+            cycle_count = cycle_count + 1;
+            #5
+            clk = ~clk;
+        end
+    end
+    
+    initial begin
+        reset = 1;
+        #47
+        reset = 0;
+    end
     
     physics_engine pe(
         .vsync(vsync),
@@ -29,7 +51,7 @@ module tb_phys_eng();
         .addrb(sr_addr),
         
         //.dina(SRA_WRITE_DATA),
-        .dinb(dr_write),
+        .dinb(sr_write),
         
         //.douta(SRA_READ_DATA),
         .doutb(sr_read),

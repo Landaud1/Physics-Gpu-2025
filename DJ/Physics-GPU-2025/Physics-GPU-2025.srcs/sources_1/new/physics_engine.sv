@@ -18,7 +18,9 @@ module physics_engine(
     output logic pr_wen
     );
     
-    logic [9:0] i, j;
+    logic [9:0] i, objmax;
+    
+    assign objmax = n_objects - 1;
     
     // Basic object data from state ram
     logic [63:0] x, y, vx, vy, mass;
@@ -28,6 +30,8 @@ module physics_engine(
     assign vx    = sr_read[191:128];
     assign vy    = sr_read[255:192];
     assign mass  = sr_read[319:256];
+    
+    assign sr_addr = i;
     
     // Physics Calculator: calculates force from object j exerted on onbect i
     logic [63:0] x_i, pre_x_j, x_j, y_i, pre_y_j, y_j, m_i, a_x, a_y;
@@ -44,14 +48,9 @@ module physics_engine(
     
     // phys_calc_finished is to signal that physics calc is done writing, and FSM can start reading for the sum
     logic phys_calc_finished;
-    logic [9:0] n_objectsm1;
-    
-    always_comb begin
-        n_objectsm1 = n_objects - 1;
-    end
     
     always_ff @(posedge clk) begin
-        if (acc_write_addr == n_objectsm1) begin
+        if ((acc_wea) & (acc_write_addr == objmax)) begin
             phys_calc_finished <= 1;
         end
     end
@@ -78,7 +77,7 @@ module physics_engine(
     
     logic sum_calc_finished;
     always_ff @(posedge clk) begin
-        if (sum_ram_write_addr == n_objectsm1) begin
+        if (sum_calc_valid_out & (sum_ram_write_addr == objmax)) begin
             sum_calc_finished <= 1;
         end
     end
@@ -105,7 +104,7 @@ module physics_engine(
         .in_2(sum_calc_in),
         .valid_out(sum_calc_valid_out),
         .addr_out(sum_calc_addr_out),
-        .result(sum_calc_out)
+        .result_out(sum_calc_out)
     );
     
     
@@ -163,28 +162,32 @@ module physics_engine(
     
     
     // Finite State Machine
-    logic [3:0] state;
+    logic [3:0] state, next_state;
+    logic [9:0] obj_1, obj_2, next_i;
     always @(posedge clk) begin
         if (reset) begin
-            i <= 0;
-            j <= 0;
+            i <= 0; // Initialized to same value as obj_1
+            obj_1 <= 0;
+            obj_2 <= 0;
             state <= 0;
             phys_calc_finished <= 0;
             sum_calc_finished <= 0;
             sum_ram_clear <= 0;
+            sr_wen <= 0;
         end else begin
             case (state)
             
             
-                // State 0: Give j to calc
+                // State 0: Give obj_1 to calc
                 0: begin
-                    // Give j data to calc
-                    sr_addr <= j;
+                    // Give obj_1 data to calc
                     pre_x_j <= x;
                     pre_y_j <= y;
                     // don't run yet
                     phys_calc_valid <= 0;
                     sum_calc_valid <= 0;
+                    // Prep obj_2 for next cycle
+                    i <= obj_1;
                     // next state is always 1
                     state <= 1;
                 end
@@ -192,13 +195,12 @@ module physics_engine(
                 
                 // State 1: Give i to calc, iterate i.
                 1: begin
-                    // give i data to calc
-                    sr_addr <= i;
+                    // give obj_2 data to calc
                     x_i <= x;
                     y_i <= y;
                     
                     // Result should be 0 if they are the same
-                    if (i == j) begin
+                    if (obj_1 == obj_2) begin
                         m_i <= 0; //may end up giving 0/0 error? I think i fixed it in the calculator with the reciprocal modules
                     end else begin
                         m_i <= mass;
@@ -206,14 +208,17 @@ module physics_engine(
                     
                     // put result in i address of acceleration ram
                     phys_calc_valid <= 1;
-                    phys_calc_addr <= i;
+                    phys_calc_addr <= obj_2;
 
-                    if (i < n_objects) begin
-                        // There's still i's left to  calculate
-                        i <= i + 1;
+                    if (obj_2 < objmax) begin
+                        // There's still obj_2's left to  calculatea
+                        // Next cycle is an obj_1
+                        i <= obj_2 + 1;
+                        // Iterate obj_2
+                        obj_2 <= obj_2 + 1;
                         state <= 0;
                     end else begin
-                        // All i's have been completed, time to contribute to the sums
+                        // All obj_2's have been completed, time to contribute to the sums
                         state <= 2;
                     end
                 end
@@ -221,10 +226,11 @@ module physics_engine(
                 
                 // State 2: Wait until physics calc is done doing it's thing
                 2: begin
+                    phys_calc_valid <= 0;
                     if (phys_calc_finished) begin
                         // Run first sum calc for i = 0
                         phys_calc_finished <= 0;
-                        i <= 0;
+                        obj_2 <= 0;
                         sum_calc_valid <= 1;
                         sum_calc_in <= acc_ram_read_data;
                         state <= 3;
@@ -236,22 +242,27 @@ module physics_engine(
                 
                 // State 3: Add calculated a_x and a_ys to their respective sums.
                 3: begin
-                    if (i < n_objects) begin
-                        // Still i's left to sum, iterate and run state again.
+                    if (i < objmax) begin
+                        // Still obj_2's left to sum, iterate and run state again.
                         sum_calc_valid <= 1;
                         sum_calc_in <= acc_ram_read_data;
                         i <= i+1;
                         state <= 3;
-                    end else if (j < n_objects) begin
-                        // all i's are used up, but there are still j's. iterate j and run it back
+                    end else if (obj_1 < objmax) begin
+                        // all obj_2's are used up, but there are still obj_1's. iterate obj_1 and run it back
                         sum_calc_valid <= 0;
-                        i <= 0;
-                        j <= j + 1;
-                        state <= 0;
+                        obj_2 <= 0;
+                        obj_1 <= obj_1 + 1;
+                        // Obj_1 is up next, but iterate now b/c it's not ready yet
+                        i <= obj_1 + 1;
+                        next_state <= 0;
+                        next_i <= obj_2;
+                        state <= 13;
                     end else begin
                         // All objects are done calculating, let's record the new information.
                         sum_calc_valid <= 0;
-                        j <= 0;
+                        obj_1 <= 0;
+                        obj_2 <= 0;
                         i <= 0;
                         state <= 4;
                     end
@@ -276,7 +287,7 @@ module physics_engine(
                 
                 // State 5: add solved sums to current velocities
                 5: begin
-                    if (i < n_objects) begin
+                    if (i < objmax) begin
                         sum_calc_valid <= 1;
                         sr_addr <= i;
                         i <= i + 1;
@@ -303,12 +314,14 @@ module physics_engine(
                 
                 // State 7: Load new velocities to state ram
                 7: begin
-                    if (i < n_objects) begin
+                    if (i < objmax) begin
                         sr_addr <= i;
-                        sr_write <= {x, y, sum_ram_read_data, mass, 192'b0};
+                        sr_write <= {192'b0, mass, sum_ram_read_data[63:0], sum_ram_read_data[127:64], y, x};
                         sr_wen <= 1;
                         state <= 7;
+                        i <= i + 1;
                     end else begin
+                        i <= 0;
                         sr_wen <= 0;
                         state <= 8;
                     end
@@ -317,7 +330,7 @@ module physics_engine(
                 
                 // State 8: Add solved velocities to positions
                 8: begin
-                    if (i < n_objects) begin
+                    if (i < objmax) begin
                         sum_calc_valid <= 1;
                         sr_addr <= i;
                         i <= i + 1;
@@ -343,12 +356,12 @@ module physics_engine(
                 
                 // State 10: Write new positions to state ram and position ram
                 10: begin
-                    if (i < n_objects) begin
+                    if (i < objmax) begin
                         // Write to position ram
                         ftf_valid <= 1;
                         // Write to state ram
                         sr_addr <= i;
-                        sr_write <= {sum_ram_read_data, vx, vy, mass, 192'b0};
+                        sr_write <= {192'b0, mass, vy, vx, sum_ram_read_data[63:0], sum_ram_read_data[127:64]};
                         i <= i + 1;
                         state <= 10;
                     end else begin
@@ -362,7 +375,7 @@ module physics_engine(
                 
                 // State 11: Clear out sum ram
                 11: begin
-                    if (i < n_objects) begin
+                    if (i < objmax) begin
                         i <= i + 1;
                         state <= 11;
                     end else begin
@@ -378,6 +391,13 @@ module physics_engine(
                     if (vsync) begin
                         state <= 0;
                     end
+                end
+                
+                
+                // State 13: Gap cycle for rams
+                13: begin
+                    state <= next_state;
+                    i <= next_i;
                 end
             endcase
         end
