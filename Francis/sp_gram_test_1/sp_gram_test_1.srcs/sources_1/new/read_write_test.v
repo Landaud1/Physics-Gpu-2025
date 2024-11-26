@@ -32,11 +32,10 @@ module read_write_test(
 
     gram gram(
         .clka(clk),
-        .wea(write_enable),
+        .wea(write_enable), // for some reason this is the key to reading from mem
         .addra(address_write),
         .dina(data_in),
         .clkb(clk),
-        .enb(read_enable),
         .addrb(address_read),
         .doutb(data_out)
     );
@@ -70,10 +69,9 @@ module read_write_test(
                     read_enable <= 1'b1;
                     address_read <= 20'b00000000000000001111;  
                     state <= 4'h6;
+                    output_data <= data_out;
                 end
-                6: begin
-                    output_data = data_out;
-                    end
+                6: begin end
             endcase
         end
     end

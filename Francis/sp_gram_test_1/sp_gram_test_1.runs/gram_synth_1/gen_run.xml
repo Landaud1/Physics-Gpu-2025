@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="gram_synth_1" LaunchPart="xc7a200tisbg484-1L" LaunchTime="1726689449">
+<GenRun Id="gram_synth_1" LaunchPart="xc7a200tisbg484-1L" LaunchTime="1732142023">
+  <File Type="VDS-TIMING-PB" Name="gram_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="gram_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="gram.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="gram_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="gram_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="gram_drc_synth.rpt"/>
   <File Type="RDS-RDS" Name="gram.vds"/>
   <File Type="REPORTS-TCL" Name="gram_reports.tcl"/>
   <File Type="PA-TCL" Name="gram.tcl"/>
-  <File Type="RDS-DCP" Name="gram.dcp"/>
-  <File Type="RDS-UTIL" Name="gram_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="gram_utilization_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/gram" RelGenDir="$PGENDIR/gram">
-    <File Path="$PSRCDIR/sources_1/ip/gram/gram.xci">
+    <File Path="$PSRCDIR/sources_1/ip/gram_1/gram.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -20,7 +23,7 @@
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/gram" RelGenDir="$PGENDIR/gram">
-    <File Path="$PSRCDIR/sources_1/ip/gram/gram.xci">
+    <File Path="$PSRCDIR/sources_1/ip/gram_1/gram.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -34,12 +37,22 @@
   </FileSet>
   <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
     <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/testbench.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

@@ -15,6 +15,7 @@ vmap v_tc_v6_2_8 riviera/v_tc_v6_2_8
 vmap xil_defaultlib riviera/xil_defaultlib
 
 vlog -work xpm  -incr -l xpm -l axi_lite_ipif_v3_0_4 -l v_tc_v6_2_8 -l xil_defaultlib \
+"/tools/Vivado/2024.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
 "/tools/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
 vcom -work xpm -93  -incr \
@@ -28,7 +29,6 @@ vcom -work v_tc_v6_2_8 -93  -incr \
 
 vcom -work xil_defaultlib -93  -incr \
 "../../../../project_1.gen/sources_1/ip/v_tc_0/sim/v_tc_0.vhd" \
-
 
 vlog -work xil_defaultlib \
 "glbl.v"

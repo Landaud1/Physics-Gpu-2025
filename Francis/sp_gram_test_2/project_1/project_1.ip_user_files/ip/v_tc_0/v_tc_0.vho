@@ -55,42 +55,14 @@ COMPONENT v_tc_0
   PORT (
     clk : IN STD_LOGIC;
     clken : IN STD_LOGIC;
-    s_axi_aclk : IN STD_LOGIC;
-    s_axi_aclken : IN STD_LOGIC;
-    det_clken : IN STD_LOGIC;
     gen_clken : IN STD_LOGIC;
     sof_state : IN STD_LOGIC;
-    hsync_in : IN STD_LOGIC;
-    hblank_in : IN STD_LOGIC;
-    vsync_in : IN STD_LOGIC;
-    vblank_in : IN STD_LOGIC;
-    active_video_in : IN STD_LOGIC;
     hsync_out : OUT STD_LOGIC;
     hblank_out : OUT STD_LOGIC;
     vsync_out : OUT STD_LOGIC;
     vblank_out : OUT STD_LOGIC;
     active_video_out : OUT STD_LOGIC;
     resetn : IN STD_LOGIC;
-    s_axi_aresetn : IN STD_LOGIC;
-    s_axi_awaddr : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
-    s_axi_awvalid : IN STD_LOGIC;
-    s_axi_awready : OUT STD_LOGIC;
-    s_axi_wdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    s_axi_wstrb : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-    s_axi_wvalid : IN STD_LOGIC;
-    s_axi_wready : OUT STD_LOGIC;
-    s_axi_bresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-    s_axi_bvalid : OUT STD_LOGIC;
-    s_axi_bready : IN STD_LOGIC;
-    s_axi_araddr : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
-    s_axi_arvalid : IN STD_LOGIC;
-    s_axi_arready : OUT STD_LOGIC;
-    s_axi_rdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-    s_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-    s_axi_rvalid : OUT STD_LOGIC;
-    s_axi_rready : IN STD_LOGIC;
-    irq : OUT STD_LOGIC;
-    fsync_in : IN STD_LOGIC;
     fsync_out : OUT STD_LOGIC_VECTOR(0 DOWNTO 0) 
   );
 END COMPONENT;
@@ -104,42 +76,14 @@ your_instance_name : v_tc_0
   PORT MAP (
     clk => clk,
     clken => clken,
-    s_axi_aclk => s_axi_aclk,
-    s_axi_aclken => s_axi_aclken,
-    det_clken => det_clken,
     gen_clken => gen_clken,
     sof_state => sof_state,
-    hsync_in => hsync_in,
-    hblank_in => hblank_in,
-    vsync_in => vsync_in,
-    vblank_in => vblank_in,
-    active_video_in => active_video_in,
     hsync_out => hsync_out,
     hblank_out => hblank_out,
     vsync_out => vsync_out,
     vblank_out => vblank_out,
     active_video_out => active_video_out,
     resetn => resetn,
-    s_axi_aresetn => s_axi_aresetn,
-    s_axi_awaddr => s_axi_awaddr,
-    s_axi_awvalid => s_axi_awvalid,
-    s_axi_awready => s_axi_awready,
-    s_axi_wdata => s_axi_wdata,
-    s_axi_wstrb => s_axi_wstrb,
-    s_axi_wvalid => s_axi_wvalid,
-    s_axi_wready => s_axi_wready,
-    s_axi_bresp => s_axi_bresp,
-    s_axi_bvalid => s_axi_bvalid,
-    s_axi_bready => s_axi_bready,
-    s_axi_araddr => s_axi_araddr,
-    s_axi_arvalid => s_axi_arvalid,
-    s_axi_arready => s_axi_arready,
-    s_axi_rdata => s_axi_rdata,
-    s_axi_rresp => s_axi_rresp,
-    s_axi_rvalid => s_axi_rvalid,
-    s_axi_rready => s_axi_rready,
-    irq => irq,
-    fsync_in => fsync_in,
     fsync_out => fsync_out
   );
 -- INST_TAG_END ------ End INSTANTIATION Template ---------

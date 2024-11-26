@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "H:/Senior Project/sp_gram_test_1/sp_gram_test_1.runs/gram_synth_1/gram.tcl"
+  variable script "/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.runs/gram_synth_1/gram.tcl"
   variable category "vivado_synth"
 }
 
@@ -65,17 +65,17 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.cache/wt} [current_project]
-set_property parent.project_path {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.xpr} [current_project]
+set_property webtalk.parent_dir /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.cache/wt [current_project]
+set_property parent.project_path /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.xpr [current_project]
 set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo {h:/Senior Project/sp_gram_test_1/sp_gram_test_1.cache/ip} [current_project]
+set_property ip_output_repo /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_ip -quiet {{H:/Senior Project/sp_gram_test_1/sp_gram_test_1.srcs/sources_1/ip/gram/gram.xci}}
-set_property used_in_implementation false [get_files -all {{h:/Senior Project/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram/gram_ooc.xdc}}]
+read_ip -quiet /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.srcs/sources_1/ip/gram_1/gram.xci
+set_property used_in_implementation false [get_files -all /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram_1/gram_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -91,7 +91,7 @@ set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 OPTRACE "Configure IP Cache" START { }
 
-set cacheID [config_ip_cache -export -no_bom  -dir {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.runs/gram_synth_1} -new_name gram -ip [get_ips gram]]
+set cacheID [config_ip_cache -export -no_bom  -dir /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.runs/gram_synth_1 -new_name gram -ip [get_ips gram]]
 
 OPTRACE "Configure IP Cache" END { }
 if { $cacheID == "" } {
@@ -146,32 +146,32 @@ generate_parallel_reports -reports { "report_utilization -file gram_utilization_
 OPTRACE "synth reports" END { }
 
 if { [catch {
-  file copy -force {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.runs/gram_synth_1/gram.dcp} {h:/Senior Project/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram/gram.dcp}
+  file copy -force /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.runs/gram_synth_1/gram.dcp /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram_1/gram.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 status "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub {h:/Senior Project/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram/gram_stub.v}
+  write_verilog -force -mode synth_stub /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram_1/gram_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub {h:/Senior Project/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram/gram_stub.vhdl}
+  write_vhdl -force -mode synth_stub /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram_1/gram_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim {h:/Senior Project/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram/gram_sim_netlist.v}
+  write_verilog -force -mode funcsim /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram_1/gram_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim {h:/Senior Project/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram/gram_sim_netlist.vhdl}
+  write_vhdl -force -mode funcsim /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram_1/gram_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -181,32 +181,32 @@ if { [catch {
 
 
 if { [catch {
-  file copy -force {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.runs/gram_synth_1/gram.dcp} {h:/Senior Project/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram/gram.dcp}
+  file copy -force /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.runs/gram_synth_1/gram.dcp /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram_1/gram.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 status "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  file rename -force {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.runs/gram_synth_1/gram_stub.v} {h:/Senior Project/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram/gram_stub.v}
+  file rename -force /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.runs/gram_synth_1/gram_stub.v /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram_1/gram_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.runs/gram_synth_1/gram_stub.vhdl} {h:/Senior Project/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram/gram_stub.vhdl}
+  file rename -force /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.runs/gram_synth_1/gram_stub.vhdl /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram_1/gram_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.runs/gram_synth_1/gram_sim_netlist.v} {h:/Senior Project/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram/gram_sim_netlist.v}
+  file rename -force /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.runs/gram_synth_1/gram_sim_netlist.v /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram_1/gram_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.runs/gram_synth_1/gram_sim_netlist.vhdl} {h:/Senior Project/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram/gram_sim_netlist.vhdl}
+  file rename -force /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.runs/gram_synth_1/gram_sim_netlist.vhdl /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram_1/gram_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -214,15 +214,15 @@ if { [catch {
 close [open .end.used_ip_cache.rst w]
 }; # end if cacheID 
 
-if {[file isdir {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.ip_user_files/ip/gram}]} {
+if {[file isdir /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.ip_user_files/ip/gram]} {
   catch { 
-    file copy -force {{h:/Senior Project/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram/gram_stub.v}} {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.ip_user_files/ip/gram}
+    file copy -force /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram_1/gram_stub.v /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.ip_user_files/ip/gram
   }
 }
 
-if {[file isdir {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.ip_user_files/ip/gram}]} {
+if {[file isdir /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.ip_user_files/ip/gram]} {
   catch { 
-    file copy -force {{h:/Senior Project/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram/gram_stub.vhdl}} {H:/Senior Project/sp_gram_test_1/sp_gram_test_1.ip_user_files/ip/gram}
+    file copy -force /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.gen/sources_1/ip/gram_1/gram_stub.vhdl /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_1/sp_gram_test_1.ip_user_files/ip/gram
   }
 }
 file delete __synthesis_is_running__

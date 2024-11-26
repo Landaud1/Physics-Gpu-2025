@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="testbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="688.001 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="221"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="6" />
+   <wvobject type="logic" fp_name="/testbench/rwt/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/rwt/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/rwt/state">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/rwt/output_data">
+      <obj_property name="ElementShortName">output_data[3:0]</obj_property>
+      <obj_property name="ObjectShortName">output_data[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group62">
+      <obj_property name="label">GRAM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/testbench/rwt/write_enable">
+         <obj_property name="ElementShortName">write_enable[0:0]</obj_property>
+         <obj_property name="ObjectShortName">write_enable[0:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/rwt/read_enable">
+         <obj_property name="ElementShortName">read_enable[0:0]</obj_property>
+         <obj_property name="ObjectShortName">read_enable[0:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/rwt/address_write">
+         <obj_property name="ElementShortName">address_write[19:0]</obj_property>
+         <obj_property name="ObjectShortName">address_write[19:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/rwt/address_read">
+         <obj_property name="ElementShortName">address_read[19:0]</obj_property>
+         <obj_property name="ObjectShortName">address_read[19:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/rwt/data_in">
+         <obj_property name="ElementShortName">data_in[3:0]</obj_property>
+         <obj_property name="ObjectShortName">data_in[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/rwt/data_out">
+         <obj_property name="ElementShortName">data_out[3:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out[3:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group261">
+      <obj_property name="label">New Group 24</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/testbench/rwt/gram/clka">
+         <obj_property name="ElementShortName">clka</obj_property>
+         <obj_property name="ObjectShortName">clka</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/rwt/gram/ena">
+         <obj_property name="ElementShortName">ena</obj_property>
+         <obj_property name="ObjectShortName">ena</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/rwt/gram/wea">
+         <obj_property name="ElementShortName">wea[0:0]</obj_property>
+         <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/rwt/gram/addra">
+         <obj_property name="ElementShortName">addra[19:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[19:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/rwt/gram/dina">
+         <obj_property name="ElementShortName">dina[3:0]</obj_property>
+         <obj_property name="ObjectShortName">dina[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/rwt/gram/clkb">
+         <obj_property name="ElementShortName">clkb</obj_property>
+         <obj_property name="ObjectShortName">clkb</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/rwt/gram/addrb">
+         <obj_property name="ElementShortName">addrb[19:0]</obj_property>
+         <obj_property name="ObjectShortName">addrb[19:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/rwt/gram/doutb">
+         <obj_property name="ElementShortName">doutb[3:0]</obj_property>
+         <obj_property name="ObjectShortName">doutb[3:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

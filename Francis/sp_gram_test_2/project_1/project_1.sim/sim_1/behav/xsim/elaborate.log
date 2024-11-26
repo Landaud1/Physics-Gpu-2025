@@ -5,10 +5,8 @@ Running: /tools/Vivado/2024.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-9380] size mismatch in mixed-language port association of VHDL port 'vid_pdata' [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_1/project_1.srcs/sources_1/new/display_gen.sv:23]
-WARNING: [VRFC 10-9543] actual bit length 1 differs from formal bit length 20 for port 'adr_out' [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_1/project_1.srcs/sources_1/new/display_gen.sv:17]
-WARNING: [VRFC 10-5021] port 'reset' is not connected on this instance [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_1/project_1.srcs/sources_1/new/testbench_0.sv:15]
-WARNING: [VRFC 10-5021] port 's_axi_awready' is not connected on this instance [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_1/project_1.srcs/sources_1/new/video_time_control.v:15]
+WARNING: [VRFC 10-9380] size mismatch in mixed-language port association of VHDL port 'tmds_data_p' [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_1/project_1.srcs/sources_1/new/display_gen.sv:31]
+WARNING: [VRFC 10-5021] port 'fsync_out' is not connected on this instance [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_1/project_1.srcs/sources_1/new/video_time_control.v:15]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -24,42 +22,23 @@ Compiling package v_tc_v6_2_8.video_ctrl_pkg
 Compiling package xpm.vcomponents
 Compiling package v_tc_v6_2_8.hwt_pkg
 Compiling package axi_lite_ipif_v3_0_4.ipif_pkg
-Compiling package synopsys.attributes
-Compiling package ieee.std_logic_misc
 Compiling package unisim.vcomponents
 Compiling package ieee.vital_timing
 Compiling package ieee.vital_primitives
 Compiling package unisim.vpkg
 Compiling package xil_defaultlib.dvi_constants
-Compiling module unisims_ver.IBUF
-Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=37.12...
-Compiling module unisims_ver.BUFG
-Compiling module xil_defaultlib.clk_wiz_0_clk_wiz
-Compiling module xil_defaultlib.clk_wiz_0
-Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_output_stage(...
 Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_output_stage(...
 Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_softecc_outpu...
 Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_8.blk_mem_axi_regs_fwd_v8_4(C_DATA...
 Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8(C_FAMILY="art...
 Compiling module xil_defaultlib.gram
 Compiling module xil_defaultlib.graphic_ram
 Compiling module xil_defaultlib.flood_mem
 Compiling module xpm.xpm_cdc_single(DEST_SYNC_FF=2,IN...
-Compiling architecture imp of entity axi_lite_ipif_v3_0_4.pselect_f [\pselect_f(c_ab=2,c_aw=9,c_bar="...]
-Compiling architecture imp of entity axi_lite_ipif_v3_0_4.pselect_f [\pselect_f(c_ab=1,c_aw=9,c_bar="...]
-Compiling architecture imp of entity axi_lite_ipif_v3_0_4.address_decoder [\address_decoder(c_bus_awidth=9,...]
-Compiling architecture imp of entity axi_lite_ipif_v3_0_4.slave_attachment [\slave_attachment(c_ard_addr_ran...]
-Compiling architecture imp of entity axi_lite_ipif_v3_0_4.axi_lite_ipif [\axi_lite_ipif(c_s_axi_addr_widt...]
-Compiling architecture rtl of entity v_tc_v6_2_8.video_clock_cross [\video_clock_cross(c_data_width=...]
-Compiling architecture rtl of entity v_tc_v6_2_8.video_clock_cross [\video_clock_cross(c_data_width=...]
-Compiling architecture rtl of entity v_tc_v6_2_8.mux_tree [\mux_tree(register_sel=18724,inp...]
-Compiling architecture rtl of entity v_tc_v6_2_8.mux_tree [\mux_tree(register_sel=18724,inp...]
 Compiling architecture rtl of entity v_tc_v6_2_8.video_ctrl [\video_ctrl(c_family="virtex5",c...]
-Compiling architecture rtl of entity v_tc_v6_2_8.tc_detector [\tc_detector(c_max_pixels=4096,c...]
 Compiling architecture rtl of entity v_tc_v6_2_8.tc_generator [\tc_generator(c_max_pixels=4096,...]
-Compiling architecture rtl of entity v_tc_v6_2_8.tc_top [\tc_top(c_det_achroma_en=0,c_gen...]
-Compiling architecture imp of entity v_tc_v6_2_8.v_tc [\v_tc(c_gen_video_format=2,c_gen...]
+Compiling architecture rtl of entity v_tc_v6_2_8.tc_top [\tc_top(c_detect_en=0,c_det_achr...]
+Compiling architecture imp of entity v_tc_v6_2_8.v_tc [\v_tc(c_has_axi4_lite=0,c_gen_vi...]
 Compiling architecture v_tc_0_arch of entity xil_defaultlib.v_tc_0 [v_tc_0_default]
 Compiling module xil_defaultlib.vid_time_counter
 Compiling architecture plle2_adv_v of entity unisim.PLLE2_ADV [\PLLE2_ADV(clkfbout_mult=20,clki...]

@@ -26,18 +26,30 @@ module vid_time_counter (
     
     // Pixel Counters
     logic [10:0] curr_x, curr_y;
+    logic [3:0] state = 0;
+    parameter int MAX_X = 1649;
+    parameter int MAX_Y = 749;
     
     always_ff @(posedge clk or posedge reset) begin
         if (reset) begin
             curr_x <= 0;
             curr_y <= 0;
-        end else if (~h_blank) begin
-            // Increment X counter and wrap
-            curr_x <= (curr_x < 1279) ? curr_x + 1 : 0;
-            // Increment Y counter on X wrap
-            if (curr_x == 1279) begin
-                curr_y <= (curr_y < 719) ? curr_y + 1 : 0; // Wrap after 719
-            end
+            state <= 0;
+        end else begin
+            case (state)
+                0:  if (valid_output) begin
+                        state <= 1;
+                        curr_x <= curr_x + 1;
+                    end else state <= 0;
+                1:  if (curr_x == MAX_X) begin
+                        curr_x <= 0;
+                        curr_y <= curr_y + 1;
+                        if (curr_y == MAX_Y) begin
+                            curr_x <= 0;
+                            curr_y <= 0;
+                        end
+                    end else curr_x <= curr_x + 1;
+            endcase
         end
     end
     

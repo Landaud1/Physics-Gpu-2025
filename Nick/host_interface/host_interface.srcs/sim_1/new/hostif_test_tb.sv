@@ -22,6 +22,7 @@ module hostif_test_tb();
     logic [2:0] next_state;
     logic [31:0] out_data;
     logic [15:0] out_addr;
+    logic [7:0] led;
 
     // Instantiate the DUT (Device Under Test)
     hostif_test dut (
@@ -37,14 +38,15 @@ module hostif_test_tb();
         .state_ram_data(state_ram_data),
         .state_ram_addr(state_ram_addr),
         .state_ram_we(state_ram_we),
-     //   .state_ram_byte_enable(state_ram_byte_enable),
         .xfc(xfc),
         .xfc_p1(xfc_p1),
         .transfer(transfer),
         .current_state(current_state),
         .next_state(next_state),  // Connect current state for monitoring
         .out_data(out_data),
-        .out_addr(out_addr)
+        .out_addr(out_addr),
+        .led(led)
+        
     );
     
     // Clock generation
