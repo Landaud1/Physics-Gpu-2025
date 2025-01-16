@@ -7,7 +7,7 @@ module graphic_ram(
     input logic [19:0] adr_read,
     input logic [3:0] data_in,
     output logic [3:0] data_out
-    );
+);
     
     gram gram(
         .clka(clk),
@@ -18,5 +18,7 @@ module graphic_ram(
         .addrb(adr_read),
         .doutb(data_out)
     );
+    
+    
     
 endmodule

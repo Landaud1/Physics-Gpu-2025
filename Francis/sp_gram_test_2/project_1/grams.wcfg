@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="dvi_constants" />
+            <top_module name="glbl" />
+            <top_module name="ipif_pkg" />
+            <top_module name="tb" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="635.171 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,072.966 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="146"></NameColumnWidth>
+      <ValueColumnWidth column_width="128"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="10" />
+   <wvobject type="logic" fp_name="/tb/top_0/gram/gram/clka">
+      <obj_property name="ElementShortName">clka</obj_property>
+      <obj_property name="ObjectShortName">clka</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb/top_0/gram/gram/wea">
+      <obj_property name="ElementShortName">wea[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb/top_0/gram/gram/addra">
+      <obj_property name="ElementShortName">addra[19:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[19:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb/top_0/gram/gram/dina">
+      <obj_property name="ElementShortName">dina[3:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb/top_0/gram/gram/douta">
+      <obj_property name="ElementShortName">douta[3:0]</obj_property>
+      <obj_property name="ObjectShortName">douta[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb/top_0/gram/gram/clkb">
+      <obj_property name="ElementShortName">clkb</obj_property>
+      <obj_property name="ObjectShortName">clkb</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb/top_0/gram/gram/web">
+      <obj_property name="ElementShortName">web[0:0]</obj_property>
+      <obj_property name="ObjectShortName">web[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb/top_0/gram/gram/addrb">
+      <obj_property name="ElementShortName">addrb[19:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb[19:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb/top_0/gram/gram/dinb">
+      <obj_property name="ElementShortName">dinb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">dinb[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb/top_0/gram/gram/doutb">
+      <obj_property name="ElementShortName">doutb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">doutb[3:0]</obj_property>
+   </wvobject>
+</wave_config>

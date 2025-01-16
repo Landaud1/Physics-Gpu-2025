@@ -3,17 +3,14 @@
 module display_gen(
     input  logic        clk,
     input  logic        reset,
-    input  logic        start_op
+    input  logic        start_op,
+    
+    output logic [19:0] adr_read
 );
     // GRAM instantiation
-    logic [19:0] adr_read = '0;
+   
     logic [3:0] data_out = '0;
-    
-    graphic_ram gram(
-        .clk(clk),
-        .adr_read(adr_read),
-        .data_out(data_out)
-    );
+    logic switch = '0;
     
     // VTC Signals and instantiation
     
@@ -54,7 +51,10 @@ module display_gen(
             adr_read <= '0;
             decode_me <= '0;
         end else if (start_op) begin
-            adr_read <= 20'b00000000000000000100;
+            if (!switch) switch <= '1;
+            else begin 
+                adr_read <= '0;
+            end 
         end
     end
     

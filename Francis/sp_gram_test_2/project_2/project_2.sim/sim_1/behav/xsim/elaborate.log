@@ -1,0 +1,26 @@
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /tools/Vivado/2024.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L blk_mem_gen_v8_4_8 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-5021] port 'start_display' is not connected on this instance [/drive/sda2/home/aldridf1/project_2/project_2.srcs/sources_1/new/testbench.sv:10]
+WARNING: [VRFC 10-5021] port 'provided_operation' is not connected on this instance [/drive/sda2/home/aldridf1/project_2/project_2.srcs/sources_1/new/top.sv:21]
+WARNING: [VRFC 10-5021] port 'wea' is not connected on this instance [/drive/sda2/home/aldridf1/project_2/project_2.srcs/sources_1/new/top.sv:37]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.flood_mem
+Compiling module xil_defaultlib.function_interface
+Compiling module xil_defaultlib.mem_interface
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_output_stage(...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8(C_FAMILY="art...
+Compiling module xil_defaultlib.blk_mem_gen_0
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_behav
