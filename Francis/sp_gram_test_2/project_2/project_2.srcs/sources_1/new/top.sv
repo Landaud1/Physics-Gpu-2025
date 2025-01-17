@@ -44,7 +44,13 @@ module top(
         .dina(data_write),
         // read
         .addrb(adr_read),
-        .doutb(data_read)
+        .doutb(data_read),
+        // en pins, tried using "always enabled" in IP module but ran into problems with ena and b pins reading "Z" in scope
+        // Fixed prior issues by correctly setting wea and web to 1 and 0 respectively, signifying write and read respectively
+        .ena('1),
+        .enb('1),
+        .wea('1),
+        .web('0)
     );
     
     

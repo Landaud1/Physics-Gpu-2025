@@ -7,7 +7,7 @@ Starting static elaboration
 Pass Through NonSizing Optimizer
 WARNING: [VRFC 10-9380] size mismatch in mixed-language port association of VHDL port 'tmds_data_p' [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/display_generator.sv:22]
 WARNING: [VRFC 10-5021] port 'provided_operation' is not connected on this instance [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/top.sv:22]
-WARNING: [VRFC 10-5021] port 'wea' is not connected on this instance [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/top.sv:39]
+WARNING: [VRFC 10-5021] port 'dinb' is not connected on this instance [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/top.sv:39]
 WARNING: [VRFC 10-5021] port 'fsync_out' is not connected on this instance [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/video_time_controller.sv:15]
 Completed static elaboration
 Starting simulation data flow analysis
