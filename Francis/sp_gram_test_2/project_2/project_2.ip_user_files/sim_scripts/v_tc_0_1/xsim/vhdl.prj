@@ -1,0 +1,5 @@
+vhdl xil_defaultlib  \
+"../../../../project_2.gen/sources_1/ip/v_tc_0_1/sim/v_tc_0.vhd" \
+
+# Do not sort compile order
+nosort

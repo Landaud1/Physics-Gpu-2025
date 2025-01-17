@@ -20,6 +20,8 @@ module mem_interface(
    
     logic [19:0] flood_adr_write;
     logic [3:0] flood_data_write;
+    logic [19:0] display_adr_read;
+    logic [3:0] display_data_read;
     
     // functions interface
     
@@ -41,7 +43,7 @@ module mem_interface(
     assign adr_write = flood_adr_write;
     assign data_write = flood_data_write;
     
-    assign adr_read = dislpay_adr_read;
+    assign adr_read = display_adr_read;
     assign data_read = display_data_read;
     
     // memory value selection

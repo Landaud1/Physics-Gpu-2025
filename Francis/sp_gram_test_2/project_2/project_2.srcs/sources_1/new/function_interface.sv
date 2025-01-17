@@ -29,6 +29,13 @@ module function_interface(
         .data_write(flood_data_write)
     );
     
-    display_generator dsp_gen();
+    display_generator dsp_gen(
+        .clk(clk),
+        .reset(reset),
+        .start_op(start_display),
+        
+        .display_adr_read(display_adr_read),
+        .display_data_read(display_data_read)
+    );
     
 endmodule
