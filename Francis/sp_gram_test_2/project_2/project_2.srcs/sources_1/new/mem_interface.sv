@@ -44,7 +44,7 @@ module mem_interface(
     assign data_write = flood_data_write;
     
     assign adr_read = display_adr_read;
-    assign data_read = display_data_read;
+    assign display_data_read = data_read;
     
     // memory value selection
     
