@@ -15,7 +15,12 @@ module mem_interface(
         output logic    finish_flood,
         input logic     start_display,
         
-        output logic    pingpong
+        output logic    pingpong,
+        
+        output logic        hdmi_tx_clk_p,
+        output logic        hdmi_tx_clk_n,
+        output logic [2:0]  hdmi_tx_p,
+        output logic [2:0]  hdmi_tx_n
     );
    
     logic [19:0] flood_adr_write;
@@ -39,7 +44,12 @@ module mem_interface(
         .display_adr_read(display_adr_read),
         .display_data_read(display_data_read),
         
-        .pingpong(pingpong)
+        .pingpong(pingpong),
+        
+        .hdmi_tx_clk_p(hdmi_tx_clk_p),
+        .hdmi_tx_clk_n(hdmi_tx_clk_n),
+        .hdmi_tx_p(hdmi_tx_p),
+        .hdmi_tx_n(hdmi_tx_n)
     );
     
     assign adr_write = flood_adr_write;

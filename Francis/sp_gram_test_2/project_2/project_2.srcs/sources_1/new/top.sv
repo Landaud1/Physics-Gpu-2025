@@ -10,7 +10,12 @@ module display_engine(
     output logic    finish_flood,
     input logic     start_display,
     
-    output pingpong
+    output pingpong,
+    
+    output logic        hdmi_tx_clk_p,
+    output logic        hdmi_tx_clk_n,
+    output logic [2:0]  hdmi_tx_p,
+    output logic [2:0]  hdmi_tx_n
     );
     
     // Used to pass GRAM values without multiple driver conflicts
@@ -35,7 +40,12 @@ module display_engine(
         .finish_flood(finish_flood),
         .start_display(start_display),
         
-        .pingpong(pingpong)
+        .pingpong(pingpong),
+        
+        .hdmi_tx_clk_p(hdmi_tx_clk_p),
+        .hdmi_tx_clk_n(hdmi_tx_clk_n),
+        .hdmi_tx_p(hdmi_tx_p),
+        .hdmi_tx_n(hdmi_tx_n)
     );
     
     pingpong ping_pong_switch(
