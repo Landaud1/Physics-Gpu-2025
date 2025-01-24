@@ -8,7 +8,9 @@ module display_generator(
     input  logic        start_op,
     
     output logic [19:0] display_adr_read,
-    input  logic [3:0]  display_data_read
+    input  logic [3:0]  display_data_read,
+    
+    output logic        pingpong
 );
     
     
@@ -16,7 +18,8 @@ module display_generator(
         .clk(clk),
         .reset(reset),
         .adr_out(display_adr_read), // output adr is wired directly from VTC
-        .valid_output(vtc_valid_address)
+        .valid_output(valid_output),
+        .pingpong(pingpong)
     );
     
     logic [23:0] rgb_pixel_value;
@@ -26,19 +29,20 @@ module display_generator(
         .TMDS_Clk_p (hdmi_tx_clk_p),     
         .TMDS_Clk_n (hdmi_tx_clk_n),
         .TMDS_Data_p(hdmi_tx_p),
-        .TMDS_Data_n(hdmi_tx_n),
+        .TMDS_Data_n(hdmi_tx_n),        // gonna have to send these up the heirarchy if testing on hardware
     // In
         .aRst       (reset),
         //.aRst_n     (resetn     ),
         .vid_pData  (rgb_pixel_value),
         .vid_pVDE   (valid_output),  // "generated active video signal, active for non-blanking lines"; active when in non-blanking dimensions?
-        .vid_pHSync (vid_pHSync),    // curr_x?
-        .vid_pVSync (vid_pVSync),    // curr_y?
+        .vid_pHSync (vid_pHSync),    
+        .vid_pVSync (vid_pVSync),    
         .PixelClk   (clk)//,
         //.SerialClk  (SerialClk  )
     );
     
     logic [3:0] decode_me; 
+    logic [3:0] state;
     
     // Always comb block to assign rgb values to vid_pData (8 bits of rgb each) based on predefined parameter color values and GRAM output
     
@@ -62,12 +66,28 @@ module display_generator(
                                   24'h000000;  // black (default)
     
     // Always ff block to read from GRAM on posedge clk based on valid_output
+    //// May or may not need to block display_adr_read and subsequent data if valid_output is not valid
     always_ff @ (posedge clk or posedge reset) begin
         if (reset) begin
             decode_me <= '0;
+            state <= '0;
         end else begin
-            // read from GRAM
-            decode_me <= display_data_read;
+            case (state)
+            // Initiate operation
+                4'h0: begin
+                    // start_op is a pulse, this state initializes variables and begins operation
+                    if (start_op) begin
+                        decode_me <= '0;
+                        state <= 4'h1;
+                    end
+                end
+                
+                4'h1: begin
+                    // read from GRAM
+                    decode_me <= display_data_read;
+                    
+                end
+            endcase
         end
     end
     

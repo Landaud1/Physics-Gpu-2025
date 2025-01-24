@@ -4,7 +4,8 @@ module vid_time_counter (
     input  logic        clk,
     input  logic        reset,
     output logic [19:0] adr_out,
-    output logic        valid_output
+    output logic        valid_output,
+    output logic        pingpong
 );
 
     // Signal Declarations for v_tc_0 outputs
@@ -35,6 +36,7 @@ module vid_time_counter (
             curr_x <= 0;
             curr_y <= 0;
             state <= 0;
+            pingpong <= 0;
         end else begin
             case (state)
                 0:  if (valid_output) begin
@@ -47,6 +49,7 @@ module vid_time_counter (
                         if (curr_y == MAX_Y) begin
                             curr_x <= 0;
                             curr_y <= 0;
+                            pingpong <= ~pingpong; // when the entire frame has been read, switch pingpong
                         end
                     end else curr_x <= curr_x + 1;
             endcase

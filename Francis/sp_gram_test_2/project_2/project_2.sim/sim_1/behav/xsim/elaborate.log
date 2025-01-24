@@ -5,10 +5,12 @@ Running: /tools/Vivado/2024.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-9380] size mismatch in mixed-language port association of VHDL port 'tmds_data_p' [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/display_generator.sv:24]
-WARNING: [VRFC 10-5021] port 'provided_operation' is not connected on this instance [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/top.sv:22]
-WARNING: [VRFC 10-5021] port 'dinb' is not connected on this instance [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/top.sv:39]
-WARNING: [VRFC 10-5021] port 'fsync_out' is not connected on this instance [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/video_time_controller.sv:15]
+WARNING: [VRFC 10-9380] size mismatch in mixed-language port association of VHDL port 'tmds_data_p' [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/display_generator.sv:27]
+WARNING: [VRFC 10-9543] actual bit length 1 differs from formal bit length 4 for port 'doutb' [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/pingpong.sv:27]
+WARNING: [VRFC 10-9543] actual bit length 1 differs from formal bit length 4 for port 'doutb' [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/pingpong.sv:46]
+WARNING: [VRFC 10-5021] port 'fsync_out' is not connected on this instance [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/video_time_controller.sv:16]
+WARNING: [VRFC 10-5021] port 'dinb' is not connected on this instance [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/pingpong.sv:17]
+WARNING: [VRFC 10-5021] port 'dinb' is not connected on this instance [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/pingpong.sv:38]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -57,7 +59,16 @@ Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_softecc_outpu...
 Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_mem_module(C_...
 Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8(C_FAMILY="art...
 Compiling module xil_defaultlib.blk_mem_gen_0
-Compiling module xil_defaultlib.top
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8(C_FAMILY="art...
+Compiling module xil_defaultlib.blk_mem_gen_1
+Compiling module xil_defaultlib.pingpong
+Compiling module xil_defaultlib.display_engine
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=37.12...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.clk_wiz_0_clk_wiz
+Compiling module xil_defaultlib.clk_wiz_0
 Compiling module xil_defaultlib.testbench
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot testbench_behav

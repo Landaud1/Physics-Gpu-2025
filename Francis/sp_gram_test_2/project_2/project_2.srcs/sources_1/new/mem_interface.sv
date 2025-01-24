@@ -6,8 +6,6 @@ module mem_interface(
         input  logic        clk,
         input  logic        reset,
 
-        input logic     [1:0]      provided_operation,
-
         output logic    [19:0]     adr_write,
         output logic    [3:0]      data_write,
         output logic    [19:0]     adr_read,
@@ -15,7 +13,9 @@ module mem_interface(
         
         input logic     start_flood,
         output logic    finish_flood,
-        input logic     start_display
+        input logic     start_display,
+        
+        output logic    pingpong
     );
    
     logic [19:0] flood_adr_write;
@@ -37,7 +37,9 @@ module mem_interface(
         .flood_data_write(flood_data_write),
         
         .display_adr_read(display_adr_read),
-        .display_data_read(display_data_read)
+        .display_data_read(display_data_read),
+        
+        .pingpong(pingpong)
     );
     
     assign adr_write = flood_adr_write;
@@ -47,6 +49,7 @@ module mem_interface(
     assign display_data_read = data_read;
     
     // memory value selection
+    // Didn't need this code, maybe if operation conflicts arise this will be useful
     
 //    typedef enum logic [1:0] {
 //        RESET = 2'b00,

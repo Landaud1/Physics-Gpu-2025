@@ -5,18 +5,21 @@
    <db_ref_list>
       <db_ref path="testbench_behav.wdb" id="1">
          <top_modules>
+            <top_module name="dvi_constants" />
             <top_module name="glbl" />
+            <top_module name="ipif_pkg" />
             <top_module name="testbench" />
+            <top_module name="vcomponents" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="342.750 ns"></ZoomStartTime>
-      <ZoomEndTime time="701.251 ns"></ZoomEndTime>
+      <ZoomStartTime time="500.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="990.473 ns"></ZoomEndTime>
       <Cursor1Time time="1,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="216"></NameColumnWidth>
+      <NameColumnWidth column_width="212"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="3" />
@@ -36,25 +39,29 @@
          <obj_property name="ElementShortName">start_flood</obj_property>
          <obj_property name="ObjectShortName">start_flood</obj_property>
       </wvobject>
+      <wvobject type="logic" fp_name="/testbench/top/finish_flood">
+         <obj_property name="ElementShortName">finish_flood</obj_property>
+         <obj_property name="ObjectShortName">finish_flood</obj_property>
+      </wvobject>
       <wvobject type="group" fp_name="group348">
          <obj_property name="label">GRAM</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="isExpanded"></obj_property>
-         <wvobject type="logic" fp_name="/testbench/top/adr_write">
-            <obj_property name="ElementShortName">adr_write</obj_property>
-            <obj_property name="ObjectShortName">adr_write</obj_property>
+         <wvobject type="array" fp_name="/testbench/top/adr_write">
+            <obj_property name="ElementShortName">adr_write[19:0]</obj_property>
+            <obj_property name="ObjectShortName">adr_write[19:0]</obj_property>
          </wvobject>
-         <wvobject type="logic" fp_name="/testbench/top/data_write">
-            <obj_property name="ElementShortName">data_write</obj_property>
-            <obj_property name="ObjectShortName">data_write</obj_property>
+         <wvobject type="array" fp_name="/testbench/top/data_write">
+            <obj_property name="ElementShortName">data_write[3:0]</obj_property>
+            <obj_property name="ObjectShortName">data_write[3:0]</obj_property>
          </wvobject>
-         <wvobject type="logic" fp_name="/testbench/top/adr_read">
-            <obj_property name="ElementShortName">adr_read</obj_property>
-            <obj_property name="ObjectShortName">adr_read</obj_property>
+         <wvobject type="array" fp_name="/testbench/top/adr_read">
+            <obj_property name="ElementShortName">adr_read[19:0]</obj_property>
+            <obj_property name="ObjectShortName">adr_read[19:0]</obj_property>
          </wvobject>
-         <wvobject type="logic" fp_name="/testbench/top/data_read">
-            <obj_property name="ElementShortName">data_read</obj_property>
-            <obj_property name="ObjectShortName">data_read</obj_property>
+         <wvobject type="array" fp_name="/testbench/top/data_read">
+            <obj_property name="ElementShortName">data_read[3:0]</obj_property>
+            <obj_property name="ObjectShortName">data_read[3:0]</obj_property>
          </wvobject>
       </wvobject>
    </wvobject>

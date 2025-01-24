@@ -13,7 +13,9 @@ module function_interface(
     output logic [3:0]  flood_data_write,
     
     output logic [19:0] display_adr_read,
-    input logic [3:0]  display_data_read
+    input logic [3:0]  display_data_read,
+    
+    output logic    pingpong
     );
     
     
@@ -35,7 +37,9 @@ module function_interface(
         .start_op(start_display),
         
         .display_adr_read(display_adr_read),
-        .display_data_read(display_data_read)
+        .display_data_read(display_data_read),
+        
+        .pingpong(pingpong)
     );
     
 endmodule

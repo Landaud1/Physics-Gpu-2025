@@ -14,9 +14,9 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="800.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,183.501 ns"></ZoomEndTime>
-      <Cursor1Time time="28.643 ns"></Cursor1Time>
+      <ZoomStartTime time="105.330 ns"></ZoomStartTime>
+      <ZoomEndTime time="488.831 ns"></ZoomEndTime>
+      <Cursor1Time time="243.550 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="146"></NameColumnWidth>
@@ -42,6 +42,7 @@
       <wvobject type="group" fp_name="group348">
          <obj_property name="label">GRAM</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="isExpanded"></obj_property>
          <wvobject type="array" fp_name="/testbench/top/adr_write">
             <obj_property name="ElementShortName">adr_write[19:0]</obj_property>
             <obj_property name="ObjectShortName">adr_write[19:0]</obj_property>
@@ -104,6 +105,7 @@
    <wvobject type="group" fp_name="group443">
       <obj_property name="label">dsp gen</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/testbench/top/mem_int/func_int/dsp_gen/display_adr_read">
          <obj_property name="ElementShortName">display_adr_read[19:0]</obj_property>
          <obj_property name="ObjectShortName">display_adr_read[19:0]</obj_property>
@@ -119,6 +121,14 @@
       <wvobject type="logic" fp_name="/testbench/top/mem_int/func_int/dsp_gen/vtc_valid_address">
          <obj_property name="ElementShortName">vtc_valid_address</obj_property>
          <obj_property name="ObjectShortName">vtc_valid_address</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/top/mem_int/func_int/dsp_gen/decode_me">
+         <obj_property name="ElementShortName">decode_me[3:0]</obj_property>
+         <obj_property name="ObjectShortName">decode_me[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/top/mem_int/func_int/dsp_gen/rgb_pixel_value">
+         <obj_property name="ElementShortName">rgb_pixel_value[23:0]</obj_property>
+         <obj_property name="ObjectShortName">rgb_pixel_value[23:0]</obj_property>
       </wvobject>
    </wvobject>
    <wvobject type="group" fp_name="group450">
@@ -146,6 +156,7 @@
       <wvobject type="array" fp_name="/testbench/top/mem_int/func_int/dsp_gen/vtc/adr_out">
          <obj_property name="ElementShortName">adr_out[19:0]</obj_property>
          <obj_property name="ObjectShortName">adr_out[19:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="group" fp_name="group584">
          <obj_property name="label">internals</obj_property>
