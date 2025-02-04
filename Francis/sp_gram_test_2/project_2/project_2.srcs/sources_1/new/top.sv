@@ -1,21 +1,32 @@
 `timescale 1ns / 1ps
 
 
-module display_engine(
+module top(
     input logic     clk,                 
-    input logic     reset,
+    input logic     reset_n,
     
+    //// Testbench stuff
     // TB dictates file/function operations using these
-    input logic     start_flood,
-    output logic    finish_flood,
-    input logic     start_display,
+    //input logic     start_flood,
+    //output logic    finish_flood,
+    //input logic     start_display,
     
-    output pingpong,
+    //output pingpong
     
+    //// Hardware stuff
     output logic        hdmi_tx_clk_p,
     output logic        hdmi_tx_clk_n,
     output logic [2:0]  hdmi_tx_p,
     output logic [2:0]  hdmi_tx_n
+    );
+    
+    assign reset = reset_n;
+    
+    clk_wiz_0 clk_wiz_0(
+        .reset(reset),
+        .clk_in1(clk),
+        .clk_out1(clk_74_25),
+        .locked(locked)
     );
     
     // Used to pass GRAM values without multiple driver conflicts
@@ -27,7 +38,7 @@ module display_engine(
     logic [3:0] data_read;
     
     mem_interface mem_int(
-        .clk(clk),
+        .clk(clk_74_25),
         .reset(reset),
     
         .adr_write(adr_write),
@@ -49,7 +60,7 @@ module display_engine(
     );
     
     pingpong ping_pong_switch(
-        .clk(clk),
+        .clk(clk_74_25),
         .reset(reset),
         
         .adr_write(adr_write),

@@ -1,7 +1,5 @@
 `timescale 1ns / 1ps
 
-
-
 module display_generator(
     input  logic        clk,
     input  logic        reset,
@@ -51,6 +49,7 @@ module display_generator(
     
     // Always comb block to assign rgb values to vid_pData (8 bits of rgb each) based on predefined parameter color values and GRAM output
     
+    //// possible timing concerns
     assign rgb_pixel_value = 
             (decode_me == 4'h0) ? 24'h000000 : // black
             (decode_me == 4'h1) ? 24'hFF0000 : // red
@@ -81,7 +80,7 @@ module display_generator(
             // Initiate operation
                 4'h0: begin
                     // start_op is a pulse, this state initializes variables and begins operation
-                    if (start_op) begin
+                    if ('1) begin // Use start_op for testbench tests, '1 for hardware tests
                         decode_me <= '0;
                         state <= 4'h1;
                     end
@@ -90,7 +89,6 @@ module display_generator(
                 4'h1: begin
                     // read from GRAM
                     decode_me <= display_data_read;
-                    
                 end
             endcase
         end

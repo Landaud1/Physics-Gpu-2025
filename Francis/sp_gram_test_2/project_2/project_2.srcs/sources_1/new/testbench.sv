@@ -10,7 +10,7 @@ module testbench();
     logic        start_display;
     logic        operation_start;
 
-    display_engine top(
+    //display_engine top(
         .clk(clk_74_25),                 
         .reset(reset),
         .start_flood(start_flood),
@@ -19,7 +19,7 @@ module testbench();
         .pingpong(frame_switch)
     );
     
-    clk_wiz_0 clk_wiz_0(
+    //clk_wiz_0 clk_wiz_0(
         .reset(reset_clk),
         .clk_in1(clk_100),
         .clk_out1(clk_74_25),

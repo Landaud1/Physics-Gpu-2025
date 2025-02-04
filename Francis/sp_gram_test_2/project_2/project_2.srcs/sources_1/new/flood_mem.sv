@@ -12,8 +12,8 @@ module flood_mem(
     output logic [3:0]  data_write
     );
     
-    // FOR TESTING PURPOSES: REAL MAX MEM = 921599
-    parameter int MAX_MEM = 40;
+    // FOR TESTING PURPOSES 40: REAL MAX MEM = 921599
+    parameter int MAX_MEM = 921599;
     
     logic [3:0] state = 0;
     logic [6:0] curr_mem = '0;
@@ -31,7 +31,7 @@ module flood_mem(
             // Initiate operation
                 4'h0: begin
                     // start_op is a pulse, this state initializes variables and begins operation
-                    if (start_op) begin
+                    if ('1) begin     // Use start_op for testbench, set to '1 for hardware testing
                         curr_mem <= '0;
                         adr_write <= '0;
                         data_write <= '0;
