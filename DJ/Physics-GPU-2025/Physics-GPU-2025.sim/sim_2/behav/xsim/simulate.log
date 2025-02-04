@@ -1,0 +1,17 @@
+Time resolution is 1 ps
+Block Memory Generator module tb_phys_eng.pe.acc_ram.inst.native_mem_module.blk_mem_gen_v8_4_8_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_phys_eng.pe.sum_ram.inst.native_mem_module.blk_mem_gen_v8_4_8_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module tb_phys_eng.sr.inst.native_mem_module.blk_mem_gen_v8_4_8_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_phys_eng.pr.inst.native_mem_module.blk_mem_gen_v8_4_8_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+blk_mem_gen_v8_4_8 collision detected at time: 1795000, Instance: tb_phys_eng.pe.acc_ram.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: 0, B  read address: 0
+blk_mem_gen_v8_4_8 collision detected at time: 2055000, Instance: tb_phys_eng.pe.sum_ram.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: 1, B  read address: 1
+blk_mem_gen_v8_4_8 collision detected at time: 3705000, Instance: tb_phys_eng.pe.acc_ram.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: 1, B  read address: 1
+blk_mem_gen_v8_4_8 collision detected at time: 3965000, Instance: tb_phys_eng.pe.sum_ram.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: 2, B  read address: 2
+blk_mem_gen_v8_4_8 collision detected at time: 5615000, Instance: tb_phys_eng.pe.acc_ram.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: 2, B  read address: 2
+blk_mem_gen_v8_4_8 collision detected at time: 7745000, Instance: tb_phys_eng.pe.sum_ram.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: 2, B  read address: 2
+blk_mem_gen_v8_4_8 collision detected at time: 7915000, Instance: tb_phys_eng.pe.sum_ram.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: 0, B  read address: 0
+blk_mem_gen_v8_4_8 collision detected at time: 7925000, Instance: tb_phys_eng.pe.sum_ram.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: 1, B  read address: 1
+blk_mem_gen_v8_4_8 collision detected at time: 7935000, Instance: tb_phys_eng.pe.sum_ram.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: 2, B  read address: 2
+INFO: xsimkernel Simulation Memory Usage: 161108 KB (Peak: 202788 KB), Simulation CPU Usage: 21920 ms

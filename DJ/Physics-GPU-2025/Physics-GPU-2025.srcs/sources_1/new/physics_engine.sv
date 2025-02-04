@@ -1,3 +1,7 @@
+`define scm_acc 2'b00
+`define scm_pos 2'b01
+`define scm_vel 2'b10
+
 `timescale 1ns / 1ps
 
 module physics_engine(
@@ -34,14 +38,7 @@ module physics_engine(
     assign sr_addr = i;
     
     // Physics Calculator: calculates force from object j exerted on onbect i
-    logic [63:0] x_i, pre_x_j, x_j, y_i, pre_y_j, y_j, m_i, a_x, a_y;
-    
-    // x_j and y_j need to be accessed at a different memory address
-    // so they need a delay to come in at the same tme
-    always_ff @(posedge clk) begin
-        x_j <= pre_x_j;
-        y_j <= pre_y_j;
-    end
+    logic [63:0] x_2, pre_x_1, x_1, y_2, pre_y_1, y_1, pre_m_1, m_1, a_x, a_y;
     
     logic acc_wea, phys_calc_valid;
     logic [9:0] acc_write_addr, phys_calc_addr;
@@ -59,11 +56,11 @@ module physics_engine(
         .clk(clk),
         .valid_in(phys_calc_valid),
         .addr_in(phys_calc_addr),
-        .x_i(x_i),
-        .x_j(x_j),
-        .y_i(y_i),
-        .y_j(y_j),
-        .m_i(m_i),
+        .x_i(x_2),
+        .x_j(x_1),
+        .y_i(y_2),
+        .y_j(y_1),
+        .m_j(m_1),
         .valid_out(acc_wea),
         .addr_out(acc_write_addr),
         .a_x(a_x),
@@ -73,6 +70,7 @@ module physics_engine(
     // Sum calc: adds solved acceleration to running sum
     logic [9:0] sum_calc_addr_out, sum_ram_write_addr;
     logic sum_calc_valid_out, sum_ram_wea, sum_calc_valid;
+    logic [1:0] sum_calc_mode;
     logic [127:0] sum_calc_out, sum_ram_write_data, sum_ram_read_data, acc_ram_read_data, sum_calc_in;
     
     logic sum_calc_finished;
@@ -80,6 +78,15 @@ module physics_engine(
         if (sum_calc_valid_out & (sum_ram_write_addr == objmax)) begin
             sum_calc_finished <= 1;
         end
+    end
+    
+    // Sum calc mode: determines if summing acceleration ram output, positions, or velocities
+    always_comb begin
+        case (sum_calc_mode)
+            `scm_acc: sum_calc_in = acc_ram_read_data;
+            `scm_pos: sum_calc_in = {x, y};
+            `scm_vel: sum_calc_in = {vx, vy};
+        endcase
     end
     
     // Input to sum ram is either sum calc out, or zero
@@ -142,6 +149,7 @@ module physics_engine(
     // Acceleration RAM: holds a_x and a_y values for a fixed j and iterating i
     pe_ram acc_ram(
         .clka(clk),
+        .clkb(clk),
         .addra(acc_write_addr),
         .dina({a_x, a_y}),
         .addrb(i),
@@ -152,6 +160,7 @@ module physics_engine(
     // Sum RAM: holds running x_sum and y_sum for each object
     pe_ram sum_ram(
         .clka(clk),
+        .clkb(clk),
         .addra(sum_ram_write_addr),
         .dina(sum_ram_write_data),
         .addrb(i),
@@ -181,8 +190,14 @@ module physics_engine(
                 // State 0: Give obj_1 to calc
                 0: begin
                     // Give obj_1 data to calc
-                    pre_x_j <= x;
-                    pre_y_j <= y;
+                    pre_x_1 <= x;
+                    pre_y_1 <= y;
+                    // Result should be 0 if they are the same
+                    if (obj_1 == obj_2) begin
+                        pre_m_1 <= 0; //may end up giving 0/0 error? I think i fixed it in the calculator with the reciprocal modules
+                    end else begin
+                        pre_m_1 <= mass;
+                    end
                     // don't run yet
                     phys_calc_valid <= 0;
                     sum_calc_valid <= 0;
@@ -196,15 +211,12 @@ module physics_engine(
                 // State 1: Give i to calc, iterate i.
                 1: begin
                     // give obj_2 data to calc
-                    x_i <= x;
-                    y_i <= y;
+                    x_2 <= x;
+                    y_2 <= y;
                     
-                    // Result should be 0 if they are the same
-                    if (obj_1 == obj_2) begin
-                        m_i <= 0; //may end up giving 0/0 error? I think i fixed it in the calculator with the reciprocal modules
-                    end else begin
-                        m_i <= mass;
-                    end
+                    x_1 <= pre_x_1;
+                    y_1 <= pre_y_1;
+                    m_1 <= pre_m_1;
                     
                     // put result in i address of acceleration ram
                     phys_calc_valid <= 1;
@@ -228,12 +240,15 @@ module physics_engine(
                 2: begin
                     phys_calc_valid <= 0;
                     if (phys_calc_finished) begin
-                        // Run first sum calc for i = 0
+                        // reset finished flag, obj_2
                         phys_calc_finished <= 0;
                         obj_2 <= 0;
-                        sum_calc_valid <= 1;
-                        sum_calc_in <= acc_ram_read_data;
-                        state <= 3;
+                        
+                        sum_calc_mode <= `scm_acc;
+                        state <= 13;
+                        next_state <= 3;
+                        next_i <= 0;
+                        i <= 0;
                     end else begin
                         state <= 2;
                     end
@@ -242,13 +257,14 @@ module physics_engine(
                 
                 // State 3: Add calculated a_x and a_ys to their respective sums.
                 3: begin
-                    if (i < objmax) begin
+                    if (i < n_objects) begin
                         // Still obj_2's left to sum, iterate and run state again.
                         sum_calc_valid <= 1;
-                        sum_calc_in <= acc_ram_read_data;
-                        i <= i+1;
-                        state <= 3;
-                    end else if (obj_1 < objmax) begin
+                        // Ready up acc_ram output for the sum calc
+                        next_i = i+1;
+                        state <= 13;
+                        next_state <= 3;
+                    end else if (obj_1 < n_objects) begin
                         // all obj_2's are used up, but there are still obj_1's. iterate obj_1 and run it back
                         sum_calc_valid <= 0;
                         obj_2 <= 0;
@@ -259,10 +275,13 @@ module physics_engine(
                         next_i <= obj_2;
                         state <= 13;
                     end else begin
-                        // All objects are done calculating, let's record the new information.
+                        // All objects are done calculating, transition to recording the information.
                         sum_calc_valid <= 0;
+                        // Objects can be reset
                         obj_1 <= 0;
                         obj_2 <= 0;
+                        
+                        sum_calc_mode <= `scm_vel;
                         i <= 0;
                         state <= 4;
                     end
@@ -277,7 +296,6 @@ module physics_engine(
                         i <= 1;
                         sr_addr <= 0;
                         sum_calc_valid <= 1;
-                        sum_calc_in <= {vx, vy};
                         state <= 5;
                     end else begin
                         state <= 4;
@@ -291,7 +309,6 @@ module physics_engine(
                         sum_calc_valid <= 1;
                         sr_addr <= i;
                         i <= i + 1;
-                        sum_calc_in <= {vx, vy};
                         state <= 5;
                     end else begin
                         sum_calc_valid <= 0;
@@ -305,7 +322,9 @@ module physics_engine(
                     if (sum_calc_finished) begin
                         // Sum calc is done, time to load up our new velocities to the state ram
                         i <= 0;
-                        state <= 7;
+                        state <= 13;
+                        next_state <= 7;
+                        next_i = 0;
                     end else begin
                         state <= 6;
                     end
@@ -315,14 +334,16 @@ module physics_engine(
                 // State 7: Load new velocities to state ram
                 7: begin
                     if (i < objmax) begin
-                        sr_addr <= i;
                         sr_write <= {192'b0, mass, sum_ram_read_data[63:0], sum_ram_read_data[127:64], y, x};
                         sr_wen <= 1;
-                        state <= 7;
+                        state <= 13;
+                        next_state <= 7;
                         i <= i + 1;
+                        next_i = i + 1;
                     end else begin
                         i <= 0;
                         sr_wen <= 0;
+                        sum_calc_mode <= `scm_pos;
                         state <= 8;
                     end
                 end
@@ -334,7 +355,6 @@ module physics_engine(
                         sum_calc_valid <= 1;
                         sr_addr <= i;
                         i <= i + 1;
-                        sum_calc_in <= {x, y};
                         state <= 8;
                     end else begin
                         sum_calc_valid <= 0;
@@ -362,8 +382,9 @@ module physics_engine(
                         // Write to state ram
                         sr_addr <= i;
                         sr_write <= {192'b0, mass, vy, vx, sum_ram_read_data[63:0], sum_ram_read_data[127:64]};
-                        i <= i + 1;
-                        state <= 10;
+                        state <= 13;
+                        next_state <= 10;
+                        next_i <= i + 1;
                     end else begin
                         i <= 0;
                         sum_ram_clear <= 1;
@@ -396,6 +417,8 @@ module physics_engine(
                 
                 // State 13: Gap cycle for rams
                 13: begin
+                    sum_calc_valid <= 0;
+                    //Send next telegraphed state & i
                     state <= next_state;
                     i <= next_i;
                 end

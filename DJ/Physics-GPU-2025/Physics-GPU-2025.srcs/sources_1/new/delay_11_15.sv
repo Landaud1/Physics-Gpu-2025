@@ -1,4 +1,4 @@
-`define PIPE_LEN 15
+`define PIPE_LEN 17
 `timescale 1ns / 1ps
 
 module delay_11_15(

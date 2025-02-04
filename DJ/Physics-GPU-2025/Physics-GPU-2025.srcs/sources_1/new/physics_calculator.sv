@@ -1,5 +1,6 @@
 // Gravity Constant G = 6.6743*10^-11
 `define G 64'h3DD2589EFFED8ACC
+`define 1_dub 64'h3ff0000000000000
 
 `timescale 1ns / 1ps
 
@@ -13,7 +14,7 @@ module physics_calculator(
     input logic [63:0]  x_j,
     input logic [63:0]  y_i,
     input logic [63:0]  y_j,
-    input logic [63:0]  m_i,
+    input logic [63:0]  m_j,
     
     output logic valid_out,
     output logic [9:0] addr_out,
@@ -103,7 +104,7 @@ module physics_calculator(
     
     fp_multiply gmi_mult(
         .aclk(clk),
-        .s_axis_a_tdata(m_i),
+        .s_axis_a_tdata(m_j),
         .s_axis_a_tvalid(valid_in),
         .s_axis_b_tdata(`G),
         .s_axis_b_tvalid(valid_in),
@@ -193,8 +194,8 @@ module physics_calculator(
     logic [63:0] r_effective, r2_effective;
     
     always_comb begin
-        r_effective = r ? r : 0;
-        r2_effective = r2 ? r2 : 0;
+        r_effective = r ? r : `1_dub;
+        r2_effective = r2 ? r2 : `1_dub;
     end
     
     fp_reciprocal r_1_reciprocal(
