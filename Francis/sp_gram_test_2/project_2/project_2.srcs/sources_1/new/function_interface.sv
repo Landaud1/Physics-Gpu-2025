@@ -31,6 +31,8 @@ module function_interface(
         .start_op(start_flood),
         .finish_op(finish_flood),
         
+        .pingpong(pingpong),
+        
         .default_color(4'b1010),
         .adr_write(flood_adr_write),
         .data_write(flood_data_write)

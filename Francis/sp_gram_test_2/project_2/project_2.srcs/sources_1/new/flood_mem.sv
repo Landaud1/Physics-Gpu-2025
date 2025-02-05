@@ -7,6 +7,8 @@ module flood_mem(
     input  logic        start_op,
     output logic        finish_op,
     
+    input  logic        pingpong,
+    
     input logic [3:0]   default_color,
     output logic [19:0] adr_write,
     output logic [3:0]  data_write
@@ -17,7 +19,7 @@ module flood_mem(
     
     logic [3:0] state = 0;
     logic [6:0] curr_mem = '0;
-    
+    logic pingpong_check;
     
     always_ff @ (posedge clk) begin
         // Reset condition
@@ -36,6 +38,7 @@ module flood_mem(
                         adr_write <= '0;
                         data_write <= '0;
                         state <= 4'h1;
+                        pingpong_check <= pingpong;
                     end
                 end
             // If mem pointer isn't at end, fill curr mem
@@ -48,6 +51,11 @@ module flood_mem(
                         state <= 4'h1;
                     end else begin
                         finish_op <= '1;
+                        state <= 4'h2;
+                    end
+                end
+                4'h2: begin                 // definitely a better way of implementing this; checking for when pingpong changes to initiate flood
+                    if (pingpong_check != pingpong) begin
                         state <= 4'h0;
                     end
                 end

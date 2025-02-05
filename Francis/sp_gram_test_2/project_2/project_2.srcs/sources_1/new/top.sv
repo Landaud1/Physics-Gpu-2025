@@ -20,7 +20,7 @@ module top(
     output logic [2:0]  hdmi_tx_n
     );
     
-    assign reset = reset_n;
+    assign reset = ~reset_n;
     
     clk_wiz_0 clk_wiz_0(
         .reset(reset),
