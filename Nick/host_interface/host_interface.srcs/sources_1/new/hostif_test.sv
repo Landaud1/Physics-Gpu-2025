@@ -39,7 +39,7 @@ module hostif_test (
     output logic [15:0] out_addr,         // Build this up 1 byte at a time
     output logic out_we                    // Write enable for output
     
-    output logic [7:0] led;
+  //  output logic [7:0] led;
 );
 
     // Internal logic signals
@@ -57,7 +57,7 @@ module hostif_test (
 
     // Write enable conditions for various registers
     assign regs_we = out_we && (out_addr[15:14] == 2'b10); 
-    assign state_ram_we = out_we && (out_addr[15:14] == 2'b00); 
+    assign state_ram_we = out_we && (out_addr[15:14] == 2'b00);  
     assign attribute_ram_we = out_we && (out_addr[15:14] == 2'b01);
 
     // Preload data into the `hostif_psoc_data` array for simulation
@@ -138,7 +138,7 @@ always_ff @ (posedge clk100MHZ) begin
     if (reset) begin
         regs_data <= 0;
     end else if (regs_we) begin
-        regs_data <= out_data;
+        regs_data <= out_data;   //assign like address
     end
 end
 
@@ -163,10 +163,10 @@ end
 
 logic [47:0] packed_data;  // 6 * 8 bits for all elements in hostif_psoc_data
 
-// Concatenate the unpacked array into a packed vector
+ // Concatenate the unpacked array into a packed vector
 assign packed_data = {hostif_psoc_data[5], hostif_psoc_data[4], hostif_psoc_data[3], hostif_psoc_data[2], hostif_psoc_data[1], hostif_psoc_data[0]};
 
-// Assign selected bits from packed_data to led_out
+ //Assign selected bits from packed_data to led_out
 assign led = packed_data[7:0];  // Choose the lowest 8 bits, for example
 
 endmodule

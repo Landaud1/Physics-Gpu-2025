@@ -14,7 +14,7 @@ module hostif_test_tb();
     logic [31:0] state_ram_data;
     logic [9:0] state_ram_addr;
     logic state_ram_we;
-    //logic [15:0] state_ram_byte_enable;
+    logic [15:0] state_ram_byte_enable;
     logic xfc;
     logic xfc_p1;
     logic transfer;
@@ -44,8 +44,8 @@ module hostif_test_tb();
         .current_state(current_state),
         .next_state(next_state),  // Connect current state for monitoring
         .out_data(out_data),
-        .out_addr(out_addr),
-        .led(led)
+        .out_addr(out_addr)
+     //   .led(led)
         
     );
     

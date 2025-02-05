@@ -33,8 +33,6 @@ module function_interface(
         
 <<<<<<< HEAD
         .default_color(4'hd),
-||||||| 6116966
-        .default_color(4'b1010),
 =======
         .pingpong(pingpong),
         
