@@ -31,7 +31,7 @@ module function_interface(
         .start_op(start_flood),
         .finish_op(finish_flood),
         
-        .default_color(4'b1010),
+        .default_color(4'hd),
         .adr_write(flood_adr_write),
         .data_write(flood_data_write)
     );

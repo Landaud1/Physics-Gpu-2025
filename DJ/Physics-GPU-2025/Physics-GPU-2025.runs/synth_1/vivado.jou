@@ -3,22 +3,22 @@
 # SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Sat Nov  9 18:08:28 2024
-# Process ID: 11529
+# Start of session at: Tue Feb  4 17:49:31 2025
+# Process ID: 49955
 # Current directory: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/DJ/Physics-GPU-2025/Physics-GPU-2025.runs/synth_1
-# Command line: vivado -log tb_phys_calc.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source tb_phys_calc.tcl
-# Log file: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/DJ/Physics-GPU-2025/Physics-GPU-2025.runs/synth_1/tb_phys_calc.vds
+# Command line: vivado -log physics_engine.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source physics_engine.tcl
+# Log file: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/DJ/Physics-GPU-2025/Physics-GPU-2025.runs/synth_1/physics_engine.vds
 # Journal file: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/DJ/Physics-GPU-2025/Physics-GPU-2025.runs/synth_1/vivado.jou
 # Running On        :navi
 # Platform          :Ubuntu
-# Operating System  :Ubuntu 22.04.4 LTS
+# Operating System  :Ubuntu 22.04.5 LTS
 # Processor Detail  :Intel(R) Xeon(R) CPU E5-2687W 0 @ 3.10GHz
-# CPU Frequency     :1197.777 MHz
+# CPU Frequency     :1197.367 MHz
 # CPU Physical cores:16
 # CPU Logical cores :32
 # Host memory       :135089 MB
 # Swap memory       :2147 MB
 # Total Virtual     :137237 MB
-# Available Virtual :131875 MB
+# Available Virtual :128682 MB
 #-----------------------------------------------------------
-source tb_phys_calc.tcl -notrace
+source physics_engine.tcl -notrace

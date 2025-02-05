@@ -1,6 +1,6 @@
 // Gravity Constant G = 6.6743*10^-11
 `define G 64'h3DD2589EFFED8ACC
-`define 1_dub 64'h3ff0000000000000
+`define one_dub 64'h3ff0000000000000
 
 `timescale 1ns / 1ps
 
@@ -194,8 +194,8 @@ module physics_calculator(
     logic [63:0] r_effective, r2_effective;
     
     always_comb begin
-        r_effective = r ? r : `1_dub;
-        r2_effective = r2 ? r2 : `1_dub;
+        r_effective = r ? r : `one_dub;
+        r2_effective = r2 ? r2 : `one_dub;
     end
     
     fp_reciprocal r_1_reciprocal(

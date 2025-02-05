@@ -28,7 +28,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log tb_phys_calc.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source tb_phys_calc.tcl" );
+         "-log physics_engine.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source physics_engine.tcl" );
 
 
 

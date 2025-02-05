@@ -41,9 +41,9 @@ function simulator_asv
     end
 
     % Initialize VideoWriter object for recording
-    videoName = 'simulation_video.mp4';  % Name of the output video file
-    v = VideoWriter(videoName, 'MPEG-4');  % Create a video writer object
-    open(v);  % Open the video writer
+    %videoName = 'simulation_video.mp4';  % Name of the output video file
+    %v = VideoWriter(videoName, 'MPEG-4');  % Create a video writer object
+    %open(v);  % Open the video writer
 
     % Simulation loop
     for step = 1:num_steps
@@ -55,12 +55,14 @@ function simulator_asv
         forces(:) = 0;
         
         % Calculate forces on each body
-        for i = 1:num_bodies
-            for j = 1:num_bodies
+        for j = 1:num_bodies
+            for i = 1:num_bodies
                 if i ~= j
                     r = pos_curr(j,:) - pos_curr(i,:);
                     dist = norm(r);
-                    f = (G * mass(i) * mass(j) / dist^2) * (r / dist); % Newton's law of gravitation
+                    % TWEAKED: f/forces is actually acceleration to more
+                    % accurately behave like hardware
+                    f = (G * mass(i) * mass(j) / dist^2) * (r / dist) / mass(i); % Newton's law of gravitation.
                     forces(i,:) = forces(i,:) + f;
                 end
             end
@@ -68,7 +70,7 @@ function simulator_asv
 
         % Update velocities and positions using current state
         for i = 1:num_bodies
-            vel_next(i,:) = vel_curr(i,:) + (forces(i,:) / mass(i)) * dt; % Update velocity
+            vel_next(i,:) = vel_curr(i,:) + forces(i,:) * dt; % Update velocity
             pos_next(i,:) = pos_curr(i,:) + vel_next(i,:) * dt; % Update position
         end
 
@@ -95,15 +97,15 @@ function simulator_asv
         end
         
         % Capture the frame for the video
-        frame = getframe(gcf);  % Capture the current frame
-        writeVideo(v, frame);   % Write the frame to the video
+        %frame = getframe(gcf);  % Capture the current frame
+        %writeVideo(v, frame);   % Write the frame to the video
         
         % Pause for animation
         pause(0.01);
     end
 
     % Close the video writer to finalize the video
-    close(v);
+    %close(v);
 
     % Display the final positions over time
     figure;
