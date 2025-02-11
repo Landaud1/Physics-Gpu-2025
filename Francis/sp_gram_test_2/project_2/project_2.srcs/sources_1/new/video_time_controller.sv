@@ -5,11 +5,12 @@ module vid_time_counter (
     input  logic        reset,
     output logic [19:0] adr_out,
     output logic        valid_output,
-    output logic        pingpong
+    output logic        pingpong,
+    output logic        vid_pHSync,
+    output logic        vid_pVSync
 );
 
     // Signal Declarations for v_tc_0 outputs
-    logic vid_pHSync, vid_pVSync;
     logic h_blank, v_blank;
 
     // VTC Instantiation
@@ -22,7 +23,9 @@ module vid_time_counter (
         .hsync_out(vid_pHSync),
         .vsync_out(vid_pVSync),
         .hblank_out(h_blank),
-        .vblank_out(v_blank)
+        .vblank_out(v_blank),
+        
+        .sof_state('0)      // tying this off to prevent synth warnings
     );
     
     // Pixel Counters

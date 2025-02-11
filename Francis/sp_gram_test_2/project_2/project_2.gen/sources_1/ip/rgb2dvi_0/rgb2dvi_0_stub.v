@@ -2,10 +2,10 @@
 // Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-// Date        : Thu Jan 16 04:01:20 2025
-// Host        : zelda running 64-bit Ubuntu 22.04.4 LTS
+// Date        : Tue Feb 11 15:11:06 2025
+// Host        : navi running 64-bit Ubuntu 22.04.5 LTS
 // Command     : write_verilog -force -mode synth_stub
-//               /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/rgb2dvi_0/rgb2dvi_0_stub.v
+//               /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/rgb2dvi_0/rgb2dvi_0_stub.v
 // Design      : rgb2dvi_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a200tsbg484-1

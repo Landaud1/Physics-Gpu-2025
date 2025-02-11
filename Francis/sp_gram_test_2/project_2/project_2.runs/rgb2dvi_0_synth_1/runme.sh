@@ -8,9 +8,9 @@
 # 
 
 if [ -z "$PATH" ]; then
-  PATH=/tools/Vivado/2024.1/ids_lite/ISE/bin/lin64:/tools/Vivado/2024.1/bin
+  PATH=/media/sdb/Tools/Vivado/2024.1/ids_lite/ISE/bin/lin64:/media/sdb/Tools/Vivado/2024.1/bin
 else
-  PATH=/tools/Vivado/2024.1/ids_lite/ISE/bin/lin64:/tools/Vivado/2024.1/bin:$PATH
+  PATH=/media/sdb/Tools/Vivado/2024.1/ids_lite/ISE/bin/lin64:/media/sdb/Tools/Vivado/2024.1/bin:$PATH
 fi
 export PATH
 
@@ -21,7 +21,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/rgb2dvi_0_synth_1'
+HD_PWD='/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/rgb2dvi_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

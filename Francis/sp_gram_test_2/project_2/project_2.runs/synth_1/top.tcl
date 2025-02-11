@@ -56,6 +56,11 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 8
+set_param xicom.use_bs_reader 1
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
+set_msg_config  -id {17-179}  -suppress 
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a200tsbg484-1
 
@@ -68,7 +73,7 @@ set_property parent.project_path /home/landaud1/other/Senior_proj/Physics-Gpu-20
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_repo_paths /home/landaud1/other/Downloads/vivado-library-master [current_project]
+set_property ip_repo_paths /home/landaud1/Downloads/vivado-library-master [current_project]
 update_ip_catalog
 set_property ip_output_repo /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
@@ -116,6 +121,8 @@ read_xdc /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Nick/host_interface/h
 set_property used_in_implementation false [get_files /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/constrs_1/imports/Downloads/Nexys-Video-Master.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/utils_1/imports/synth_1/top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

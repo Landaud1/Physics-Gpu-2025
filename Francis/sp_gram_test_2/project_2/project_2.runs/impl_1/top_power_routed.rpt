@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date             : Tue Feb  4 17:10:48 2025
+| Date             : Tue Feb 11 17:49:51 2025
 | Host             : navi running 64-bit Ubuntu 22.04.5 LTS
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.549        |
+| Total On-Chip Power (W)  | 0.559        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 0.406        |
-| Device Static (W)        | 0.143        |
+| Device Static (W)        | 0.153        |
 | Effective TJA (C/W)      | 3.3          |
-| Max Ambient (C)          | 83.2         |
-| Junction Temperature (C) | 26.8         |
+| Max Ambient (C)          | 83.1         |
+| Junction Temperature (C) | 26.9         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,19 +52,18 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.007 |       14 |       --- |             --- |
-| Slice Logic    |    <0.001 |      693 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      252 |    133800 |            0.19 |
-|   Register     |    <0.001 |      213 |    267600 |            0.08 |
-|   CARRY4       |    <0.001 |       23 |     33450 |            0.07 |
-|   Others       |     0.000 |      121 |       --- |             --- |
-| Signals        |     0.002 |      565 |       --- |             --- |
-| Block RAM      |     0.007 |       57 |       365 |           15.62 |
+| Clocks         |     0.006 |        9 |       --- |             --- |
+| Slice Logic    |    <0.001 |      445 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      144 |    133800 |            0.11 |
+|   Register     |    <0.001 |      200 |    267600 |            0.07 |
+|   CARRY4       |    <0.001 |       24 |     33450 |            0.07 |
+|   Others       |     0.000 |       46 |       --- |             --- |
+| Signals        |    <0.001 |      295 |       --- |             --- |
 | MMCM           |     0.116 |        1 |        10 |           10.00 |
 | PLL            |     0.135 |        1 |        10 |           10.00 |
-| I/O            |     0.138 |       10 |       285 |            3.51 |
-| Static Power   |     0.143 |          |           |                 |
-| Total          |     0.549 |          |           |                 |
+| I/O            |     0.148 |       14 |       285 |            4.91 |
+| Static Power   |     0.153 |          |           |                 |
+| Total          |     0.559 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,16 +73,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.065 |       0.032 |      0.033 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.163 |       0.132 |      0.031 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.054 |       0.022 |      0.032 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.163 |       0.133 |      0.031 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.046 |       0.041 |      0.005 |       NA    | Unspecified | NA         |
-| Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco25    |       2.500 |     0.009 |       0.004 |      0.005 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.003 |       0.001 |      0.002 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
@@ -127,22 +126,17 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+----------------------+--------------------------------------------------------------------------+-----------------+
-| Clock                | Domain                                                                   | Constraint (ns) |
-+----------------------+--------------------------------------------------------------------------+-----------------+
-| CLKFBIN              | mem_int/func_int/dsp_gen/rgb2dvi/U0/ClockGenInternal.ClockGenX/CLKFBIN   |            13.5 |
-| CLKFBIN_1            | mem_int/func_int/dsp_gen/rgb2dvi/U0/ClockGenInternal.ClockGenX/CLKFBIN   |            13.5 |
-| PixelClkIO           | mem_int/func_int/dsp_gen/rgb2dvi/U0/ClockGenInternal.ClockGenX/PixelClk  |            13.5 |
-| PixelClkIO_1         | mem_int/func_int/dsp_gen/rgb2dvi/U0/ClockGenInternal.ClockGenX/PixelClk  |            13.5 |
-| SerialClkIO          | mem_int/func_int/dsp_gen/rgb2dvi/U0/ClockGenInternal.ClockGenX/SerialClk |             2.7 |
-| SerialClkIO_1        | mem_int/func_int/dsp_gen/rgb2dvi/U0/ClockGenInternal.ClockGenX/SerialClk |             2.7 |
-| clk                  | clk                                                                      |            10.0 |
-| clk_out1_clk_wiz_0   | clk_wiz_0/inst/clk_out1_clk_wiz_0                                        |            13.5 |
-| clk_out1_clk_wiz_0_1 | clk_wiz_0/inst/clk_out1_clk_wiz_0                                        |            13.5 |
-| clkfbout_clk_wiz_0   | clk_wiz_0/inst/clkfbout_clk_wiz_0                                        |            40.0 |
-| clkfbout_clk_wiz_0_1 | clk_wiz_0/inst/clkfbout_clk_wiz_0                                        |            40.0 |
-| sys_clk_pin          | clk                                                                      |            10.0 |
-+----------------------+--------------------------------------------------------------------------+-----------------+
++--------------------+--------------------------------------------------------------------------+-----------------+
+| Clock              | Domain                                                                   | Constraint (ns) |
++--------------------+--------------------------------------------------------------------------+-----------------+
+| CLKFBIN            | mem_int/func_int/dsp_gen/rgb2dvi/U0/ClockGenInternal.ClockGenX/CLKFBIN   |            13.5 |
+| PixelClkIO         | mem_int/func_int/dsp_gen/rgb2dvi/U0/ClockGenInternal.ClockGenX/PixelClk  |            13.5 |
+| SerialClkIO        | mem_int/func_int/dsp_gen/rgb2dvi/U0/ClockGenInternal.ClockGenX/SerialClk |             2.7 |
+| clk_out1_clk_wiz_0 | clk_wiz_0/inst/clk_out1_clk_wiz_0                                        |            13.5 |
+| clkfbout_clk_wiz_0 | clk_wiz_0/inst/clkfbout_clk_wiz_0                                        |            40.0 |
+| sys_clk_pin        | clk                                                                      |            10.0 |
+| sys_clk_pin        | clk_IBUF                                                                 |            10.0 |
++--------------------+--------------------------------------------------------------------------+-----------------+
 
 
 3. Detailed Reports
@@ -151,20 +145,15 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+--------------------+-----------+
-| Name               | Power (W) |
-+--------------------+-----------+
-| top                |     0.406 |
-|   clk_wiz_0        |     0.117 |
-|     inst           |     0.117 |
-|   mem_int          |     0.281 |
-|     func_int       |     0.281 |
-|       dsp_gen      |     0.280 |
-|   ping_pong_switch |     0.008 |
-|     ping           |     0.004 |
-|       U0           |     0.004 |
-|     pong           |     0.004 |
-|       U0           |     0.004 |
-+--------------------+-----------+
++---------------+-----------+
+| Name          | Power (W) |
++---------------+-----------+
+| top           |     0.406 |
+|   clk_wiz_0   |     0.117 |
+|     inst      |     0.117 |
+|   mem_int     |     0.277 |
+|     func_int  |     0.277 |
+|       dsp_gen |     0.277 |
++---------------+-----------+
 
 

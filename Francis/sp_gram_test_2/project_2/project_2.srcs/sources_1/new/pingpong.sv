@@ -32,7 +32,9 @@ module pingpong(
         .ena('1),
         .enb('1),
         .wea(ping_wea),         //write when 1
-        .web('0)                //always read
+        .web('0),                //always read
+        
+        .dinb('0)               // tied off to prevent synth warnings
     );
     
     blk_mem_gen_1 pong(
@@ -49,7 +51,9 @@ module pingpong(
         .ena('1),
         .enb('1),
         .wea(pong_wea),         //write when 1
-        .web('0)                //always read
+        .web('0),                //always read
+        
+        .dinb('0)               // tied off to prevent synth warnings
     );
     
     // Ping pong implementation?

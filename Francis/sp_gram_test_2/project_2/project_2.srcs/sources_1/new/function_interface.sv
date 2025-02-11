@@ -31,15 +31,10 @@ module function_interface(
         .start_op(start_flood),
         .finish_op(finish_flood),
         
-<<<<<<< HEAD
         .default_color(4'hd),
-||||||| 6116966
-        .default_color(4'b1010),
-=======
+        
         .pingpong(pingpong),
         
-        .default_color(4'b1010),
->>>>>>> de690ba06a767c987d40d8a5315413e7cd911dd4
         .adr_write(flood_adr_write),
         .data_write(flood_data_write)
     );

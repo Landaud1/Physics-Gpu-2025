@@ -3,22 +3,22 @@
 # SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Fri Jan 17 21:05:22 2025
-# Process ID: 4034646
-# Current directory: /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/blk_mem_gen_1_synth_1
+# Start of session at: Tue Feb 11 15:10:08 2025
+# Process ID: 574086
+# Current directory: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/blk_mem_gen_1_synth_1
 # Command line: vivado -log blk_mem_gen_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source blk_mem_gen_1.tcl
-# Log file: /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/blk_mem_gen_1_synth_1/blk_mem_gen_1.vds
-# Journal file: /drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/blk_mem_gen_1_synth_1/vivado.jou
-# Running On        :zelda
+# Log file: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/blk_mem_gen_1_synth_1/blk_mem_gen_1.vds
+# Journal file: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/blk_mem_gen_1_synth_1/vivado.jou
+# Running On        :navi
 # Platform          :Ubuntu
-# Operating System  :Ubuntu 22.04.4 LTS
-# Processor Detail  :Intel(R) Xeon(R) CPU E5-2683 v4 @ 2.10GHz
-# CPU Frequency     :2095.230 MHz
-# CPU Physical cores:32
-# CPU Logical cores :64
-# Host memory       :135063 MB
+# Operating System  :Ubuntu 22.04.5 LTS
+# Processor Detail  :Intel(R) Xeon(R) CPU E5-2687W 0 @ 3.10GHz
+# CPU Frequency     :3392.391 MHz
+# CPU Physical cores:16
+# CPU Logical cores :32
+# Host memory       :135089 MB
 # Swap memory       :2147 MB
-# Total Virtual     :137211 MB
-# Available Virtual :103963 MB
+# Total Virtual     :137237 MB
+# Available Virtual :129311 MB
 #-----------------------------------------------------------
 source blk_mem_gen_1.tcl -notrace

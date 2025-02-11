@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Fri Jan 17 21:06:52 2025
-| Host         : zelda running 64-bit Ubuntu 22.04.4 LTS
+| Date         : Tue Feb 11 15:11:32 2025
+| Host         : navi running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_utilization -file blk_mem_gen_1_utilization_synth.rpt -pb blk_mem_gen_1_utilization_synth.pb
 | Design       : blk_mem_gen_1
 | Device       : xc7a200tsbg484-1
