@@ -5,15 +5,6 @@ module top(
     input logic     clk,                 
     input logic     reset_n,
     
-    //// Testbench stuff
-    // TB dictates file/function operations using these
-    //input logic     start_flood,
-    //output logic    finish_flood,
-    //input logic     start_display,
-    
-    //output pingpong
-    
-    //// Hardware stuff
     output logic        hdmi_tx_clk_p,
     output logic        hdmi_tx_clk_n,
     output logic [2:0]  hdmi_tx_p,
@@ -23,7 +14,6 @@ module top(
     output logic        pingpong,
     output logic        reset_out
     );
-    
     
     logic [19:0] adr_write;
     logic [3:0] data_write;
@@ -54,11 +44,6 @@ module top(
         .data_write(data_write),
         .adr_read(adr_read),
         .data_read(data_read),
-        
-        // pass start_op values to functions
-        .start_flood(start_flood),
-        .finish_flood(finish_flood),
-        .start_display(start_display),
         
         .pingpong(pingpong),
         

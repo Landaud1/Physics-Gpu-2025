@@ -3,7 +3,6 @@
 module display_generator(
     input  logic        clk,
     input  logic        reset,
-    input  logic        start_op,
     
     output logic [19:0] display_adr_read,
     input  logic [3:0]  display_data_read,
@@ -46,8 +45,7 @@ module display_generator(
         //.SerialClk  (SerialClk  )
     );
     
-    logic [3:0] decode_me; 
-    logic [3:0] state;
+    logic [3:0] decode_me;
     
     // Always comb block to assign rgb values to vid_pData (8 bits of rgb each) based on predefined parameter color values and GRAM output
     
@@ -75,25 +73,10 @@ module display_generator(
     //// May or may not need to block display_adr_read and subsequent data if valid_output is not valid
     always_ff @ (posedge clk or posedge reset) begin
         if (reset) begin
-            decode_me <= '0;
-            state <= '0;
+            decode_me <= '0;        // May wanna change this to default color
         end else begin
-            case (state)
-            // Initiate operation
-                4'h0: begin
-                    // start_op is a pulse, this state initializes variables and begins operation
-                    if ('1) begin // Use start_op for testbench tests, '1 for hardware tests
-                        decode_me <= '0;
-                        state <= 4'h1;
-                    end
-                end
-                
-                4'h1: begin
-                    // read from GRAM
-                    //decode_me <= display_data_read;
-                    decode_me <= 4'hd;
-                end
-            endcase
+            decode_me <= display_data_read;
+            //decode_me <= 4'hd;
         end
     end
     

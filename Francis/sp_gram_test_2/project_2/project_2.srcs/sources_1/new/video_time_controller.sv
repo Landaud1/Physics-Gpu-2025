@@ -30,35 +30,36 @@ module vid_time_counter (
     
     // Pixel Counters
     logic [10:0] curr_x, curr_y;
-    logic [3:0] state = 0;
     parameter int MAX_X = 1649;
     parameter int MAX_Y = 749;
+    logic prev_v_blank, new_frame;
     
-    always_ff @(posedge clk or posedge reset) begin
-        if (reset) begin
+    // (in always_ff) old_v_blank <= v_blank;
+    // assign new_frame = !v_blank & old_v_blank;
+    // When new_frame = 1, reset counters
+    
+    assign new_frame = (~v_blank & prev_v_blank);  
+    
+    always_ff @(posedge clk) begin      // 2/12 : Pingpong is not being updated, vtc is working
+        prev_v_blank <= v_blank;
+        if (reset | new_frame) begin // reset OR !VBlank
             curr_x <= 0;
             curr_y <= 0;
-            state <= 0;
             pingpong <= 0;
         end else begin
-            case (state)
-                0:  if (valid_output) begin
-                        state <= 1;
-                        curr_x <= curr_x + 1;
-                    end else state <= 0;
-                1:  if (curr_x == MAX_X) begin
-                        curr_x <= 0;
-                        curr_y <= curr_y + 1;
-                        if (curr_y == MAX_Y) begin
-                            curr_x <= 0;
-                            curr_y <= 0;
-                            pingpong <= ~pingpong; // when the entire frame has been read, switch pingpong
-                        end
-                    end else curr_x <= curr_x + 1;
-            endcase
+            if (valid_output) begin
+                curr_x <= curr_x + 1;
+                if (curr_x == MAX_X) begin
+                    curr_x <= 0;
+                    curr_y <= curr_y + 1;
+                    if (curr_y == MAX_Y) begin
+                        curr_y <= 0;
+                        pingpong <= ~pingpong; // when the entire frame has been read, switch pingpong
+                    end
+                end
+            end
         end
-    end
-    
+   end 
 
     // RAM Address
     assign adr_out = curr_x + ((curr_y * 5) << 8); // = curr_x + curr_y * 1280

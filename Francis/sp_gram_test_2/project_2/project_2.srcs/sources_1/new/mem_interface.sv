@@ -11,10 +11,6 @@ module mem_interface(
         output logic    [19:0]     adr_read,
         input logic     [3:0]      data_read,
         
-        input logic     start_flood,
-        output logic    finish_flood,
-        input logic     start_display,
-        
         output logic    pingpong,
         
         output logic        hdmi_tx_clk_p,
@@ -33,10 +29,6 @@ module mem_interface(
     function_interface func_int(
         .clk(clk),
         .reset(reset),
-        
-        .start_flood(start_flood),
-        .finish_flood(finish_flood),
-        .start_display(start_display),
         
         .flood_adr_write(flood_adr_write),
         .flood_data_write(flood_data_write),

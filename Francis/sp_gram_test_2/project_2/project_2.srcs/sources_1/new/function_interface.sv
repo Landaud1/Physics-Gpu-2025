@@ -5,10 +5,6 @@ module function_interface(
     input  logic        clk,
     input  logic        reset,
     
-    input logic     start_flood,
-    output logic    finish_flood,
-    input logic     start_display,
-    
     output logic [19:0] flood_adr_write,
     output logic [3:0]  flood_data_write,
     
@@ -28,10 +24,7 @@ module function_interface(
         .clk(clk), 
         .reset(reset),
         
-        .start_op(start_flood),
-        .finish_op(finish_flood),
-        
-        .default_color(4'hd),
+        .default_color(4'hd),       //// MOVE THIS UP THE CHAIN
         
         .pingpong(pingpong),
         
@@ -42,7 +35,6 @@ module function_interface(
     display_generator dsp_gen(
         .clk(clk),
         .reset(reset),
-        .start_op(start_display),
         
         .display_adr_read(display_adr_read),
         .display_data_read(display_data_read),

@@ -4,24 +4,21 @@ module flood_mem(
     input  logic        clk,
     input  logic        reset,
     
-    input  logic        start_op,
-    output logic        finish_op,
-    
     input  logic        pingpong,
     
     input logic [3:0]   default_color,
     output logic [19:0] adr_write,
     output logic [3:0]  data_write
-    );
+);
     
-    // FOR TESTING PURPOSES 40: REAL MAX MEM = 921599
     parameter int MAX_MEM = 921599;
     
     logic [3:0] state = 0;
-    logic [6:0] curr_mem = '0;
+    logic [19:0] curr_mem = '0;
     logic pingpong_check;
     
     always_ff @ (posedge clk) begin
+        pingpong_check <= pingpong;
         // Reset condition
         if (reset) begin
             curr_mem <= '0;
@@ -32,29 +29,18 @@ module flood_mem(
             case (state)
             // Initiate operation
                 4'h0: begin
-                    // start_op is a pulse, this state initializes variables and begins operation
-                    if ('1) begin     // Use start_op for testbench, set to '1 for hardware testing
-                        curr_mem <= '0;
-                        adr_write <= '0;
-                        data_write <= '0;
+                    if (curr_mem < MAX_MEM) begin
+                        adr_write <= curr_mem;
+                        data_write <= default_color;
+                        curr_mem <= curr_mem + 1;
+                        state <= 4'h0;
+                    end else begin
                         state <= 4'h1;
-                        pingpong_check <= pingpong;
                     end
                 end
             // If mem pointer isn't at end, fill curr mem
             // Else, signify op_end and return to idle state
                 4'h1: begin
-                    if (curr_mem < MAX_MEM) begin
-                        adr_write <= curr_mem;
-                        data_write <= default_color;
-                        curr_mem <= curr_mem + 1;
-                        state <= 4'h1;
-                    end else begin
-                        finish_op <= '1;
-                        state <= 4'h2;
-                    end
-                end
-                4'h2: begin                 // definitely a better way of implementing this; checking for when pingpong changes to initiate flood
                     if (pingpong_check != pingpong) begin
                         state <= 4'h0;
                     end
