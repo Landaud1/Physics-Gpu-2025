@@ -130,11 +130,11 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="fp_add"/>
-  <BlockFileSet Type="BlockSrcs" Name="fp_sub"/>
   <BlockFileSet Type="BlockSrcs" Name="fp_reciprocal"/>
   <BlockFileSet Type="BlockSrcs" Name="float_to_fixed"/>
-  <BlockFileSet Type="BlockSrcs" Name="fp_multiply"/>
-  <BlockFileSet Type="BlockSrcs" Name="fp_sqrt"/>
+  <BlockFileSet Type="BlockSrcs" Name="fp_sub"/>
+  <BlockFileSet Type="BlockSrcs" Name="fp_add"/>
   <BlockFileSet Type="BlockSrcs" Name="pe_ram"/>
+  <BlockFileSet Type="BlockSrcs" Name="fp_sqrt"/>
+  <BlockFileSet Type="BlockSrcs" Name="fp_multiply"/>
 </GenRun>

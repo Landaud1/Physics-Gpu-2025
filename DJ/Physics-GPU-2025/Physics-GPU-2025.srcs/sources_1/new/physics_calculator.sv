@@ -1,5 +1,7 @@
 // Gravity Constant G = 6.6743*10^-11
-`define G 64'h3DD2589EFFED8ACC
+//`define G 64'h3DD2589EFFED8ACC
+// Talha's simulator uses G  =0.5... Playing god?
+`define G 64'h3fe0000000000000
 `define one_dub 64'h3ff0000000000000
 
 `timescale 1ns / 1ps

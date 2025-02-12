@@ -1,6 +1,7 @@
 function simulator_asv
     % Custom Gravitational Constant for this scaled system
-    G = 6.67e-11;  % Adjust this value if needed
+    %G = 6.67e-11;  % Adjust this value if needed
+    G = 0.5;
     window_width = 1280;
     window_height = 720;
 
@@ -62,7 +63,7 @@ function simulator_asv
                     dist = norm(r);
                     % TWEAKED: f/forces is actually acceleration to more
                     % accurately behave like hardware
-                    f = (G * mass(i) * mass(j) / dist^2) * (r / dist) / mass(i); % Newton's law of gravitation.
+                    f = (G * mass(j) / dist^2) * (r / dist); % Newton's law of gravitation.
                     forces(i,:) = forces(i,:) + f;
                 end
             end
