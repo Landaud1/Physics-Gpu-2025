@@ -45,7 +45,7 @@ module hostif_test_tb();
         .next_state(next_state),  // Connect current state for monitoring
         .out_data(out_data),
         .out_addr(out_addr)
-     //   .led(led)
+        //led(led)
         
     );
     
@@ -91,4 +91,3 @@ module hostif_test_tb();
 //                 $time, current_state, next_state, transfer, hostif_psoc_data, regs_data, regs_addr);
 //    end
 endmodule
-
