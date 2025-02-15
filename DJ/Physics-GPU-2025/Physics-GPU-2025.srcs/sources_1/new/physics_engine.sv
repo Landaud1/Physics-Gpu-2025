@@ -22,7 +22,7 @@ module physics_engine(
     output logic pr_wen
     );
     
-    logic [9:0] i, objmax;
+    logic [9:0] i, objmax, next_sr_addr;
     
     assign objmax = n_objects - 1;
     
@@ -35,7 +35,6 @@ module physics_engine(
     assign vy    = sr_read[255:192];
     assign mass  = sr_read[319:256];
     
-    assign sr_addr = i;
     
     // Physics Calculator: calculates force from object j exerted on onbect i
     logic [63:0] x_2, pre_x_1, x_1, y_2, pre_y_1, y_1, pre_m_1, m_1, a_x, a_y;
@@ -56,10 +55,10 @@ module physics_engine(
         .clk(clk),
         .valid_in(phys_calc_valid),
         .addr_in(phys_calc_addr),
-        .x_i(x_2),
-        .x_j(x_1),
-        .y_i(y_2),
-        .y_j(y_1),
+        .x_i(x_1),
+        .x_j(x_2),
+        .y_i(y_1),
+        .y_j(y_2),
         .m_j(m_1),
         .valid_out(acc_wea),
         .addr_out(acc_write_addr),
@@ -84,8 +83,8 @@ module physics_engine(
     always_comb begin
         case (sum_calc_mode)
             `scm_acc: sum_calc_in = acc_ram_read_data;
-            `scm_pos: sum_calc_in = {x, y};
-            `scm_vel: sum_calc_in = {vx, vy};
+            `scm_pos: sum_calc_in = {y, x};
+            `scm_vel: sum_calc_in = {vy, vx};
         endcase
     end
     
@@ -151,7 +150,7 @@ module physics_engine(
         .clka(clk),
         .clkb(clk),
         .addra(acc_write_addr),
-        .dina({a_x, a_y}),
+        .dina({a_y, a_x}),
         .addrb(i),
         .doutb(acc_ram_read_data),
         .wea(acc_wea)
@@ -176,6 +175,7 @@ module physics_engine(
     always @(posedge clk) begin
         if (reset) begin
             i <= 0; // Initialized to same value as obj_1
+            sr_addr <= 0;
             obj_1 <= 0;
             obj_2 <= 0;
             state <= 0;
@@ -203,6 +203,7 @@ module physics_engine(
                     sum_calc_valid <= 0;
                     // Prep obj_2 for next cycle
                     i <= obj_1;
+                    sr_addr <= obj_1;
                     // next state is always 1
                     state <= 1;
                 end
@@ -226,6 +227,7 @@ module physics_engine(
                         // There's still obj_2's left to  calculatea
                         // Next cycle is an obj_1
                         i <= obj_2 + 1;
+                        sr_addr <= obj_2 + 1;
                         // Iterate obj_2
                         obj_2 <= obj_2 + 1;
                         state <= 0;
@@ -249,6 +251,7 @@ module physics_engine(
                         next_state <= 3;
                         next_i <= 0;
                         i <= 0;
+                        sr_addr <= 0;
                     end else begin
                         state <= 2;
                     end
@@ -261,7 +264,8 @@ module physics_engine(
                         // Still obj_2's left to sum, iterate and run state again.
                         sum_calc_valid <= 1;
                         // Ready up acc_ram output for the sum calc
-                        next_i = i+1;
+                        next_i <= i+1;
+                        next_sr_addr <= i+1; 
                         state <= 13;
                         next_state <= 3;
                     end else if (obj_1 < n_objects) begin
@@ -271,8 +275,10 @@ module physics_engine(
                         obj_1 <= obj_1 + 1;
                         // Obj_1 is up next, but iterate now b/c it's not ready yet
                         i <= obj_1 + 1;
+                        sr_addr <= obj_1 + 1;
                         next_state <= 0;
                         next_i <= obj_2;
+                        next_sr_addr <= obj_2;
                         state <= 13;
                     end else begin
                         // All objects are done calculating, transition to recording the information.
@@ -338,8 +344,9 @@ module physics_engine(
                         sr_wen <= 1;
                         state <= 13;
                         next_state <= 7;
+                        next_i <= i + 1;
+                        next_sr_addr <= i + 1;
                         i <= i + 1;
-                        next_i = i + 1;
                     end else begin
                         i <= 0;
                         sr_wen <= 0;
@@ -421,6 +428,7 @@ module physics_engine(
                     //Send next telegraphed state & i
                     state <= next_state;
                     i <= next_i;
+                    sr_addr <= next_sr_addr;
                 end
             endcase
         end
