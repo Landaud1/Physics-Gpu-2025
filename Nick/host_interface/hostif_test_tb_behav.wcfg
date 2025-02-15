@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,000.000 ns"></ZoomEndTime>
-      <Cursor1Time time="39.883 ns"></Cursor1Time>
+      <ZoomStartTime time="79.113 ns"></ZoomStartTime>
+      <ZoomEndTime time="232.595 ns"></ZoomEndTime>
+      <Cursor1Time time="588.235 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="270"></NameColumnWidth>
-      <ValueColumnWidth column_width="66"></ValueColumnWidth>
+      <NameColumnWidth column_width="294"></NameColumnWidth>
+      <ValueColumnWidth column_width="73"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="21" />
    <wvobject type="logic" fp_name="/hostif_test_tb/clk100MHZ">
@@ -85,6 +85,7 @@
    <wvobject type="array" fp_name="/hostif_test_tb/dut/regs_addr">
       <obj_property name="ElementShortName">regs_addr[3:0]</obj_property>
       <obj_property name="ObjectShortName">regs_addr[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/hostif_test_tb/dut/regs_we">
       <obj_property name="ElementShortName">regs_we</obj_property>

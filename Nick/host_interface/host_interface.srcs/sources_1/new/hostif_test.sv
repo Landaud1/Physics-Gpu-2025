@@ -8,13 +8,13 @@
 
 module hostif_test (
     input clk100MHZ,                     // Onboard clock
-    input [7:0] hostif_psoc_data[0:5],  // Data input from PSOC
+    input [7:0] hostif_psoc_data,  // Data input from PSOC
 
     input cpu_resetn_raw,                // Raw CPU reset
     input hostif_psoc_fpga_xfc_raw,      // Raw data signal from PSOC to FPGA
     input hostif_psoc_reset_raw,          // Raw reset from PSOC
 
-    output logic hostif_fpga_psoc_xfc,   // Data signal from FPGA to PSOC
+    output logic hostif_fpga_psoc_xfc_raw,   // Data signal from FPGA to PSOC
 
     output logic [31:0] regs_data,       // Register data output
     output logic [3:0] regs_addr,        // Register address output
@@ -37,14 +37,14 @@ module hostif_test (
 
     output logic [31:0] out_data,         // Build this up 1 byte at a time
     output logic [15:0] out_addr,         // Build this up 1 byte at a time
-    output logic out_we                    // Write enable for output
+    output logic out_we,                   // Write enable for output
     
-  //  output logic [7:0] led;
+   output logic [7:0] led
 );
-
+     
     // Internal logic signals
     logic reset;                          // Reset signal
-    logic [7:0] hostif_psoc_data[0:5];   // Array to simulate the input data stream (6 bytes)
+   // logic [7:0] hostif_psoc_data[0:5];   // Array to simulate the input data stream (6 bytes)
     
     // State-related signals
     logic [2:0] current_state_in, next_state_in;  // Internal wires for state tracking
@@ -61,15 +61,7 @@ module hostif_test (
     assign attribute_ram_we = out_we && (out_addr[15:14] == 2'b01);
 
     // Preload data into the `hostif_psoc_data` array for simulation
-    always_comb begin
-        hostif_psoc_data[0] = 8'hA1;  // Address byte 1 (low)
-        hostif_psoc_data[1] = 8'h02;  // Address byte 2 (high)
-        hostif_psoc_data[2] = 8'hC3;  // Data byte 1
-        hostif_psoc_data[3] = 8'hD4;  // Data byte 2
-        hostif_psoc_data[4] = 8'hE5;  // Data byte 3
-        hostif_psoc_data[5] = 8'hF6;  // Data byte 4
-    end
-
+  
     // Reset logic (double-flopped for metastability)
     always_ff @(posedge clk100MHZ) begin
         reset <= ~cpu_resetn_raw; // Invert the raw reset signal
@@ -120,12 +112,12 @@ module hostif_test (
             out_addr <= 16'b0;  // Clear output address on reset
         end else begin
             case (current_state_in)
-                `STATE_S0: if (transfer) out_addr[7:0] <= hostif_psoc_data[0];  // Load Address Byte 1 (low)
-                `STATE_S1: if (transfer) out_addr[15:8] <= hostif_psoc_data[1]; // Load Address Byte 2 (high)
-                `STATE_S2: if (transfer) out_data[7:0] <= hostif_psoc_data[2];  // Load Data Byte 1
-                `STATE_S3: if (transfer) out_data[15:8] <= hostif_psoc_data[3]; // Load Data Byte 2
-                `STATE_S4: if (transfer) out_data[23:16] <= hostif_psoc_data[4]; // Load Data Byte 3
-                `STATE_S5: if (transfer) out_data[31:24] <= hostif_psoc_data[5]; // Load Data Byte 4
+                `STATE_S0: if (transfer) out_addr[7:0] <= hostif_psoc_data;  // Load Address Byte 1 (low)
+                `STATE_S1: if (transfer) out_addr[15:8] <= hostif_psoc_data; // Load Address Byte 2 (high)
+                `STATE_S2: if (transfer) out_data[7:0] <= hostif_psoc_data;  // Load Data Byte 1
+                `STATE_S3: if (transfer) out_data[15:8] <= hostif_psoc_data; // Load Data Byte 2
+                `STATE_S4: if (transfer) out_data[23:16] <= hostif_psoc_data; // Load Data Byte 3
+                `STATE_S5: if (transfer) out_data[31:24] <= hostif_psoc_data; // Load Data Byte 4
             endcase
         end
     end
@@ -134,39 +126,28 @@ module hostif_test (
     assign out_we = (current_state_in == `STATE_S6); // Write enable for registers in STATE_S6
     
     
-always_ff @ (posedge clk100MHZ) begin
-    if (reset) begin
-        regs_data <= 0;
-    end else if (regs_we) begin
-        regs_data <= out_data;   //assign like address
+ assign regs_data = regs_we ? out_data : 32'b0;
+    assign state_ram_data = state_ram_we ? out_data : 32'b0;
+    assign attribute_ram_data = attribute_ram_we ? out_data : 12'b0;
+
+assign led = out_addr[7:0];
+
+//logic [47:0] packed_data;  // 6 * 8 bits for all elements in hostif_psoc_data
+
+// // Concatenate the unpacked array into a packed vector
+//assign packed_data = {hostif_psoc_data[5], hostif_psoc_data[4], hostif_psoc_data[3], hostif_psoc_data[2], hostif_psoc_data[1], hostif_psoc_data[0]};
+
+// //Assign selected bits from packed_data to led_out
+//assign led = packed_data[7:0];  // Choose the lowest 8 bits, for example
+
+    // LED Logic: Display first 8-bit value from PSOC data
+    always_ff @(posedge clk100MHZ or posedge reset) begin
+        if (reset) begin
+            led <= 8'b0;  // Clear LEDs on reset
+        end else if (transfer) begin
+            led <= hostif_psoc_data;  // Display first byte from PSOC on LEDs
+        end
     end
-end
 
-always_ff @ (posedge clk100MHZ) begin
-    if (reset) begin
-        state_ram_data <= 0;
-    end else if (state_ram_we) begin
-        state_ram_data <= out_data;
-    end
-end
-
-always_ff @ (posedge clk100MHZ) begin
-    if (reset) begin
-        attribute_ram_data <= 0;
-    end else if (attribute_ram_we) begin
-        attribute_ram_data <= out_data;
-    end
-end
-
-
-
-
-logic [47:0] packed_data;  // 6 * 8 bits for all elements in hostif_psoc_data
-
- // Concatenate the unpacked array into a packed vector
-assign packed_data = {hostif_psoc_data[5], hostif_psoc_data[4], hostif_psoc_data[3], hostif_psoc_data[2], hostif_psoc_data[1], hostif_psoc_data[0]};
-
- //Assign selected bits from packed_data to led_out
-assign led = packed_data[7:0];  // Choose the lowest 8 bits, for example
 
 endmodule
