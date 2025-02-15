@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Sat Feb 15 16:09:56 2025
+# Process ID: 2464484
+# Current directory: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Nick/host_interface/host_interface.runs/impl_1
+# Command line: vivado -log hostif_test.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source hostif_test.tcl -notrace
+# Log file: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Nick/host_interface/host_interface.runs/impl_1/hostif_test.vdi
+# Journal file: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Nick/host_interface/host_interface.runs/impl_1/vivado.jou
+# Running On        :navi
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 22.04.5 LTS
+# Processor Detail  :Intel(R) Xeon(R) CPU E5-2687W 0 @ 3.10GHz
+# CPU Frequency     :1896.256 MHz
+# CPU Physical cores:16
+# CPU Logical cores :32
+# Host memory       :135089 MB
+# Swap memory       :2147 MB
+# Total Virtual     :137237 MB
+# Available Virtual :118881 MB
+#-----------------------------------------------------------
+source hostif_test.tcl -notrace

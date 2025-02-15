@@ -3,120 +3,57 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="hostif_test_tb_behav.wdb" id="1">
+      <db_ref path="tb_1_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="hostif_test_tb" />
+            <top_module name="tb_1" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="79.113 ns"></ZoomStartTime>
-      <ZoomEndTime time="232.595 ns"></ZoomEndTime>
-      <Cursor1Time time="588.235 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="609.001 ns"></ZoomEndTime>
+      <Cursor1Time time="845.380 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="294"></NameColumnWidth>
-      <ValueColumnWidth column_width="73"></ValueColumnWidth>
+      <NameColumnWidth column_width="285"></NameColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="21" />
-   <wvobject type="logic" fp_name="/hostif_test_tb/clk100MHZ">
+   <WVObjectSize size="9" />
+   <wvobject type="logic" fp_name="/tb_1/clk100MHZ">
       <obj_property name="ElementShortName">clk100MHZ</obj_property>
       <obj_property name="ObjectShortName">clk100MHZ</obj_property>
-      <obj_property name="CustomSignalColor">#FFFFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hostif_test_tb/cpu_resetn_raw">
+   <wvobject type="array" fp_name="/tb_1/hostif_psoc_data">
+      <obj_property name="ElementShortName">hostif_psoc_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">hostif_psoc_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_1/cpu_resetn_raw">
       <obj_property name="ElementShortName">cpu_resetn_raw</obj_property>
       <obj_property name="ObjectShortName">cpu_resetn_raw</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hostif_test_tb/hostif_psoc_fpga_xfc_raw">
+   <wvobject type="logic" fp_name="/tb_1/hostif_psoc_fpga_xfc_raw">
       <obj_property name="ElementShortName">hostif_psoc_fpga_xfc_raw</obj_property>
       <obj_property name="ObjectShortName">hostif_psoc_fpga_xfc_raw</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hostif_test_tb/xfc">
-      <obj_property name="ElementShortName">xfc</obj_property>
-      <obj_property name="ObjectShortName">xfc</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject type="logic" fp_name="/tb_1/hostif_psoc_reset_raw">
+      <obj_property name="ElementShortName">hostif_psoc_reset_raw</obj_property>
+      <obj_property name="ObjectShortName">hostif_psoc_reset_raw</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hostif_test_tb/xfc_p1">
-      <obj_property name="ElementShortName">xfc_p1</obj_property>
-      <obj_property name="ObjectShortName">xfc_p1</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject type="array" fp_name="/tb_1/led">
+      <obj_property name="ElementShortName">led[7:0]</obj_property>
+      <obj_property name="ObjectShortName">led[7:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hostif_test_tb/transfer">
-      <obj_property name="ElementShortName">transfer</obj_property>
-      <obj_property name="ObjectShortName">transfer</obj_property>
-      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject type="logic" fp_name="/tb_1/hostif_fpga_psoc_xfc_raw">
+      <obj_property name="ElementShortName">hostif_fpga_psoc_xfc_raw</obj_property>
+      <obj_property name="ObjectShortName">hostif_fpga_psoc_xfc_raw</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/hostif_test_tb/current_state">
-      <obj_property name="ElementShortName">current_state[2:0]</obj_property>
-      <obj_property name="ObjectShortName">current_state[2:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hostif_test_tb/next_state">
-      <obj_property name="ElementShortName">next_state[2:0]</obj_property>
-      <obj_property name="ObjectShortName">next_state[2:0]</obj_property>
-      <obj_property name="CustomSignalColor">#800000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hostif_test_tb/hostif_psoc_data">
-      <obj_property name="ElementShortName">hostif_psoc_data[0:5][7:0]</obj_property>
-      <obj_property name="ObjectShortName">hostif_psoc_data[0:5][7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hostif_test_tb/out_data">
-      <obj_property name="ElementShortName">out_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">out_data[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hostif_test_tb/out_addr">
+   <wvobject type="array" fp_name="/tb_1/u1/u1/out_addr">
       <obj_property name="ElementShortName">out_addr[15:0]</obj_property>
       <obj_property name="ObjectShortName">out_addr[15:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/hostif_test_tb/dut/regs_data">
-      <obj_property name="ElementShortName">regs_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">regs_data[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hostif_test_tb/dut/regs_addr">
-      <obj_property name="ElementShortName">regs_addr[3:0]</obj_property>
-      <obj_property name="ObjectShortName">regs_addr[3:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hostif_test_tb/dut/regs_we">
-      <obj_property name="ElementShortName">regs_we</obj_property>
-      <obj_property name="ObjectShortName">regs_we</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hostif_test_tb/dut/state_ram_data">
-      <obj_property name="ElementShortName">state_ram_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">state_ram_data[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hostif_test_tb/dut/state_ram_addr">
-      <obj_property name="ElementShortName">state_ram_addr[15:0]</obj_property>
-      <obj_property name="ObjectShortName">state_ram_addr[15:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hostif_test_tb/dut/state_ram_we">
-      <obj_property name="ElementShortName">state_ram_we</obj_property>
-      <obj_property name="ObjectShortName">state_ram_we</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hostif_test_tb/dut/attribute_ram_data">
-      <obj_property name="ElementShortName">attribute_ram_data[11:0]</obj_property>
-      <obj_property name="ObjectShortName">attribute_ram_data[11:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hostif_test_tb/dut/attribute_ram_addr">
-      <obj_property name="ElementShortName">attribute_ram_addr[9:0]</obj_property>
-      <obj_property name="ObjectShortName">attribute_ram_addr[9:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hostif_test_tb/dut/attribute_ram_we">
-      <obj_property name="ElementShortName">attribute_ram_we</obj_property>
-      <obj_property name="ObjectShortName">attribute_ram_we</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hostif_test_tb/dut/out_we">
-      <obj_property name="ElementShortName">out_we</obj_property>
-      <obj_property name="ObjectShortName">out_we</obj_property>
+   <wvobject type="array" fp_name="/tb_1/u1/u1/out_data">
+      <obj_property name="ElementShortName">out_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_data[31:0]</obj_property>
    </wvobject>
 </wave_config>

@@ -28,20 +28,20 @@ module hostif_test (
     output logic [9:0] attribute_ram_addr, // Attribute RAM address
     output logic attribute_ram_we,        // Attribute RAM write enable
     
-    output logic xfc,                     // Transfer control signal
-    output logic xfc_p1,                  // Previous xfc state
-    output logic transfer,                 // Transfer signal indicator
-    
-    output logic [2:0] current_state,     // Current state of the FSM
-    output logic [2:0] next_state,        // Next state of the FSM
-
-    output logic [31:0] out_data,         // Build this up 1 byte at a time
-    output logic [15:0] out_addr,         // Build this up 1 byte at a time
-    output logic out_we,                   // Write enable for output
-    
    output logic [7:0] led
 );
-     
+
+  logic [2:0] current_state;     // Current state of the FSM
+     logic [2:0] next_state;        // Next state of the FSM
+
+    logic [31:0] out_data;         // Build this up 1 byte at a time
+     logic [15:0] out_addr;         // Build this up 1 byte at a time
+    logic out_we;                   // Write enable for output
+    
+    logic transfer; 
+      logic xfc;                // Transfer signal indicator
+   logic xfc_p1;              // Previous xfc state
+    
     // Internal logic signals
     logic reset;                          // Reset signal
    // logic [7:0] hostif_psoc_data[0:5];   // Array to simulate the input data stream (6 bytes)
@@ -64,7 +64,7 @@ module hostif_test (
   
     // Reset logic (double-flopped for metastability)
     always_ff @(posedge clk100MHZ) begin
-        reset <= ~cpu_resetn_raw; // Invert the raw reset signal
+        reset <= ~cpu_resetn_raw || hostif_psoc_reset_raw; // Invert the raw reset signal
     end
 
     // Synchronize and delay the xfc signal
@@ -80,6 +80,15 @@ module hostif_test (
 
     // Define the transfer signal based on xfc transitions
     assign transfer = xfc ^ xfc_p1;
+    
+      always_ff @(posedge clk100MHZ) begin
+        if(reset) 
+             hostif_fpga_psoc_xfc_raw <=1'b0;
+        else 
+        if(transfer) 
+             hostif_fpga_psoc_xfc_raw = ~hostif_fpga_psoc_xfc_raw;
+        end
+        
 
     // State transition logic
     always_ff @(posedge clk100MHZ) begin
@@ -130,7 +139,7 @@ module hostif_test (
     assign state_ram_data = state_ram_we ? out_data : 32'b0;
     assign attribute_ram_data = attribute_ram_we ? out_data : 12'b0;
 
-assign led = out_addr[7:0];
+//assign led = out_addr[7:0];
 
 //logic [47:0] packed_data;  // 6 * 8 bits for all elements in hostif_psoc_data
 
@@ -145,7 +154,7 @@ assign led = out_addr[7:0];
         if (reset) begin
             led <= 8'b0;  // Clear LEDs on reset
         end else if (transfer) begin
-            led <= hostif_psoc_data;  // Display first byte from PSOC on LEDs
+            led <= out_addr[7:0];  // Display first byte from PSOC on LEDs
         end
     end
 
