@@ -83,8 +83,14 @@ module physics_engine(
     always_comb begin
         case (sum_calc_mode)
             `scm_acc: sum_calc_in = acc_ram_read_data;
-            `scm_pos: sum_calc_in = {y, x};
-            `scm_vel: sum_calc_in = {vy, vx};
+            `scm_pos: begin
+                sum_calc_in = {y, x};
+                sr_write = {192'b0, mass, vy, vx, sum_ram_read_data[127:64], sum_ram_read_data[63:0]};
+            end
+            `scm_vel: begin
+                sum_calc_in = {vy, vx};
+                sr_write = {192'b0, mass, sum_ram_read_data[127:64], sum_ram_read_data[63:0], y, x};
+            end
         endcase
     end
     
@@ -299,10 +305,13 @@ module physics_engine(
                     if (sum_calc_finished) begin
                         // Run first sum calc for i = 0
                         sum_calc_finished <= 0;
-                        i <= 1;
-                        sr_addr <= 0;
                         sum_calc_valid <= 1;
-                        state <= 5;
+                        state <= 13;
+                        next_state <= 5;
+                        i <= 0;
+                        next_i <= 1;
+                        sr_addr <= 0;
+                        next_sr_addr <= 1;
                     end else begin
                         state <= 4;
                     end
@@ -311,11 +320,14 @@ module physics_engine(
                 
                 // State 5: add solved sums to current velocities
                 5: begin
-                    if (i < objmax) begin
+                    if (i <= objmax) begin
                         sum_calc_valid <= 1;
+                        state <= 13;
+                        next_state <= 5;
+                        i <= i;
+                        next_i <= i + 1;
                         sr_addr <= i;
-                        i <= i + 1;
-                        state <= 5;
+                        next_sr_addr <= i + 1;
                     end else begin
                         sum_calc_valid <= 0;
                         state <= 6;
@@ -327,10 +339,13 @@ module physics_engine(
                 6: begin
                     if (sum_calc_finished) begin
                         // Sum calc is done, time to load up our new velocities to the state ram
-                        i <= 0;
+                        sr_wen <= 0;
                         state <= 13;
                         next_state <= 7;
-                        next_i = 0;
+                        i <= 0;
+                        next_i <= 0;
+                        sr_addr <= 0;
+                        next_sr_addr <= 0;
                     end else begin
                         state <= 6;
                     end
@@ -339,30 +354,38 @@ module physics_engine(
                 
                 // State 7: Load new velocities to state ram
                 7: begin
-                    if (i < objmax) begin
-                        sr_write <= {192'b0, mass, sum_ram_read_data[63:0], sum_ram_read_data[127:64], y, x};
+                    if (i <= objmax) begin
                         sr_wen <= 1;
                         state <= 13;
                         next_state <= 7;
+                        i <= i;
                         next_i <= i + 1;
+                        sr_addr <= i;
                         next_sr_addr <= i + 1;
-                        i <= i + 1;
                     end else begin
-                        i <= 0;
-                        sr_wen <= 0;
                         sum_calc_mode <= `scm_pos;
-                        state <= 8;
+                        sum_calc_finished <= 0;
+                        sum_calc_valid <= 0;
+                        state <= 13;
+                        next_state <= 8;
+                        i <= 0;
+                        next_i <= 0;
+                        sr_addr <= 0;
+                        next_sr_addr <= 0;
                     end
                 end
                 
                 
                 // State 8: Add solved velocities to positions
                 8: begin
-                    if (i < objmax) begin
+                    if (i <= objmax) begin
                         sum_calc_valid <= 1;
+                        state <= 13;
+                        next_state <= 8;
+                        i <= i;
+                        next_i <= i + 1;
                         sr_addr <= i;
-                        i <= i + 1;
-                        state <= 8;
+                        next_sr_addr <= i + 1;
                     end else begin
                         sum_calc_valid <= 0;
                         state <= 9;
@@ -373,8 +396,14 @@ module physics_engine(
                 9: begin
                     if (sum_calc_finished) begin
                         // Sum calc is done, time to load up our new positions to the state ram and position ram
+                        sum_calc_finished <= 0;
+                        sr_wen <= 0;
+                        state <= 13;
+                        next_state <= 10;
                         i <= 0;
-                        state <= 10;
+                        next_i <= 0;
+                        sr_addr <= 0;
+                        next_sr_addr <= 0;
                     end else begin
                         state <= 9;
                     end
@@ -383,15 +412,17 @@ module physics_engine(
                 
                 // State 10: Write new positions to state ram and position ram
                 10: begin
-                    if (i < objmax) begin
+                    if (i <= objmax) begin
                         // Write to position ram
                         ftf_valid <= 1;
                         // Write to state ram
-                        sr_addr <= i;
-                        sr_write <= {192'b0, mass, vy, vx, sum_ram_read_data[63:0], sum_ram_read_data[127:64]};
+                        sr_wen <= 1;
                         state <= 13;
                         next_state <= 10;
+                        i <= i;
                         next_i <= i + 1;
+                        sr_addr <= i;
+                        next_sr_addr <= i + 1;
                     end else begin
                         i <= 0;
                         sum_ram_clear <= 1;
@@ -424,6 +455,7 @@ module physics_engine(
                 
                 // State 13: Gap cycle for rams
                 13: begin
+                    sr_wen <= 0;
                     sum_calc_valid <= 0;
                     //Send next telegraphed state & i
                     state <= next_state;

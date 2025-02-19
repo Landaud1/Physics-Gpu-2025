@@ -16,7 +16,9 @@ module function_interface(
     output logic        hdmi_tx_clk_p,
     output logic        hdmi_tx_clk_n,
     output logic [2:0]  hdmi_tx_p,
-    output logic [2:0]  hdmi_tx_n
+    output logic [2:0]  hdmi_tx_n,
+    
+    output logic  fld_state
     );
     
     
@@ -24,12 +26,14 @@ module function_interface(
         .clk(clk), 
         .reset(reset),
         
-        .default_color(4'hd),       //// MOVE THIS UP THE CHAIN
+        .default_color(4'h7),       //// MOVE THIS UP THE CHAIN
         
         .pingpong(pingpong),
         
         .adr_write(flood_adr_write),
-        .data_write(flood_data_write)
+        .data_write(flood_data_write),
+        
+        .state(fld_state)
     );
     
     display_generator dsp_gen(

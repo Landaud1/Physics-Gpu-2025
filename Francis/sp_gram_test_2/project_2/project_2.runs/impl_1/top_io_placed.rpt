@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date                      : Wed Feb 12 18:13:10 2025
+| Date                      : Wed Feb 19 15:33:21 2025
 | Host                      : navi running 64-bit Ubuntu 22.04.5 LTS
 | Command                   : report_io -file top_io_placed.rpt
 | Design                    : top
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|            14 |
+|            16 |
 +---------------+
 
 
@@ -489,7 +489,7 @@ Table of Contents
 | W12        |               | High Range | IO_L12N_T1_MRCC_13           | User IO       |             |      13 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | W13        |               | High Range | VCCO_13                      | VCCO          |             |      13 |            |      |                     |                      |    2.50 |            |           |          |      |                  |              |                   |              |
 | W14        |               | High Range | IO_L6P_T0_13                 | User IO       |             |      13 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| W15        |               | High Range | IO_L16P_T2_13                | User IO       |             |      13 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| W15        | data_read_out | High Range | IO_L16P_T2_13                | OUTPUT        | LVCMOS25    |      13 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | W16        |               | High Range | IO_L16N_T2_13                | User IO       |             |      13 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | W17        |               | High Range | IO_L16N_T2_A15_D31_14        | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | W18        |               |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
@@ -509,7 +509,7 @@ Table of Contents
 | Y10        |               | High Range | VCCO_13                      | VCCO          |             |      13 |            |      |                     |                      |    2.50 |            |           |          |      |                  |              |                   |              |
 | Y11        |               | High Range | IO_L11P_T1_SRCC_13           | User IO       |             |      13 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | Y12        |               | High Range | IO_L11N_T1_SRCC_13           | User IO       |             |      13 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| Y13        |               | High Range | IO_L5P_T0_13                 | User IO       |             |      13 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| Y13        | fld_state     | High Range | IO_L5P_T0_13                 | OUTPUT        | LVCMOS25    |      13 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | Y14        |               | High Range | IO_L6N_T0_VREF_13            | User IO       |             |      13 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | Y15        |               |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | Y16        |               | High Range | IO_L1P_T0_13                 | User IO       |             |      13 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
