@@ -12,20 +12,20 @@ module top(
     output logic        clk_out,
     output logic        clk_out1,
     output logic        pingpong,
-    output logic        reset_out,
+    output logic        reset_out
     
-    output logic fld_state,
-    output logic data_read_out
+    //output logic fld_state,
+    //output logic data_read_out
     );
     
     logic [19:0] adr_write;
     logic [3:0] data_write;
     logic [19:0] adr_read;
-    //logic [3:0] data_read;
+    logic [3:0] data_read;
     assign reset = reset_n;
-    logic [3:0] data_read_out1;
-    assign data_read_out1 = data_read;
-    assign data_read_out = data_read_out1[0];
+    //logic [3:0] data_read_out1;
+    //assign data_read_out1 = data_read;
+    //assign data_read_out = data_read_out1[0];
     
     clk_wiz_0 clk_wiz_0(
         .reset(reset),
