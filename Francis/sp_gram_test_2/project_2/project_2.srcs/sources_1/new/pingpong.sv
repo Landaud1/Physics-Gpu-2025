@@ -12,6 +12,11 @@ module pingpong(
         input logic         pingpong
     );
     
+    // Pingpong == 0, ping writes, pong reads
+    // Pingpong == 1, ping reads, pong writes
+    
+    logic [3:0] ping_data_read, pong_data_read;
+    
         // Single GRAM block
     // File hierarchy was created after conflicts with multiple GRAM declarations
     blk_mem_gen_0 ping(
@@ -58,17 +63,9 @@ module pingpong(
     
     // Ping pong implementation?
     
-    assign ping_wea = (pingpong == 0);
-    assign pong_wea = (pingpong == 1);
+    assign ping_wea = ~pingpong;
+    assign pong_wea = pingpong;
     
-    always_comb begin
-        if (pingpong == 0) begin
-            // ping writes, pong reads
-            data_read = pong_data_read;
-        end else begin
-            // ping reads, pong writes
-            data_read = ping_data_read;
-        end 
-    end
+    assign data_read = pingpong ? ping_data_read : pong_data_read;
     
 endmodule
