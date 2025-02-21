@@ -63,7 +63,7 @@ module pingpong(
     
     // Ping pong implementation?
     
-    assign ping_wea = ~pingpong;
+    assign ping_wea = (~pingpong);
     assign pong_wea = pingpong;
     
     assign data_read = pingpong ? ping_data_read : pong_data_read;

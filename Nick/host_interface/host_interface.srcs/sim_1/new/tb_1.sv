@@ -67,9 +67,8 @@ module tb_1(
      end
      
      initial begin
-      #120
         hostif_psoc_fpga_xfc_raw= 0;
-      #10
+      #110
         hostif_psoc_data = 8'hAA;
       #10
         hostif_psoc_fpga_xfc_raw = ~hostif_psoc_fpga_xfc_raw;

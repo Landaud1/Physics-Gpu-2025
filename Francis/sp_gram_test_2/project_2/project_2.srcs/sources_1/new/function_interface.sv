@@ -26,7 +26,7 @@ module function_interface(
         .clk(clk), 
         .reset(reset),
         
-        .default_color(4'h7),       //// MOVE THIS UP THE CHAIN
+        .default_color(4'h1),       //// MOVE THIS UP THE CHAIN
         
         .pingpong(pingpong),
         

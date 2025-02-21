@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Nick/host_interface/host_interface.srcs/constrs_1/imports/Downloads/Nexys-Video-Master.xdc rfile:../../../../../../Nick/host_interface/host_interface.srcs/constrs_1/imports/Downloads/Nexys-Video-Master.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/constrs_1/new/nexys.xdc rfile:../../../project_2.srcs/constrs_1/new/nexys.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:9 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN R4    IOSTANDARD LVCMOS33 } [get_ports { clk}]; #IO_L13P_T2_MRCC_34 Sch=sysclk
 set_property src_info {type:XDC file:1 line:23 export:INPUT save:INPUT read:READ} [current_design]
@@ -9,10 +9,6 @@ set_property src_info {type:XDC file:1 line:25 export:INPUT save:INPUT read:READ
 set_property -dict { PACKAGE_PIN T16   IOSTANDARD LVCMOS25 } [get_ports { pingpong }]; #IO_L17P_T2_13 Sch=led[2
 set_property src_info {type:XDC file:1 line:26 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN U16   IOSTANDARD LVCMOS25 } [get_ports { reset_out }]; #IO_L17N_T2_13 Sch=led[3]
-set_property src_info {type:XDC file:1 line:29 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN W15   IOSTANDARD LVCMOS25 } [get_ports { data_read_out }];
-set_property src_info {type:XDC file:1 line:30 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN Y13   IOSTANDARD LVCMOS25 } [get_ports { fld_state }];
 set_property src_info {type:XDC file:1 line:35 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN B22 IOSTANDARD LVCMOS12 } [get_ports { reset_n }]; #IO_L20N_T3_16 Sch=btnc
 set_property src_info {type:XDC file:1 line:81 export:INPUT save:INPUT read:READ} [current_design]

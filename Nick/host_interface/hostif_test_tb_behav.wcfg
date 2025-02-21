@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="609.001 ns"></ZoomEndTime>
-      <Cursor1Time time="845.380 ns"></Cursor1Time>
+      <ZoomStartTime time="75.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="401.001 ns"></ZoomEndTime>
+      <Cursor1Time time="10.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="285"></NameColumnWidth>
+      <NameColumnWidth column_width="281"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="9" />
+   <WVObjectSize size="10" />
    <wvobject type="logic" fp_name="/tb_1/clk100MHZ">
       <obj_property name="ElementShortName">clk100MHZ</obj_property>
       <obj_property name="ObjectShortName">clk100MHZ</obj_property>
@@ -55,5 +55,9 @@
    <wvobject type="array" fp_name="/tb_1/u1/u1/out_data">
       <obj_property name="ElementShortName">out_data[31:0]</obj_property>
       <obj_property name="ObjectShortName">out_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_1/u1/u1/transfer">
+      <obj_property name="ElementShortName">transfer</obj_property>
+      <obj_property name="ObjectShortName">transfer</obj_property>
    </wvobject>
 </wave_config>

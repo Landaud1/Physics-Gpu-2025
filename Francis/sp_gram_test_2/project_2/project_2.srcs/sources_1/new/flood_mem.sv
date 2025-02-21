@@ -13,7 +13,7 @@ module flood_mem(
     output logic state
 );
     
-    parameter int MAX_MEM = 921599;
+    parameter int MAX_MEM = 921599; // maybe need 921600
     
     //logic [3:0] state = 0;
     logic [19:0] curr_mem = '0;
@@ -45,6 +45,7 @@ module flood_mem(
                 4'h1: begin
                     if (pingpong_check != pingpong) begin
                         state <= 4'h0;
+                        curr_mem <= '0;
                     end
                 end
             endcase                                     
