@@ -18,7 +18,7 @@ module mem_interface(
         output logic [2:0]  hdmi_tx_p,
         output logic [2:0]  hdmi_tx_n,
         
-        output logic fld_state
+        output logic new_frame
     );
    
     logic [19:0] flood_adr_write;
@@ -44,7 +44,7 @@ module mem_interface(
         .hdmi_tx_clk_n(hdmi_tx_clk_n),
         .hdmi_tx_p(hdmi_tx_p),
         .hdmi_tx_n(hdmi_tx_n),
-        .fld_state(fld_state)
+        .new_frame(new_frame)
     );
     
     assign adr_write = flood_adr_write;

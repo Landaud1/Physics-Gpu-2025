@@ -57,7 +57,7 @@ module top(
         .hdmi_tx_p(hdmi_tx_p),
         .hdmi_tx_n(hdmi_tx_n),
         
-        .fld_state(fld_state)
+        .new_frame(new_frame)
     );
     
     pingpong ping_pong_switch(

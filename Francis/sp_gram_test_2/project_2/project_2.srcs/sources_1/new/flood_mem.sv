@@ -8,9 +8,7 @@ module flood_mem(
     
     input logic [3:0]   default_color,
     output logic [19:0] adr_write,
-    output logic [3:0]  data_write,
-    
-    output logic state
+    output logic [3:0]  data_write
 );
     
     parameter int MAX_MEM = 921599; // maybe need 921600
@@ -18,6 +16,7 @@ module flood_mem(
     //logic [3:0] state = 0;
     logic [19:0] curr_mem = '0;
     logic pingpong_check;
+    logic [3:0] state;
     
     always_ff @ (posedge clk) begin
         pingpong_check <= pingpong;

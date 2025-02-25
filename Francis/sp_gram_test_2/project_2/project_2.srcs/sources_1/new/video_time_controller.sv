@@ -3,11 +3,14 @@
 module vid_time_counter (
     input  logic        clk,
     input  logic        reset,
+    
+    output logic        vid_pHSync,
+    output logic        vid_pVSync,
+    
     output logic [19:0] adr_out,
     output logic        valid_output,
     output logic        pingpong,
-    output logic        vid_pHSync,
-    output logic        vid_pVSync
+    output logic        new_frame
 );
 
     // Signal Declarations for v_tc_0 outputs
@@ -32,7 +35,6 @@ module vid_time_counter (
     logic [10:0] curr_x, curr_y = '0;
     parameter int MAX_X = 1279;
     parameter int MAX_Y = 719;
-    logic new_frame;
     logic prev_v_blank = '0;
     
     // (in always_ff) old_v_blank <= v_blank;

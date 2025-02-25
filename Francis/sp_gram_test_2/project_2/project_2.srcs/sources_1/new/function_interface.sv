@@ -12,13 +12,12 @@ module function_interface(
     input logic [3:0]  display_data_read,
     
     output logic    pingpong,
+    output logic    new_frame,
     
     output logic        hdmi_tx_clk_p,
     output logic        hdmi_tx_clk_n,
     output logic [2:0]  hdmi_tx_p,
-    output logic [2:0]  hdmi_tx_n,
-    
-    output logic  fld_state
+    output logic [2:0]  hdmi_tx_n
     );
     
     
@@ -48,7 +47,9 @@ module function_interface(
         .hdmi_tx_clk_p(hdmi_tx_clk_p),
         .hdmi_tx_clk_n(hdmi_tx_clk_n),
         .hdmi_tx_p(hdmi_tx_p),
-        .hdmi_tx_n(hdmi_tx_n)
+        .hdmi_tx_n(hdmi_tx_n),
+        
+        .new_frame(new_frame)
     );
     
 endmodule

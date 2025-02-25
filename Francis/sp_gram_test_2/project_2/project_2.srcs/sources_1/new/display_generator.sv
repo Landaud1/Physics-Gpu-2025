@@ -8,6 +8,7 @@ module display_generator(
     input  logic [3:0]  display_data_read,
     
     output logic        pingpong,
+    output logic        new_frame,
     
     output logic        hdmi_tx_clk_p,
     output logic        hdmi_tx_clk_n,
@@ -23,7 +24,8 @@ module display_generator(
         .valid_output(valid_output),
         .pingpong(pingpong),
         .vid_pHSync(vid_pHSync),
-        .vid_pVSync(vid_pVSync)
+        .vid_pVSync(vid_pVSync),
+        .new_frame(new_frame)
     );
     
     logic [23:0] rgb_pixel_value;
