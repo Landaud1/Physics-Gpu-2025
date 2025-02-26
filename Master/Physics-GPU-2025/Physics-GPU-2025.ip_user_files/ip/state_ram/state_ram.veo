@@ -1,5 +1,5 @@
 // (c) Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-// (c) Copyright 2022-2024 Advanced Micro Devices, Inc. All rights reserved.
+// (c) Copyright 2022-2025 Advanced Micro Devices, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of AMD and is protected under U.S. and international copyright
@@ -62,9 +62,9 @@ state_ram your_instance_name (
   .douta(douta),  // output wire [511 : 0] douta
   .clkb(clkb),    // input wire clkb
   .web(web),      // input wire [0 : 0] web
-  .addrb(addrb),  // input wire [9 : 0] addrb
-  .dinb(dinb),    // input wire [511 : 0] dinb
-  .doutb(doutb)  // output wire [511 : 0] doutb
+  .addrb(addrb),  // input wire [13 : 0] addrb
+  .dinb(dinb),    // input wire [31 : 0] dinb
+  .doutb(doutb)  // output wire [31 : 0] doutb
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

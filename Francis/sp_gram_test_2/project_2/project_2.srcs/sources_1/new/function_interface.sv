@@ -5,8 +5,11 @@ module function_interface(
     input  logic        clk,
     input  logic        reset,
     
-    output logic [19:0] flood_adr_write,
-    output logic [3:0]  flood_data_write,
+    input logic  [3:0]  default_color,
+    input logic  [3:0]  funct_select,
+    
+    output logic [19:0] funct_adr_write,
+    output logic [3:0]  funct_data_write,
     
     output logic [19:0] display_adr_read,
     input logic [3:0]  display_data_read,
@@ -18,21 +21,23 @@ module function_interface(
     output logic        hdmi_tx_clk_n,
     output logic [2:0]  hdmi_tx_p,
     output logic [2:0]  hdmi_tx_n
+    
     );
     
     
-    flood_mem fm_t(
-        .clk(clk), 
+    mem_functions mem_f (
+        .clk(clk),
         .reset(reset),
         
-        .default_color(4'h1),       //// MOVE THIS UP THE CHAIN
-        
+        .funct_select(funct_select),
+    
         .pingpong(pingpong),
+        .default_color(default_color),
         
-        .adr_write(flood_adr_write),
-        .data_write(flood_data_write),
+        .funct_adr_write(funct_adr_write),
+        .funct_data_write(funct_data_write),
         
-        .state(fld_state)
+        .new_frame(new_frame)
     );
     
     display_generator dsp_gen(

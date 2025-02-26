@@ -1,5 +1,5 @@
 // (c) Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-// (c) Copyright 2022-2024 Advanced Micro Devices, Inc. All rights reserved.
+// (c) Copyright 2022-2025 Advanced Micro Devices, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of AMD and is protected under U.S. and international copyright
@@ -82,12 +82,12 @@ input wire clkb;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB WE" *)
 input wire [0 : 0] web;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB ADDR" *)
-input wire [9 : 0] addrb;
+input wire [13 : 0] addrb;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB DIN" *)
-input wire [511 : 0] dinb;
+input wire [31 : 0] dinb;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME BRAM_PORTB, MEM_ADDRESS_MODE BYTE_ADDRESS, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_LATENCY 1" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB DOUT" *)
-output wire [511 : 0] doutb;
+output wire [31 : 0] doutb;
 
   blk_mem_gen_v8_4_8 #(
     .C_FAMILY("artix7"),
@@ -133,11 +133,11 @@ output wire [511 : 0] doutb;
     .C_USE_BYTE_WEB(0),
     .C_WEB_WIDTH(1),
     .C_WRITE_MODE_B("WRITE_FIRST"),
-    .C_WRITE_WIDTH_B(512),
-    .C_READ_WIDTH_B(512),
-    .C_WRITE_DEPTH_B(1024),
-    .C_READ_DEPTH_B(1024),
-    .C_ADDRB_WIDTH(10),
+    .C_WRITE_WIDTH_B(32),
+    .C_READ_WIDTH_B(32),
+    .C_WRITE_DEPTH_B(16384),
+    .C_READ_DEPTH_B(16384),
+    .C_ADDRB_WIDTH(14),
     .C_HAS_MEM_OUTPUT_REGS_A(1),
     .C_HAS_MEM_OUTPUT_REGS_B(1),
     .C_HAS_MUX_OUTPUT_REGS_A(0),
@@ -162,9 +162,9 @@ output wire [511 : 0] doutb;
     .C_EN_SHUTDOWN_PIN(0),
     .C_EN_SAFETY_CKT(0),
     .C_DISABLE_WARN_BHV_RANGE(0),
-    .C_COUNT_36K_BRAM("14"),
-    .C_COUNT_18K_BRAM("1"),
-    .C_EST_POWER_SUMMARY("Estimated Power for IP     :     87.398704 mW")
+    .C_COUNT_36K_BRAM("16"),
+    .C_COUNT_18K_BRAM("0"),
+    .C_EST_POWER_SUMMARY("Estimated Power for IP     :     40.6152 mW")
   ) inst (
     .clka(clka),
     .rsta(1'D0),

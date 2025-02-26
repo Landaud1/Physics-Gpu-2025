@@ -12,11 +12,25 @@ module top(
     output logic        clk_out,
     output logic        clk_out1,
     output logic        pingpong,
-    output logic        reset_out
+    output logic        reset_out,
+    
+    input logic [2:0] sw
     
     //output logic fld_state,
     //output logic data_read_out
     );
+    
+    logic [3:0] default_color = 4'h0;
+    //logic [3:0] funct_select = 4'h0; // Flood mem
+    //logic [3:0] funct_select = 4'h1; // Grid
+    logic [3:0] funct_select = 4'h2; // Border
+    
+    //logic [3:0] funct_select;
+    //assign funct_select = 
+    //    (sw[0]) ? 4'h0  : // flood
+    //    (sw[1]) ? 4'h1  : // grid
+    //    (sw[2]) ? 4'h2  : // border
+    //              '0;     // default flood
     
     logic [19:0] adr_write;
     logic [3:0] data_write;
@@ -44,6 +58,9 @@ module top(
     mem_interface mem_int(
         .clk(clk_74_25),
         .reset(reset),
+        
+        .default_color(default_color),
+        .funct_select(funct_select),
     
         .adr_write(adr_write),
         .data_write(data_write),

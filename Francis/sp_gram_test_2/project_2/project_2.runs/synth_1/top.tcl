@@ -86,6 +86,9 @@ read_verilog -library xil_defaultlib -sv {
   /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/video_time_controller.sv
   /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/top.sv
   /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/testbench.sv
+  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/mem_functions.sv
+  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/grid_test.sv
+  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/border_test.sv
 }
 read_ip -quiet /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0.xci
 set_property used_in_implementation false [get_files -all /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/rgb2dvi_0/src/rgb2dvi.xdc]

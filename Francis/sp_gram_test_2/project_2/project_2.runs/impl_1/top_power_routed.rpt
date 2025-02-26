@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date             : Thu Feb 20 20:07:19 2025
+| Date             : Wed Feb 26 18:19:02 2025
 | Host             : navi running 64-bit Ubuntu 22.04.5 LTS
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.608        |
+| Total On-Chip Power (W)  | 0.609        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.444        |
+| Dynamic (W)              | 0.445        |
 | Device Static (W)        | 0.164        |
 | Effective TJA (C/W)      | 3.3          |
 | Max Ambient (C)          | 83.0         |
@@ -52,19 +52,19 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.011 |        9 |       --- |             --- |
-| Slice Logic    |     0.002 |     1488 |       --- |             --- |
-|   LUT as Logic |     0.002 |      586 |    133800 |            0.44 |
-|   Register     |    <0.001 |      338 |    267600 |            0.13 |
+| Clocks         |     0.012 |        9 |       --- |             --- |
+| Slice Logic    |     0.002 |     1570 |       --- |             --- |
+|   LUT as Logic |     0.002 |      641 |    133800 |            0.48 |
+|   Register     |    <0.001 |      357 |    267600 |            0.13 |
 |   CARRY4       |    <0.001 |       38 |     33450 |            0.11 |
 |   Others       |     0.000 |      278 |       --- |             --- |
-| Signals        |     0.005 |     1397 |       --- |             --- |
-| Block RAM      |     0.026 |      225 |       365 |           61.64 |
+| Signals        |     0.005 |     1439 |       --- |             --- |
+| Block RAM      |     0.027 |      225 |       365 |           61.64 |
 | MMCM           |     0.116 |        1 |        10 |           10.00 |
 | PLL            |     0.135 |        1 |        10 |           10.00 |
 | I/O            |     0.149 |       14 |       285 |            4.91 |
 | Static Power   |     0.164 |          |           |                 |
-| Total          |     0.608 |          |           |                 |
+| Total          |     0.609 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -149,14 +149,14 @@ Table of Contents
 +--------------------+-----------+
 | Name               | Power (W) |
 +--------------------+-----------+
-| top                |     0.444 |
+| top                |     0.445 |
 |   clk_wiz_0        |     0.117 |
 |     inst           |     0.117 |
 |   mem_int          |     0.284 |
 |     func_int       |     0.284 |
 |       dsp_gen      |     0.282 |
-|       fm_t         |     0.002 |
-|   ping_pong_switch |     0.030 |
+|       mem_f        |     0.002 |
+|   ping_pong_switch |     0.031 |
 |     ping           |     0.016 |
 |       U0           |     0.016 |
 |     pong           |     0.015 |

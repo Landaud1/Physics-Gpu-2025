@@ -1,5 +1,5 @@
 -- (c) Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
--- (c) Copyright 2022-2024 Advanced Micro Devices, Inc. All rights reserved.
+-- (c) Copyright 2022-2025 Advanced Micro Devices, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of AMD and is protected under U.S. and international copyright
@@ -60,9 +60,9 @@ COMPONENT state_ram
     douta : OUT STD_LOGIC_VECTOR(511 DOWNTO 0);
     clkb : IN STD_LOGIC;
     web : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    addrb : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-    dinb : IN STD_LOGIC_VECTOR(511 DOWNTO 0);
-    doutb : OUT STD_LOGIC_VECTOR(511 DOWNTO 0) 
+    addrb : IN STD_LOGIC_VECTOR(13 DOWNTO 0);
+    dinb : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    doutb : OUT STD_LOGIC_VECTOR(31 DOWNTO 0) 
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------

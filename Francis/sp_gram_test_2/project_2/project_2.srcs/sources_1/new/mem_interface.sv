@@ -5,6 +5,9 @@
 module mem_interface(
         input  logic        clk,
         input  logic        reset,
+        
+        input logic  [3:0]  default_color,
+        input logic  [3:0]  funct_select,
 
         output logic    [19:0]     adr_write,
         output logic    [3:0]      data_write,
@@ -21,8 +24,8 @@ module mem_interface(
         output logic new_frame
     );
    
-    logic [19:0] flood_adr_write;
-    logic [3:0] flood_data_write;
+    logic [19:0] funct_adr_write;
+    logic [3:0] funct_data_write;
     logic [19:0] display_adr_read;
     logic [3:0] display_data_read;
     
@@ -32,8 +35,11 @@ module mem_interface(
         .clk(clk),
         .reset(reset),
         
-        .flood_adr_write(flood_adr_write),
-        .flood_data_write(flood_data_write),
+        .default_color(default_color),
+        .funct_select(funct_select),
+        
+        .funct_adr_write(funct_adr_write),
+        .funct_data_write(funct_data_write),
         
         .display_adr_read(display_adr_read),
         .display_data_read(display_data_read),
@@ -47,8 +53,8 @@ module mem_interface(
         .new_frame(new_frame)
     );
     
-    assign adr_write = flood_adr_write;
-    assign data_write = flood_data_write;
+    assign adr_write = funct_adr_write;
+    assign data_write = funct_data_write;
     
     assign adr_read = display_adr_read;
     assign display_data_read = data_read;

@@ -1,8 +1,12 @@
 `timescale 1ns / 1ps
 
 module top(
-        input logic CLK,
-        input logic RESET
+    input  logic        clk_raw,
+    input  logic        RESET,
+    output logic        hdmi_tx_clk_p,
+    output logic        hdmi_tx_clk_n,
+    output logic [2:0]  hdmi_tx_p,
+    output logic [2:0]  hdmi_tx_n
     );
     
     
@@ -50,6 +54,16 @@ module top(
     logic ARB_WE;
     
     
+    // Fix clock to 74.24MHz
+    logic clk;
+    clk_wiz_0 clk_wiz(
+        .reset(reset),
+        .clk_in1(clk_raw),
+        .clk_out1(clk),
+        .locked(locked)
+    );
+    
+    
     // State ram:  connects between host I/F and physics engine
     // Holds data about ping/pong positions, velocities, and masses of objects
     state_ram sr(
@@ -62,8 +76,8 @@ module top(
         .douta(SRA_READ_DATA),
         .doutb(SRB_READ_DATA),
         
-        .clka(CLK),
-        .clkb(CLK),
+        .clka(clk),
+        .clkb(clk),
         .wea(SRA_WE),
         .web(SRB_WE)
     );
@@ -72,15 +86,25 @@ module top(
     physics_engine pe(
         .VSYNC(VSYNC),
         .reset(RESET),
-        .clk(CLK),
+        .clk(clk),
         .N_OBJECTS(N_OBJECTS),
         
-        .SR_ADDR(SRB_ADDR),
-        .SR_READ(SRB_READ_DATA),
-        .SR_WRITE(SRB_WRITE_DATA),
+        .SR_ADDR(SRA_ADDR),
+        .SR_READ(SRA_READ_DATA),
+        .SR_WRITE(SRA_WRITE_DATA),
         
         .PR_ADDR(PRA_ADDR),
         .PR_WRITE(PRA_WRITE_DATA)
+    );
+    
+    // Display Engine
+    display_engine de(
+        .clk(clk),
+        .reset_n(RESET),
+        .hdmi_tx_clk_p(hdmi_tx_clk_p),
+        .hdmi_tx_clk_n(hdmi_tx_clk_n),
+        .hdmi_tx_p(hdmi_tx_p),   
+        .hdmi_tx_n(hdmi_tx_n)
     );
     
     // Position ram: connects between physics engine and render engine
@@ -93,8 +117,8 @@ module top(
         
         .doutb(PRB_READ_DATA),
         
-        .clka(CLK),
-        .clkb(CLK),
+        .clka(clk),
+        .clkb(clk),
         .wea(PRA_WE)
     );
     
@@ -108,20 +132,9 @@ module top(
         
         .doutb(ARB_READ_DATA),
         
-        .clka(CLK),
-        .clkb(CLK),
+        .clka(clk),
+        .clkb(clk),
         .wea(ARA_WE)
     );
     
-    // GRAM instantiation
-    gram gram(
-        .clka(CLK),
-        .wea(gram_write_enable),
-        .addra(gram_address_write),
-        .dina(gram_data_in),
-        .clkb(gram_clk),
-        .enb(gram_read_enable),
-        .addrb(gram_address_read),
-        .doutb(gram_data_out)  // Connect to doutb signal
-    );
 endmodule
