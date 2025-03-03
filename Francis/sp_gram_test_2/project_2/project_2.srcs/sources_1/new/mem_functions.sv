@@ -15,25 +15,25 @@ module mem_functions(
     input logic         new_frame    
     );
     
-    logic selected_flood, selected_grid;
-    logic [19:0] flood_adr_write, grid_adr_write, border_adr_write;
-    logic [3:0]  flood_data_write, grid_data_write, border_data_write;
+    logic selected_flood, selected_grid, selected_walk;
+    logic [19:0] flood_adr_write, grid_adr_write, walk_adr_write;
+    logic [3:0]  flood_data_write, grid_data_write, walk_data_write;
     
     assign selected_flood = (funct_select == 4'h0);
     assign selected_grid = (funct_select == 4'h1);
-    assign selected_border = (funct_select == 4'h2);
+    assign selected_walk = (funct_select == 4'h2);
     
     // mux
     assign funct_adr_write = 
         (selected_flood)  ? flood_adr_write   :
         (selected_grid)   ? grid_adr_write    :
-        (selected_border) ? border_adr_write  :
+        (selected_walk)   ? walk_adr_write  :
                            '0;
     // mux
     assign funct_data_write = 
         (selected_flood)  ? flood_data_write  :
         (selected_grid)   ? grid_data_write   :
-        (selected_border) ? border_data_write :
+        (selected_walk)   ? walk_data_write :
                            '0;
                            
     flood_mem fm_t(
@@ -61,16 +61,16 @@ module mem_functions(
         .data_write(grid_data_write)
     );
     
-    border_test bdr_t(
-        .selected_funct(selected_border),
+    pixel_walk pxl_w(
+        .selected_funct(selected_walk),
         .clk(clk),
         .reset(reset),
     
         .new_frame(new_frame),
         .default_color(default_color),
     
-        .adr_write(border_adr_write),
-        .data_write(border_data_write)
+        .adr_write(walk_adr_write),
+        .data_write(walk_data_write)
     );
     
     

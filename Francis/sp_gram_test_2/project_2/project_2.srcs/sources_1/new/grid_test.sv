@@ -65,7 +65,7 @@ module grid_test(
                             state <= 4'h0;
                             curr_mem <= '0;
                             curr_x <= '0;
-                            curr_y = '0;
+                            curr_y <= '0;
                         end
                     end
                 endcase  

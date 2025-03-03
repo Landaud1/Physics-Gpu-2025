@@ -9,28 +9,33 @@ module top(
     output logic        hdmi_tx_clk_n,
     output logic [2:0]  hdmi_tx_p,
     output logic [2:0]  hdmi_tx_n,
-    output logic        clk_out,
-    output logic        clk_out1,
-    output logic        pingpong,
-    output logic        reset_out,
     
-    input logic [2:0] sw
+    output logic        new_frame,
+    //output logic        clk_out,
+    //output logic        clk_out1,
+    //output logic        pingpong,
+    //output logic        reset_out,
+    
+    input logic [3:0] sw
     
     //output logic fld_state,
     //output logic data_read_out
     );
     
     logic [3:0] default_color = 4'h0;
-    //logic [3:0] funct_select = 4'h0; // Flood mem
-    //logic [3:0] funct_select = 4'h1; // Grid
-    logic [3:0] funct_select = 4'h2; // Border
     
-    //logic [3:0] funct_select;
-    //assign funct_select = 
-    //    (sw[0]) ? 4'h0  : // flood
-    //    (sw[1]) ? 4'h1  : // grid
-    //    (sw[2]) ? 4'h2  : // border
-    //              '0;     // default flood
+    logic [3:0] funct_select; 
+    
+    always_comb begin
+        case (sw)
+            4'b0000: funct_select = 4'h0; // Flood
+            4'b0001: funct_select = 4'h1; // Grid
+            4'b0010: funct_select = 4'h2; // Pixel walk
+            4'b0100: funct_select = 4'h3; // 
+            default: funct_select = 4'h0; // Default case (fallback to flood)
+        endcase
+    end
+    
     
     logic [19:0] adr_write;
     logic [3:0] data_write;
@@ -41,22 +46,17 @@ module top(
     //assign data_read_out1 = data_read;
     //assign data_read_out = data_read_out1[0];
     
-    clk_wiz_0 clk_wiz_0(
-        .reset(reset),
-        .clk_in1(clk),
-        .clk_out1(clk_74_25),
-        .locked(locked)
-    );
+    
     
     // Used to pass GRAM values without multiple driver conflicts
     // Inputs to GRAM become outputs in interface, and vice versa
     
-    assign clk_out = clk_74_25;
-    assign clk_out1 = clk;
-    assign reset_out = reset;
+    //assign clk_out = clk_74_25;
+    //assign clk_out1 = clk;
+    //assign reset_out = reset;
     
     mem_interface mem_int(
-        .clk(clk_74_25),
+        .clk(clk),
         .reset(reset),
         
         .default_color(default_color),
@@ -78,7 +78,7 @@ module top(
     );
     
     pingpong ping_pong_switch(
-        .clk(clk_74_25),
+        .clk(clk),
         .reset(reset),
         
         .adr_write(adr_write),

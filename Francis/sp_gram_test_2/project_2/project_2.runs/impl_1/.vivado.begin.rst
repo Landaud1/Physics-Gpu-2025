@@ -1,30 +1,5 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="landaud1" Host="navi" Pid="742713" HostCore="32" HostMemory="131923748">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="landaud1" Host="navi" Pid="777207" HostCore="32" HostMemory="131923748">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="landaud1" Host="navi" Pid="777949" HostCore="32" HostMemory="131923748">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="landaud1" Host="navi" Pid="808665" HostCore="32" HostMemory="131923748">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="landaud1" Host="navi" Pid="835382" HostCore="32" HostMemory="131923748">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="landaud1" Host="navi" Pid="870673" HostCore="32" HostMemory="131923748">
+    <Process Command="vivado" Owner="landaud1" Host="navi" Pid="1526511" HostCore="32" HostMemory="131923748">
     </Process>
 </ProcessHandle>
