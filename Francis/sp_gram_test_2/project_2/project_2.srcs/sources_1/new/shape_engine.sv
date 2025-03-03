@@ -10,8 +10,10 @@ module shape_engine(
     input logic [3:0]   default_color,
     
     output logic [19:0] adr_write,
-    output logic [3:0]  data_write
-
+    output logic [3:0]  data_write,
+    
+    output logic [9:0]  pram_adr_read,
+    input logic [20:0]  pram_data_read  
     );
     
     // Read register for N
