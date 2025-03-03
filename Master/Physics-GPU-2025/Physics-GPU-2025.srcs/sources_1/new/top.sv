@@ -1,8 +1,16 @@
 `timescale 1ns / 1ps
 
 module top(
+    // FPGA signals
     input  logic        clk_raw,
-    input  logic        RESET,
+    input  logic        reset,
+    // PMOD Input Signals
+    input  logic        cpu_resetn_raw,
+    input  logic [7:0]  hostif_psoc_data,         
+    input  logic        hostif_psoc_fpga_xfc_raw,  
+    input  logic        hostif_psoc_reset_raw,         
+    output logic        hostif_fpga_psoc_xfc_raw,      
+    // HDMI Output Signals
     output logic        hdmi_tx_clk_p,
     output logic        hdmi_tx_clk_n,
     output logic [2:0]  hdmi_tx_p,
@@ -11,24 +19,21 @@ module top(
     
     
     // General Signals
-    logic VSYNC;
     logic [9:0] n_objects;
-    logic newframe;
+    logic newframe, run_stopb;
     
-    
-    // Host I/F to state ram signals
-    // Nick you will be using these!
+    // Host I/F Output Signals
+    logic [31:0]  hostif_data_out;
+    logic [15:0]  hostif_addr_out;
+    logic SRB_WE;
+    logic ARA_WE;
+    logic regs_we;
+ 
+    // state ram to physics engine signals
     logic [511:0] SRA_WRITE_DATA; // SRA stands for state ram side A
-    logic [511:0] SRA_READ_DATA; // Might look into deleting, host i/f can't read
+    logic [511:0] SRA_READ_DATA; 
     logic [9:0] SRA_ADDR;
     logic SRA_WE;
-    
-    // state ram to physics engine signals
-    logic [511:0] SRB_WRITE_DATA; 
-    logic [511:0] SRB_READ_DATA; 
-    logic [9:0] SRB_ADDR;
-    logic SRB_WE;
-    
     
     // Physics engine to position ram signals
     logic [20:0] PRA_WRITE_DATA;
@@ -40,13 +45,6 @@ module top(
     logic [20:0] PRB_READ_DATA; 
     logic [9:0] PRB_ADDR;
     logic PRB_WE;
-    
-    
-    // Host IF to attribute ram signals
-    // Nick you will be using these
-    logic [11:0] ARA_WRITE_DATA;
-    logic [9:0] ARA_ADDR;
-    logic ARA_WE;
     
     // state ram to Render engine signals
     // Francis you will be using these!
@@ -64,10 +62,26 @@ module top(
         .locked(locked)
     );
     
+    // Host Interface
+    hostif hif(
+        .clk(clk),
+        .hostif_psoc_data(hostif_psoc_data),
+        .cpu_resetn_raw(reset),          
+        .hostif_psoc_fpga_xfc_raw(hostif_psoc_fpga_xfc_raw),
+        .hostif_psoc_reset_raw(hostif_psoc_reset_raw),   
+        .hostif_fpga_psoc_xfc_raw(hostif_fpga_psoc_xfc_raw),
+              
+        .out_data(hostif_data_out),
+        .out_addr(hostif_addr_out),         
+        .regs_we(regs_we),  
+        .state_ram_we(SRB_WE),
+        .attribute_ram_we(ARA_WE)
+    );
+    
     // Physics Engine
     physics_engine pe(
-        .VSYNC(VSYNC),
-        .reset(RESET),
+        .newframe(newframe),
+        .reset(run_stopb),
         .clk(clk),
         .n_objects(n_objects),
         
@@ -82,7 +96,7 @@ module top(
     // Display Engine
     display_engine de(
         .clk(clk),
-        .reset_n(RESET),
+        .reset_n(reset),
         .hdmi_tx_clk_p(hdmi_tx_clk_p),
         .hdmi_tx_clk_n(hdmi_tx_clk_n),
         .hdmi_tx_p(hdmi_tx_p),   
@@ -93,11 +107,11 @@ module top(
     register_block regs(
         .clk(clk),
         .reset(reset),
-        .addr(),
-        .we(),
-        .data(),
-        .n_objects(),
-        .run_stopb()
+        .addr(hostif_addr_out[0]),
+        .we(regs_we),
+        .data_in(hostif_data_out),
+        .n_objects(n_objects),
+        .run_stopb(run_stopb)
     );
     
     // Position ram: connects between physics engine and render engine
@@ -105,7 +119,7 @@ module top(
     pp_position_ram pr(
         .addra(PRA_ADDR),
         .addrb(PRB_ADDR),
-        .reset(RESET),
+        .reset(reset),
         .newframe(newframe),
         
         .dina(PRA_WRITE_DATA),
