@@ -12,28 +12,34 @@ module mem_functions(
     output logic [19:0] funct_adr_write,
     output logic [3:0]  funct_data_write,
     
-    input logic         new_frame    
+    input logic         new_frame,    
+    
+    output logic [9:0]  pram_adr_read,
+    input logic [20:0]  pram_data_read    
     );
     
-    logic selected_flood, selected_grid, selected_walk;
-    logic [19:0] flood_adr_write, grid_adr_write, walk_adr_write;
-    logic [3:0]  flood_data_write, grid_data_write, walk_data_write;
+    logic selected_flood, selected_grid, selected_walk, selected_shape;
+    logic [19:0] flood_adr_write, grid_adr_write, walk_adr_write, shape_adr_write;
+    logic [3:0]  flood_data_write, grid_data_write, walk_data_write, shape_adr_write;
     
     assign selected_flood = (funct_select == 4'h0);
     assign selected_grid = (funct_select == 4'h1);
     assign selected_walk = (funct_select == 4'h2);
+    assign selected_shape = (funct_select == 4'h3);
     
     // mux
     assign funct_adr_write = 
         (selected_flood)  ? flood_adr_write   :
         (selected_grid)   ? grid_adr_write    :
         (selected_walk)   ? walk_adr_write  :
+        (selected_shape)  ? shape_adr_write  :
                            '0;
     // mux
     assign funct_data_write = 
         (selected_flood)  ? flood_data_write  :
         (selected_grid)   ? grid_data_write   :
         (selected_walk)   ? walk_data_write :
+        (selected_shape)  ? shape_data_write :
                            '0;
                            
     flood_mem fm_t(
@@ -71,6 +77,21 @@ module mem_functions(
     
         .adr_write(walk_adr_write),
         .data_write(walk_data_write)
+    );
+    
+    shape_engine shp_eng(
+        .selected_funct(selected_shape),
+        .clk(clk),
+        .reset(reset),
+        
+        .new_frame(new_frame),
+        .default_color(default_color),
+        
+        .adr_write(shape_adr_write),
+        .data_write(shape_data_write),
+        
+        .pram_adr_read(pram_adr_read),
+        .pram_data_read(pram_data_read)
     );
     
     

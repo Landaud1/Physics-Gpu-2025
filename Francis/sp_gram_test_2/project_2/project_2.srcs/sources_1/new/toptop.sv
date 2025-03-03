@@ -27,9 +27,9 @@ module toptop(
         .sw(sw)
     );
     
-    attribute_ram aram(
+    //attribute_ram aram(
     
-    );
+    //);
     
     position_ram pram(
         .clk(clk),
@@ -37,7 +37,10 @@ module toptop(
         .reset(~reset),
         .adr_write(pram_write_adr),
         .data_write(pram_write_data),
-        .newframe(new_frame)
+        .newframe(new_frame),
+        
+        .adr_read(),
+        .data_read()
     );
     
 endmodule

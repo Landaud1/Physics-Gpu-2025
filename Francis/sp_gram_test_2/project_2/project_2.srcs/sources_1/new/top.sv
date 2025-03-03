@@ -5,12 +5,18 @@ module top(
     input logic     clk,                 
     input logic     reset_n,
     
+    output logic        new_frame,
+    
     output logic        hdmi_tx_clk_p,
     output logic        hdmi_tx_clk_n,
     output logic [2:0]  hdmi_tx_p,
     output logic [2:0]  hdmi_tx_n,
     
-    output logic        new_frame,
+    output logic [9:0]  pram_adr_read,
+    input logic [20:0]  pram_data_read,
+    
+    
+    //// FIX CONSTRAINTS FILE!!!!!!!!!
     //output logic        clk_out,
     //output logic        clk_out1,
     //output logic        pingpong,
@@ -31,7 +37,7 @@ module top(
             4'b0000: funct_select = 4'h0; // Flood
             4'b0001: funct_select = 4'h1; // Grid
             4'b0010: funct_select = 4'h2; // Pixel walk
-            4'b0100: funct_select = 4'h3; // 
+            4'b0100: funct_select = 4'h3; // Shape engine
             default: funct_select = 4'h0; // Default case (fallback to flood)
         endcase
     end
@@ -74,7 +80,10 @@ module top(
         .hdmi_tx_p(hdmi_tx_p),
         .hdmi_tx_n(hdmi_tx_n),
         
-        .new_frame(new_frame)
+        .new_frame(new_frame),
+        
+        .pram_adr_read(pram_adr_read),
+        .pram_data_read(pram_data_read)
     );
     
     pingpong ping_pong_switch(

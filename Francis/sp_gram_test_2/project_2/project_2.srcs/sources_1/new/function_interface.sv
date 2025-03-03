@@ -20,8 +20,10 @@ module function_interface(
     output logic        hdmi_tx_clk_p,
     output logic        hdmi_tx_clk_n,
     output logic [2:0]  hdmi_tx_p,
-    output logic [2:0]  hdmi_tx_n
+    output logic [2:0]  hdmi_tx_n,
     
+    output logic [9:0]  pram_adr_read,
+    input logic [20:0]  pram_data_read
     );
     
     
@@ -37,7 +39,10 @@ module function_interface(
         .funct_adr_write(funct_adr_write),
         .funct_data_write(funct_data_write),
         
-        .new_frame(new_frame)
+        .new_frame(new_frame),
+        
+        .pram_adr_read(pram_adr_read),
+        .pram_data_read(pram_data_read)
     );
     
     display_generator dsp_gen(
