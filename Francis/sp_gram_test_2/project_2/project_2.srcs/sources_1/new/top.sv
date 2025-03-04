@@ -6,6 +6,7 @@ module top(
     input logic     reset_n,
     
     output logic        new_frame,
+    input logic     go,     // Implement go signal
     
     output logic        hdmi_tx_clk_p,
     output logic        hdmi_tx_clk_n,
@@ -47,7 +48,7 @@ module top(
     logic [3:0] data_write;
     logic [19:0] adr_read;
     logic [3:0] data_read;
-    assign reset = reset_n;
+    assign reset = ~reset_n;
     //logic [3:0] data_read_out1;
     //assign data_read_out1 = data_read;
     //assign data_read_out = data_read_out1[0];

@@ -1,12 +1,13 @@
 Vivado Simulator v2024.1
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: /media/sdb/Tools/Vivado/2024.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L axi_lite_ipif_v3_0_4 -L v_tc_v6_2_8 -L blk_mem_gen_v8_4_8 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Running: /tools/Vivado/2024.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L axi_lite_ipif_v3_0_4 -L v_tc_v6_2_8 -L blk_mem_gen_v8_4_8 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-5021] port 'sw' is not connected on this instance [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/testbench.sv:8]
-WARNING: [VRFC 10-5021] port 'fsync_out' is not connected on this instance [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/video_time_controller.sv:20]
+WARNING: [VRFC 10-9543] actual bit length 1 differs from formal bit length 4 for port 'data_write' [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/mem_functions.sv:91]
+WARNING: [VRFC 10-3027] 'shape_adr_write' was previously declared with a different range [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/mem_functions.sv:22]
+WARNING: [VRFC 10-5021] port 'fsync_out' is not connected on this instance [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/video_time_controller.sv:20]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -34,7 +35,8 @@ Compiling module xil_defaultlib.clk_wiz_0_clk_wiz
 Compiling module xil_defaultlib.clk_wiz_0
 Compiling module xil_defaultlib.flood_mem
 Compiling module xil_defaultlib.grid_test
-Compiling module xil_defaultlib.border_test
+Compiling module xil_defaultlib.pixel_walk
+Compiling module xil_defaultlib.shape_engine
 Compiling module xil_defaultlib.mem_functions
 Compiling module xpm.xpm_cdc_single(DEST_SYNC_FF=2,IN...
 Compiling architecture rtl of entity v_tc_v6_2_8.video_ctrl [\video_ctrl(c_family="virtex5",c...]
@@ -68,6 +70,16 @@ Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8(C_FAMILY="art...
 Compiling module xil_defaultlib.blk_mem_gen_1
 Compiling module xil_defaultlib.pingpong
 Compiling module xil_defaultlib.top
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_output_stage(...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8(C_FAMILY="art...
+Compiling module xil_defaultlib.blk_mem_gen_2
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8(C_FAMILY="art...
+Compiling module xil_defaultlib.blk_mem_gen_3
+Compiling module xil_defaultlib.position_ram
+Compiling module xil_defaultlib.toptop
 Compiling module xil_defaultlib.testbench
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot testbench_behav

@@ -38,7 +38,13 @@ module position_ram(
         
         .clka(clk),
         .clkb(clk),
-        .wea(~pingpong & wea)
+        .wea(~pingpong & wea),
+        
+        .ena('1),
+        .enb('1),
+        .web('0),
+        
+        .dinb('0)
     );
     
     blk_mem_gen_3 ppong(
@@ -52,7 +58,13 @@ module position_ram(
         
         .clka(clk),
         .clkb(clk),
-        .wea(pingpong & wea)
+        .wea(pingpong & wea),
+        
+        .ena('1),
+        .enb('1),
+        .web('0),
+        
+        .dinb('0)
     );
     
 endmodule
