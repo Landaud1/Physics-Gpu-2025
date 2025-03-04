@@ -20,7 +20,7 @@ module mem_functions(
     
     logic selected_flood, selected_grid, selected_walk, selected_shape;
     logic [19:0] flood_adr_write, grid_adr_write, walk_adr_write, shape_adr_write;
-    logic [3:0]  flood_data_write, grid_data_write, walk_data_write, shape_adr_write;
+    logic [3:0]  flood_data_write, grid_data_write, walk_data_write, shape_data_write;
     
     assign selected_flood = (funct_select == 4'h0);
     assign selected_grid = (funct_select == 4'h1);

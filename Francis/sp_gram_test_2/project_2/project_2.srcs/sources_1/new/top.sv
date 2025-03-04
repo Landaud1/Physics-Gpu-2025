@@ -3,7 +3,7 @@
 
 module top(
     input logic     clk,                 
-    input logic     reset_n,
+    input logic     reset,
     
     output logic        new_frame,
     input logic     go,     // Implement go signal
@@ -16,12 +16,7 @@ module top(
     output logic [9:0]  pram_adr_read,
     input logic [20:0]  pram_data_read,
     
-    
-    //// FIX CONSTRAINTS FILE!!!!!!!!!
-    //output logic        clk_out,
-    //output logic        clk_out1,
-    //output logic        pingpong,
-    //output logic        reset_out,
+    output logic        pingpong,
     
     input logic [3:0] sw
     
@@ -30,7 +25,7 @@ module top(
     );
     
     logic [3:0] default_color = 4'h0;
-    
+    logic reset_n;
     logic [3:0] funct_select; 
     
     always_comb begin
@@ -48,7 +43,6 @@ module top(
     logic [3:0] data_write;
     logic [19:0] adr_read;
     logic [3:0] data_read;
-    assign reset = ~reset_n;
     //logic [3:0] data_read_out1;
     //assign data_read_out1 = data_read;
     //assign data_read_out = data_read_out1[0];
@@ -57,10 +51,6 @@ module top(
     
     // Used to pass GRAM values without multiple driver conflicts
     // Inputs to GRAM become outputs in interface, and vice versa
-    
-    //assign clk_out = clk_74_25;
-    //assign clk_out1 = clk;
-    //assign reset_out = reset;
     
     mem_interface mem_int(
         .clk(clk),

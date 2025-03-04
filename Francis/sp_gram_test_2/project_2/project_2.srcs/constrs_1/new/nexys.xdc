@@ -20,10 +20,10 @@ create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports clk
 
 
 ## LEDs
-#set_property -dict { PACKAGE_PIN T14   IOSTANDARD LVCMOS25 } [get_ports { clk_out }]; #IO_L15P_T2_DQS_13 Sch=led[0]
-#set_property -dict { PACKAGE_PIN T15   IOSTANDARD LVCMOS25 } [get_ports { clk_out1 }]; #IO_L17P_T2_13 Sch=led[2]
-#set_property -dict { PACKAGE_PIN T16   IOSTANDARD LVCMOS25 } [get_ports { pingpong }]; #IO_L17P_T2_13 Sch=led[2
-#set_property -dict { PACKAGE_PIN U16   IOSTANDARD LVCMOS25 } [get_ports { reset_out }]; #IO_L17N_T2_13 Sch=led[3]
+set_property -dict { PACKAGE_PIN T14   IOSTANDARD LVCMOS25 } [get_ports { clk_out }]; #IO_L15P_T2_DQS_13 Sch=led[0]
+set_property -dict { PACKAGE_PIN T15   IOSTANDARD LVCMOS25 } [get_ports { clk_out1 }]; #IO_L17P_T2_13 Sch=led[2]
+set_property -dict { PACKAGE_PIN T16   IOSTANDARD LVCMOS25 } [get_ports { pingpong }]; #IO_L17P_T2_13 Sch=led[2
+set_property -dict { PACKAGE_PIN U16   IOSTANDARD LVCMOS25 } [get_ports { reset_out }]; #IO_L17N_T2_13 Sch=led[3]
 #set_property -dict { PACKAGE_PIN V15   IOSTANDARD LVCMOS25 } [get_ports { led[4] }];
 #set_property -dict { PACKAGE_PIN W16   IOSTANDARD LVCMOS25 } [get_ports { led[5] }];
 #set_property -dict { PACKAGE_PIN W15   IOSTANDARD LVCMOS25 } [get_ports { data_read_out }];
@@ -32,7 +32,7 @@ create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports clk
 
 
 ### Buttons
-set_property -dict { PACKAGE_PIN B22 IOSTANDARD LVCMOS12 } [get_ports { reset_n }]; #IO_L20N_T3_16 Sch=btnc
+set_property -dict { PACKAGE_PIN B22 IOSTANDARD LVCMOS12 } [get_ports { reset }]; #IO_L20N_T3_16 Sch=btnc
 ##set_property -dict { PACKAGE_PIN D22 IOSTANDARD LVCMOS12 } [get_ports { btnd }]; #IO_L22N_T3_16 Sch=btnd
 ##set_property -dict { PACKAGE_PIN C22 IOSTANDARD LVCMOS12 } [get_ports { btnl }]; #IO_L20P_T3_16 Sch=btnl
 ##set_property -dict { PACKAGE_PIN D14 IOSTANDARD LVCMOS12 } [get_ports { btnr }]; #IO_L6P_T0_16 Sch=btnr
