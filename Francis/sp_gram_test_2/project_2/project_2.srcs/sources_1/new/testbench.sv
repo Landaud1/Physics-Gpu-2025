@@ -33,11 +33,7 @@ module testbench();
         .reset_n(reset_n),
         .sw(sw),
         .new_frame(new_frame),
-        .go(go),
-        
-        .pram_write_adr(pram_write_adr),
-        .pram_write_data(pram_write_data),
-        .pram_wea(pram_wea)
+        .go(go)
     );
 
 endmodule

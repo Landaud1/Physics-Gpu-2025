@@ -3,15 +3,16 @@
 module toptop(
     input logic     clk_100,
     input logic     reset_n,
+    
+    output logic        hdmi_tx_clk_p,
+    output logic        hdmi_tx_clk_n,
+    output logic [2:0]  hdmi_tx_p,
+    output logic [2:0]  hdmi_tx_n,
 
     input logic [3:0] sw,
+    
     output logic new_frame,
-    input logic go, 
-    
-    input logic         pram_wea,
-    input logic [9:0]   pram_write_adr,
-    input logic [20:0]  pram_write_data,
-    
+    input logic go,
     output logic    locked
     );
     
@@ -36,7 +37,12 @@ module toptop(
         .sw(sw),
         
         .pram_adr_read(pram_adr_read),
-        .pram_data_read(pram_data_read)
+        .pram_data_read(pram_data_read),
+        
+        .hdmi_tx_clk_p(hdmi_tx_clk_p),
+        .hdmi_tx_clk_n(hdmi_tx_clk_n),
+        .hdmi_tx_p(hdmi_tx_p),
+        .hdmi_tx_n(hdmi_tx_n)
     );
     
     //attribute_ram aram(
