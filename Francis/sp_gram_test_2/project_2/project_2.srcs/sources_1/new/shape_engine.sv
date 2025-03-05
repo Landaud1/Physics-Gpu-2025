@@ -20,7 +20,7 @@ module shape_engine(
     
     // Still need to clear all pixels to default color to handle animated movement
     
-    logic [9:0] n_register = 3;     // constant, read from register
+    logic [9:0] n_register = 4;     // constant, read from register
     
     logic [9:0] curr_obj = 0;
     logic [3:0] state = 0;
@@ -32,6 +32,7 @@ module shape_engine(
     
     logic [3:0] obj_color;
     assign obj_color = aram_data_read[3:0];
+    assign data_write = obj_color;
     
     logic [10:0] x_corner, x_pixel;
     logic [9:0] y_corner, y_pixel;
@@ -40,13 +41,12 @@ module shape_engine(
     assign x_pixel = x_corner + x_offset;
     assign y_pixel = y_corner + y_offset;
     
+    assign adr_write = x_pixel + ((y_pixel * 5) << 8); // = curr_x + curr_y * 1280
         
     always_ff @ (posedge clk) begin
         // Reset condition
         if (reset) begin
             state <= 4'b0;
-            adr_write <= '0;
-            data_write <= '0;
             x_offset <= '0;
             y_offset <= '0;
             curr_obj <= '0;
@@ -58,8 +58,10 @@ module shape_engine(
                             // Read pram and aram information
                             pram_adr_read <= curr_obj;
                             aram_adr_read <= curr_obj;
+                            y_offset <= '0;     // Reset offsets
+                            x_offset <= '0;
                             // Move to fill shape
-                            state <= 4'h1;
+                            state <= 4'h3;
                         end else begin
                             // Done reading objects
                             state <= 4'h2;
@@ -68,35 +70,34 @@ module shape_engine(
                     4'h1: begin     // Fill object
                         // x/y coords should be accurate now
                         // Enter shape draw algorithm
-                       if (x_pixel < x_corner + rect_width) begin
+                        if (x_pixel < x_corner + rect_width) begin
                             x_offset <= x_offset + 1; // Move one pixel to the left
                         end else begin 
-                            x_offset <= '0;        // Move X back
                             if (y_pixel < y_corner + rect_height) begin
+                                x_offset <= '0;        // Move X back
                                 y_offset <= y_offset + 1; // Move one pixel downward
                             end else begin
                                 // If no more pixels need to be filled, increment curr_obj and return to state 0
                                 curr_obj <= curr_obj + 1;   // Move to next object
-                                y_offset <= '0;     // Reset offsets
-                                x_offset <= '0;
                                 state <= 4'h0;           // Done filling
                             end
                         end
                         
-                        data_write <= obj_color;
-                        adr_write <= x_pixel + ((y_pixel * 5) << 8); // = curr_x + curr_y * 1280
                     end
                         // Reset on new_frame
                     4'h2: begin
                         if (new_frame) begin
                             state <= 4'h0;
                             curr_obj <= '0;
-                            adr_write <= '0;
-                            data_write <= '0;
                             x_offset <= '0;
                             y_offset <= '0;
                         end
                     end
+                    
+                    // Buffer state, ensures ram values are properly latched
+                    4'h3: begin
+                        state <= 4'h1;
+                    end 
                 endcase  
             end 
         end

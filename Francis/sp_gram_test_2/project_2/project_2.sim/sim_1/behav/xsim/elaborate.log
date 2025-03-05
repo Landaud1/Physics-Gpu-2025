@@ -1,13 +1,15 @@
 Vivado Simulator v2024.1
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: /tools/Vivado/2024.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L axi_lite_ipif_v3_0_4 -L v_tc_v6_2_8 -L blk_mem_gen_v8_4_8 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Running: /media/sdb/Tools/Vivado/2024.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L axi_lite_ipif_v3_0_4 -L v_tc_v6_2_8 -L blk_mem_gen_v8_4_8 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-9543] actual bit length 1 differs from formal bit length 4 for port 'data_write' [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/mem_functions.sv:91]
-WARNING: [VRFC 10-3027] 'shape_adr_write' was previously declared with a different range [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/mem_functions.sv:22]
-WARNING: [VRFC 10-5021] port 'fsync_out' is not connected on this instance [/drive/sda2/home/aldridf1/Senior_Project_2024/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/video_time_controller.sv:20]
+WARNING: [VRFC 10-9543] actual bit length 1 differs from formal bit length 10 for port 'adr_write' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/toptop.sv:67]
+WARNING: [VRFC 10-9543] actual bit length 1 differs from formal bit length 24 for port 'data_write' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/toptop.sv:68]
+WARNING: [VRFC 10-9543] actual bit length 1 differs from formal bit length 10 for port 'adr_write' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/toptop.sv:77]
+WARNING: [VRFC 10-9543] actual bit length 1 differs from formal bit length 21 for port 'data_write' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/toptop.sv:78]
+WARNING: [VRFC 10-5021] port 'fsync_out' is not connected on this instance [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/video_time_controller.sv:20]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -70,6 +72,12 @@ Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8(C_FAMILY="art...
 Compiling module xil_defaultlib.blk_mem_gen_1
 Compiling module xil_defaultlib.pingpong
 Compiling module xil_defaultlib.top
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_output_stage(...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8(C_FAMILY="art...
+Compiling module xil_defaultlib.blk_mem_gen_4
+Compiling module xil_defaultlib.attribute_ram
 Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_output_stage(...
 Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_softecc_outpu...
 Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_mem_module(C_...

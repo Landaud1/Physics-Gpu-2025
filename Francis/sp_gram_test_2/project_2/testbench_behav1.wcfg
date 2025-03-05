@@ -14,25 +14,21 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="33,339,695.174 ns"></ZoomStartTime>
-      <ZoomEndTime time="33,339,835.975 ns"></ZoomEndTime>
-      <Cursor1Time time="33,338,517.974 ns"></Cursor1Time>
+      <ZoomStartTime time="11,001.704 ns"></ZoomStartTime>
+      <ZoomEndTime time="11,093.134 ns"></ZoomEndTime>
+      <Cursor1Time time="11,067.895 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="229"></NameColumnWidth>
+      <NameColumnWidth column_width="221"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="5" />
+   <WVObjectSize size="28" />
    <wvobject type="group" fp_name="group92">
       <obj_property name="label">tb</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <wvobject type="logic" fp_name="/testbench/clk_100">
          <obj_property name="ElementShortName">clk_100</obj_property>
          <obj_property name="ObjectShortName">clk_100</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/reset_n">
-         <obj_property name="ElementShortName">reset_n</obj_property>
-         <obj_property name="ObjectShortName">reset_n</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/testbench/sw">
          <obj_property name="ElementShortName">sw[3:0]</obj_property>
@@ -62,10 +58,6 @@
          <obj_property name="ElementShortName">clk_100</obj_property>
          <obj_property name="ObjectShortName">clk_100</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/toptop/reset_n">
-         <obj_property name="ElementShortName">reset_n</obj_property>
-         <obj_property name="ObjectShortName">reset_n</obj_property>
-      </wvobject>
       <wvobject type="array" fp_name="/testbench/toptop/sw">
          <obj_property name="ElementShortName">sw[3:0]</obj_property>
          <obj_property name="ObjectShortName">sw[3:0]</obj_property>
@@ -78,13 +70,13 @@
          <obj_property name="ElementShortName">pram_wea</obj_property>
          <obj_property name="ObjectShortName">pram_wea</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/pram_write_adr">
-         <obj_property name="ElementShortName">pram_write_adr[9:0]</obj_property>
-         <obj_property name="ObjectShortName">pram_write_adr[9:0]</obj_property>
+      <wvobject type="logic" fp_name="/testbench/toptop/pram_write_adr">
+         <obj_property name="ElementShortName">pram_write_adr</obj_property>
+         <obj_property name="ObjectShortName">pram_write_adr</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/pram_write_data">
-         <obj_property name="ElementShortName">pram_write_data[20:0]</obj_property>
-         <obj_property name="ObjectShortName">pram_write_data[20:0]</obj_property>
+      <wvobject type="logic" fp_name="/testbench/toptop/pram_write_data">
+         <obj_property name="ElementShortName">pram_write_data</obj_property>
+         <obj_property name="ObjectShortName">pram_write_data</obj_property>
       </wvobject>
       <wvobject type="logic" fp_name="/testbench/toptop/clk">
          <obj_property name="ElementShortName">clk</obj_property>
@@ -330,91 +322,120 @@
       <obj_property name="label">shape_eng</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject type="logic" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/selected_funct">
-         <obj_property name="ElementShortName">selected_funct</obj_property>
-         <obj_property name="ObjectShortName">selected_funct</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/clk">
-         <obj_property name="ElementShortName">clk</obj_property>
-         <obj_property name="ObjectShortName">clk</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/reset">
-         <obj_property name="ElementShortName">reset</obj_property>
-         <obj_property name="ObjectShortName">reset</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/new_frame">
-         <obj_property name="ElementShortName">new_frame</obj_property>
-         <obj_property name="ObjectShortName">new_frame</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/default_color">
-         <obj_property name="ElementShortName">default_color[3:0]</obj_property>
-         <obj_property name="ObjectShortName">default_color[3:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/adr_write">
-         <obj_property name="ElementShortName">adr_write[19:0]</obj_property>
-         <obj_property name="ObjectShortName">adr_write[19:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/data_write">
-         <obj_property name="ElementShortName">data_write[3:0]</obj_property>
-         <obj_property name="ObjectShortName">data_write[3:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/pram_adr_read">
-         <obj_property name="ElementShortName">pram_adr_read[9:0]</obj_property>
-         <obj_property name="ObjectShortName">pram_adr_read[9:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/pram_data_read">
-         <obj_property name="ElementShortName">pram_data_read[20:0]</obj_property>
-         <obj_property name="ObjectShortName">pram_data_read[20:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/n_register">
-         <obj_property name="ElementShortName">n_register[9:0]</obj_property>
-         <obj_property name="ObjectShortName">n_register[9:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/curr_obj">
-         <obj_property name="ElementShortName">curr_obj[9:0]</obj_property>
-         <obj_property name="ObjectShortName">curr_obj[9:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/state">
-         <obj_property name="ElementShortName">state[3:0]</obj_property>
-         <obj_property name="ObjectShortName">state[3:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/x_offset">
-         <obj_property name="ElementShortName">x_offset[7:0]</obj_property>
-         <obj_property name="ObjectShortName">x_offset[7:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/y_offset">
-         <obj_property name="ElementShortName">y_offset[7:0]</obj_property>
-         <obj_property name="ObjectShortName">y_offset[7:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/rect_height">
-         <obj_property name="ElementShortName">rect_height[7:0]</obj_property>
-         <obj_property name="ObjectShortName">rect_height[7:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/rect_width">
-         <obj_property name="ElementShortName">rect_width[7:0]</obj_property>
-         <obj_property name="ObjectShortName">rect_width[7:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/obj_color">
-         <obj_property name="ElementShortName">obj_color[3:0]</obj_property>
-         <obj_property name="ObjectShortName">obj_color[3:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/x_corner">
-         <obj_property name="ElementShortName">x_corner[10:0]</obj_property>
-         <obj_property name="ObjectShortName">x_corner[10:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/x_pixel">
-         <obj_property name="ElementShortName">x_pixel[10:0]</obj_property>
-         <obj_property name="ObjectShortName">x_pixel[10:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/y_corner">
-         <obj_property name="ElementShortName">y_corner[9:0]</obj_property>
-         <obj_property name="ObjectShortName">y_corner[9:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/y_pixel">
-         <obj_property name="ElementShortName">y_pixel[9:0]</obj_property>
-         <obj_property name="ObjectShortName">y_pixel[9:0]</obj_property>
-      </wvobject>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/selected_funct">
+      <obj_property name="ElementShortName">selected_funct</obj_property>
+      <obj_property name="ObjectShortName">selected_funct</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/new_frame">
+      <obj_property name="ElementShortName">new_frame</obj_property>
+      <obj_property name="ObjectShortName">new_frame</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/default_color">
+      <obj_property name="ElementShortName">default_color[3:0]</obj_property>
+      <obj_property name="ObjectShortName">default_color[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/adr_write">
+      <obj_property name="ElementShortName">adr_write[19:0]</obj_property>
+      <obj_property name="ObjectShortName">adr_write[19:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/data_write">
+      <obj_property name="ElementShortName">data_write[3:0]</obj_property>
+      <obj_property name="ObjectShortName">data_write[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/pram_adr_read">
+      <obj_property name="ElementShortName">pram_adr_read[9:0]</obj_property>
+      <obj_property name="ObjectShortName">pram_adr_read[9:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/pram_data_read">
+      <obj_property name="ElementShortName">pram_data_read[20:0]</obj_property>
+      <obj_property name="ObjectShortName">pram_data_read[20:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/aram_adr_read">
+      <obj_property name="ElementShortName">aram_adr_read[9:0]</obj_property>
+      <obj_property name="ObjectShortName">aram_adr_read[9:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/aram_data_read">
+      <obj_property name="ElementShortName">aram_data_read[23:0]</obj_property>
+      <obj_property name="ObjectShortName">aram_data_read[23:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/n_register">
+      <obj_property name="ElementShortName">n_register[9:0]</obj_property>
+      <obj_property name="ObjectShortName">n_register[9:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/curr_obj">
+      <obj_property name="ElementShortName">curr_obj[9:0]</obj_property>
+      <obj_property name="ObjectShortName">curr_obj[9:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/state">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/x_offset">
+      <obj_property name="ElementShortName">x_offset[9:0]</obj_property>
+      <obj_property name="ObjectShortName">x_offset[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/y_offset">
+      <obj_property name="ElementShortName">y_offset[9:0]</obj_property>
+      <obj_property name="ObjectShortName">y_offset[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/rect_height">
+      <obj_property name="ElementShortName">rect_height[9:0]</obj_property>
+      <obj_property name="ObjectShortName">rect_height[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/rect_width">
+      <obj_property name="ElementShortName">rect_width[9:0]</obj_property>
+      <obj_property name="ObjectShortName">rect_width[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/obj_color">
+      <obj_property name="ElementShortName">obj_color[3:0]</obj_property>
+      <obj_property name="ObjectShortName">obj_color[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/x_pixel">
+      <obj_property name="ElementShortName">x_pixel[10:0]</obj_property>
+      <obj_property name="ObjectShortName">x_pixel[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/y_pixel">
+      <obj_property name="ElementShortName">y_pixel[9:0]</obj_property>
+      <obj_property name="ObjectShortName">y_pixel[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/x_corner">
+      <obj_property name="ElementShortName">x_corner[10:0]</obj_property>
+      <obj_property name="ObjectShortName">x_corner[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/toptop/display_top/mem_int/func_int/mem_f/shp_eng/y_corner">
+      <obj_property name="ElementShortName">y_corner[9:0]</obj_property>
+      <obj_property name="ObjectShortName">y_corner[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>

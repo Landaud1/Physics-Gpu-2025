@@ -3,7 +3,7 @@
 module testbench();
 
     logic        clk_100;
-    logic        reset_n = 0;
+    logic        reset = 0;
     logic [3:0]  sw = 4'b0100;
     logic        new_frame;
     
@@ -21,19 +21,18 @@ module testbench();
     end
     
     initial begin
-        reset_n = 1;
-        #50 go = 1;                                     // Start display
-        #50 reset_n = ~reset_n;
-        #50 reset_n = ~reset_n;
+        reset = 0;
+        #50 reset = ~reset;
+        #50 reset = ~reset;
     end
     
     toptop toptop(
         .clk_100(clk_100),
-        .locked(locked),                 
-        .reset_n(reset_n),
-        .sw(sw),
-        .new_frame(new_frame),
-        .go(go)
+        //.locked(locked),                 
+        .reset(reset),
+        //.new_frame(new_frame),
+        //.go(go),
+        .sw(sw)
     );
 
 endmodule

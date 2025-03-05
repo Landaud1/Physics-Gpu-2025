@@ -13,11 +13,11 @@ vmap blk_mem_gen_v8_4_8 activehdl/blk_mem_gen_v8_4_8
 vmap xil_defaultlib activehdl/xil_defaultlib
 
 vlog -work xpm  -sv2k12 -l xpm -l blk_mem_gen_v8_4_8 -l xil_defaultlib \
-"/tools/Vivado/2024.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
-"/tools/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+"/media/sdb/Tools/Vivado/2024.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+"/media/sdb/Tools/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
 vcom -work xpm -  \
-"/tools/Vivado/2024.1/data/ip/xpm/xpm_VCOMP.vhd" \
+"/media/sdb/Tools/Vivado/2024.1/data/ip/xpm/xpm_VCOMP.vhd" \
 
 vlog -work blk_mem_gen_v8_4_8  -v2k5 -l xpm -l blk_mem_gen_v8_4_8 -l xil_defaultlib \
 "../../../ipstatic/simulation/blk_mem_gen_v8_4.v" \

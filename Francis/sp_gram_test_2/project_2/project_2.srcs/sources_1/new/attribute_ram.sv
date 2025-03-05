@@ -6,8 +6,8 @@ module attribute_ram(
     input  logic         clk,
     input  logic [ 9:0]  adr_write,
     input  logic [ 9:0]  adr_read,
-    input  logic [20:0]  data_write,
-    output logic [20:0]  data_read
+    input  logic [23:0]  data_write,
+    output logic [23:0]  data_read
 
     );
     

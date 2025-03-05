@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Tue Mar  4 19:47:05 2025
-# Process ID: 74326
+# Start of session at: Wed Mar  5 17:57:18 2025
+# Process ID: 520747
 # Current directory: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1
 # Command line: vivado -log toptop.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source toptop.tcl
 # Log file: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/toptop.vds
@@ -13,16 +13,16 @@
 # Platform          :Ubuntu
 # Operating System  :Ubuntu 22.04.5 LTS
 # Processor Detail  :Intel(R) Xeon(R) CPU E5-2687W 0 @ 3.10GHz
-# CPU Frequency     :1197.120 MHz
+# CPU Frequency     :1197.195 MHz
 # CPU Physical cores:16
 # CPU Logical cores :32
 # Host memory       :135089 MB
 # Swap memory       :2147 MB
 # Total Virtual     :137237 MB
-# Available Virtual :132685 MB
+# Available Virtual :131393 MB
 #-----------------------------------------------------------
 source toptop.tcl -notrace
-create_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1446.367 ; gain = 27.836 ; free physical = 119855 ; free virtual = 126243
+create_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1446.555 ; gain = 46.836 ; free physical = 116863 ; free virtual = 124942
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/landaud1/Downloads/vivado-library-master'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/media/sdb/Tools/Vivado/2024.1/data/ip'.
@@ -31,6 +31,9 @@ INFO: [Vivado 12-5825] Read reference checkpoint from /home/landaud1/other/Senio
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top toptop -part xc7a200tsbg484-1
 Starting synth_design
+WARNING: [Vivado_Tcl 4-393] The 'Synthesis' target of the following IPs are stale, please generate the output products using the generate_target or synth_ip command before running synth_design.
+/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/ip/blk_mem_gen_4/blk_mem_gen_4.xci
+
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Device 21-403] Loading part xc7a200tsbg484-1
@@ -40,9 +43,9 @@ INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
 WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {17-179}  -suppress '. The existing rule will be replaced.
-INFO: [Synth 8-7075] Helper process launched with PID 74368
+INFO: [Synth 8-7075] Helper process launched with PID 520792
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2280.434 ; gain = 421.715 ; free physical = 118675 ; free virtual = 125063
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2280.676 ; gain = 420.746 ; free physical = 115676 ; free virtual = 123755
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-11241] undeclared symbol 'valid_output', assumed default net type 'wire' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/display_generator.sv:24]
 INFO: [Synth 8-11241] undeclared symbol 'vid_pHSync', assumed default net type 'wire' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/display_generator.sv:26]
@@ -58,8 +61,8 @@ INFO: [Synth 8-11241] undeclared symbol 'pram_wea', assumed default net type 'wi
 INFO: [Synth 8-11241] undeclared symbol 'pram_write_adr', assumed default net type 'wire' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/toptop.sv:77]
 INFO: [Synth 8-11241] undeclared symbol 'pram_write_data', assumed default net type 'wire' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/toptop.sv:78]
 INFO: [Synth 8-6157] synthesizing module 'toptop' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/toptop.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-74326-navi/realtime/clk_wiz_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-74326-navi/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-520747-navi/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-520747-navi/realtime/clk_wiz_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'top' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/top.sv:4]
 INFO: [Synth 8-6157] synthesizing module 'mem_interface' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/mem_interface.sv:5]
 INFO: [Synth 8-6157] synthesizing module 'function_interface' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/function_interface.sv:4]
@@ -79,23 +82,23 @@ INFO: [Synth 8-6155] done synthesizing module 'shape_engine' (0#1) [/home/landau
 INFO: [Synth 8-6155] done synthesizing module 'mem_functions' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/mem_functions.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'display_generator' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/display_generator.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'vid_time_counter' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/video_time_controller.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'v_tc_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-74326-navi/realtime/v_tc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'v_tc_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-74326-navi/realtime/v_tc_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'v_tc_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-520747-navi/realtime/v_tc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'v_tc_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-520747-navi/realtime/v_tc_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'fsync_out' of module 'v_tc_0' is unconnected for instance 'vtc' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/video_time_controller.sv:20]
 WARNING: [Synth 8-7023] instance 'vtc' of module 'v_tc_0' has 11 connections declared, but only 10 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/video_time_controller.sv:20]
 INFO: [Synth 8-6155] done synthesizing module 'vid_time_counter' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/video_time_controller.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'rgb2dvi_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-74326-navi/realtime/rgb2dvi_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'rgb2dvi_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-74326-navi/realtime/rgb2dvi_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'rgb2dvi_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-520747-navi/realtime/rgb2dvi_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'rgb2dvi_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-520747-navi/realtime/rgb2dvi_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'display_generator' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/display_generator.sv:3]
 INFO: [Synth 8-6155] done synthesizing module 'function_interface' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/function_interface.sv:4]
 INFO: [Synth 8-6155] done synthesizing module 'mem_interface' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/mem_interface.sv:5]
 INFO: [Synth 8-6157] synthesizing module 'pingpong' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/pingpong.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-74326-navi/realtime/blk_mem_gen_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-74326-navi/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-520747-navi/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-520747-navi/realtime/blk_mem_gen_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'douta' of module 'blk_mem_gen_0' is unconnected for instance 'ping' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/pingpong.sv:22]
 WARNING: [Synth 8-7023] instance 'ping' of module 'blk_mem_gen_0' has 12 connections declared, but only 11 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/pingpong.sv:22]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_1' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-74326-navi/realtime/blk_mem_gen_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_1' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-74326-navi/realtime/blk_mem_gen_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_1' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-520747-navi/realtime/blk_mem_gen_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_1' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-520747-navi/realtime/blk_mem_gen_1_stub.v:6]
 WARNING: [Synth 8-7071] port 'douta' of module 'blk_mem_gen_1' is unconnected for instance 'pong' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/pingpong.sv:45]
 WARNING: [Synth 8-7023] instance 'pong' of module 'blk_mem_gen_1' has 12 connections declared, but only 11 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/pingpong.sv:45]
 INFO: [Synth 8-6155] done synthesizing module 'pingpong' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/pingpong.sv:3]
@@ -103,23 +106,20 @@ INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [/home/landaud1/other/
 WARNING: [Synth 8-7071] port 'pingpong' of module 'top' is unconnected for instance 'display_top' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/toptop.sv:46]
 WARNING: [Synth 8-7023] instance 'display_top' of module 'top' has 14 connections declared, but only 13 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/toptop.sv:46]
 INFO: [Synth 8-6157] synthesizing module 'attribute_ram' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/attribute_ram.sv:4]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_4' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-74326-navi/realtime/blk_mem_gen_4_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_4' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-74326-navi/realtime/blk_mem_gen_4_stub.v:6]
-WARNING: [Synth 8-689] width (21) of port connection 'dina' does not match port width (24) of module 'blk_mem_gen_4' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/attribute_ram.sv:17]
-WARNING: [Synth 8-689] width (21) of port connection 'doutb' does not match port width (24) of module 'blk_mem_gen_4' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/attribute_ram.sv:21]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_4' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-520747-navi/realtime/blk_mem_gen_4_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_4' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-520747-navi/realtime/blk_mem_gen_4_stub.v:6]
 WARNING: [Synth 8-7071] port 'douta' of module 'blk_mem_gen_4' is unconnected for instance 'aram' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/attribute_ram.sv:14]
 WARNING: [Synth 8-7023] instance 'aram' of module 'blk_mem_gen_4' has 12 connections declared, but only 11 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/attribute_ram.sv:14]
 INFO: [Synth 8-6155] done synthesizing module 'attribute_ram' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/attribute_ram.sv:4]
 WARNING: [Synth 8-689] width (1) of port connection 'adr_write' does not match port width (10) of module 'attribute_ram' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/toptop.sv:67]
-WARNING: [Synth 8-689] width (1) of port connection 'data_write' does not match port width (21) of module 'attribute_ram' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/toptop.sv:68]
-WARNING: [Synth 8-689] width (24) of port connection 'data_read' does not match port width (21) of module 'attribute_ram' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/toptop.sv:70]
+WARNING: [Synth 8-689] width (1) of port connection 'data_write' does not match port width (24) of module 'attribute_ram' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/toptop.sv:68]
 INFO: [Synth 8-6157] synthesizing module 'position_ram' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/position_ram.sv:4]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_2' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-74326-navi/realtime/blk_mem_gen_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_2' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-74326-navi/realtime/blk_mem_gen_2_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_2' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-520747-navi/realtime/blk_mem_gen_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_2' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-520747-navi/realtime/blk_mem_gen_2_stub.v:6]
 WARNING: [Synth 8-7071] port 'douta' of module 'blk_mem_gen_2' is unconnected for instance 'pping' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/position_ram.sv:30]
 WARNING: [Synth 8-7023] instance 'pping' of module 'blk_mem_gen_2' has 12 connections declared, but only 11 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/position_ram.sv:30]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_3' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-74326-navi/realtime/blk_mem_gen_3_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_3' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-74326-navi/realtime/blk_mem_gen_3_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_3' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-520747-navi/realtime/blk_mem_gen_3_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_3' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/.Xil/Vivado-520747-navi/realtime/blk_mem_gen_3_stub.v:6]
 WARNING: [Synth 8-7071] port 'douta' of module 'blk_mem_gen_3' is unconnected for instance 'ppong' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/position_ram.sv:50]
 WARNING: [Synth 8-7023] instance 'ppong' of module 'blk_mem_gen_3' has 12 connections declared, but only 11 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/position_ram.sv:50]
 INFO: [Synth 8-6155] done synthesizing module 'position_ram' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/sources_1/new/position_ram.sv:4]
@@ -142,18 +142,18 @@ WARNING: [Synth 8-7129] Port pingpong in module mem_functions is either unconnec
 WARNING: [Synth 8-7129] Port go in module top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port pingpong in module toptop is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2364.371 ; gain = 505.652 ; free physical = 118575 ; free virtual = 124963
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2363.645 ; gain = 503.715 ; free physical = 115566 ; free virtual = 123646
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2382.184 ; gain = 523.465 ; free physical = 118575 ; free virtual = 124963
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2381.457 ; gain = 521.527 ; free physical = 115566 ; free virtual = 123646
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2382.184 ; gain = 523.465 ; free physical = 118575 ; free virtual = 124963
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2381.457 ; gain = 521.527 ; free physical = 115566 ; free virtual = 123646
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2382.184 ; gain = 0.000 ; free physical = 118575 ; free virtual = 124963
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2381.457 ; gain = 0.000 ; free physical = 115566 ; free virtual = 123646
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -180,11 +180,11 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/toptop_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2524.934 ; gain = 0.000 ; free physical = 118570 ; free virtual = 124959
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2524.207 ; gain = 0.000 ; free physical = 115565 ; free virtual = 123644
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2524.934 ; gain = 0.000 ; free physical = 118570 ; free virtual = 124959
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2524.207 ; gain = 0.000 ; free physical = 115565 ; free virtual = 123645
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'aram/aram' at clock pin 'clka' is different from the actual clock period '13.468', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'display_top/ping_pong_switch/ping' at clock pin 'clka' is different from the actual clock period '13.468', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'display_top/ping_pong_switch/pong' at clock pin 'clka' is different from the actual clock period '13.468', this can lead to different synthesis results.
@@ -193,14 +193,14 @@ WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context s
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2524.934 ; gain = 666.215 ; free physical = 118573 ; free virtual = 124962
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2524.207 ; gain = 664.277 ; free physical = 115567 ; free virtual = 123646
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tsbg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2532.938 ; gain = 674.219 ; free physical = 118573 ; free virtual = 124962
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2532.211 ; gain = 672.281 ; free physical = 115567 ; free virtual = 123646
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -232,7 +232,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for pram/pping. (constraint file  aut
 Applied set_property KEEP_HIERARCHY = SOFT for pram/ppong. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for aram/aram. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2532.938 ; gain = 674.219 ; free physical = 118574 ; free virtual = 124962
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2532.211 ; gain = 672.281 ; free physical = 115567 ; free virtual = 123646
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'flood_mem'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'grid_test'
@@ -259,7 +259,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'pixel_walk'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 2532.938 ; gain = 674.219 ; free physical = 118570 ; free virtual = 124959
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 2532.211 ; gain = 672.281 ; free physical = 115566 ; free virtual = 123646
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -271,25 +271,25 @@ Detailed RTL Component Info :
 	   2 Input   10 Bit       Adders := 5     
 	   2 Input    9 Bit       Adders := 1     
 +---Registers : 
-	               20 Bit    Registers := 8     
+	               20 Bit    Registers := 7     
 	               11 Bit    Registers := 4     
 	               10 Bit    Registers := 4     
 	                9 Bit    Registers := 1     
-	                4 Bit    Registers := 6     
+	                4 Bit    Registers := 5     
 	                1 Bit    Registers := 3     
 +---Muxes : 
 	   2 Input   21 Bit        Muxes := 1     
-	   2 Input   20 Bit        Muxes := 5     
-	   4 Input   20 Bit        Muxes := 2     
+	   2 Input   20 Bit        Muxes := 4     
+	   4 Input   20 Bit        Muxes := 1     
 	   2 Input   11 Bit        Muxes := 3     
-	   2 Input   10 Bit        Muxes := 5     
+	   2 Input   10 Bit        Muxes := 4     
 	   4 Input   10 Bit        Muxes := 3     
 	   2 Input    9 Bit        Muxes := 1     
-	   2 Input    4 Bit        Muxes := 6     
-	   4 Input    4 Bit        Muxes := 3     
+	   2 Input    4 Bit        Muxes := 5     
+	   4 Input    4 Bit        Muxes := 2     
 	   2 Input    2 Bit        Muxes := 2     
 	   5 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 22    
+	   2 Input    1 Bit        Muxes := 23    
 	   4 Input    1 Bit        Muxes := 5     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -309,25 +309,25 @@ Start Cross Boundary and Area Optimization
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 WARNING: [Synth 8-7129] Port pingpong in module toptop is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2532.938 ; gain = 674.219 ; free physical = 118546 ; free virtual = 124940
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2532.211 ; gain = 672.281 ; free physical = 115553 ; free virtual = 123638
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 2532.938 ; gain = 674.219 ; free physical = 118555 ; free virtual = 124949
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 2532.211 ; gain = 672.281 ; free physical = 115564 ; free virtual = 123649
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 2532.938 ; gain = 674.219 ; free physical = 118557 ; free virtual = 124951
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 2532.211 ; gain = 672.281 ; free physical = 115567 ; free virtual = 123652
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 2532.938 ; gain = 674.219 ; free physical = 118557 ; free virtual = 124951
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2532.211 ; gain = 672.281 ; free physical = 115567 ; free virtual = 123652
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -345,37 +345,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 2532.938 ; gain = 674.219 ; free physical = 118559 ; free virtual = 124953
+Finished IO Insertion : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2532.211 ; gain = 672.281 ; free physical = 115575 ; free virtual = 123660
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 2532.938 ; gain = 674.219 ; free physical = 118559 ; free virtual = 124953
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2532.211 ; gain = 672.281 ; free physical = 115575 ; free virtual = 123660
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 2532.938 ; gain = 674.219 ; free physical = 118559 ; free virtual = 124953
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2532.211 ; gain = 672.281 ; free physical = 115575 ; free virtual = 123660
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 2532.938 ; gain = 674.219 ; free physical = 118559 ; free virtual = 124953
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2532.211 ; gain = 672.281 ; free physical = 115575 ; free virtual = 123660
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 2532.938 ; gain = 674.219 ; free physical = 118559 ; free virtual = 124953
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2532.211 ; gain = 672.281 ; free physical = 115575 ; free virtual = 123660
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 2532.938 ; gain = 674.219 ; free physical = 118559 ; free virtual = 124953
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2532.211 ; gain = 672.281 ; free physical = 115575 ; free virtual = 123660
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -404,43 +404,43 @@ Report Cell Usage:
 |7     |rgb2dvi     |     1|
 |8     |v_tc        |     1|
 |9     |CARRY4      |    52|
-|10    |LUT1        |     2|
-|11    |LUT2        |   120|
-|12    |LUT3        |    26|
-|13    |LUT4        |   115|
-|14    |LUT5        |    67|
-|15    |LUT6        |    68|
+|10    |LUT1        |     6|
+|11    |LUT2        |   111|
+|12    |LUT3        |    27|
+|13    |LUT4        |   109|
+|14    |LUT5        |    43|
+|15    |LUT6        |    64|
 |16    |FDCE        |     4|
-|17    |FDRE        |   251|
+|17    |FDRE        |   227|
 |18    |IBUF        |     5|
 |19    |OBUF        |     3|
 |20    |OBUFT       |     1|
 +------+------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 2532.938 ; gain = 674.219 ; free physical = 118559 ; free virtual = 124953
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2532.211 ; gain = 672.281 ; free physical = 115575 ; free virtual = 123660
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2532.938 ; gain = 531.469 ; free physical = 118559 ; free virtual = 124953
-Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2532.945 ; gain = 674.219 ; free physical = 118559 ; free virtual = 124953
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 2532.211 ; gain = 529.531 ; free physical = 115575 ; free virtual = 123660
+Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2532.219 ; gain = 672.281 ; free physical = 115575 ; free virtual = 123660
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2532.945 ; gain = 0.000 ; free physical = 118899 ; free virtual = 125293
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2532.219 ; gain = 0.000 ; free physical = 115912 ; free virtual = 123997
 INFO: [Netlist 29-17] Analyzing 52 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2588.965 ; gain = 0.000 ; free physical = 118904 ; free virtual = 125298
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2588.238 ; gain = 0.000 ; free physical = 115916 ; free virtual = 124001
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: c9cb36ee
+Synth Design complete | Checksum: 4541cd83
 INFO: [Common 17-83] Releasing license: Synthesis
-93 Infos, 44 Warnings, 0 Critical Warnings and 0 Errors encountered.
+93 Infos, 42 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:43 ; elapsed = 00:00:39 . Memory (MB): peak = 2588.965 ; gain = 1117.816 ; free physical = 118904 ; free virtual = 125298
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2120.493; main = 1730.040; forked = 442.056
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3628.566; main = 2588.969; forked = 1095.625
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2612.977 ; gain = 0.000 ; free physical = 118904 ; free virtual = 125298
+synth_design: Time (s): cpu = 00:00:50 ; elapsed = 00:00:47 . Memory (MB): peak = 2588.238 ; gain = 1115.934 ; free physical = 115918 ; free virtual = 124003
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2097.805; main = 1706.508; forked = 440.583
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3627.840; main = 2588.242; forked = 1095.625
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2612.250 ; gain = 0.000 ; free physical = 115917 ; free virtual = 124002
 INFO: [Common 17-1381] The checkpoint '/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/synth_1/toptop.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file toptop_utilization_synth.rpt -pb toptop_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Mar  4 19:48:00 2025...
+INFO: [Common 17-206] Exiting Vivado at Wed Mar  5 17:58:25 2025...

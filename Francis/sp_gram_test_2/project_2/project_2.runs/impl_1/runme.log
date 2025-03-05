@@ -7,12 +7,12 @@
   **** SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
   **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
   **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-  **** Start of session at: Tue Mar  4 19:48:06 2025
+  **** Start of session at: Wed Mar  5 17:58:31 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source toptop.tcl -notrace
-create_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1446.488 ; gain = 39.836 ; free physical = 119856 ; free virtual = 126243
+create_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1445.918 ; gain = 82.836 ; free physical = 116844 ; free virtual = 124923
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/landaud1/Downloads/vivado-library-master'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/media/sdb/Tools/Vivado/2024.1/data/ip'.
@@ -29,7 +29,7 @@ INFO: [Project 1-454] Reading design checkpoint '/home/landaud1/other/Senior_pro
 INFO: [Project 1-454] Reading design checkpoint '/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.dcp' for cell 'display_top/ping_pong_switch/pong'
 INFO: [Project 1-454] Reading design checkpoint '/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/blk_mem_gen_2/blk_mem_gen_2.dcp' for cell 'pram/pping'
 INFO: [Project 1-454] Reading design checkpoint '/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3.dcp' for cell 'pram/ppong'
-Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.06 . Memory (MB): peak = 1904.035 ; gain = 0.000 ; free physical = 119396 ; free virtual = 125784
+Netlist sorting complete. Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.07 . Memory (MB): peak = 1903.887 ; gain = 0.000 ; free physical = 116409 ; free virtual = 124488
 INFO: [Netlist 29-17] Analyzing 332 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2024.1
@@ -44,7 +44,7 @@ Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Fra
 Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clk_wiz_0/inst'
 INFO: [Timing 38-35] Done setting XDC timing constraints. [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:54]
 INFO: [Timing 38-2] Deriving generated clocks [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:54]
-get_clocks: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2679.555 ; gain = 625.961 ; free physical = 118857 ; free virtual = 125245
+get_clocks: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2679.406 ; gain = 625.961 ; free physical = 115836 ; free virtual = 123915
 Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clk_wiz_0/inst'
 Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/constrs_1/new/nexys.xdc]
 Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.srcs/constrs_1/new/nexys.xdc]
@@ -54,13 +54,13 @@ Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_g
 Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/v_tc_0_1/v_tc_0_clocks.xdc] for cell 'display_top/mem_int/func_int/dsp_gen/vtc/vtc/U0'
 INFO: [Project 1-1714] 1 XPM XDC files have been applied to the design.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2679.555 ; gain = 0.000 ; free physical = 118856 ; free virtual = 125244
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2679.406 ; gain = 0.000 ; free physical = 115834 ; free virtual = 123914
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 22 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
 link_design completed successfully
-link_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2679.555 ; gain = 1206.285 ; free physical = 118856 ; free virtual = 125244
+link_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2679.406 ; gain = 1205.707 ; free physical = 115834 ; free virtual = 123914
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a200t'
@@ -71,71 +71,71 @@ INFO: [DRC 23-27] Running DRC with 8 threads
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2743.586 ; gain = 64.031 ; free physical = 118837 ; free virtual = 125225
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2743.438 ; gain = 64.031 ; free physical = 115718 ; free virtual = 123797
 
 Starting Cache Timing Information Task
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Ending Cache Timing Information Task | Checksum: 21f4798f9
+Ending Cache Timing Information Task | Checksum: 1c68cff7c
 
-Time (s): cpu = 00:00:00.91 ; elapsed = 00:00:00.37 . Memory (MB): peak = 2743.586 ; gain = 0.000 ; free physical = 118837 ; free virtual = 125225
+Time (s): cpu = 00:00:00.75 ; elapsed = 00:00:00.34 . Memory (MB): peak = 2743.438 ; gain = 0.000 ; free physical = 115719 ; free virtual = 123798
 
 Starting Logic Optimization Task
 
 Phase 1 Initialization
 
 Phase 1.1 Core Generation And Design Setup
-Phase 1.1 Core Generation And Design Setup | Checksum: 21f4798f9
+Phase 1.1 Core Generation And Design Setup | Checksum: 1c68cff7c
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2985.438 ; gain = 0.000 ; free physical = 118532 ; free virtual = 124920
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2984.320 ; gain = 0.000 ; free physical = 115406 ; free virtual = 123485
 
 Phase 1.2 Setup Constraints And Sort Netlist
-Phase 1.2 Setup Constraints And Sort Netlist | Checksum: 21f4798f9
+Phase 1.2 Setup Constraints And Sort Netlist | Checksum: 1c68cff7c
 
-Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2985.438 ; gain = 0.000 ; free physical = 118532 ; free virtual = 124920
-Phase 1 Initialization | Checksum: 21f4798f9
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2984.320 ; gain = 0.000 ; free physical = 115406 ; free virtual = 123485
+Phase 1 Initialization | Checksum: 1c68cff7c
 
-Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2985.438 ; gain = 0.000 ; free physical = 118532 ; free virtual = 124920
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2984.320 ; gain = 0.000 ; free physical = 115406 ; free virtual = 123485
 
 Phase 2 Timer Update And Timing Data Collection
 
 Phase 2.1 Timer Update
-Phase 2.1 Timer Update | Checksum: 21f4798f9
+Phase 2.1 Timer Update | Checksum: 1c68cff7c
 
-Time (s): cpu = 00:00:00.67 ; elapsed = 00:00:00.14 . Memory (MB): peak = 2985.438 ; gain = 0.000 ; free physical = 118532 ; free virtual = 124920
+Time (s): cpu = 00:00:00.75 ; elapsed = 00:00:00.17 . Memory (MB): peak = 2984.320 ; gain = 0.000 ; free physical = 115406 ; free virtual = 123485
 
 Phase 2.2 Timing Data Collection
-Phase 2.2 Timing Data Collection | Checksum: 21f4798f9
+Phase 2.2 Timing Data Collection | Checksum: 1c68cff7c
 
-Time (s): cpu = 00:00:00.68 ; elapsed = 00:00:00.16 . Memory (MB): peak = 2985.438 ; gain = 0.000 ; free physical = 118532 ; free virtual = 124920
-Phase 2 Timer Update And Timing Data Collection | Checksum: 21f4798f9
+Time (s): cpu = 00:00:00.76 ; elapsed = 00:00:00.19 . Memory (MB): peak = 2984.320 ; gain = 0.000 ; free physical = 115406 ; free virtual = 123485
+Phase 2 Timer Update And Timing Data Collection | Checksum: 1c68cff7c
 
-Time (s): cpu = 00:00:00.68 ; elapsed = 00:00:00.16 . Memory (MB): peak = 2985.438 ; gain = 0.000 ; free physical = 118532 ; free virtual = 124920
+Time (s): cpu = 00:00:00.77 ; elapsed = 00:00:00.19 . Memory (MB): peak = 2984.320 ; gain = 0.000 ; free physical = 115406 ; free virtual = 123485
 
 Phase 3 Retarget
 INFO: [Opt 31-1834] Total Chains To Be Transformed Were: 0 AND Number of Transformed insts Created are: 0
 INFO: [Opt 31-1566] Pulled 4 inverters resulting in an inversion of 37 pins
 INFO: [Opt 31-138] Pushed 1 inverter(s) to 1 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 3 Retarget | Checksum: 24df0788c
+Phase 3 Retarget | Checksum: 1b5278ca8
 
-Time (s): cpu = 00:00:00.97 ; elapsed = 00:00:00.43 . Memory (MB): peak = 2985.438 ; gain = 0.000 ; free physical = 118532 ; free virtual = 124920
-Retarget | Checksum: 24df0788c
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.46 . Memory (MB): peak = 2984.320 ; gain = 0.000 ; free physical = 115407 ; free virtual = 123486
+Retarget | Checksum: 1b5278ca8
 INFO: [Opt 31-389] Phase Retarget created 167 cells and removed 243 cells
 INFO: [Opt 31-1021] In phase Retarget, 2 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 4 Constant propagation
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Phase 4 Constant propagation | Checksum: 24c7310e4
+Phase 4 Constant propagation | Checksum: 1acb6d7a8
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.55 . Memory (MB): peak = 2985.438 ; gain = 0.000 ; free physical = 118532 ; free virtual = 124920
-Constant propagation | Checksum: 24c7310e4
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.58 . Memory (MB): peak = 2984.320 ; gain = 0.000 ; free physical = 115407 ; free virtual = 123486
+Constant propagation | Checksum: 1acb6d7a8
 INFO: [Opt 31-389] Phase Constant propagation created 73 cells and removed 246 cells
 
 Phase 5 Sweep
-Phase 5 Sweep | Checksum: 1a400183e
+Phase 5 Sweep | Checksum: 19c3fa356
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.8 . Memory (MB): peak = 2985.438 ; gain = 0.000 ; free physical = 118532 ; free virtual = 124920
-Sweep | Checksum: 1a400183e
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.84 . Memory (MB): peak = 2984.320 ; gain = 0.000 ; free physical = 115407 ; free virtual = 123486
+Sweep | Checksum: 19c3fa356
 INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 119 cells
 INFO: [Opt 31-1021] In phase Sweep, 1 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
@@ -143,45 +143,45 @@ Phase 6 BUFG optimization
 INFO: [Opt 31-194] Inserted BUFG display_top/mem_int/func_int/dsp_gen/rgb2dvi/U0/ClockGenInternal.ClockGenX/PixelClk_BUFG_inst to drive 8 load(s) on clock net display_top/mem_int/func_int/dsp_gen/rgb2dvi/U0/ClockGenInternal.ClockGenX/PixelClk_BUFG
 INFO: [Opt 31-194] Inserted BUFG display_top/mem_int/func_int/dsp_gen/rgb2dvi/U0/ClockGenInternal.ClockGenX/SerialClk_BUFG_inst to drive 8 load(s) on clock net display_top/mem_int/func_int/dsp_gen/rgb2dvi/U0/ClockGenInternal.ClockGenX/SerialClk_BUFG
 INFO: [Opt 31-193] Inserted 2 BUFG(s) on clock nets
-Phase 6 BUFG optimization | Checksum: 23fe85870
+Phase 6 BUFG optimization | Checksum: 1cb9db5b2
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.85 . Memory (MB): peak = 2985.438 ; gain = 0.000 ; free physical = 118532 ; free virtual = 124920
-BUFG optimization | Checksum: 23fe85870
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.88 . Memory (MB): peak = 2984.320 ; gain = 0.000 ; free physical = 115407 ; free virtual = 123486
+BUFG optimization | Checksum: 1cb9db5b2
 INFO: [Opt 31-662] Phase BUFG optimization created 2 cells of which 2 are BUFGs and removed 0 cells.
 
 Phase 7 Shift Register Optimization
 INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
-Phase 7 Shift Register Optimization | Checksum: 23fe85870
+Phase 7 Shift Register Optimization | Checksum: 1cb9db5b2
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.86 . Memory (MB): peak = 2985.438 ; gain = 0.000 ; free physical = 118532 ; free virtual = 124920
-Shift Register Optimization | Checksum: 23fe85870
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.89 . Memory (MB): peak = 2984.320 ; gain = 0.000 ; free physical = 115407 ; free virtual = 123486
+Shift Register Optimization | Checksum: 1cb9db5b2
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Phase 8 Post Processing Netlist
-Phase 8 Post Processing Netlist | Checksum: 23fe85870
+Phase 8 Post Processing Netlist | Checksum: 1cb9db5b2
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.87 . Memory (MB): peak = 2985.438 ; gain = 0.000 ; free physical = 118532 ; free virtual = 124920
-Post Processing Netlist | Checksum: 23fe85870
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.9 . Memory (MB): peak = 2984.320 ; gain = 0.000 ; free physical = 115407 ; free virtual = 123486
+Post Processing Netlist | Checksum: 1cb9db5b2
 INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
 
 Phase 9 Finalization
 
 Phase 9.1 Finalizing Design Cores and Updating Shapes
-Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 250429d76
+Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 2100017b1
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.97 . Memory (MB): peak = 2985.438 ; gain = 0.000 ; free physical = 118532 ; free virtual = 124920
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.98 . Memory (MB): peak = 2984.320 ; gain = 0.000 ; free physical = 115407 ; free virtual = 123486
 
 Phase 9.2 Verifying Netlist Connectivity
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2985.438 ; gain = 0.000 ; free physical = 118532 ; free virtual = 124920
-Phase 9.2 Verifying Netlist Connectivity | Checksum: 250429d76
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2984.320 ; gain = 0.000 ; free physical = 115407 ; free virtual = 123486
+Phase 9.2 Verifying Netlist Connectivity | Checksum: 2100017b1
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.98 . Memory (MB): peak = 2985.438 ; gain = 0.000 ; free physical = 118532 ; free virtual = 124920
-Phase 9 Finalization | Checksum: 250429d76
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.99 . Memory (MB): peak = 2984.320 ; gain = 0.000 ; free physical = 115407 ; free virtual = 123486
+Phase 9 Finalization | Checksum: 2100017b1
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.98 . Memory (MB): peak = 2985.438 ; gain = 0.000 ; free physical = 118532 ; free virtual = 124920
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.99 . Memory (MB): peak = 2984.320 ; gain = 0.000 ; free physical = 115407 ; free virtual = 123486
 Opt_design Change Summary
 =========================
 
@@ -198,9 +198,9 @@ Opt_design Change Summary
 -------------------------------------------------------------------------------------------------------------------------
 
 
-Ending Logic Optimization Task | Checksum: 250429d76
+Ending Logic Optimization Task | Checksum: 2100017b1
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.98 . Memory (MB): peak = 2985.438 ; gain = 0.000 ; free physical = 118532 ; free virtual = 124920
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.99 . Memory (MB): peak = 2984.320 ; gain = 0.000 ; free physical = 115407 ; free virtual = 123486
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
@@ -210,3 +210,1163 @@ Running Vector-less Activity Propagation...
 Finished Running Vector-less Activity Propagation
 INFO: [Pwropt 34-9] Applying IDT optimizations ...
 INFO: [Pwropt 34-10] Applying ODC optimizations ...
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 58 BRAM(s) out of a total of 229 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 2 WE to EN ports
+Number of BRAM Ports augmented: 226 newly gated: 4 Total Ports: 458
+Number of Flops added for Enable Generation: 1
+
+Ending PowerOpt Patch Enables Task | Checksum: 22774e883
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 3426.273 ; gain = 0.000 ; free physical = 115033 ; free virtual = 123113
+Ending Power Optimization Task | Checksum: 22774e883
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:30 . Memory (MB): peak = 3426.273 ; gain = 441.953 ; free physical = 115033 ; free virtual = 123113
+
+Starting Final Cleanup Task
+
+Starting Logic Optimization Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Logic Optimization Task | Checksum: 21f9af501
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.67 . Memory (MB): peak = 3426.273 ; gain = 0.000 ; free physical = 115011 ; free virtual = 123091
+Ending Final Cleanup Task | Checksum: 21f9af501
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 3426.273 ; gain = 0.000 ; free physical = 115012 ; free virtual = 123091
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3426.273 ; gain = 0.000 ; free physical = 115012 ; free virtual = 123091
+Ending Netlist Obfuscation Task | Checksum: 21f9af501
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3426.273 ; gain = 0.000 ; free physical = 115012 ; free virtual = 123091
+INFO: [Common 17-83] Releasing license: Implementation
+52 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:42 ; elapsed = 00:00:40 . Memory (MB): peak = 3426.273 ; gain = 746.867 ; free physical = 115012 ; free virtual = 123091
+INFO: [Vivado 12-24828] Executing command : report_drc -file toptop_drc_opted.rpt -pb toptop_drc_opted.pb -rpx toptop_drc_opted.rpx
+Command: report_drc -file toptop_drc_opted.rpt -pb toptop_drc_opted.pb -rpx toptop_drc_opted.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/impl_1/toptop_drc_opted.rpt.
+report_drc completed successfully
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Wrote PlaceDB: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114990 ; free virtual = 123069
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114990 ; free virtual = 123069
+Writing XDEF routing.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114990 ; free virtual = 123069
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.1 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114988 ; free virtual = 123068
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114988 ; free virtual = 123068
+Wrote Device Cache: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114988 ; free virtual = 123068
+Write Physdb Complete: Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114988 ; free virtual = 123068
+INFO: [Common 17-1381] The checkpoint '/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/impl_1/toptop_opt.dcp' has been generated.
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a200t'
+INFO: [Common 17-83] Releasing license: Implementation
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 8 CPUs
+
+Starting Placer Task
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114989 ; free virtual = 123070
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 1ef4194ab
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114989 ; free virtual = 123070
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114989 ; free virtual = 123070
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 22f4f1ad2
+
+Time (s): cpu = 00:00:00.73 ; elapsed = 00:00:00.44 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114991 ; free virtual = 123072
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 2d8b21a54
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114997 ; free virtual = 123078
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 2d8b21a54
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114997 ; free virtual = 123078
+Phase 1 Placer Initialization | Checksum: 2d8b21a54
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114997 ; free virtual = 123078
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+Phase 2.1 Floorplanning | Checksum: 26b636b88
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115046 ; free virtual = 123127
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 28196d4a1
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:03 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115045 ; free virtual = 123126
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 28196d4a1
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:03 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115045 ; free virtual = 123126
+
+Phase 2.4 Global Placement Core
+
+Phase 2.4.1 UpdateTiming Before Physical Synthesis
+Phase 2.4.1 UpdateTiming Before Physical Synthesis | Checksum: 25daf0746
+
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:14 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115057 ; free virtual = 123138
+
+Phase 2.4.2 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 36 LUTNM shape to break, 21 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 0, two critical 36, total 36, new lutff created 0
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 46 nets or LUTs. Breaked 36 LUTs, combined 10 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-65] No nets found for high-fanout optimization.
+INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-1123] No candidate cells found for Shift Register to Pipeline optimization
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-1401] No candidate cells found for Shift Register optimization.
+INFO: [Physopt 32-677] No candidate cells for Shift Register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-526] No candidate cells for BRAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-846] No candidate cells for URAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-846] No candidate cells for URAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115057 ; free virtual = 123137
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |           36  |             10  |                    46  |           0  |           1  |  00:00:00  |
+|  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  DSP Register                                     |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  URAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                                            |           36  |             10  |                    46  |           0  |           9  |  00:00:00  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.4.2 Physical Synthesis In Placer | Checksum: 1add2df8b
+
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:16 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115058 ; free virtual = 123139
+Phase 2.4 Global Placement Core | Checksum: 1d0fa37fe
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:17 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115061 ; free virtual = 123142
+Phase 2 Global Placement | Checksum: 1d0fa37fe
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:17 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115061 ; free virtual = 123142
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 160ec1697
+
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:18 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115062 ; free virtual = 123143
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 26670b6a3
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:18 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115063 ; free virtual = 123144
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: 207808cab
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:18 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115062 ; free virtual = 123143
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: 1c1d53185
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:19 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115062 ; free virtual = 123143
+
+Phase 3.5 Fast Optimization
+Phase 3.5 Fast Optimization | Checksum: 231a15b34
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:22 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115056 ; free virtual = 123137
+
+Phase 3.6 Small Shape Detail Placement
+Phase 3.6 Small Shape Detail Placement | Checksum: 1a00a4fd9
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:24 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115059 ; free virtual = 123139
+
+Phase 3.7 Re-assign LUT pins
+Phase 3.7 Re-assign LUT pins | Checksum: 153aa621e
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:24 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115059 ; free virtual = 123139
+
+Phase 3.8 Pipeline Register Optimization
+Phase 3.8 Pipeline Register Optimization | Checksum: 1817fc500
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:24 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115059 ; free virtual = 123139
+
+Phase 3.9 Fast Optimization
+Phase 3.9 Fast Optimization | Checksum: 220087cb5
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:29 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115057 ; free virtual = 123138
+Phase 3 Detail Placement | Checksum: 220087cb5
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:29 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115056 ; free virtual = 123137
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 27a511ca3
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-3.138 | TNS=-277.488 |
+Phase 1 Physical Synthesis Initialization | Checksum: 1876b785d
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.75 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115051 ; free virtual = 123131
+INFO: [Place 46-56] BUFG insertion identified 0 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to netlist editing failed: 0.
+Ending Physical Synthesis Task | Checksum: 20d61a8dd
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.85 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115051 ; free virtual = 123131
+Phase 4.1.1.1 BUFG Insertion | Checksum: 27a511ca3
+
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:32 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115050 ; free virtual = 123130
+
+Phase 4.1.1.2 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=-2.307. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 1a95bcdad
+
+Time (s): cpu = 00:01:33 ; elapsed = 00:01:08 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115030 ; free virtual = 123111
+
+Time (s): cpu = 00:01:33 ; elapsed = 00:01:08 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115030 ; free virtual = 123111
+Phase 4.1 Post Commit Optimization | Checksum: 1a95bcdad
+
+Time (s): cpu = 00:01:33 ; elapsed = 00:01:08 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115029 ; free virtual = 123110
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 1a95bcdad
+
+Time (s): cpu = 00:01:34 ; elapsed = 00:01:08 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115029 ; free virtual = 123110
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ____________________________________________________
+|           | Global Congestion | Short Congestion  |
+| Direction | Region Size       | Region Size       |
+|___________|___________________|___________________|
+|      North|                1x1|                1x1|
+|___________|___________________|___________________|
+|      South|                1x1|                1x1|
+|___________|___________________|___________________|
+|       East|                1x1|                1x1|
+|___________|___________________|___________________|
+|       West|                1x1|                1x1|
+|___________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 1a95bcdad
+
+Time (s): cpu = 00:01:34 ; elapsed = 00:01:08 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115029 ; free virtual = 123110
+Phase 4.3 Placer Reporting | Checksum: 1a95bcdad
+
+Time (s): cpu = 00:01:34 ; elapsed = 00:01:08 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115029 ; free virtual = 123110
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115029 ; free virtual = 123110
+
+Time (s): cpu = 00:01:34 ; elapsed = 00:01:08 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115029 ; free virtual = 123110
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 13103f253
+
+Time (s): cpu = 00:01:34 ; elapsed = 00:01:08 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115029 ; free virtual = 123110
+Ending Placer Task | Checksum: eb22b8fe
+
+Time (s): cpu = 00:01:34 ; elapsed = 00:01:08 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115029 ; free virtual = 123110
+95 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:01:38 ; elapsed = 00:01:11 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 115029 ; free virtual = 123110
+INFO: [Vivado 12-24838] Running report commands "report_control_sets, report_io, report_utilization" in parallel.
+Running report generation with 3 threads.
+INFO: [Vivado 12-24828] Executing command : report_control_sets -verbose -file toptop_control_sets_placed.rpt
+report_control_sets: Time (s): cpu = 00:00:00.2 ; elapsed = 00:00:00.17 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114985 ; free virtual = 123066
+INFO: [Vivado 12-24828] Executing command : report_utilization -file toptop_utilization_placed.rpt -pb toptop_utilization_placed.pb
+INFO: [Vivado 12-24828] Executing command : report_io -file toptop_io_placed.rpt
+report_io: Time (s): cpu = 00:00:00.54 ; elapsed = 00:00:00.43 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114959 ; free virtual = 123040
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114959 ; free virtual = 123040
+Wrote PlaceDB: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.36 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114946 ; free virtual = 123033
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114946 ; free virtual = 123033
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114946 ; free virtual = 123034
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114945 ; free virtual = 123033
+Wrote Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114945 ; free virtual = 123033
+Write Physdb Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.39 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114945 ; free virtual = 123033
+INFO: [Common 17-1381] The checkpoint '/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/impl_1/toptop_placed.dcp' has been generated.
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a200t'
+
+Starting Initial Update Timing Task
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114940 ; free virtual = 123022
+INFO: [Vivado_Tcl 4-1435] PhysOpt_Tcl_Interface Runtime Before Starting Physical Synthesis Task | CPU: 4.74s |  WALL: 2.21s
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114940 ; free virtual = 123022
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.307 | TNS=-252.115 |
+Phase 1 Physical Synthesis Initialization | Checksum: 14a2a51b8
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114946 ; free virtual = 123028
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.307 | TNS=-252.115 |
+
+Phase 2 DSP Register Optimization
+INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Phase 2 DSP Register Optimization | Checksum: 14a2a51b8
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114946 ; free virtual = 123028
+
+Phase 3 Critical Path Optimization
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.307 | TNS=-252.115 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net clk_wiz_0/inst/clk_out1_clk_wiz_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_96. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_191_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.203 | TNS=-252.067 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_96. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_191_comp_1.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.201 | TNS=-251.808 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_103. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_205_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.184 | TNS=-251.748 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_95. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_189_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.150 | TNS=-251.728 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-242] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/ENA. Rewired (signal push) display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_1 to 7 loads. Replicated 0 times.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.145 | TNS=-252.017 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_100. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_199_rewire_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.135 | TNS=-251.870 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_95. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_189_comp_1.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.090 | TNS=-251.889 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__3_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__3
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.088 | TNS=-251.881 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_103. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_205_comp_1.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.082 | TNS=-251.631 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.070 | TNS=-254.426 |
+INFO: [Physopt 32-81] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4_n_0. Replicated 1 times.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.053 | TNS=-254.123 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_104. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_207_rewire_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.015 | TNS=-254.077 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.999 | TNS=-253.128 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__3_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__3
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.982 | TNS=-252.751 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__8
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.974 | TNS=-253.531 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_170. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_339_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.972 | TNS=-253.201 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 5 pins.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.964 | TNS=-251.408 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[22].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[22].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_183. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[22].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_365_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.961 | TNS=-251.361 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5_n_0_repN_1.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5_comp_1
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5_n_0_repN_1. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.957 | TNS=-251.357 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_95. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_189_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5_n_0_repN_1. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.946 | TNS=-251.213 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_104. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_207_rewire_comp_1.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.939 | TNS=-250.891 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_100. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_199_rewire_comp_1.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.902 | TNS=-250.737 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_169. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_337_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.887 | TNS=-250.632 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_199. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_397_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.881 | TNS=-250.517 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4_n_0_repN.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4_replica
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4_n_0_repN. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.880 | TNS=-250.486 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__3_rewire
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.865 | TNS=-250.442 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_143. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_285_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.861 | TNS=-250.294 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__6_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__6
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__6_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.860 | TNS=-250.169 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_144. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_287_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.855 | TNS=-250.021 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[28].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[56].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[56].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__12
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[56].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.850 | TNS=-249.934 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_96. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_191_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5_n_0_repN. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.848 | TNS=-249.909 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[22].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/ENA. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/ENA. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/ENA. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__6_comp_1.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__2__0_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.844 | TNS=-248.527 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[26].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[26].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_132. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[26].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_263_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[54].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.843 | TNS=-248.106 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_4. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_7_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[53].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.843 | TNS=-247.927 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[54].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[54].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_162. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[54].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_323_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[54].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.841 | TNS=-247.852 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[28].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_189. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[28].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_377_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[56].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.836 | TNS=-247.864 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_99. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_197_rewire_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.827 | TNS=-247.744 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 5 pins.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4_n_0_repN. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.816 | TNS=-247.618 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5_n_0_repN_1.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5_comp_3
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5_n_0_repN_1. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.816 | TNS=-247.445 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[39].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[39].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_35. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[39].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_69_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[53].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.810 | TNS=-247.187 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[19].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__3_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__3
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.804 | TNS=-246.583 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[30].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[44].ram.r/prim_noinit.ram/ENA. Rewiring did not optimize the net.
+INFO: [Physopt 32-81] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[44].ram.r/prim_noinit.ram/ENA. Replicated 1 times.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[44].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.797 | TNS=-245.929 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__12_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__12
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__12_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.793 | TNS=-245.618 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[29].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.789 | TNS=-246.314 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_168. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_335_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.782 | TNS=-246.073 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__3
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.777 | TNS=-245.856 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_100. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_199_rewire_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.776 | TNS=-245.680 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[29].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_22. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[29].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_43_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.776 | TNS=-245.482 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__8_n_0.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__8
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__8_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.770 | TNS=-245.424 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_226. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_451_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.758 | TNS=-245.423 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_158. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_315_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.744 | TNS=-245.187 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[39].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[39].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_34. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[39].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_67_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[53].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.738 | TNS=-245.005 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_226. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_451_comp_1.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.737 | TNS=-244.978 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[54].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_162. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[54].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_323_comp_1.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__6_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.732 | TNS=-245.001 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_225. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_449_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.731 | TNS=-244.990 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__2__0_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__2__0
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__2__0_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.728 | TNS=-244.987 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[22].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_183. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[22].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_365_comp_1.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__6_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.727 | TNS=-244.822 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_199. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_397_comp_1.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.718 | TNS=-244.813 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_157. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_313_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.712 | TNS=-244.718 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[30].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_136. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[30].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_271_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[44].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.706 | TNS=-244.445 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[44].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[44].ram.r/prim_noinit.ram/ENA_repN.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[44].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__0_replica
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[44].ram.r/prim_noinit.ram/ENA_repN. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.704 | TNS=-244.309 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[53].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[53].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_51. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[53].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_101_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[53].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.701 | TNS=-244.163 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[55].ram.r/prim_noinit.ram/addra_16_sn_1.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[55].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[55].ram.r/prim_noinit.ram/addra_16_sn_1. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.700 | TNS=-244.119 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_3. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_5_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[53].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.695 | TNS=-243.921 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_225. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_449_comp_1.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.694 | TNS=-243.894 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__8
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.693 | TNS=-243.401 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_170. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_339_comp_1.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__8_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.693 | TNS=-243.264 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_200. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_399_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.688 | TNS=-243.234 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_144. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_287_comp_1.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__8_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.686 | TNS=-242.924 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[28].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[28].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_190. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[28].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_379_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[56].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.682 | TNS=-242.758 |
+INFO: [Physopt 32-81] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__10_n_0. Replicated 1 times.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__10_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.677 | TNS=-242.301 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_143. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_285_comp_1.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__8_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.677 | TNS=-242.193 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[33].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[33].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_28. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[33].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_55_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.670 | TNS=-241.997 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_81. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_161_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[45].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.668 | TNS=-241.865 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__3_rewire
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.667 | TNS=-241.746 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_160. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_319_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.664 | TNS=-241.681 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[45].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[45].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_97. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[45].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_193_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[45].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.663 | TNS=-241.418 |
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_99. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_197_rewire_comp_1.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.663 | TNS=-241.118 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 5 pins.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__10_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.662 | TNS=-240.862 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[45].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[45].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_98. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[45].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_195_comp.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[45].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.657 | TNS=-240.796 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 12 pins.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[51].ram.r/prim_noinit.ram/addra[16]_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.657 | TNS=-239.325 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__3_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__3
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.656 | TNS=-238.824 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__8_n_0.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__8
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__8_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.653 | TNS=-238.795 |
+INFO: [Physopt 32-702] Processed net clk_wiz_0/inst/clk_out1_clk_wiz_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__3_n_0_repN.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__3_comp
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__3_n_0_repN. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.651 | TNS=-238.638 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__4_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__4
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.648 | TNS=-238.728 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[46].ram.r/prim_noinit.ram/ENA. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__2_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__2
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__2_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.644 | TNS=-238.697 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 5 pins.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__2_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.641 | TNS=-238.553 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[22].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 16 pins.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.638 | TNS=-238.455 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__8_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__8
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__8_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.636 | TNS=-238.100 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 9 pins.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.629 | TNS=-237.595 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 15 pins.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__5_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.627 | TNS=-236.567 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/ENA. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 5 pins.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__6_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.626 | TNS=-236.217 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5__2_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5__2
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5__2_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.625 | TNS=-235.953 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[56].ram.r/prim_noinit.ram/ENA. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__12_n_0.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__12
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__12_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.625 | TNS=-234.921 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[46].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[46].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__2
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[46].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.613 | TNS=-235.735 |
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[45].ram.r/prim_noinit.ram/ENA. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 20 pins.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__1_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.611 | TNS=-235.690 |
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[56].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[56].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__12
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[56].ram.r/prim_noinit.ram/ENA. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.611 | TNS=-236.120 |
+INFO: [Common 17-14] Message 'Physopt 32-619' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[25].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[53].ram.r/prim_noinit.ram/ENA. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 5 pins.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__9_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[55].ram.r/prim_noinit.ram/addra_16_sn_1.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[55].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[55].ram.r/prim_noinit.ram/addra_16_sn_1. Optimization improves timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 5 pins.
+INFO: [Physopt 32-735] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5__1_n_0. Optimization improves timing on the net.
+INFO: [Common 17-14] Message 'Physopt 32-735' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[54].ram.r/prim_noinit.ram/ENA. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 21 pins.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/ENA. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__3_n_0.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__3
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__3_n_0_repN_2.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__3_comp_2
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 5 pins.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[48].ram.r/prim_noinit.ram/ENA. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__0__0_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__0__0
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__4_n_0.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__4
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[44].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[44].ram.r/prim_noinit.ram/ENA_repN. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 15 pins.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[54].ram.r/prim_noinit.ram/addra_14_sn_1.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[54].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__1
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[29].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/ENA_repN_2.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__3_rewire_comp_1
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 5 pins.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[56].ram.r/prim_noinit.ram/ENA. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__8_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__8
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[51].ram.r/prim_noinit.ram/addra_16_sn_1.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[51].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_11__0
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__8
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 5 pins.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[51].ram.r/prim_noinit.ram/addra[16]_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/mem_int/func_int/mem_f/pxl_w/addra[14]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/mem_int/func_int/mem_f/shp_eng/ping_i_47_0[8]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/mem_int/func_int/mem_f/shp_eng/adr_write1[6]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/mem_int/func_int/mem_f/shp_eng/ping_i_75_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/mem_int/func_int/mem_f/shp_eng/A[4]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 18 pins.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 9 pins.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 18 pins.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 18 pins.
+INFO: [Physopt 32-702] Processed net pram/pingpong_reg_4[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_95. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net pram/pping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/doutb[12]. Optimizations did not improve timing on the net.
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114987 ; free virtual = 123070
+Phase 3 Critical Path Optimization | Checksum: 1f232bccc
+
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:32 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114987 ; free virtual = 123070
+
+Phase 4 Critical Path Optimization
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net clk_wiz_0/inst/clk_out1_clk_wiz_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4_n_0. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4_comp.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__4_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__4
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[55].ram.r/prim_noinit.ram/addra_16_sn_1.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[55].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__6
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[22].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 5 pins.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_146. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_291_comp.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[54].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[54].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__10
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_sig_226. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_ENARDEN_cooolgate_en_gate_451_comp.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[29].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5_n_0.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 4 pins.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[28].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[28].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_189. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[28].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_377_comp_1.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__4_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_3__4
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[56].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[56].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_163. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[56].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_325_comp.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__3
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_167. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_333_comp.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__6_n_0.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_4__6
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[56].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[56].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[56].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__12
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[36].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__6
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/cascadelatb_tmp. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_199. Critical path length was reduced through logic transformation on cell display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[38].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_397_comp.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[28].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 5 pins.
+INFO: [Physopt 32-702] Processed net clk_wiz_0/inst/clk_out1_clk_wiz_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 5 pins.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[54].ram.r/prim_noinit.ram/ENA. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 5 pins.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[44].ram.r/prim_noinit.ram/ENA. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5__0_n_0.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_5__0
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/ENA. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 5 pins.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[29].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[43].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[52].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__8
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[47].ram.r/prim_noinit.ram/ENA. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 10 pins.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[22].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[50].ram.r/prim_noinit.ram/ENA. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[54].ram.r/prim_noinit.ram/addra[14]_1.  Re-placed instance display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[54].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_9__0
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[37].ram.r/prim_noinit.ram/DOUTB[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[51].ram.r/prim_noinit.ram/ENA.  Re-placed instance display_top/ping_pong_switch/ping/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[51].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.CASCADED_PRIM36.ram_T_i_1__7
+INFO: [Physopt 32-702] Processed net display_top/ping_pong_switch/pong/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[51].ram.r/prim_noinit.ram/addra_16_sn_1. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/mem_int/func_int/mem_f/pxl_w/addra[13]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/mem_int/func_int/mem_f/shp_eng/ping_i_47_0[7]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/mem_int/func_int/mem_f/shp_eng/adr_write1[6]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/mem_int/func_int/mem_f/shp_eng/ping_i_75_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net display_top/mem_int/func_int/mem_f/shp_eng/A[4]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net pram/pingpong_reg_4[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 15 pins.
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114990 ; free virtual = 123073
+Phase 4 Critical Path Optimization | Checksum: 1b6e48494
+
+Time (s): cpu = 00:01:21 ; elapsed = 00:00:41 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114990 ; free virtual = 123073
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114990 ; free virtual = 123073
+INFO: [Physopt 32-603] Post Physical Optimization Timing Summary | WNS=-1.312 | TNS=-180.310 |
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization   |  WNS Gain (ns)  |  TNS Gain (ns)  |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+|  DSP Register   |          0.000  |          0.000  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Critical Path  |          0.995  |         71.804  |            3  |              0  |                   149  |           0  |           2  |  00:00:39  |
+|  Total          |          0.995  |         71.804  |            3  |              0  |                   149  |           0  |           3  |  00:00:39  |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114990 ; free virtual = 123073
+Ending Physical Synthesis Task | Checksum: 2619c76b7
+
+Time (s): cpu = 00:01:21 ; elapsed = 00:00:42 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114990 ; free virtual = 123073
+INFO: [Common 17-83] Releasing license: Implementation
+569 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+phys_opt_design: Time (s): cpu = 00:01:25 ; elapsed = 00:00:44 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114990 ; free virtual = 123073
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114990 ; free virtual = 123073
+Wrote PlaceDB: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.38 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114987 ; free virtual = 123076
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114987 ; free virtual = 123076
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114987 ; free virtual = 123076
+Wrote Netlist Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114987 ; free virtual = 123076
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114987 ; free virtual = 123077
+Write Physdb Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.41 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114987 ; free virtual = 123077
+INFO: [Common 17-1381] The checkpoint '/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/impl_1/toptop_physopt.dcp' has been generated.
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a200t'
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: 2e34dc94 ConstDB: 0 ShapeSum: eec6b823 RouteDB: 981aeb64
+Post Restoration Checksum: NetGraph: bd0f1ba3 | NumContArr: 20fe98fd | Constraints: c2a8fa9d | Timing: c2a8fa9d
+Phase 1 Build RT Design | Checksum: 2635fa9da
+
+Time (s): cpu = 00:01:05 ; elapsed = 00:00:53 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114969 ; free virtual = 123053
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: 2635fa9da
+
+Time (s): cpu = 00:01:05 ; elapsed = 00:00:53 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114969 ; free virtual = 123053
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 2635fa9da
+
+Time (s): cpu = 00:01:05 ; elapsed = 00:00:53 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114969 ; free virtual = 123053
+ Number of Nodes with overlaps = 0
+
+Phase 2.3 Update Timing
+Phase 2.3 Update Timing | Checksum: 288101d32
+
+Time (s): cpu = 00:01:15 ; elapsed = 00:00:58 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114928 ; free virtual = 123012
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.211 | TNS=-146.014| WHS=-2.879 | THS=-103.309|
+
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0 %
+  Global Horizontal Routing Utilization  = 0 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 1887
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 1886
+  Number of Partially Routed Nets     = 1
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: 29bd69848
+
+Time (s): cpu = 00:01:19 ; elapsed = 00:00:59 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114909 ; free virtual = 122993
+
+Phase 3 Global Routing
+Phase 3 Global Routing | Checksum: 29bd69848
+
+Time (s): cpu = 00:01:19 ; elapsed = 00:00:59 . Memory (MB): peak = 3467.387 ; gain = 0.000 ; free physical = 114909 ; free virtual = 122993
+
+Phase 4 Initial Routing
+
+Phase 4.1 Initial Net Routing Pass
+Phase 4.1 Initial Net Routing Pass | Checksum: 37a38d515
+
+Time (s): cpu = 00:01:59 ; elapsed = 00:01:17 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114319 ; free virtual = 122403
+Phase 4 Initial Routing | Checksum: 37a38d515
+
+Time (s): cpu = 00:01:59 ; elapsed = 00:01:17 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114319 ; free virtual = 122403
+
+Phase 5 Rip-up And Reroute
+
+Phase 5.1 Global Iteration 0
+ Number of Nodes with overlaps = 675
+ Number of Nodes with overlaps = 239
+ Number of Nodes with overlaps = 89
+ Number of Nodes with overlaps = 34
+ Number of Nodes with overlaps = 21
+ Number of Nodes with overlaps = 12
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 5
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.493 | TNS=-183.244| WHS=N/A    | THS=N/A    |
+
+Phase 5.1 Global Iteration 0 | Checksum: 1e4531d42
+
+Time (s): cpu = 00:03:08 ; elapsed = 00:02:15 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114352 ; free virtual = 122437
+
+Phase 5.2 Global Iteration 1
+ Number of Nodes with overlaps = 220
+ Number of Nodes with overlaps = 40
+ Number of Nodes with overlaps = 17
+ Number of Nodes with overlaps = 13
+ Number of Nodes with overlaps = 7
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.532 | TNS=-168.391| WHS=N/A    | THS=N/A    |
+
+Phase 5.2 Global Iteration 1 | Checksum: 1ae73c3bc
+
+Time (s): cpu = 00:03:59 ; elapsed = 00:03:02 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114383 ; free virtual = 122467
+Phase 5 Rip-up And Reroute | Checksum: 1ae73c3bc
+
+Time (s): cpu = 00:03:59 ; elapsed = 00:03:02 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114383 ; free virtual = 122467
+
+Phase 6 Delay and Skew Optimization
+
+Phase 6.1 Delay CleanUp
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 1f0204c01
+
+Time (s): cpu = 00:04:02 ; elapsed = 00:03:03 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114383 ; free virtual = 122468
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.486 | TNS=-179.093| WHS=N/A    | THS=N/A    |
+
+ Number of Nodes with overlaps = 0
+Phase 6.1 Delay CleanUp | Checksum: 2320226a8
+
+Time (s): cpu = 00:04:05 ; elapsed = 00:03:04 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114383 ; free virtual = 122468
+
+Phase 6.2 Clock Skew Optimization
+Phase 6.2 Clock Skew Optimization | Checksum: 2320226a8
+
+Time (s): cpu = 00:04:05 ; elapsed = 00:03:04 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114383 ; free virtual = 122468
+Phase 6 Delay and Skew Optimization | Checksum: 2320226a8
+
+Time (s): cpu = 00:04:05 ; elapsed = 00:03:04 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114383 ; free virtual = 122468
+
+Phase 7 Post Hold Fix
+
+Phase 7.1 Hold Fix Iter
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.468 | TNS=-178.050| WHS=0.079  | THS=0.000  |
+
+Phase 7.1 Hold Fix Iter | Checksum: 2415b7991
+
+Time (s): cpu = 00:04:08 ; elapsed = 00:03:05 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114383 ; free virtual = 122468
+Phase 7 Post Hold Fix | Checksum: 2415b7991
+
+Time (s): cpu = 00:04:08 ; elapsed = 00:03:05 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114383 ; free virtual = 122468
+
+Phase 8 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 1.46041 %
+  Global Horizontal Routing Utilization  = 1.17257 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+
+--GLOBAL Congestion:
+Utilization threshold used for congestion level computation: 0.85
+Congestion Report
+North Dir 1x1 Area, Max Cong = 48.6486%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 44.1441%, No Congested Regions.
+East Dir 1x1 Area, Max Cong = 58.8235%, No Congested Regions.
+West Dir 1x1 Area, Max Cong = 63.2353%, No Congested Regions.
+
+------------------------------
+Reporting congestion hotspots
+------------------------------
+Direction: North
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: South
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: East
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: West
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+
+Phase 8 Route finalize | Checksum: 2415b7991
+
+Time (s): cpu = 00:04:08 ; elapsed = 00:03:05 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114383 ; free virtual = 122468
+
+Phase 9 Verifying routed nets
+
+ Verification completed successfully
+Phase 9 Verifying routed nets | Checksum: 2415b7991
+
+Time (s): cpu = 00:04:08 ; elapsed = 00:03:05 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114383 ; free virtual = 122468
+
+Phase 10 Depositing Routes
+Phase 10 Depositing Routes | Checksum: 1d34649bd
+
+Time (s): cpu = 00:04:09 ; elapsed = 00:03:05 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114383 ; free virtual = 122468
+
+Phase 11 Post Process Routing
+Phase 11 Post Process Routing | Checksum: 1d34649bd
+
+Time (s): cpu = 00:04:10 ; elapsed = 00:03:05 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114383 ; free virtual = 122468
+
+Phase 12 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-1.468 | TNS=-178.050| WHS=0.079  | THS=0.000  |
+
+WARNING: [Route 35-328] Router estimated timing not met.
+Resolution: For a complete and accurate timing signoff, report_timing_summary must be run after route_design. Alternatively, route_design can be run with the -timing_summary option to enable a complete timing signoff at the end of route_design.
+Phase 12 Post Router Timing | Checksum: 1d34649bd
+
+Time (s): cpu = 00:04:10 ; elapsed = 00:03:05 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114383 ; free virtual = 122468
+Total Elapsed time in route_design: 185.39 secs
+
+Phase 13 Post-Route Event Processing
+Phase 13 Post-Route Event Processing | Checksum: 255c1713a
+
+Time (s): cpu = 00:04:10 ; elapsed = 00:03:06 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114383 ; free virtual = 122467
+INFO: [Route 35-16] Router Completed Successfully
+Ending Routing Task | Checksum: 255c1713a
+
+Time (s): cpu = 00:04:10 ; elapsed = 00:03:06 . Memory (MB): peak = 3980.191 ; gain = 512.805 ; free physical = 114383 ; free virtual = 122468
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+587 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:04:14 ; elapsed = 00:03:08 . Memory (MB): peak = 3980.285 ; gain = 512.898 ; free physical = 114382 ; free virtual = 122466
+INFO: [Vivado 12-24828] Executing command : report_drc -file toptop_drc_routed.rpt -pb toptop_drc_routed.pb -rpx toptop_drc_routed.rpx
+Command: report_drc -file toptop_drc_routed.rpt -pb toptop_drc_routed.pb -rpx toptop_drc_routed.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/impl_1/toptop_drc_routed.rpt.
+report_drc completed successfully
+INFO: [Vivado 12-24828] Executing command : report_methodology -file toptop_methodology_drc_routed.rpt -pb toptop_methodology_drc_routed.pb -rpx toptop_methodology_drc_routed.rpx
+Command: report_methodology -file toptop_methodology_drc_routed.rpt -pb toptop_methodology_drc_routed.pb -rpx toptop_methodology_drc_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 8 threads
+INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/impl_1/toptop_methodology_drc_routed.rpt.
+report_methodology completed successfully
+report_methodology: Time (s): cpu = 00:00:13 ; elapsed = 00:00:05 . Memory (MB): peak = 4052.250 ; gain = 0.000 ; free physical = 114322 ; free virtual = 122407
+INFO: [Vivado 12-24828] Executing command : report_timing_summary -max_paths 10 -report_unconstrained -file toptop_timing_summary_routed.rpt -pb toptop_timing_summary_routed.pb -rpx toptop_timing_summary_routed.rpx -warn_on_violation 
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+INFO: [Vivado 12-24838] Running report commands "report_bus_skew, report_incremental_reuse, report_route_status" in parallel.
+Running report generation with 3 threads.
+INFO: [Vivado 12-24828] Executing command : report_incremental_reuse -file toptop_incremental_reuse_routed.rpt
+INFO: [Vivado_Tcl 4-1062] Incremental flow is disabled. No incremental reuse Info to report.
+INFO: [Vivado 12-24828] Executing command : report_route_status -file toptop_route_status.rpt -pb toptop_route_status.pb
+INFO: [Vivado 12-24828] Executing command : report_bus_skew -warn_on_violation -file toptop_bus_skew_routed.rpt -pb toptop_bus_skew_routed.pb -rpx toptop_bus_skew_routed.rpx
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+INFO: [Vivado 12-24828] Executing command : report_power -file toptop_power_routed.rpt -pb toptop_power_summary_routed.pb -rpx toptop_power_routed.rpx
+Command: report_power -file toptop_power_routed.rpt -pb toptop_power_summary_routed.pb -rpx toptop_power_routed.rpx
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+607 Infos, 3 Warnings, 1 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+INFO: [Vivado 12-24828] Executing command : report_clock_utilization -file toptop_clock_utilization_routed.rpt
+WARNING: [Device 21-9320] Failed to find the Oracle tile group with name 'HSR_BOUNDARY_TOP'. This is required for Clock regions and Virtual grid.
+WARNING: [Device 21-2174] Failed to initialize Virtual grid.
+generate_parallel_reports: Time (s): cpu = 00:00:30 ; elapsed = 00:00:13 . Memory (MB): peak = 4052.250 ; gain = 71.965 ; free physical = 114301 ; free virtual = 122388
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00 . Memory (MB): peak = 4052.250 ; gain = 0.000 ; free physical = 114301 ; free virtual = 122388
+Wrote PlaceDB: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.38 . Memory (MB): peak = 4052.250 ; gain = 0.000 ; free physical = 114302 ; free virtual = 122395
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4052.250 ; gain = 0.000 ; free physical = 114302 ; free virtual = 122395
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.2 ; elapsed = 00:00:00.13 . Memory (MB): peak = 4052.250 ; gain = 0.000 ; free physical = 114297 ; free virtual = 122392
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4052.250 ; gain = 0.000 ; free physical = 114297 ; free virtual = 122392
+Wrote Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 4052.250 ; gain = 0.000 ; free physical = 114297 ; free virtual = 122393
+Write Physdb Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.52 . Memory (MB): peak = 4052.250 ; gain = 0.000 ; free physical = 114297 ; free virtual = 122393
+INFO: [Common 17-1381] The checkpoint '/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.runs/impl_1/toptop_routed.dcp' has been generated.
+Command: write_bitstream -force toptop.bit
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a200t'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado 12-3199] DRC finished with 0 Errors
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Designutils 20-2272] Running write_bitstream with 8 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./toptop.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT device. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
+INFO: [Common 17-83] Releasing license: Implementation
+619 Infos, 5 Warnings, 1 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:01:07 ; elapsed = 00:00:28 . Memory (MB): peak = 4052.250 ; gain = 0.000 ; free physical = 114267 ; free virtual = 122365
+INFO: [Common 17-206] Exiting Vivado at Wed Mar  5 18:05:42 2025...
