@@ -50,8 +50,8 @@ module pixel_walk(
                         if (new_frame) begin
                             state <= 4'h0;
                             curr_mem <= '0;
-                            pixel_color <= pixel_color + 1;
-                            if (pixel_color == MAX_MEM) pixel_color <= 0;
+                            pixel <= pixel + 1;
+                            if (pixel == MAX_MEM) pixel <= 0;
                         end
                     end
                 endcase  

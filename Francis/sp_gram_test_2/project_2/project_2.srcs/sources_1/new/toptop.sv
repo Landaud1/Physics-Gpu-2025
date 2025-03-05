@@ -26,6 +26,8 @@ module toptop(
     logic clk;
     logic [9:0] pram_adr_read;
     logic [20:0] pram_data_read;
+    logic [9:0] aram_adr_read;
+    logic [23:0] aram_data_read;
     
     assign clk_out = clk_100;
     assign reset_out = reset;
@@ -51,6 +53,8 @@ module toptop(
         
         .pram_adr_read(pram_adr_read),
         .pram_data_read(pram_data_read),
+        .aram_adr_read(aram_adr_read),
+        .aram_data_read(aram_data_read),
         
         .hdmi_tx_clk_p(hdmi_tx_clk_p),
         .hdmi_tx_clk_n(hdmi_tx_clk_n),
@@ -58,9 +62,13 @@ module toptop(
         .hdmi_tx_n(hdmi_tx_n)
     );
     
-    //attribute_ram aram(
-    
-    //);
+    attribute_ram aram(
+        .clk(clk),      
+        .adr_write(aram_write_adr),
+        .data_write(aram_write_data),
+        .adr_read(aram_adr_read),
+        .data_read(aram_data_read)
+    );
     
     position_ram pram(
         .clk(clk),      

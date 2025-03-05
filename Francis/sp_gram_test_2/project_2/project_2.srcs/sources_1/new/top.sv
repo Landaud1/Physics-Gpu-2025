@@ -16,6 +16,9 @@ module top(
     output logic [9:0]  pram_adr_read,
     input logic [20:0]  pram_data_read,
     
+    output logic [9:0]  aram_adr_read,
+    input logic [23:0]  aram_data_read,
+    
     output logic        pingpong,
     
     input logic [3:0] sw
@@ -74,7 +77,10 @@ module top(
         .new_frame(new_frame),
         
         .pram_adr_read(pram_adr_read),
-        .pram_data_read(pram_data_read)
+        .pram_data_read(pram_data_read),
+        
+        .aram_adr_read(aram_adr_read),
+        .aram_data_read(aram_data_read)
     );
     
     pingpong ping_pong_switch(

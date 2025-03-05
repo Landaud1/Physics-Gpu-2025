@@ -15,7 +15,10 @@ module mem_functions(
     input logic         new_frame,    
     
     output logic [9:0]  pram_adr_read,
-    input logic [20:0]  pram_data_read    
+    input logic [20:0]  pram_data_read,
+    
+    output logic [9:0]  aram_adr_read,
+    input logic [23:0]  aram_data_read     
     );
     
     logic selected_flood, selected_grid, selected_walk, selected_shape;
@@ -91,7 +94,10 @@ module mem_functions(
         .data_write(shape_data_write),
         
         .pram_adr_read(pram_adr_read),
-        .pram_data_read(pram_data_read)
+        .pram_data_read(pram_data_read),
+        
+        .aram_adr_read(aram_adr_read),
+        .aram_data_read(aram_data_read)
     );
     
     

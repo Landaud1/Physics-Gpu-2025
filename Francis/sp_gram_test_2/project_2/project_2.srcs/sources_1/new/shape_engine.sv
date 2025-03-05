@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-// made by francis with HATE
 
 module shape_engine(
     input  logic        selected_funct,
@@ -13,21 +12,26 @@ module shape_engine(
     output logic [3:0]  data_write,
     
     output logic [9:0]  pram_adr_read,
-    input logic [20:0]  pram_data_read  
+    input logic [20:0]  pram_data_read,
+    
+    output logic [9:0]  aram_adr_read,
+    input logic [23:0]  aram_data_read   
     );
     
-    logic [9:0] n_register = 3;     // read from register
+    // Still need to clear all pixels to default color to handle animated movement
+    
+    logic [9:0] n_register = 3;     // constant, read from register
     
     logic [9:0] curr_obj = 0;
     logic [3:0] state = 0;
     
-    logic [7:0] x_offset, y_offset = 0;     // Change me with rect height/width
-    logic [7:0] rect_height, rect_width;    // May be different size
-    assign rect_height = 10 * (curr_obj + 1);  // will be attribute ram; should be 10, 20, 30 pixels
-    assign rect_width  = 10 * (curr_obj + 1);  // will be attribute ram; should be 10, 20, 30 pixels
+    logic [9:0] x_offset = 0, y_offset = 0;   
+    logic [9:0] rect_height, rect_width;   
+    assign rect_height = aram_data_read[13:4]; 
+    assign rect_width  = aram_data_read[23:14];
     
     logic [3:0] obj_color;
-    assign obj_color = 4'h1 + curr_obj; // will be attribute ram
+    assign obj_color = aram_data_read[3:0];
     
     logic [10:0] x_corner, x_pixel;
     logic [9:0] y_corner, y_pixel;
@@ -53,6 +57,7 @@ module shape_engine(
                         if (curr_obj < n_register) begin
                             // Read pram and aram information
                             pram_adr_read <= curr_obj;
+                            aram_adr_read <= curr_obj;
                             // Move to fill shape
                             state <= 4'h1;
                         end else begin
@@ -63,15 +68,17 @@ module shape_engine(
                     4'h1: begin     // Fill object
                         // x/y coords should be accurate now
                         // Enter shape draw algorithm
-                       if (x_pixel < x_corner + rect_width - 1) begin
+                       if (x_pixel < x_corner + rect_width) begin
                             x_offset <= x_offset + 1; // Move one pixel to the left
                         end else begin 
                             x_offset <= '0;        // Move X back
-                            if (y_pixel < y_corner + rect_height - 1) begin
+                            if (y_pixel < y_corner + rect_height) begin
                                 y_offset <= y_offset + 1; // Move one pixel downward
                             end else begin
                                 // If no more pixels need to be filled, increment curr_obj and return to state 0
                                 curr_obj <= curr_obj + 1;   // Move to next object
+                                y_offset <= '0;     // Reset offsets
+                                x_offset <= '0;
                                 state <= 4'h0;           // Done filling
                             end
                         end
