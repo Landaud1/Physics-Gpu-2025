@@ -15,18 +15,18 @@ module shape_engine(
     input logic [20:0]  pram_data_read,
     
     output logic [9:0]  aram_adr_read,
-    input logic [23:0]  aram_data_read   
+    input logic [23:0]  aram_data_read
     );
     
     // Still need to clear all pixels to default color to handle animated movement
     
-    logic [9:0] n_register = 4;     // constant, read from register
+    logic [9:0] n_register = 15;     // constant, read from register
     
     logic [9:0] curr_obj = 0;
     logic [3:0] state = 0;
     
-    logic [9:0] x_offset = 0, y_offset = 0;   
-    logic [9:0] rect_height, rect_width;   
+    logic [9:0] x_offset = 0, y_offset = 0;
+    logic [9:0] rect_height, rect_width;
     assign rect_height = aram_data_read[13:4]; 
     assign rect_width  = aram_data_read[23:14];
     
@@ -46,7 +46,7 @@ module shape_engine(
     always_ff @ (posedge clk) begin
         // Reset condition
         if (reset) begin
-            state <= 4'b0;
+            state <= 4'h4;
             x_offset <= '0;
             y_offset <= '0;
             curr_obj <= '0;
@@ -87,17 +87,27 @@ module shape_engine(
                         // Reset on new_frame
                     4'h2: begin
                         if (new_frame) begin
-                            state <= 4'h0;
+                            state <= 4'h4;
+                            curr_obj <= '0;
+                            x_offset <= '0;
+                            y_offset <= '0;
+                        end else begin
                             curr_obj <= '0;
                             x_offset <= '0;
                             y_offset <= '0;
                         end
+                            
                     end
-                    
                     // Buffer state, ensures ram values are properly latched
                     4'h3: begin
                         state <= 4'h1;
-                    end 
+                    end
+                    // Test to see if obj 0 is being skipped because of a weird initialization with reset
+                    4'h4: begin
+                        pram_adr_read <= '1;
+                        aram_adr_read <= '1;
+                        state <= 4'h0;
+                    end
                 endcase  
             end 
         end

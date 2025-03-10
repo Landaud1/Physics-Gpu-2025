@@ -39,6 +39,7 @@ Compiling module xil_defaultlib.flood_mem
 Compiling module xil_defaultlib.grid_test
 Compiling module xil_defaultlib.pixel_walk
 Compiling module xil_defaultlib.shape_engine
+Compiling module xil_defaultlib.pretty_colors
 Compiling module xil_defaultlib.mem_functions
 Compiling module xpm.xpm_cdc_single(DEST_SYNC_FF=2,IN...
 Compiling architecture rtl of entity v_tc_v6_2_8.video_ctrl [\video_ctrl(c_family="virtex5",c...]

@@ -37,6 +37,7 @@ module top(
             4'b0001: funct_select = 4'h1; // Grid
             4'b0010: funct_select = 4'h2; // Pixel walk
             4'b0100: funct_select = 4'h3; // Shape engine
+            4'b1000: funct_select = 4'h4; // Pretty colors
             default: funct_select = 4'h0; // Default case (fallback to flood)
         endcase
     end
