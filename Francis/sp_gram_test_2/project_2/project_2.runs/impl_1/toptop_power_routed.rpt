@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date             : Mon Mar 10 19:00:47 2025
+| Date             : Tue Mar 11 18:45:14 2025
 | Host             : navi running 64-bit Ubuntu 22.04.5 LTS
 | Command          : report_power -file toptop_power_routed.rpt -pb toptop_power_summary_routed.pb -rpx toptop_power_routed.rpx
 | Design           : toptop
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.628        |
+| Total On-Chip Power (W)  | 0.627        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 0.463        |
@@ -53,19 +53,19 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.012 |        9 |       --- |             --- |
-| Slice Logic    |     0.003 |     2208 |       --- |             --- |
-|   LUT as Logic |     0.002 |     1099 |    133800 |            0.82 |
-|   Register     |    <0.001 |      527 |    267600 |            0.20 |
+| Slice Logic    |     0.002 |     2216 |       --- |             --- |
+|   LUT as Logic |     0.002 |     1112 |    133800 |            0.83 |
+|   Register     |    <0.001 |      524 |    267600 |            0.20 |
 |   CARRY4       |    <0.001 |      106 |     33450 |            0.32 |
-|   Others       |     0.000 |      301 |       --- |             --- |
-| Signals        |     0.015 |     1980 |       --- |             --- |
-| Block RAM      |     0.035 |      228 |       365 |           62.47 |
+|   Others       |     0.000 |      299 |       --- |             --- |
+| Signals        |     0.011 |     1981 |       --- |             --- |
+| Block RAM      |     0.037 |      228 |       365 |           62.47 |
 | MMCM           |     0.116 |        1 |        10 |           10.00 |
 | PLL            |     0.135 |        1 |        10 |           10.00 |
 | DSPs           |    <0.001 |        1 |       740 |            0.14 |
 | I/O            |     0.148 |       18 |       285 |            6.32 |
 | Static Power   |     0.164 |          |           |                 |
-| Total          |     0.628 |          |           |                 |
+| Total          |     0.627 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.114 |       0.076 |      0.038 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.113 |       0.076 |      0.038 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.164 |       0.133 |      0.031 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.046 |       0.041 |      0.005 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.009 |       0.004 |      0.005 |       NA    | Unspecified | NA         |
@@ -84,7 +84,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.009 |       0.003 |      0.006 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.010 |       0.003 |      0.006 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
@@ -156,12 +156,17 @@ Table of Contents
 |       U0             |     0.003 |
 |   clk_wiz_0          |     0.117 |
 |     inst             |     0.117 |
-|   display_top        |     0.331 |
-|     mem_int          |     0.294 |
-|       func_int       |     0.294 |
-|     ping_pong_switch |     0.037 |
-|       ping           |     0.019 |
+|   display_top        |     0.328 |
+|     mem_int          |     0.292 |
+|       func_int       |     0.292 |
+|     ping_pong_switch |     0.036 |
+|       ping           |     0.018 |
 |       pong           |     0.018 |
+|   pram               |     0.003 |
+|     pping            |     0.001 |
+|       U0             |     0.001 |
+|     ppong            |     0.001 |
+|       U0             |     0.001 |
 +----------------------+-----------+
 
 

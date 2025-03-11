@@ -46,9 +46,11 @@ module shape_engine(
     always_ff @ (posedge clk) begin
         // Reset condition
         if (reset) begin
-            state <= 4'h4;
+            state <= 4'h0;
             x_offset <= '0;
             y_offset <= '0;
+            pram_adr_read <= '0;
+            aram_adr_read <= '0;
             curr_obj <= '0;
         end else begin
             if (selected_funct) begin
@@ -87,8 +89,10 @@ module shape_engine(
                         // Reset on new_frame
                     4'h2: begin
                         if (new_frame) begin
-                            state <= 4'h4;
+                            state <= 4'h0;
                             curr_obj <= '0;
+                            pram_adr_read <= '0;
+                            aram_adr_read <= '0;
                             x_offset <= '0;
                             y_offset <= '0;
                         end else begin
@@ -101,12 +105,6 @@ module shape_engine(
                     // Buffer state, ensures ram values are properly latched
                     4'h3: begin
                         state <= 4'h1;
-                    end
-                    // Test to see if obj 0 is being skipped because of a weird initialization with reset
-                    4'h4: begin
-                        pram_adr_read <= '1;
-                        aram_adr_read <= '1;
-                        state <= 4'h0;
                     end
                 endcase  
             end 
