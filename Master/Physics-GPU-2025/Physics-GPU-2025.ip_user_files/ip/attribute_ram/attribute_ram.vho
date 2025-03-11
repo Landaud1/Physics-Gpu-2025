@@ -1,5 +1,5 @@
 -- (c) Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
--- (c) Copyright 2022-2024 Advanced Micro Devices, Inc. All rights reserved.
+-- (c) Copyright 2022-2025 Advanced Micro Devices, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of AMD and is protected under U.S. and international copyright
@@ -56,11 +56,11 @@ COMPONENT attribute_ram
     clka : IN STD_LOGIC;
     wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     addra : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-    dina : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+    dina : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
     clkb : IN STD_LOGIC;
     enb : IN STD_LOGIC;
     addrb : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-    doutb : OUT STD_LOGIC_VECTOR(11 DOWNTO 0) 
+    doutb : OUT STD_LOGIC_VECTOR(23 DOWNTO 0) 
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------

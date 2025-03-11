@@ -41,14 +41,12 @@ module top(
     logic PRA_WE;
     
     // Position ram to render engine signals
-    // Francis you will be using these!
     logic [20:0] PRB_READ_DATA; 
     logic [9:0] PRB_ADDR;
     logic PRB_WE;
     
-    // state ram to Render engine signals
-    // Francis you will be using these!
-    logic [11:0] ARB_READ_DATA; 
+    // Attribute RAM to display engine
+    logic [23:0] ARB_READ_DATA; 
     logic [9:0] ARB_ADDR;
     logic ARB_WE;
     
@@ -134,10 +132,10 @@ module top(
     // Attribute ram
     // Holds data about width, height, color of objects
     attribute_ram ar(
-        .addra(ARA_ADDR),
+        .addra(hostif_addr_out),
         .addrb(ARB_ADDR),
         
-        .dina(ARA_WRITE_DATA),
+        .dina(hostif_data_out[23:0]),
         
         .doutb(ARB_READ_DATA),
         
@@ -153,10 +151,9 @@ module top(
         .addrb(SRB_ADDR),
         
         .dina(SRA_WRITE_DATA),
-        .dinb(SRB_WRITE_DATA),
+        .dinb(hostif_data_out),
         
         .douta(SRA_READ_DATA),
-        .doutb(SRB_READ_DATA),
         
         .clka(clk),
         .clkb(clk),
