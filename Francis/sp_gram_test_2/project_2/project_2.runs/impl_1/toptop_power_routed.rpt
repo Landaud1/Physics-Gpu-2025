@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date             : Tue Mar 11 18:45:14 2025
+| Date             : Wed Mar 26 17:22:09 2025
 | Host             : navi running 64-bit Ubuntu 22.04.5 LTS
 | Command          : report_power -file toptop_power_routed.rpt -pb toptop_power_summary_routed.pb -rpx toptop_power_routed.rpx
 | Design           : toptop
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.627        |
+| Total On-Chip Power (W)  | 0.630        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.463        |
+| Dynamic (W)              | 0.466        |
 | Device Static (W)        | 0.164        |
 | Effective TJA (C/W)      | 3.3          |
 | Max Ambient (C)          | 82.9         |
@@ -53,19 +53,19 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.012 |        9 |       --- |             --- |
-| Slice Logic    |     0.002 |     2216 |       --- |             --- |
-|   LUT as Logic |     0.002 |     1112 |    133800 |            0.83 |
-|   Register     |    <0.001 |      524 |    267600 |            0.20 |
+| Slice Logic    |     0.003 |     2251 |       --- |             --- |
+|   LUT as Logic |     0.002 |     1142 |    133800 |            0.85 |
 |   CARRY4       |    <0.001 |      106 |     33450 |            0.32 |
+|   Register     |    <0.001 |      527 |    267600 |            0.20 |
 |   Others       |     0.000 |      299 |       --- |             --- |
-| Signals        |     0.011 |     1981 |       --- |             --- |
-| Block RAM      |     0.037 |      228 |       365 |           62.47 |
+| Signals        |     0.013 |     2015 |       --- |             --- |
+| Block RAM      |     0.039 |      228 |       365 |           62.47 |
 | MMCM           |     0.116 |        1 |        10 |           10.00 |
 | PLL            |     0.135 |        1 |        10 |           10.00 |
 | DSPs           |    <0.001 |        1 |       740 |            0.14 |
 | I/O            |     0.148 |       18 |       285 |            6.32 |
 | Static Power   |     0.164 |          |           |                 |
-| Total          |     0.627 |          |           |                 |
+| Total          |     0.630 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.113 |       0.076 |      0.038 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.116 |       0.079 |      0.038 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.164 |       0.133 |      0.031 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.046 |       0.041 |      0.005 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.009 |       0.004 |      0.005 |       NA    | Unspecified | NA         |
@@ -150,23 +150,23 @@ Table of Contents
 +----------------------+-----------+
 | Name                 | Power (W) |
 +----------------------+-----------+
-| toptop               |     0.463 |
+| toptop               |     0.466 |
 |   aram               |     0.003 |
 |     aram             |     0.003 |
 |       U0             |     0.003 |
 |   clk_wiz_0          |     0.117 |
 |     inst             |     0.117 |
-|   display_top        |     0.328 |
-|     mem_int          |     0.292 |
-|       func_int       |     0.292 |
+|   display_top        |     0.329 |
+|     mem_int          |     0.293 |
+|       func_int       |     0.293 |
 |     ping_pong_switch |     0.036 |
 |       ping           |     0.018 |
 |       pong           |     0.018 |
-|   pram               |     0.003 |
-|     pping            |     0.001 |
-|       U0             |     0.001 |
-|     ppong            |     0.001 |
-|       U0             |     0.001 |
+|   pram               |     0.004 |
+|     pping            |     0.002 |
+|       U0             |     0.002 |
+|     ppong            |     0.002 |
+|       U0             |     0.002 |
 +----------------------+-----------+
 
 

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Tue Mar 11 18:39:38 2025
+| Date         : Wed Mar 26 17:14:43 2025
 | Host         : navi running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_utilization -file toptop_utilization_synth.rpt -pb toptop_utilization_synth.pb
 | Design       : toptop
@@ -154,13 +154,13 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDRE     |  253 |        Flop & Latch |
-| LUT2     |  182 |                 LUT |
-| LUT4     |  136 |                 LUT |
+| LUT2     |  183 |                 LUT |
+| LUT4     |  135 |                 LUT |
 | LUT6     |  106 |                 LUT |
 | CARRY4   |   80 |          CarryLogic |
-| LUT5     |   58 |                 LUT |
-| LUT3     |   41 |                 LUT |
-| LUT1     |   15 |                 LUT |
+| LUT5     |   57 |                 LUT |
+| LUT3     |   43 |                 LUT |
+| LUT1     |   16 |                 LUT |
 | IBUF     |    6 |                  IO |
 | FDCE     |    4 |        Flop & Latch |
 | OBUF     |    3 |                  IO |

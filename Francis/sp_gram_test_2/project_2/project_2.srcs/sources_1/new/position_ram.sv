@@ -18,11 +18,15 @@ module position_ram(
     */
     
     logic [20:0] ping_out, pong_out;
-    logic pingpong;
+    logic pingpong = 0;
     
     always_ff @(posedge clk) begin
-        if (reset)         pingpong <= 0;
-        else if (newframe) pingpong <= ~pingpong;
+        if (~reset) begin 
+            pingpong <= 0;
+        end
+        else if (newframe) begin 
+            pingpong <= ~pingpong;
+        end
     end
     
     assign data_read = pingpong ? ping_out : pong_out;

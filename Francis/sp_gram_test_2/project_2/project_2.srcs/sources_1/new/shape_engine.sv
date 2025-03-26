@@ -20,7 +20,7 @@ module shape_engine(
     
     // Still need to clear all pixels to default color to handle animated movement
     
-    logic [9:0] n_register = 15;     // constant, read from register
+    logic [9:0] n_register = 3;     // constant, read from register
     
     logic [9:0] curr_obj = 0;
     logic [3:0] state = 0;
@@ -100,7 +100,6 @@ module shape_engine(
                             x_offset <= '0;
                             y_offset <= '0;
                         end
-                            
                     end
                     // Buffer state, ensures ram values are properly latched
                     4'h3: begin

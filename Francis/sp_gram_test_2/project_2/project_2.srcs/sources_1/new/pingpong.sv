@@ -16,6 +16,17 @@ module pingpong(
     // Pingpong == 1, ping reads, pong writes
     
     logic [3:0] ping_data_read, pong_data_read;
+    logic [19:0] adr_clear, adr_buffer;
+    
+    always_ff @ (posedge clk) begin
+        adr_buffer <= adr_read;
+        adr_clear <= adr_buffer;
+    end
+    
+    assign ping_wea = (~pingpong);
+    assign pong_wea = pingpong;
+    
+    assign data_read = pingpong ? ping_data_read : pong_data_read;
     
         // Single GRAM block
     // File hierarchy was created after conflicts with multiple GRAM declarations
@@ -27,6 +38,7 @@ module pingpong(
         .dina(data_write),
         //.addra(adr_write),
         //.dina(data_write),
+        
         // read
         .addrb(adr_read),
         .doutb(ping_data_read),
@@ -62,10 +74,5 @@ module pingpong(
     );
     
     // Ping pong implementation?
-    
-    assign ping_wea = (~pingpong);
-    assign pong_wea = pingpong;
-    
-    assign data_read = pingpong ? ping_data_read : pong_data_read;
     
 endmodule

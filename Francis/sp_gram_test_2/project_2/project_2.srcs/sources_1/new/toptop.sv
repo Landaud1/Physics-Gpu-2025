@@ -72,7 +72,7 @@ module toptop(
     
     position_ram pram(
         .clk(clk),      
-        .wea(pram_wea),
+        .wea('1),
         .reset(~reset), // invert reset
         .adr_write(pram_write_adr),
         .data_write(pram_write_data),
