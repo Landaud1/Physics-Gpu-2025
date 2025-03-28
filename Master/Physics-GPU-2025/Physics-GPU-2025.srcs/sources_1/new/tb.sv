@@ -32,6 +32,14 @@ module tb(
         
         // Initialize object_data with LSB-first ordering
         object_data = '{
+                // DUMMY FIRST
+            32'h00000000, 32'h00000000, // X (Send LSB First)
+            32'h00000000, 32'h00000000, // Y
+            32'h00000000, 32'h00000000, // VX
+            32'h00000000, 32'h00000000, // VY
+            32'h00000000, 32'h00000001, // MASS
+            32'h00000000,              // ATTRIBUTE
+            
             32'h00000000, 32'h40840000, // X (Send LSB First)
             32'h00000000, 32'h40768000, // Y
             32'h00000000, 32'h00000000, // VX

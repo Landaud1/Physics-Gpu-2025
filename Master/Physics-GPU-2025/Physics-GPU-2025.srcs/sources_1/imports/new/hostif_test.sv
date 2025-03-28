@@ -28,7 +28,6 @@ module hostif (
     logic [2:0] current_state;     // Current state of the FSM
     logic [2:0] next_state;        // Next state of the FSM
 
-    logic [31:0] out_data;         // Build this up 1 byte at a time
     logic out_we;                   // Write enable for output
     
     logic transfer; 

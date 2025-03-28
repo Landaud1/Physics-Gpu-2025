@@ -56,7 +56,6 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "blk_mem_gen_4_synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 8
 set_param xicom.use_bs_reader 1
 set_msg_config  -id {17-179}  -suppress 
 set_param project.vivado.isBlockSynthRun true

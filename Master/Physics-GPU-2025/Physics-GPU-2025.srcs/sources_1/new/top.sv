@@ -14,7 +14,9 @@ module top(
     output logic        hdmi_tx_clk_p,
     output logic        hdmi_tx_clk_n,
     output logic [2:0]  hdmi_tx_p,
-    output logic [2:0]  hdmi_tx_n
+    output logic [2:0]  hdmi_tx_n,
+    // DISPLAY FUNCTION SELECT
+    input logic [3:0] sw
     );
     
     
@@ -84,6 +86,7 @@ module top(
         .n_objects(n_objects),
         
         .SR_ADDR(SRA_ADDR),
+        
         .SR_READ(SRA_READ_DATA),
         .SR_WRITE(SRA_WRITE_DATA),
         
@@ -94,11 +97,21 @@ module top(
     // Display Engine
     display_engine de(
         .clk(clk),
-        .reset_n(reset),
+        .reset(reset),
+        
         .hdmi_tx_clk_p(hdmi_tx_clk_p),
         .hdmi_tx_clk_n(hdmi_tx_clk_n),
         .hdmi_tx_p(hdmi_tx_p),   
-        .hdmi_tx_n(hdmi_tx_n)
+        .hdmi_tx_n(hdmi_tx_n),
+        
+        .new_frame(newframe),
+        
+        .pram_adr_read(PRB_ADDR),
+        .pram_data_read(PRB_READ_DATA),
+        .aram_adr_read(ARB_ADDR),
+        .aram_data_read(ARB_READ_DATA),
+        
+        .sw(4'b0100)    // will be sw
     );
     
     // Register block: holds immediate information
@@ -132,12 +145,12 @@ module top(
     // Attribute ram
     // Holds data about width, height, color of objects
     attribute_ram ar(
-        .addra(hostif_addr_out),
-        .addrb(ARB_ADDR),
+        .adr_write(hostif_addr_out),
+        .adr_read(ARB_ADDR),
         
-        .dina(hostif_data_out[23:0]),
+        .data_write(hostif_data_out[23:0]),
         
-        .doutb(ARB_READ_DATA),
+        .data_read(ARB_READ_DATA),
         
         .clka(clk),
         .clkb(clk),

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date             : Wed Mar 26 17:22:09 2025
+| Date             : Thu Mar 27 18:58:11 2025
 | Host             : navi running 64-bit Ubuntu 22.04.5 LTS
 | Command          : report_power -file toptop_power_routed.rpt -pb toptop_power_summary_routed.pb -rpx toptop_power_routed.rpx
 | Design           : toptop
@@ -53,12 +53,12 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.012 |        9 |       --- |             --- |
-| Slice Logic    |     0.003 |     2251 |       --- |             --- |
-|   LUT as Logic |     0.002 |     1142 |    133800 |            0.85 |
+| Slice Logic    |     0.003 |     2257 |       --- |             --- |
+|   LUT as Logic |     0.003 |     1147 |    133800 |            0.86 |
 |   CARRY4       |    <0.001 |      106 |     33450 |            0.32 |
-|   Register     |    <0.001 |      527 |    267600 |            0.20 |
+|   Register     |    <0.001 |      526 |    267600 |            0.20 |
 |   Others       |     0.000 |      299 |       --- |             --- |
-| Signals        |     0.013 |     2015 |       --- |             --- |
+| Signals        |     0.013 |     2023 |       --- |             --- |
 | Block RAM      |     0.039 |      228 |       365 |           62.47 |
 | MMCM           |     0.116 |        1 |        10 |           10.00 |
 | PLL            |     0.135 |        1 |        10 |           10.00 |
@@ -159,8 +159,8 @@ Table of Contents
 |   display_top        |     0.329 |
 |     mem_int          |     0.293 |
 |       func_int       |     0.293 |
-|     ping_pong_switch |     0.036 |
-|       ping           |     0.018 |
+|     ping_pong_switch |     0.037 |
+|       ping           |     0.019 |
 |       pong           |     0.018 |
 |   pram               |     0.004 |
 |     pping            |     0.002 |
