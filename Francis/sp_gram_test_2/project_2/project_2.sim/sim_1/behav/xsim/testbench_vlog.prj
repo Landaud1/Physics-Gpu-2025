@@ -5,6 +5,11 @@ verilog xil_defaultlib  --include "../../../../project_2.ip_user_files/ipstatic"
 "../../../../project_2.gen/sources_1/ip/v_tc_0_1/v_tc_0/demo_tb/axi4s_video_mst.v" \
 "../../../../project_2.gen/sources_1/ip/v_tc_0_1/v_tc_0/demo_tb/ce_generator.v" \
 "../../../../project_2.gen/sources_1/ip/v_tc_0_1/v_tc_0/demo_tb/tb_v_tc_0.v" \
+
+verilog blk_mem_gen_v8_4_8  --include "../../../../project_2.ip_user_files/ipstatic" \
+"../../../../project_2.ip_user_files/ipstatic/simulation/blk_mem_gen_v8_4.v" \
+
+verilog xil_defaultlib  --include "../../../../project_2.ip_user_files/ipstatic" \
 "../../../../project_2.gen/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v" \
 "../../../../project_2.gen/sources_1/ip/blk_mem_gen_1/sim/blk_mem_gen_1.v" \
 "../../../../project_2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" \

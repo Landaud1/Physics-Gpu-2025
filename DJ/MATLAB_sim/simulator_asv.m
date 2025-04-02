@@ -103,6 +103,10 @@ function simulator_asv
         
         % Pause for animation
         pause(0.01);
+
+        if (mod(step, 1000) == 0)
+            step
+        end
     end
 
     % Close the video writer to finalize the video

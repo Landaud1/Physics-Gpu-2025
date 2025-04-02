@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Wed Apr  2 17:19:37 2025
+# Process ID: 137791
+# Current directory: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/tcf_2/tcf_2.runs/synth_1
+# Command line: vivado -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+# Log file: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/tcf_2/tcf_2.runs/synth_1/top.vds
+# Journal file: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/tcf_2/tcf_2.runs/synth_1/vivado.jou
+# Running On        :navi
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 22.04.5 LTS
+# Processor Detail  :Intel(R) Xeon(R) CPU E5-2687W 0 @ 3.10GHz
+# CPU Frequency     :3191.576 MHz
+# CPU Physical cores:16
+# CPU Logical cores :32
+# Host memory       :135089 MB
+# Swap memory       :2147 MB
+# Total Virtual     :137237 MB
+# Available Virtual :125631 MB
+#-----------------------------------------------------------
+source top.tcl -notrace
