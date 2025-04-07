@@ -1,0 +1,823 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Mon Apr  7 16:51:09 2025
+# Process ID: 2839046
+# Current directory: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1
+# Command line: vivado -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+# Log file: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/top.vds
+# Journal file: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/vivado.jou
+# Running On        :navi
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 22.04.5 LTS
+# Processor Detail  :Intel(R) Xeon(R) CPU E5-2687W 0 @ 3.10GHz
+# CPU Frequency     :3584.558 MHz
+# CPU Physical cores:16
+# CPU Logical cores :32
+# Host memory       :135089 MB
+# Swap memory       :2147 MB
+# Total Virtual     :137237 MB
+# Available Virtual :121588 MB
+#-----------------------------------------------------------
+source top.tcl -notrace
+create_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1446.523 ; gain = 42.836 ; free physical = 94283 ; free virtual = 115647
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/landaud1/Downloads/vivado-library-master'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/media/sdb/Tools/Vivado/2024.1/data/ip'.
+Command: read_checkpoint -auto_incremental -incremental /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/utils_1/imports/synth_1/top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/utils_1/imports/synth_1/top.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top top -part xc7a200tsbg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Device 21-403] Loading part xc7a200tsbg484-1
+INFO: [Device 21-9227] Part: xc7a200tsbg484-1 does not have CEAM library.
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {17-179}  -suppress '. The existing rule will be replaced.
+INFO: [Synth 8-7075] Helper process launched with PID 2839176
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2283.590 ; gain = 421.715 ; free physical = 93125 ; free virtual = 114490
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-10940] macro 'PIPE_LEN' is redefined [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_11_15.sv:1]
+WARNING: [Synth 8-10940] macro 'PIPE_LEN' is redefined [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_11_172.sv:1]
+WARNING: [Synth 8-10940] macro 'PIPE_LEN' is redefined [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/delay_128_17.sv:1]
+WARNING: [Synth 8-10940] macro 'PIPE_LEN' is redefined [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_125.sv:1]
+WARNING: [Synth 8-10940] macro 'PIPE_LEN' is redefined [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_58.sv:1]
+WARNING: [Synth 8-10940] macro 'PIPE_LEN' is redefined [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_66.sv:1]
+INFO: [Synth 8-11241] undeclared symbol 'valid_output', assumed default net type 'wire' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/display_generator.sv:24]
+INFO: [Synth 8-11241] undeclared symbol 'vid_pHSync', assumed default net type 'wire' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/display_generator.sv:26]
+INFO: [Synth 8-11241] undeclared symbol 'vid_pVSync', assumed default net type 'wire' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/display_generator.sv:27]
+INFO: [Synth 8-11241] undeclared symbol 'ping_wea', assumed default net type 'wire' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pingpong.sv:28]
+INFO: [Synth 8-11241] undeclared symbol 'pong_wea', assumed default net type 'wire' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pingpong.sv:29]
+INFO: [Synth 8-11241] undeclared symbol 'fsync_out', assumed default net type 'wire' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/video_time_controller.sv:30]
+INFO: [Synth 8-6157] synthesizing module 'top' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/top.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'hostif' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/hostif_test.sv:9]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/hostif_test.sv:110]
+INFO: [Synth 8-6155] done synthesizing module 'hostif' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/hostif_test.sv:9]
+WARNING: [Synth 8-7071] port 'led' of module 'hostif' is unconnected for instance 'hif' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/top.sv:72]
+WARNING: [Synth 8-7023] instance 'hif' of module 'hostif' has 12 connections declared, but only 11 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/top.sv:72]
+INFO: [Synth 8-6157] synthesizing module 'physics_engine_1' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:10]
+INFO: [Synth 8-6157] synthesizing module 'physics_calculator' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:9]
+INFO: [Synth 8-6157] synthesizing module 'delay_11_172' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_11_172.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'delay_11_172' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_11_172.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'delay_64_125' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_125.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'delay_64_125' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_125.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'delay_64_66' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_66.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'delay_64_66' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_66.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'delay_64_58' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_58.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'delay_64_58' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_58.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'fp_add' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_add_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fp_add' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_add_stub.v:6]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_add' is unconnected for instance 'r2_add' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:70]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_add' is unconnected for instance 'r2_add' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:70]
+WARNING: [Synth 8-7023] instance 'r2_add' of module 'fp_add' has 9 connections declared, but only 7 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:70]
+INFO: [Synth 8-6157] synthesizing module 'fp_sub' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_sub_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fp_sub' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_sub_stub.v:6]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_sub' is unconnected for instance 'x_diff_sub' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:83]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_sub' is unconnected for instance 'x_diff_sub' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:83]
+WARNING: [Synth 8-7023] instance 'x_diff_sub' of module 'fp_sub' has 9 connections declared, but only 7 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:83]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_sub' is unconnected for instance 'y_diff_sub' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:94]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_sub' is unconnected for instance 'y_diff_sub' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:94]
+WARNING: [Synth 8-7023] instance 'y_diff_sub' of module 'fp_sub' has 9 connections declared, but only 7 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:94]
+INFO: [Synth 8-6157] synthesizing module 'fp_multiply' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_multiply_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fp_multiply' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_multiply_stub.v:6]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_multiply' is unconnected for instance 'gmi_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:107]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_multiply' is unconnected for instance 'gmi_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:107]
+WARNING: [Synth 8-7023] instance 'gmi_mult' of module 'fp_multiply' has 9 connections declared, but only 7 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:107]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_multiply' is unconnected for instance 'x_diff2_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:118]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_multiply' is unconnected for instance 'x_diff2_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:118]
+WARNING: [Synth 8-7023] instance 'x_diff2_mult' of module 'fp_multiply' has 9 connections declared, but only 7 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:118]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_multiply' is unconnected for instance 'y_diff2_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:129]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_multiply' is unconnected for instance 'y_diff2_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:129]
+WARNING: [Synth 8-7023] instance 'y_diff2_mult' of module 'fp_multiply' has 9 connections declared, but only 7 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:129]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_multiply' is unconnected for instance 'gmi_r2_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:140]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_multiply' is unconnected for instance 'gmi_r2_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:140]
+WARNING: [Synth 8-7023] instance 'gmi_r2_mult' of module 'fp_multiply' has 9 connections declared, but only 7 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:140]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_multiply' is unconnected for instance 'x_diff_r_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:151]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_multiply' is unconnected for instance 'x_diff_r_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:151]
+WARNING: [Synth 8-7023] instance 'x_diff_r_mult' of module 'fp_multiply' has 9 connections declared, but only 7 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:151]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_multiply' is unconnected for instance 'y_diff_r_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:162]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_multiply' is unconnected for instance 'y_diff_r_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:162]
+WARNING: [Synth 8-7023] instance 'y_diff_r_mult' of module 'fp_multiply' has 9 connections declared, but only 7 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:162]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_multiply' is unconnected for instance 'a_x_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:173]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_multiply' is unconnected for instance 'a_x_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:173]
+WARNING: [Synth 8-7071] port 'm_axis_result_tvalid' of module 'fp_multiply' is unconnected for instance 'a_x_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:173]
+WARNING: [Synth 8-7023] instance 'a_x_mult' of module 'fp_multiply' has 9 connections declared, but only 6 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:173]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_multiply' is unconnected for instance 'a_y_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:183]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_multiply' is unconnected for instance 'a_y_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:183]
+WARNING: [Synth 8-7071] port 'm_axis_result_tvalid' of module 'fp_multiply' is unconnected for instance 'a_y_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:183]
+WARNING: [Synth 8-7023] instance 'a_y_mult' of module 'fp_multiply' has 9 connections declared, but only 6 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:183]
+INFO: [Synth 8-6157] synthesizing module 'fp_reciprocal' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_reciprocal_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fp_reciprocal' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_reciprocal_stub.v:6]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_reciprocal' is unconnected for instance 'r_1_reciprocal' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:203]
+WARNING: [Synth 8-7023] instance 'r_1_reciprocal' of module 'fp_reciprocal' has 6 connections declared, but only 5 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:203]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_reciprocal' is unconnected for instance 'r2_1_reciprocal' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:212]
+WARNING: [Synth 8-7023] instance 'r2_1_reciprocal' of module 'fp_reciprocal' has 6 connections declared, but only 5 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:212]
+INFO: [Synth 8-6157] synthesizing module 'fp_sqrt' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_sqrt_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fp_sqrt' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_sqrt_stub.v:6]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_sqrt' is unconnected for instance 'r_sqrt' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:223]
+WARNING: [Synth 8-7023] instance 'r_sqrt' of module 'fp_sqrt' has 6 connections declared, but only 5 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:223]
+INFO: [Synth 8-6155] done synthesizing module 'physics_calculator' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:9]
+INFO: [Synth 8-6157] synthesizing module 'delay_128_17' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/delay_128_17.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'delay_128_17' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/delay_128_17.sv:4]
+WARNING: [Synth 8-689] width (22) of port connection 'in' does not match port width (128) of module 'delay_128_17' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:94]
+INFO: [Synth 8-6157] synthesizing module 'float_gt' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/float_gt_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'float_gt' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/float_gt_stub.v:6]
+WARNING: [Synth 8-7071] port 'm_axis_result_tvalid' of module 'float_gt' is unconnected for instance 'comp_x' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:114]
+WARNING: [Synth 8-7023] instance 'comp_x' of module 'float_gt' has 6 connections declared, but only 5 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:114]
+WARNING: [Synth 8-7071] port 'm_axis_result_tvalid' of module 'float_gt' is unconnected for instance 'comp_y' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:122]
+WARNING: [Synth 8-7023] instance 'comp_y' of module 'float_gt' has 6 connections declared, but only 5 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:122]
+INFO: [Synth 8-6157] synthesizing module 'sum_calc' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/sum_calc.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'delay_11_15' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_11_15.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'delay_11_15' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_11_15.sv:4]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_add' is unconnected for instance 'x_add' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/sum_calc.sv:24]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_add' is unconnected for instance 'x_add' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/sum_calc.sv:24]
+WARNING: [Synth 8-7071] port 'm_axis_result_tvalid' of module 'fp_add' is unconnected for instance 'x_add' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/sum_calc.sv:24]
+WARNING: [Synth 8-7023] instance 'x_add' of module 'fp_add' has 9 connections declared, but only 6 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/sum_calc.sv:24]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_add' is unconnected for instance 'y_add' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/sum_calc.sv:34]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_add' is unconnected for instance 'y_add' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/sum_calc.sv:34]
+WARNING: [Synth 8-7071] port 'm_axis_result_tvalid' of module 'fp_add' is unconnected for instance 'y_add' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/sum_calc.sv:34]
+WARNING: [Synth 8-7023] instance 'y_add' of module 'fp_add' has 9 connections declared, but only 6 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/sum_calc.sv:34]
+INFO: [Synth 8-6155] done synthesizing module 'sum_calc' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/sum_calc.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'ftf_cast' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/ftf_cast.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'float_to_fixed' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/float_to_fixed_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'float_to_fixed' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/float_to_fixed_stub.v:6]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'float_to_fixed' is unconnected for instance 'ftf_x' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/ftf_cast.sv:23]
+WARNING: [Synth 8-7023] instance 'ftf_x' of module 'float_to_fixed' has 6 connections declared, but only 5 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/ftf_cast.sv:23]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'float_to_fixed' is unconnected for instance 'ftf_y' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/ftf_cast.sv:32]
+WARNING: [Synth 8-7071] port 'm_axis_result_tvalid' of module 'float_to_fixed' is unconnected for instance 'ftf_y' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/ftf_cast.sv:32]
+WARNING: [Synth 8-7023] instance 'ftf_y' of module 'float_to_fixed' has 6 connections declared, but only 4 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/ftf_cast.sv:32]
+INFO: [Synth 8-6155] done synthesizing module 'ftf_cast' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/ftf_cast.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'delay_10_7' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_10_7.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'delay_10_7' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_10_7.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'pe_ram' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/pe_ram_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'pe_ram' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/pe_ram_stub.v:6]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:269]
+INFO: [Synth 8-6155] done synthesizing module 'physics_engine_1' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:10]
+INFO: [Synth 8-6157] synthesizing module 'display_engine' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/display_engine_top.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'mem_interface' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/mem_interface.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'function_interface' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/function_interface.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'mem_functions' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/mem_functions.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'flood_mem' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/flood_mem.sv:3]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/flood_mem.sv:29]
+INFO: [Synth 8-6155] done synthesizing module 'flood_mem' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/flood_mem.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'grid_test' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/grid_test.sv:3]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/grid_test.sv:36]
+INFO: [Synth 8-6155] done synthesizing module 'grid_test' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/grid_test.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'pixel_walk' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pixel_walk.sv:3]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pixel_walk.sv:32]
+INFO: [Synth 8-6155] done synthesizing module 'pixel_walk' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pixel_walk.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'shape_engine' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/shape_engine.sv:3]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/shape_engine.sv:56]
+INFO: [Synth 8-6155] done synthesizing module 'shape_engine' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/shape_engine.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'pretty_colors' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pretty_colors.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'pretty_colors' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pretty_colors.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'mem_functions' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/mem_functions.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'display_generator' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/display_generator.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'vid_time_counter' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/video_time_controller.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'v_tc_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/v_tc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'v_tc_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/v_tc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'vid_time_counter' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/video_time_controller.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'rgb2dvi_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/rgb2dvi_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'rgb2dvi_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/rgb2dvi_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'display_generator' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/display_generator.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'function_interface' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/function_interface.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'mem_interface' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/mem_interface.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'pingpong' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pingpong.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/blk_mem_gen_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'blk_mem_gen_0' is unconnected for instance 'ping' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pingpong.sv:41]
+WARNING: [Synth 8-7023] instance 'ping' of module 'blk_mem_gen_0' has 12 connections declared, but only 11 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pingpong.sv:41]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_1' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/blk_mem_gen_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_1' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/blk_mem_gen_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'blk_mem_gen_1' is unconnected for instance 'pong' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pingpong.sv:65]
+WARNING: [Synth 8-7023] instance 'pong' of module 'blk_mem_gen_1' has 12 connections declared, but only 11 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pingpong.sv:65]
+INFO: [Synth 8-6155] done synthesizing module 'pingpong' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pingpong.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'display_engine' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/display_engine_top.sv:4]
+WARNING: [Synth 8-689] width (8) of port connection 'sw' does not match port width (4) of module 'display_engine' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/top.sv:123]
+INFO: [Synth 8-6157] synthesizing module 'register_block' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/register_block.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'register_block' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/register_block.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'pp_position_ram' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/pp_position_ram.sv:6]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_3' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/blk_mem_gen_3_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_3' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/blk_mem_gen_3_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'blk_mem_gen_3' is unconnected for instance 'pping' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/pp_position_ram.sv:36]
+WARNING: [Synth 8-7023] instance 'pping' of module 'blk_mem_gen_3' has 12 connections declared, but only 11 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/pp_position_ram.sv:36]
+WARNING: [Synth 8-7071] port 'douta' of module 'blk_mem_gen_3' is unconnected for instance 'ppong' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/pp_position_ram.sv:56]
+WARNING: [Synth 8-7023] instance 'ppong' of module 'blk_mem_gen_3' has 12 connections declared, but only 11 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/pp_position_ram.sv:56]
+INFO: [Synth 8-6155] done synthesizing module 'pp_position_ram' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/pp_position_ram.sv:6]
+INFO: [Synth 8-6157] synthesizing module 'attribute_ram_1' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/attribute_ram.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_4' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/blk_mem_gen_4_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_4' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/blk_mem_gen_4_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'blk_mem_gen_4' is unconnected for instance 'aram' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/attribute_ram.sv:15]
+WARNING: [Synth 8-7023] instance 'aram' of module 'blk_mem_gen_4' has 12 connections declared, but only 11 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/attribute_ram.sv:15]
+INFO: [Synth 8-6155] done synthesizing module 'attribute_ram_1' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/attribute_ram.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'state_ram_1' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/state_ram_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'state_ram_1' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/state_ram_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'doutb' of module 'state_ram_1' is unconnected for instance 'sr' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/top.sv:171]
+WARNING: [Synth 8-7023] instance 'sr' of module 'state_ram_1' has 10 connections declared, but only 9 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/top.sv:171]
+INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/top.sv:3]
+WARNING: [Synth 8-6014] Unused sequential element curr_box_reg was removed.  [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pretty_colors.sv:35]
+WARNING: [Synth 8-6014] Unused sequential element x_corner_reg was removed.  [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pretty_colors.sv:49]
+WARNING: [Synth 8-6014] Unused sequential element y_corner_reg was removed.  [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pretty_colors.sv:50]
+WARNING: [Synth 8-7129] Port data_in[31] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[30] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[29] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[28] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[27] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[26] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[25] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[24] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[23] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[22] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[21] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[20] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[19] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[18] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[17] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[16] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[15] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[14] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[13] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[12] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[11] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[10] in module register_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module pingpong is either unconnected or has no load
+WARNING: [Synth 8-7129] Port default_color[3] in module shape_engine is either unconnected or has no load
+WARNING: [Synth 8-7129] Port default_color[2] in module shape_engine is either unconnected or has no load
+WARNING: [Synth 8-7129] Port default_color[1] in module shape_engine is either unconnected or has no load
+WARNING: [Synth 8-7129] Port default_color[0] in module shape_engine is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pingpong in module mem_functions is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[3] in module display_engine is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[2] in module display_engine is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[1] in module display_engine is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[0] in module display_engine is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[511] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[510] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[509] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[508] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[507] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[506] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[505] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[504] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[503] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[502] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[501] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[500] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[499] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[498] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[497] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[496] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[495] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[494] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[493] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[492] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[491] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[490] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[489] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[488] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[487] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[486] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[485] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[484] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[483] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[482] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[481] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[480] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[479] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[478] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[477] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[476] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[475] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[474] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[473] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[472] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[471] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[470] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[469] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[468] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[467] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[466] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[465] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[464] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[463] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[462] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[461] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[460] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[459] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[458] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[457] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[456] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[455] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[454] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[453] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[452] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[451] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[450] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[449] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[448] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[447] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[446] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[445] in module physics_engine_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sr_read[444] in module physics_engine_1 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2384.559 ; gain = 522.684 ; free physical = 93007 ; free virtual = 114373
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2402.371 ; gain = 540.496 ; free physical = 93009 ; free virtual = 114375
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2402.371 ; gain = 540.496 ; free physical = 93009 ; free virtual = 114375
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.16 . Memory (MB): peak = 2402.371 ; gain = 0.000 ; free physical = 93012 ; free virtual = 114378
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1/blk_mem_gen_1_in_context.xdc] for cell 'de/ping_pong_switch/pong'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1/blk_mem_gen_1_in_context.xdc] for cell 'de/ping_pong_switch/pong'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/v_tc_0/v_tc_0/v_tc_0_in_context.xdc] for cell 'de/mem_int/func_int/dsp_gen/vtc/vtc'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/v_tc_0/v_tc_0/v_tc_0_in_context.xdc] for cell 'de/mem_int/func_int/dsp_gen/vtc/vtc'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/pe_ram/pe_ram/pe_ram_in_context.xdc] for cell 'pe/acc_ram'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/pe_ram/pe_ram/pe_ram_in_context.xdc] for cell 'pe/acc_ram'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/pe_ram/pe_ram/pe_ram_in_context.xdc] for cell 'pe/sum_ram'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/pe_ram/pe_ram/pe_ram_in_context.xdc] for cell 'pe/sum_ram'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/float_to_fixed/float_to_fixed/float_to_fixed_in_context.xdc] for cell 'pe/ftfc/ftf_x'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/float_to_fixed/float_to_fixed/float_to_fixed_in_context.xdc] for cell 'pe/ftfc/ftf_x'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/float_to_fixed/float_to_fixed/float_to_fixed_in_context.xdc] for cell 'pe/ftfc/ftf_y'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/float_to_fixed/float_to_fixed/float_to_fixed_in_context.xdc] for cell 'pe/ftfc/ftf_y'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_add/fp_add/fp_add_in_context.xdc] for cell 'pe/pc/r2_add'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_add/fp_add/fp_add_in_context.xdc] for cell 'pe/pc/r2_add'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_add/fp_add/fp_add_in_context.xdc] for cell 'pe/sc/x_add'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_add/fp_add/fp_add_in_context.xdc] for cell 'pe/sc/x_add'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_add/fp_add/fp_add_in_context.xdc] for cell 'pe/sc/y_add'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_add/fp_add/fp_add_in_context.xdc] for cell 'pe/sc/y_add'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_sqrt/fp_sqrt/fp_sqrt_in_context.xdc] for cell 'pe/pc/r_sqrt'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_sqrt/fp_sqrt/fp_sqrt_in_context.xdc] for cell 'pe/pc/r_sqrt'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_reciprocal/fp_reciprocal/fp_reciprocal_in_context.xdc] for cell 'pe/pc/r_1_reciprocal'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_reciprocal/fp_reciprocal/fp_reciprocal_in_context.xdc] for cell 'pe/pc/r_1_reciprocal'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_reciprocal/fp_reciprocal/fp_reciprocal_in_context.xdc] for cell 'pe/pc/r2_1_reciprocal'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_reciprocal/fp_reciprocal/fp_reciprocal_in_context.xdc] for cell 'pe/pc/r2_1_reciprocal'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_multiply/fp_multiply/fp_multiply_in_context.xdc] for cell 'pe/pc/gmi_mult'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_multiply/fp_multiply/fp_multiply_in_context.xdc] for cell 'pe/pc/gmi_mult'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_multiply/fp_multiply/fp_multiply_in_context.xdc] for cell 'pe/pc/x_diff2_mult'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_multiply/fp_multiply/fp_multiply_in_context.xdc] for cell 'pe/pc/x_diff2_mult'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_multiply/fp_multiply/fp_multiply_in_context.xdc] for cell 'pe/pc/y_diff2_mult'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_multiply/fp_multiply/fp_multiply_in_context.xdc] for cell 'pe/pc/y_diff2_mult'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_multiply/fp_multiply/fp_multiply_in_context.xdc] for cell 'pe/pc/gmi_r2_mult'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_multiply/fp_multiply/fp_multiply_in_context.xdc] for cell 'pe/pc/gmi_r2_mult'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_multiply/fp_multiply/fp_multiply_in_context.xdc] for cell 'pe/pc/x_diff_r_mult'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_multiply/fp_multiply/fp_multiply_in_context.xdc] for cell 'pe/pc/x_diff_r_mult'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_multiply/fp_multiply/fp_multiply_in_context.xdc] for cell 'pe/pc/y_diff_r_mult'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_multiply/fp_multiply/fp_multiply_in_context.xdc] for cell 'pe/pc/y_diff_r_mult'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_multiply/fp_multiply/fp_multiply_in_context.xdc] for cell 'pe/pc/a_x_mult'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_multiply/fp_multiply/fp_multiply_in_context.xdc] for cell 'pe/pc/a_x_mult'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_multiply/fp_multiply/fp_multiply_in_context.xdc] for cell 'pe/pc/a_y_mult'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_multiply/fp_multiply/fp_multiply_in_context.xdc] for cell 'pe/pc/a_y_mult'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_sub/fp_sub/fp_sub_in_context.xdc] for cell 'pe/pc/x_diff_sub'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_sub/fp_sub/fp_sub_in_context.xdc] for cell 'pe/pc/x_diff_sub'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_sub/fp_sub/fp_sub_in_context.xdc] for cell 'pe/pc/y_diff_sub'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/fp_sub/fp_sub/fp_sub_in_context.xdc] for cell 'pe/pc/y_diff_sub'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_wiz'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_wiz'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3/blk_mem_gen_3_in_context.xdc] for cell 'pr/pping'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3/blk_mem_gen_3_in_context.xdc] for cell 'pr/pping'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3/blk_mem_gen_3_in_context.xdc] for cell 'pr/ppong'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3/blk_mem_gen_3_in_context.xdc] for cell 'pr/ppong'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc] for cell 'de/mem_int/func_int/dsp_gen/rgb2dvi'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc] for cell 'de/mem_int/func_int/dsp_gen/rgb2dvi'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/blk_mem_gen_0_2/blk_mem_gen_0/blk_mem_gen_0_in_context.xdc] for cell 'de/ping_pong_switch/ping'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/blk_mem_gen_0_2/blk_mem_gen_0/blk_mem_gen_0_in_context.xdc] for cell 'de/ping_pong_switch/ping'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/blk_mem_gen_4/blk_mem_gen_4/blk_mem_gen_4_in_context.xdc] for cell 'ar/aram'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Francis/sp_gram_test_2/project_2/project_2.gen/sources_1/ip/blk_mem_gen_4/blk_mem_gen_4/blk_mem_gen_4_in_context.xdc] for cell 'ar/aram'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/state_ram_1/state_ram_1/state_ram_1_in_context.xdc] for cell 'sr'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/state_ram_1/state_ram_1/state_ram_1_in_context.xdc] for cell 'sr'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/float_gt/float_gt/float_gt_in_context.xdc] for cell 'pe/comp_x'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/float_gt/float_gt/float_gt_in_context.xdc] for cell 'pe/comp_x'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/float_gt/float_gt/float_gt_in_context.xdc] for cell 'pe/comp_y'
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/float_gt/float_gt/float_gt_in_context.xdc] for cell 'pe/comp_y'
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/constrs_1/imports/Senior_proj/Nexys-Video-Master.xdc]
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/constrs_1/imports/Senior_proj/Nexys-Video-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/constrs_1/imports/Senior_proj/Nexys-Video-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2549.121 ; gain = 0.000 ; free physical = 93014 ; free virtual = 114379
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.13 . Memory (MB): peak = 2549.121 ; gain = 0.000 ; free physical = 93014 ; free virtual = 114379
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'sr' at clock pin 'clka' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'ar/aram' at clock pin 'clka' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'de/ping_pong_switch/ping' at clock pin 'clka' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'de/ping_pong_switch/pong' at clock pin 'clka' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'pe/acc_ram' at clock pin 'clka' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'pe/sum_ram' at clock pin 'clka' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/ftfc/ftf_x' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/ftfc/ftf_y' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/pc/a_x_mult' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/pc/a_y_mult' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/pc/gmi_mult' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/pc/gmi_r2_mult' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/pc/r2_1_reciprocal' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/pc/r2_add' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/pc/r_1_reciprocal' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/pc/r_sqrt' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/pc/x_diff2_mult' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/pc/x_diff_r_mult' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/pc/x_diff_sub' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/pc/y_diff2_mult' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/pc/y_diff_r_mult' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/pc/y_diff_sub' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/sc/x_add' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'pe/sc/y_add' at clock pin 'aclk' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'pr/pping' at clock pin 'clka' is different from the actual clock period '13.468', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'pr/ppong' at clock pin 'clka' is different from the actual clock period '13.468', this can lead to different synthesis results.
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2549.121 ; gain = 687.246 ; free physical = 93019 ; free virtual = 114385
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a200tsbg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93019 ; free virtual = 114385
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for clk_raw. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_raw. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_clk_n. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc, line 1).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_clk_n. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc, line 2).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_clk_p. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_clk_p. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_n[0]. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc, line 5).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_n[0]. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc, line 6).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_n[1]. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc, line 7).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_n[1]. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc, line 8).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_n[2]. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc, line 9).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_n[2]. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc, line 10).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_p[0]. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc, line 11).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_p[0]. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc, line 12).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_p[1]. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc, line 13).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_p[1]. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc, line 14).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_p[2]. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc, line 15).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_p[2]. (constraint file  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.gen/sources_1/ip/rgb2dvi_0_1/rgb2dvi_0/rgb2dvi_0_in_context.xdc, line 16).
+Applied set_property KEEP_HIERARCHY = SOFT for de/ping_pong_switch/pong. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for de/mem_int/func_int/dsp_gen/vtc/vtc. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/acc_ram. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/sum_ram. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/ftfc/ftf_x. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/ftfc/ftf_y. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/pc/r2_add. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/sc/x_add. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/sc/y_add. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/pc/r_sqrt. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/pc/r2_1_reciprocal. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/pc/r_1_reciprocal. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/pc/a_x_mult. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/pc/a_y_mult. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/pc/gmi_mult. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/pc/gmi_r2_mult. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/pc/x_diff2_mult. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/pc/x_diff_r_mult. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/pc/y_diff2_mult. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/pc/y_diff_r_mult. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/pc/x_diff_sub. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/pc/y_diff_sub. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for clk_wiz. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pr/pping. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pr/ppong. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for de/mem_int/func_int/dsp_gen/rgb2dvi. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for de/ping_pong_switch/ping. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for ar/aram. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for sr. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/comp_x. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pe/comp_y. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93018 ; free virtual = 114384
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_in_reg' in module 'hostif'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'flood_mem'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'grid_test'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'pixel_walk'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              000 |                              000
+                 iSTATE0 |                              001 |                              001
+                 iSTATE1 |                              010 |                              010
+                 iSTATE2 |                              011 |                              011
+                 iSTATE3 |                              100 |                              100
+                 iSTATE4 |                              101 |                              101
+                 iSTATE5 |                              110 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_in_reg' using encoding 'sequential' in module 'hostif'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                                0 |                             0000
+                 iSTATE0 |                                1 |                             0001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'flood_mem'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                                0 |                             0000
+                 iSTATE0 |                                1 |                             0001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'grid_test'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                                0 |                             0000
+                 iSTATE0 |                                1 |                             0001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'pixel_walk'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93014 ; free virtual = 114381
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   20 Bit       Adders := 6     
+	   2 Input   11 Bit       Adders := 6     
+	   2 Input   10 Bit       Adders := 10    
+	   2 Input    9 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	              128 Bit    Registers := 16    
+	               65 Bit    Registers := 370   
+	               64 Bit    Registers := 8     
+	               32 Bit    Registers := 1     
+	               20 Bit    Registers := 9     
+	               16 Bit    Registers := 1     
+	               11 Bit    Registers := 193   
+	               10 Bit    Registers := 22    
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 9     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 15    
++---Muxes : 
+	   4 Input  512 Bit        Muxes := 1     
+	   2 Input  128 Bit        Muxes := 1     
+	   4 Input  128 Bit        Muxes := 1     
+	   2 Input   64 Bit        Muxes := 7     
+	   7 Input   32 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 2     
+	   2 Input   21 Bit        Muxes := 1     
+	   2 Input   20 Bit        Muxes := 6     
+	   7 Input   16 Bit        Muxes := 1     
+	   2 Input   11 Bit        Muxes := 6     
+	   2 Input   10 Bit        Muxes := 12    
+	  15 Input   10 Bit        Muxes := 1     
+	   4 Input   10 Bit        Muxes := 4     
+	   2 Input    9 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 15    
+	   3 Input    4 Bit        Muxes := 1     
+	  15 Input    4 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 1     
+	   7 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 3     
+	  15 Input    2 Bit        Muxes := 1     
+	   7 Input    1 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 39    
+	  15 Input    1 Bit        Muxes := 14    
+	   4 Input    1 Bit        Muxes := 5     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 740 (col length:100)
+BRAMs: 730 (col length: RAMB18 100 RAMB36 50)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP pr_c/adr_write_reg, operation Mode is: (C'+(A:0x500)*B2)'.
+DSP Report: register pr_c/curr_y_reg is absorbed into DSP pr_c/adr_write_reg.
+DSP Report: register pr_c/curr_x_reg is absorbed into DSP pr_c/adr_write_reg.
+DSP Report: register pr_c/adr_write_reg is absorbed into DSP pr_c/adr_write_reg.
+DSP Report: operator pr_c/adr_write0 is absorbed into DSP pr_c/adr_write_reg.
+DSP Report: operator pr_c/adr_write1 is absorbed into DSP pr_c/adr_write_reg.
+WARNING: [Synth 8-3332] Sequential element (mem_f/fm_t/FSM_sequential_state_reg) is unused and will be removed from module function_interface.
+WARNING: [Synth 8-3332] Sequential element (mem_f/gr_t/FSM_sequential_state_reg) is unused and will be removed from module function_interface.
+WARNING: [Synth 8-3332] Sequential element (mem_f/pxl_w/FSM_sequential_state_reg) is unused and will be removed from module function_interface.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 92976 ; free virtual = 114355
+---------------------------------------------------------------------------------
+ Sort Area is  pr_c/adr_write_reg_0 : 0 0 : 162 162 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++--------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name   | DSP Mapping        | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|mem_functions | (C'+(A:0x500)*B2)' | 10     | 11     | 11     | -      | 20     | 1    | 0    | 1    | -    | -     | 0    | 1    | 
++--------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:43 ; elapsed = 00:00:43 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 92998 ; free virtual = 114377
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:00:47 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93003 ; free virtual = 114382
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:53 ; elapsed = 00:00:53 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93010 ; free virtual = 114389
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:58 ; elapsed = 00:00:59 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93025 ; free virtual = 114404
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:58 ; elapsed = 00:00:59 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93025 ; free virtual = 114404
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:59 ; elapsed = 00:00:59 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93025 ; free virtual = 114404
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:59 ; elapsed = 00:00:59 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93025 ; free virtual = 114404
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:59 ; elapsed = 00:00:59 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93025 ; free virtual = 114404
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:59 ; elapsed = 00:00:59 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93027 ; free virtual = 114406
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------+-------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name                                              | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+-------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|top         | pe/pc/addr_delay/genblk1[171].pipeline_reg[172][10]   | 172    | 11    | NO           | NO                 | YES               | 0      | 66      | 
+|top         | pe/pc/x_diff_delay/genblk1[123].pipeline_reg[124][64] | 124    | 65    | NO           | NO                 | YES               | 0      | 260     | 
+|top         | pe/pc/y_diff_delay/genblk1[123].pipeline_reg[124][64] | 124    | 65    | NO           | NO                 | YES               | 0      | 260     | 
+|top         | pe/pc/gmi_delay/genblk1[64].pipeline_reg[65][64]      | 65     | 65    | NO           | NO                 | YES               | 0      | 130     | 
+|top         | pe/pc/gmi_r2_delay/genblk1[56].pipeline_reg[57][64]   | 57     | 65    | NO           | NO                 | YES               | 0      | 130     | 
+|top         | pe/sc/addr_delay/genblk1[15].pipeline_reg[16][10]     | 16     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|top         | pe/sc/addr_delay/genblk1[15].pipeline_reg[16][9]      | 7      | 10    | NO           | NO                 | YES               | 10     | 0       | 
+|top         | pe/ftf_delay/genblk1[8].pipeline_reg[9][0]            | 9      | 10    | NO           | NO                 | YES               | 10     | 0       | 
++------------+-------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+---------------+----------+
+|      |BlackBox name  |Instances |
++------+---------------+----------+
+|1     |clk_wiz_0      |         1|
+|2     |state_ram_1    |         1|
+|3     |blk_mem_gen_4  |         1|
+|4     |rgb2dvi_0      |         1|
+|5     |v_tc_0         |         1|
+|6     |blk_mem_gen_0  |         1|
+|7     |blk_mem_gen_1  |         1|
+|8     |float_gt       |         2|
+|9     |pe_ram         |         2|
+|10    |float_to_fixed |         2|
+|11    |fp_add         |         3|
+|12    |fp_sub         |         2|
+|13    |fp_multiply    |         8|
+|14    |fp_reciprocal  |         2|
+|15    |fp_sqrt        |         1|
+|16    |blk_mem_gen_3  |         2|
++------+---------------+----------+
+
+Report Cell Usage: 
++------+---------------+------+
+|      |Cell           |Count |
++------+---------------+------+
+|1     |blk_mem_gen    |     3|
+|4     |blk_mem_gen_3  |     1|
+|5     |blk_mem_gen    |     1|
+|6     |clk_wiz        |     1|
+|7     |float_gt       |     2|
+|9     |float_to_fixed |     2|
+|11    |fp_add         |     3|
+|14    |fp_multiply    |     8|
+|22    |fp_reciprocal  |     2|
+|24    |fp_sqrt        |     1|
+|25    |fp_sub         |     2|
+|27    |pe_ram         |     2|
+|29    |rgb2dvi        |     1|
+|30    |state_ram      |     1|
+|31    |v_tc           |     1|
+|32    |CARRY4         |    45|
+|33    |LUT1           |     2|
+|34    |LUT2           |   218|
+|35    |LUT3           |   188|
+|36    |LUT4           |   441|
+|37    |LUT5           |   211|
+|38    |LUT6           |   304|
+|39    |SRL16E         |    21|
+|40    |SRLC32E        |   846|
+|41    |FDCE           |     6|
+|42    |FDRE           |  1062|
+|43    |IBUF           |    12|
+|44    |OBUF           |     1|
++------+---------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:59 ; elapsed = 00:00:59 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93027 ; free virtual = 114406
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 204 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:52 ; elapsed = 00:00:54 . Memory (MB): peak = 2557.125 ; gain = 548.500 ; free physical = 93027 ; free virtual = 114406
+Synthesis Optimization Complete : Time (s): cpu = 00:00:59 ; elapsed = 00:00:59 . Memory (MB): peak = 2557.133 ; gain = 695.250 ; free physical = 93027 ; free virtual = 114406
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2557.133 ; gain = 0.000 ; free physical = 93370 ; free virtual = 114749
+INFO: [Netlist 29-17] Analyzing 45 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2613.152 ; gain = 0.000 ; free physical = 93373 ; free virtual = 114752
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: f48aa47b
+INFO: [Common 17-83] Releasing license: Synthesis
+134 Infos, 214 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:11 ; elapsed = 00:01:08 . Memory (MB): peak = 2613.152 ; gain = 1140.848 ; free physical = 93373 ; free virtual = 114752
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2136.552; main = 1744.554; forked = 439.024
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3652.750; main = 2613.156; forked = 1095.621
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00 . Memory (MB): peak = 2637.164 ; gain = 0.000 ; free physical = 93373 ; free virtual = 114752
+INFO: [Common 17-1381] The checkpoint '/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/top.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Apr  7 16:52:34 2025...

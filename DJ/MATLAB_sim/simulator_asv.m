@@ -83,10 +83,10 @@ function simulator_asv
         positions_over_time(step, :, :) = pos_curr;
 
         % Write to file
-        for i = 1:num_bodies
-            fprintf(fileID, '%d\t%d\t%f, %f\t%f, %f\t%f, %f\n', ...
-                    step, i, pos_curr(i,1), pos_curr(i,2), vel_curr(i,1), vel_curr(i,2), forces(i,1), forces(i,2));
-        end
+        %for i = 1:num_bodies
+        %    fprintf(fileID, '%d\t%d\t%f, %f\t%f, %f\t%f, %f\n', ...
+        %            step, i, pos_curr(i,1), pos_curr(i,2), vel_curr(i,1), vel_curr(i,2), forces(i,1), forces(i,2));
+        %end
 
         % Update plot (clamp positions to screen edges for display)
         for i = 1:num_bodies

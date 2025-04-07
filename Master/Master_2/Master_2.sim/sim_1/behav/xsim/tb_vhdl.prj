@@ -1,0 +1,15 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Master_2.ip_user_files/ipstatic/src/ClockGen.vhd" \
+"../../../../Master_2.ip_user_files/ipstatic/src/SyncAsync.vhd" \
+"../../../../Master_2.ip_user_files/ipstatic/src/SyncAsyncReset.vhd" \
+"../../../../Master_2.ip_user_files/ipstatic/src/DVI_Constants.vhd" \
+"../../../../Master_2.ip_user_files/ipstatic/src/OutputSERDES.vhd" \
+"../../../../Master_2.ip_user_files/ipstatic/src/TMDS_Encoder.vhd" \
+"../../../../Master_2.ip_user_files/ipstatic/src/rgb2dvi.vhd" \
+"../../../../Master_2.gen/sources_1/ip/rgb2dvi_0_1/sim/rgb2dvi_0.vhd" \
+"../../../../Master_2.gen/sources_1/ip/v_tc_0/sim/v_tc_0.vhd" \
+"../../../../Master_2.gen/sources_1/ip/float_to_fixed/hdl/xbip_utils_v3_0_vh_rfs.vhd" \
+
+# Do not sort compile order
+nosort

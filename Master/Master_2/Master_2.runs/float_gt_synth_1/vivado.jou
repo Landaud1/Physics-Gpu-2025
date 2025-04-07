@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Mon Apr  7 12:54:46 2025
+# Process ID: 2381134
+# Current directory: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/float_gt_synth_1
+# Command line: vivado -log float_gt.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source float_gt.tcl
+# Log file: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/float_gt_synth_1/float_gt.vds
+# Journal file: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/float_gt_synth_1/vivado.jou
+# Running On        :navi
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 22.04.5 LTS
+# Processor Detail  :Intel(R) Xeon(R) CPU E5-2687W 0 @ 3.10GHz
+# CPU Frequency     :1196.983 MHz
+# CPU Physical cores:16
+# CPU Logical cores :32
+# Host memory       :135089 MB
+# Swap memory       :2147 MB
+# Total Virtual     :137237 MB
+# Available Virtual :121785 MB
+#-----------------------------------------------------------
+source float_gt.tcl -notrace

@@ -1,7 +1,7 @@
 function [num_bodies, mass, pos, vel, num_steps, dt] = parameters_asv()
     % Load data from the CSV file
 
-    data = readtable('./central_pull_simulation.csv');
+    data = readtable('./50_bod.csv');
     %data = readtable('orbital_gravity_simulation.csv');
 
     % Extract the relevant columns from the CSV

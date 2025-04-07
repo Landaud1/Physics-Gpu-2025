@@ -67,7 +67,7 @@ module top(
         .locked(locked)
     );
     
-    // Host Interface
+//     Host Interface
 //    hostif hif(
 //        .clk(clk),
 //        .hostif_psoc_data(hostif_psoc_data),

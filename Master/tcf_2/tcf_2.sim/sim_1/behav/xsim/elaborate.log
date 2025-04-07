@@ -5,6 +5,7 @@ Running: /media/sdb/Tools/Vivado/2024.1/bin/unwrapped/lnx64.o/xelab --incr --deb
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-9543] actual bit length 1 differs from formal bit length 4 for port 'state' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/tcf_2/tcf_2.srcs/sources_1/new/top.sv:101]
 WARNING: [VRFC 10-5021] port 'sw' is not connected on this instance [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/tcf_2/tcf_2.srcs/sources_1/new/tb.sv:19]
 Completed static elaboration
 Starting simulation data flow analysis
