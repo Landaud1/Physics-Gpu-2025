@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date             : Mon Apr  7 17:01:37 2025
+| Date             : Mon Apr  7 21:11:11 2025
 | Host             : navi running 64-bit Ubuntu 22.04.5 LTS
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.942        |
+| Total On-Chip Power (W)  | 0.943        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.787        |
+| Dynamic (W)              | 0.788        |
 | Device Static (W)        | 0.155        |
 | Effective TJA (C/W)      | 3.3          |
 | Max Ambient (C)          | 81.9         |
@@ -52,22 +52,22 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.057 |       14 |       --- |             --- |
-| Slice Logic             |     0.067 |    34102 |       --- |             --- |
-|   LUT as Logic          |     0.046 |     8113 |    133800 |            6.06 |
-|   LUT as Shift Register |     0.009 |     2188 |     46200 |            4.74 |
+| Clocks                  |     0.058 |       14 |       --- |             --- |
+| Slice Logic             |     0.067 |    34122 |       --- |             --- |
+|   LUT as Logic          |     0.046 |     8143 |    133800 |            6.09 |
+|   LUT as Shift Register |     0.009 |     2187 |     46200 |            4.73 |
 |   Register              |     0.008 |    16486 |    267600 |            6.16 |
 |   CARRY4                |     0.004 |     1093 |     33450 |            3.27 |
 |   F7/F8 Muxes           |    <0.001 |       65 |    133800 |            0.05 |
 |   Others                |     0.000 |     3735 |       --- |             --- |
-| Signals                 |     0.112 |    27662 |       --- |             --- |
-| Block RAM               |     0.094 |      253 |       365 |           69.32 |
+| Signals                 |     0.112 |    27686 |       --- |             --- |
+| Block RAM               |     0.093 |      253 |       365 |           69.32 |
 | MMCM                    |     0.116 |        1 |        10 |           10.00 |
 | PLL                     |     0.135 |        1 |        10 |           10.00 |
 | DSPs                    |     0.069 |      123 |       740 |           16.62 |
 | I/O                     |     0.137 |       22 |       285 |            7.72 |
 | Static Power            |     0.155 |          |           |                 |
-| Total                   |     0.942 |          |           |                 |
+| Total                   |     0.943 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -77,7 +77,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.446 |       0.406 |      0.040 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.447 |       0.407 |      0.040 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.163 |       0.132 |      0.031 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.046 |       0.041 |      0.005 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -157,44 +157,44 @@ Table of Contents
 +------------------------+-----------+
 | Name                   | Power (W) |
 +------------------------+-----------+
-| top                    |     0.787 |
+| top                    |     0.788 |
 |   ar                   |     0.002 |
-|     aram               |     0.002 |
-|       U0               |     0.002 |
+|     aram               |     0.001 |
+|       U0               |     0.001 |
 |   clk_wiz              |     0.117 |
 |     inst               |     0.117 |
 |   de                   |     0.347 |
 |     mem_int            |     0.279 |
 |       func_int         |     0.279 |
-|     ping_pong_switch   |     0.068 |
-|       ping             |     0.027 |
+|     ping_pong_switch   |     0.067 |
+|       ping             |     0.025 |
 |       pong             |     0.025 |
-|   pe                   |     0.292 |
+|   pe                   |     0.294 |
 |     acc_ram            |     0.009 |
 |       U0               |     0.009 |
 |     ftfc               |     0.006 |
 |       ftf_x            |     0.003 |
 |       ftf_y            |     0.003 |
-|     pc                 |     0.236 |
-|       a_x_mult         |     0.013 |
+|     pc                 |     0.238 |
+|       a_x_mult         |     0.012 |
 |       a_y_mult         |     0.013 |
 |       gmi_delay        |     0.001 |
 |       gmi_mult         |     0.011 |
 |       gmi_r2_delay     |     0.002 |
 |       gmi_r2_mult      |     0.013 |
-|       r2_1_reciprocal  |     0.018 |
+|       r2_1_reciprocal  |     0.019 |
 |       r2_add           |     0.010 |
 |       r_1_reciprocal   |     0.020 |
-|       r_sqrt           |     0.050 |
-|       x_diff2_mult     |     0.013 |
+|       r_sqrt           |     0.051 |
+|       x_diff2_mult     |     0.012 |
 |       x_diff_delay     |     0.002 |
 |       x_diff_r_mult    |     0.013 |
-|       x_diff_sub       |     0.014 |
+|       x_diff_sub       |     0.015 |
 |       y_diff2_mult     |     0.013 |
 |       y_diff_delay     |     0.002 |
 |       y_diff_r_mult    |     0.013 |
 |       y_diff_sub       |     0.014 |
-|     sc                 |     0.029 |
+|     sc                 |     0.028 |
 |       x_add            |     0.013 |
 |       y_add            |     0.013 |
 |     sum_ram            |     0.009 |

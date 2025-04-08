@@ -87,7 +87,6 @@ read_verilog -library xil_defaultlib -sv {
   /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_10_7.sv
   /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_11_15.sv
   /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_11_172.sv
-  /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/delay_128_17.sv
   /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_125.sv
   /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_58.sv
   /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_66.sv

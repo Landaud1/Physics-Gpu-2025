@@ -2,8 +2,8 @@
 `define scm_pos 2'b01
 `define scm_vel 2'b10
 
-`define FLOAT_1280 64'h4094000000000000
-`define FLOAT_720  64'h4086800000000000
+`define FLOAT_1280 64'h4093000000000000
+`define FLOAT_720  64'h4084800000000000
 
 `timescale 1ns / 1ps
 
@@ -39,9 +39,6 @@ module physics_engine_1(
     assign vx     = sr_read[191:128];
     assign vy     = sr_read[255:192];
     assign mass   = sr_read[319:256];
-    
-    assign width  = sr_read[383:320];
-    assign height = sr_read[447:384];
     
     // Physics Calculator: calculates force from object j exerted on onbect i
     logic [63:0] x_2, pre_x_1, x_1, y_2, pre_y_1, y_1, pre_m_1, m_1, a_x, a_y;
@@ -87,29 +84,6 @@ module physics_engine_1(
     // STATE RAM WRITEBACK - CONSIDER MODES FOR WALL BOUNCE
     
     logic [7:0] x_overshot, y_overshot;
-    logic [63:0] delayed_height, delayed_width;
-    
-    delay_128_17 hw_delay (
-        .clk(clk),
-        .in({height, width}),
-        .out({delayed_height, delayed_width})
-    );
-    
-//    float_gt comp_x(
-//        .s_axis_a_tvalid(1'b1),
-//        .s_axis_a_tdata(sum_ram_read_data[63:0]),
-//        .s_axis_b_tvalid(1'b1),
-//        .s_axis_b_tdata(delayed_width),
-//        .m_axis_result_tdata(x_overshot)
-//    );
-    
-//    float_gt comp_y(
-//        .s_axis_a_tvalid(1'b1),
-//        .s_axis_a_tdata(sum_ram_read_data[127:64]),
-//        .s_axis_b_tvalid(1'b1),
-//        .s_axis_b_tdata(delayed_height),
-//        .m_axis_result_tdata(y_overshot)
-//    );
 
     float_gt comp_x(
         .s_axis_a_tvalid(1'b1),

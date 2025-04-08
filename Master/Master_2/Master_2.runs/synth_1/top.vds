@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Mon Apr  7 16:51:09 2025
-# Process ID: 2839046
+# Start of session at: Mon Apr  7 20:59:03 2025
+# Process ID: 2955168
 # Current directory: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1
 # Command line: vivado -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: /home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/top.vds
@@ -13,16 +13,16 @@
 # Platform          :Ubuntu
 # Operating System  :Ubuntu 22.04.5 LTS
 # Processor Detail  :Intel(R) Xeon(R) CPU E5-2687W 0 @ 3.10GHz
-# CPU Frequency     :3584.558 MHz
+# CPU Frequency     :3491.319 MHz
 # CPU Physical cores:16
 # CPU Logical cores :32
 # Host memory       :135089 MB
 # Swap memory       :2147 MB
 # Total Virtual     :137237 MB
-# Available Virtual :121588 MB
+# Available Virtual :120637 MB
 #-----------------------------------------------------------
 source top.tcl -notrace
-create_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1446.523 ; gain = 42.836 ; free physical = 94283 ; free virtual = 115647
+create_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1445.691 ; gain = 23.836 ; free physical = 93021 ; free virtual = 114839
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/landaud1/Downloads/vivado-library-master'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/media/sdb/Tools/Vivado/2024.1/data/ip'.
@@ -40,13 +40,12 @@ INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
 WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {17-179}  -suppress '. The existing rule will be replaced.
-INFO: [Synth 8-7075] Helper process launched with PID 2839176
+INFO: [Synth 8-7075] Helper process launched with PID 2955312
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2283.590 ; gain = 421.715 ; free physical = 93125 ; free virtual = 114490
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2283.750 ; gain = 421.715 ; free physical = 91929 ; free virtual = 113747
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-10940] macro 'PIPE_LEN' is redefined [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_11_15.sv:1]
 WARNING: [Synth 8-10940] macro 'PIPE_LEN' is redefined [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_11_172.sv:1]
-WARNING: [Synth 8-10940] macro 'PIPE_LEN' is redefined [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/delay_128_17.sv:1]
 WARNING: [Synth 8-10940] macro 'PIPE_LEN' is redefined [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_125.sv:1]
 WARNING: [Synth 8-10940] macro 'PIPE_LEN' is redefined [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_58.sv:1]
 WARNING: [Synth 8-10940] macro 'PIPE_LEN' is redefined [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_66.sv:1]
@@ -57,8 +56,8 @@ INFO: [Synth 8-11241] undeclared symbol 'ping_wea', assumed default net type 'wi
 INFO: [Synth 8-11241] undeclared symbol 'pong_wea', assumed default net type 'wire' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pingpong.sv:29]
 INFO: [Synth 8-11241] undeclared symbol 'fsync_out', assumed default net type 'wire' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/video_time_controller.sv:30]
 INFO: [Synth 8-6157] synthesizing module 'top' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/top.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/clk_wiz_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/clk_wiz_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'hostif' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/hostif_test.sv:9]
 INFO: [Synth 8-155] case statement is not full and has no default [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/hostif_test.sv:110]
 INFO: [Synth 8-6155] done synthesizing module 'hostif' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/hostif_test.sv:9]
@@ -74,21 +73,21 @@ INFO: [Synth 8-6157] synthesizing module 'delay_64_66' [/home/landaud1/other/Sen
 INFO: [Synth 8-6155] done synthesizing module 'delay_64_66' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_66.sv:4]
 INFO: [Synth 8-6157] synthesizing module 'delay_64_58' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_58.sv:4]
 INFO: [Synth 8-6155] done synthesizing module 'delay_64_58' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_58.sv:4]
-INFO: [Synth 8-6157] synthesizing module 'fp_add' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_add_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fp_add' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_add_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'fp_add' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/fp_add_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fp_add' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/fp_add_stub.v:6]
 WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_add' is unconnected for instance 'r2_add' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:70]
 WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_add' is unconnected for instance 'r2_add' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:70]
 WARNING: [Synth 8-7023] instance 'r2_add' of module 'fp_add' has 9 connections declared, but only 7 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:70]
-INFO: [Synth 8-6157] synthesizing module 'fp_sub' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_sub_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fp_sub' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_sub_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'fp_sub' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/fp_sub_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fp_sub' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/fp_sub_stub.v:6]
 WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_sub' is unconnected for instance 'x_diff_sub' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:83]
 WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_sub' is unconnected for instance 'x_diff_sub' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:83]
 WARNING: [Synth 8-7023] instance 'x_diff_sub' of module 'fp_sub' has 9 connections declared, but only 7 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:83]
 WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_sub' is unconnected for instance 'y_diff_sub' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:94]
 WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_sub' is unconnected for instance 'y_diff_sub' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:94]
 WARNING: [Synth 8-7023] instance 'y_diff_sub' of module 'fp_sub' has 9 connections declared, but only 7 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:94]
-INFO: [Synth 8-6157] synthesizing module 'fp_multiply' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_multiply_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fp_multiply' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_multiply_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'fp_multiply' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/fp_multiply_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fp_multiply' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/fp_multiply_stub.v:6]
 WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_multiply' is unconnected for instance 'gmi_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:107]
 WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_multiply' is unconnected for instance 'gmi_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:107]
 WARNING: [Synth 8-7023] instance 'gmi_mult' of module 'fp_multiply' has 9 connections declared, but only 7 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:107]
@@ -115,26 +114,23 @@ WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_multiply' is unconn
 WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_multiply' is unconnected for instance 'a_y_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:183]
 WARNING: [Synth 8-7071] port 'm_axis_result_tvalid' of module 'fp_multiply' is unconnected for instance 'a_y_mult' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:183]
 WARNING: [Synth 8-7023] instance 'a_y_mult' of module 'fp_multiply' has 9 connections declared, but only 6 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:183]
-INFO: [Synth 8-6157] synthesizing module 'fp_reciprocal' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_reciprocal_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fp_reciprocal' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_reciprocal_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'fp_reciprocal' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/fp_reciprocal_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fp_reciprocal' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/fp_reciprocal_stub.v:6]
 WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_reciprocal' is unconnected for instance 'r_1_reciprocal' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:203]
 WARNING: [Synth 8-7023] instance 'r_1_reciprocal' of module 'fp_reciprocal' has 6 connections declared, but only 5 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:203]
 WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_reciprocal' is unconnected for instance 'r2_1_reciprocal' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:212]
 WARNING: [Synth 8-7023] instance 'r2_1_reciprocal' of module 'fp_reciprocal' has 6 connections declared, but only 5 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:212]
-INFO: [Synth 8-6157] synthesizing module 'fp_sqrt' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_sqrt_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fp_sqrt' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/fp_sqrt_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'fp_sqrt' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/fp_sqrt_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fp_sqrt' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/fp_sqrt_stub.v:6]
 WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_sqrt' is unconnected for instance 'r_sqrt' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:223]
 WARNING: [Synth 8-7023] instance 'r_sqrt' of module 'fp_sqrt' has 6 connections declared, but only 5 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:223]
 INFO: [Synth 8-6155] done synthesizing module 'physics_calculator' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_calculator.sv:9]
-INFO: [Synth 8-6157] synthesizing module 'delay_128_17' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/delay_128_17.sv:4]
-INFO: [Synth 8-6155] done synthesizing module 'delay_128_17' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/delay_128_17.sv:4]
-WARNING: [Synth 8-689] width (22) of port connection 'in' does not match port width (128) of module 'delay_128_17' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:94]
-INFO: [Synth 8-6157] synthesizing module 'float_gt' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/float_gt_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'float_gt' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/float_gt_stub.v:6]
-WARNING: [Synth 8-7071] port 'm_axis_result_tvalid' of module 'float_gt' is unconnected for instance 'comp_x' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:114]
-WARNING: [Synth 8-7023] instance 'comp_x' of module 'float_gt' has 6 connections declared, but only 5 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:114]
-WARNING: [Synth 8-7071] port 'm_axis_result_tvalid' of module 'float_gt' is unconnected for instance 'comp_y' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:122]
-WARNING: [Synth 8-7023] instance 'comp_y' of module 'float_gt' has 6 connections declared, but only 5 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:122]
+INFO: [Synth 8-6157] synthesizing module 'float_gt' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/float_gt_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'float_gt' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/float_gt_stub.v:6]
+WARNING: [Synth 8-7071] port 'm_axis_result_tvalid' of module 'float_gt' is unconnected for instance 'comp_x' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:88]
+WARNING: [Synth 8-7023] instance 'comp_x' of module 'float_gt' has 6 connections declared, but only 5 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:88]
+WARNING: [Synth 8-7071] port 'm_axis_result_tvalid' of module 'float_gt' is unconnected for instance 'comp_y' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:96]
+WARNING: [Synth 8-7023] instance 'comp_y' of module 'float_gt' has 6 connections declared, but only 5 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:96]
 INFO: [Synth 8-6157] synthesizing module 'sum_calc' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/sum_calc.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'delay_11_15' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_11_15.sv:4]
 INFO: [Synth 8-6155] done synthesizing module 'delay_11_15' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_11_15.sv:4]
@@ -148,8 +144,8 @@ WARNING: [Synth 8-7071] port 'm_axis_result_tvalid' of module 'fp_add' is unconn
 WARNING: [Synth 8-7023] instance 'y_add' of module 'fp_add' has 9 connections declared, but only 6 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/sum_calc.sv:34]
 INFO: [Synth 8-6155] done synthesizing module 'sum_calc' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/sum_calc.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'ftf_cast' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/ftf_cast.sv:5]
-INFO: [Synth 8-6157] synthesizing module 'float_to_fixed' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/float_to_fixed_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'float_to_fixed' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/float_to_fixed_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'float_to_fixed' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/float_to_fixed_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'float_to_fixed' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/float_to_fixed_stub.v:6]
 WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'float_to_fixed' is unconnected for instance 'ftf_x' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/ftf_cast.sv:23]
 WARNING: [Synth 8-7023] instance 'ftf_x' of module 'float_to_fixed' has 6 connections declared, but only 5 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/ftf_cast.sv:23]
 WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'float_to_fixed' is unconnected for instance 'ftf_y' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/ftf_cast.sv:32]
@@ -158,9 +154,9 @@ WARNING: [Synth 8-7023] instance 'ftf_y' of module 'float_to_fixed' has 6 connec
 INFO: [Synth 8-6155] done synthesizing module 'ftf_cast' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/ftf_cast.sv:5]
 INFO: [Synth 8-6157] synthesizing module 'delay_10_7' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_10_7.sv:4]
 INFO: [Synth 8-6155] done synthesizing module 'delay_10_7' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_10_7.sv:4]
-INFO: [Synth 8-6157] synthesizing module 'pe_ram' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/pe_ram_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'pe_ram' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/pe_ram_stub.v:6]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:269]
+INFO: [Synth 8-6157] synthesizing module 'pe_ram' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/pe_ram_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'pe_ram' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/pe_ram_stub.v:6]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:243]
 INFO: [Synth 8-6155] done synthesizing module 'physics_engine_1' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/physics_engine.sv:10]
 INFO: [Synth 8-6157] synthesizing module 'display_engine' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/display_engine_top.sv:4]
 INFO: [Synth 8-6157] synthesizing module 'mem_interface' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/mem_interface.sv:5]
@@ -183,21 +179,21 @@ INFO: [Synth 8-6155] done synthesizing module 'pretty_colors' (0#1) [/home/landa
 INFO: [Synth 8-6155] done synthesizing module 'mem_functions' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/mem_functions.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'display_generator' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/display_generator.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'vid_time_counter' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/video_time_controller.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'v_tc_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/v_tc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'v_tc_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/v_tc_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'v_tc_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/v_tc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'v_tc_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/v_tc_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'vid_time_counter' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/video_time_controller.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'rgb2dvi_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/rgb2dvi_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'rgb2dvi_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/rgb2dvi_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'rgb2dvi_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/rgb2dvi_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'rgb2dvi_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/rgb2dvi_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'display_generator' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/display_generator.sv:3]
 INFO: [Synth 8-6155] done synthesizing module 'function_interface' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/function_interface.sv:4]
 INFO: [Synth 8-6155] done synthesizing module 'mem_interface' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/mem_interface.sv:5]
 INFO: [Synth 8-6157] synthesizing module 'pingpong' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pingpong.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/blk_mem_gen_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/blk_mem_gen_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'douta' of module 'blk_mem_gen_0' is unconnected for instance 'ping' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pingpong.sv:41]
 WARNING: [Synth 8-7023] instance 'ping' of module 'blk_mem_gen_0' has 12 connections declared, but only 11 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pingpong.sv:41]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_1' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/blk_mem_gen_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_1' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/blk_mem_gen_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_1' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/blk_mem_gen_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_1' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/blk_mem_gen_1_stub.v:6]
 WARNING: [Synth 8-7071] port 'douta' of module 'blk_mem_gen_1' is unconnected for instance 'pong' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pingpong.sv:65]
 WARNING: [Synth 8-7023] instance 'pong' of module 'blk_mem_gen_1' has 12 connections declared, but only 11 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pingpong.sv:65]
 INFO: [Synth 8-6155] done synthesizing module 'pingpong' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/pingpong.sv:3]
@@ -206,21 +202,21 @@ WARNING: [Synth 8-689] width (8) of port connection 'sw' does not match port wid
 INFO: [Synth 8-6157] synthesizing module 'register_block' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/register_block.sv:3]
 INFO: [Synth 8-6155] done synthesizing module 'register_block' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/register_block.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'pp_position_ram' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/pp_position_ram.sv:6]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_3' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/blk_mem_gen_3_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_3' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/blk_mem_gen_3_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_3' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/blk_mem_gen_3_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_3' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/blk_mem_gen_3_stub.v:6]
 WARNING: [Synth 8-7071] port 'douta' of module 'blk_mem_gen_3' is unconnected for instance 'pping' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/pp_position_ram.sv:36]
 WARNING: [Synth 8-7023] instance 'pping' of module 'blk_mem_gen_3' has 12 connections declared, but only 11 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/pp_position_ram.sv:36]
 WARNING: [Synth 8-7071] port 'douta' of module 'blk_mem_gen_3' is unconnected for instance 'ppong' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/pp_position_ram.sv:56]
 WARNING: [Synth 8-7023] instance 'ppong' of module 'blk_mem_gen_3' has 12 connections declared, but only 11 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/pp_position_ram.sv:56]
 INFO: [Synth 8-6155] done synthesizing module 'pp_position_ram' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/pp_position_ram.sv:6]
 INFO: [Synth 8-6157] synthesizing module 'attribute_ram_1' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/attribute_ram.sv:4]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_4' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/blk_mem_gen_4_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_4' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/blk_mem_gen_4_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_4' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/blk_mem_gen_4_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_4' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/blk_mem_gen_4_stub.v:6]
 WARNING: [Synth 8-7071] port 'douta' of module 'blk_mem_gen_4' is unconnected for instance 'aram' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/attribute_ram.sv:15]
 WARNING: [Synth 8-7023] instance 'aram' of module 'blk_mem_gen_4' has 12 connections declared, but only 11 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/attribute_ram.sv:15]
 INFO: [Synth 8-6155] done synthesizing module 'attribute_ram_1' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/imports/new/attribute_ram.sv:4]
-INFO: [Synth 8-6157] synthesizing module 'state_ram_1' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/state_ram_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'state_ram_1' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2839046-navi/realtime/state_ram_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'state_ram_1' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/state_ram_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'state_ram_1' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/.Xil/Vivado-2955168-navi/realtime/state_ram_1_stub.v:6]
 WARNING: [Synth 8-7071] port 'doutb' of module 'state_ram_1' is unconnected for instance 'sr' [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/top.sv:171]
 WARNING: [Synth 8-7023] instance 'sr' of module 'state_ram_1' has 10 connections declared, but only 9 given [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/top.sv:171]
 INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.srcs/sources_1/new/top.sv:3]
@@ -329,18 +325,18 @@ WARNING: [Synth 8-7129] Port sr_read[445] in module physics_engine_1 is either u
 WARNING: [Synth 8-7129] Port sr_read[444] in module physics_engine_1 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2384.559 ; gain = 522.684 ; free physical = 93007 ; free virtual = 114373
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2383.719 ; gain = 521.684 ; free physical = 91809 ; free virtual = 113629
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2402.371 ; gain = 540.496 ; free physical = 93009 ; free virtual = 114375
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2401.531 ; gain = 539.496 ; free physical = 91806 ; free virtual = 113626
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2402.371 ; gain = 540.496 ; free physical = 93009 ; free virtual = 114375
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2401.531 ; gain = 539.496 ; free physical = 91798 ; free virtual = 113618
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.16 . Memory (MB): peak = 2402.371 ; gain = 0.000 ; free physical = 93012 ; free virtual = 114378
+Netlist sorting complete. Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.17 . Memory (MB): peak = 2401.531 ; gain = 0.000 ; free physical = 91806 ; free virtual = 113626
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -415,11 +411,11 @@ Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Maste
 Finished Parsing XDC File [/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2549.121 ; gain = 0.000 ; free physical = 93014 ; free virtual = 114379
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2548.281 ; gain = 0.000 ; free physical = 91755 ; free virtual = 113575
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.13 . Memory (MB): peak = 2549.121 ; gain = 0.000 ; free physical = 93014 ; free virtual = 114379
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.13 . Memory (MB): peak = 2548.281 ; gain = 0.000 ; free physical = 91740 ; free virtual = 113560
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'sr' at clock pin 'clka' is different from the actual clock period '13.468', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'ar/aram' at clock pin 'clka' is different from the actual clock period '13.468', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'de/ping_pong_switch/ping' at clock pin 'clka' is different from the actual clock period '13.468', this can lead to different synthesis results.
@@ -449,14 +445,14 @@ WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context s
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2549.121 ; gain = 687.246 ; free physical = 93019 ; free virtual = 114385
+Finished Constraint Validation : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 2548.281 ; gain = 686.246 ; free physical = 91819 ; free virtual = 113639
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tsbg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93019 ; free virtual = 114385
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 2556.285 ; gain = 694.250 ; free physical = 91818 ; free virtual = 113638
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -511,7 +507,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for sr. (constraint file  auto genera
 Applied set_property KEEP_HIERARCHY = SOFT for pe/comp_x. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for pe/comp_y. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93018 ; free virtual = 114384
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 2556.285 ; gain = 694.250 ; free physical = 91829 ; free virtual = 113649
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_in_reg' in module 'hostif'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'flood_mem'
@@ -551,7 +547,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'pixel_walk'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93014 ; free virtual = 114381
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 2556.285 ; gain = 694.250 ; free physical = 91839 ; free virtual = 113660
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -565,7 +561,6 @@ Detailed RTL Component Info :
 +---XORs : 
 	   2 Input      1 Bit         XORs := 1     
 +---Registers : 
-	              128 Bit    Registers := 16    
 	               65 Bit    Registers := 370   
 	               64 Bit    Registers := 8     
 	               32 Bit    Registers := 1     
@@ -584,7 +579,7 @@ Detailed RTL Component Info :
 	   4 Input  128 Bit        Muxes := 1     
 	   2 Input   64 Bit        Muxes := 7     
 	   7 Input   32 Bit        Muxes := 1     
-	   2 Input   32 Bit        Muxes := 2     
+	   2 Input   32 Bit        Muxes := 4     
 	   2 Input   21 Bit        Muxes := 1     
 	   2 Input   20 Bit        Muxes := 6     
 	   7 Input   16 Bit        Muxes := 1     
@@ -630,7 +625,7 @@ WARNING: [Synth 8-3332] Sequential element (mem_f/fm_t/FSM_sequential_state_reg)
 WARNING: [Synth 8-3332] Sequential element (mem_f/gr_t/FSM_sequential_state_reg) is unused and will be removed from module function_interface.
 WARNING: [Synth 8-3332] Sequential element (mem_f/pxl_w/FSM_sequential_state_reg) is unused and will be removed from module function_interface.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 92976 ; free virtual = 114355
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:36 . Memory (MB): peak = 2556.285 ; gain = 694.250 ; free physical = 91841 ; free virtual = 113673
 ---------------------------------------------------------------------------------
  Sort Area is  pr_c/adr_write_reg_0 : 0 0 : 162 162 : Used 1 time 0
 ---------------------------------------------------------------------------------
@@ -652,19 +647,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:43 ; elapsed = 00:00:43 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 92998 ; free virtual = 114377
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:45 ; elapsed = 00:00:46 . Memory (MB): peak = 2556.285 ; gain = 694.250 ; free physical = 91849 ; free virtual = 113681
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:00:47 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93003 ; free virtual = 114382
+Finished Timing Optimization : Time (s): cpu = 00:00:50 ; elapsed = 00:00:50 . Memory (MB): peak = 2556.285 ; gain = 694.250 ; free physical = 91820 ; free virtual = 113651
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:53 ; elapsed = 00:00:53 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93010 ; free virtual = 114389
+Finished Technology Mapping : Time (s): cpu = 00:00:56 ; elapsed = 00:00:57 . Memory (MB): peak = 2556.285 ; gain = 694.250 ; free physical = 91835 ; free virtual = 113666
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -682,37 +677,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:58 ; elapsed = 00:00:59 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93025 ; free virtual = 114404
+Finished IO Insertion : Time (s): cpu = 00:01:01 ; elapsed = 00:01:02 . Memory (MB): peak = 2556.285 ; gain = 694.250 ; free physical = 91852 ; free virtual = 113683
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:58 ; elapsed = 00:00:59 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93025 ; free virtual = 114404
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:01 ; elapsed = 00:01:02 . Memory (MB): peak = 2556.285 ; gain = 694.250 ; free physical = 91852 ; free virtual = 113683
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:59 ; elapsed = 00:00:59 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93025 ; free virtual = 114404
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:02 ; elapsed = 00:01:02 . Memory (MB): peak = 2556.285 ; gain = 694.250 ; free physical = 91863 ; free virtual = 113694
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:59 ; elapsed = 00:00:59 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93025 ; free virtual = 114404
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:02 ; elapsed = 00:01:02 . Memory (MB): peak = 2556.285 ; gain = 694.250 ; free physical = 91863 ; free virtual = 113694
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:59 ; elapsed = 00:00:59 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93025 ; free virtual = 114404
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:02 ; elapsed = 00:01:02 . Memory (MB): peak = 2556.285 ; gain = 694.250 ; free physical = 91866 ; free virtual = 113697
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:59 ; elapsed = 00:00:59 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93027 ; free virtual = 114406
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:02 ; elapsed = 00:01:02 . Memory (MB): peak = 2556.285 ; gain = 694.250 ; free physical = 91866 ; free virtual = 113697
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -782,11 +777,11 @@ Report Cell Usage:
 |31    |v_tc           |     1|
 |32    |CARRY4         |    45|
 |33    |LUT1           |     2|
-|34    |LUT2           |   218|
-|35    |LUT3           |   188|
-|36    |LUT4           |   441|
-|37    |LUT5           |   211|
-|38    |LUT6           |   304|
+|34    |LUT2           |   198|
+|35    |LUT3           |   189|
+|36    |LUT4           |   438|
+|37    |LUT5           |   223|
+|38    |LUT6           |   311|
 |39    |SRL16E         |    21|
 |40    |SRLC32E        |   846|
 |41    |FDCE           |     6|
@@ -795,29 +790,29 @@ Report Cell Usage:
 |44    |OBUF           |     1|
 +------+---------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:59 ; elapsed = 00:00:59 . Memory (MB): peak = 2557.125 ; gain = 695.250 ; free physical = 93027 ; free virtual = 114406
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:02 ; elapsed = 00:01:02 . Memory (MB): peak = 2556.285 ; gain = 694.250 ; free physical = 91866 ; free virtual = 113697
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 204 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:52 ; elapsed = 00:00:54 . Memory (MB): peak = 2557.125 ; gain = 548.500 ; free physical = 93027 ; free virtual = 114406
-Synthesis Optimization Complete : Time (s): cpu = 00:00:59 ; elapsed = 00:00:59 . Memory (MB): peak = 2557.133 ; gain = 695.250 ; free physical = 93027 ; free virtual = 114406
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:55 ; elapsed = 00:00:56 . Memory (MB): peak = 2556.285 ; gain = 547.500 ; free physical = 91858 ; free virtual = 113688
+Synthesis Optimization Complete : Time (s): cpu = 00:01:02 ; elapsed = 00:01:02 . Memory (MB): peak = 2556.293 ; gain = 694.250 ; free physical = 91863 ; free virtual = 113694
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2557.133 ; gain = 0.000 ; free physical = 93370 ; free virtual = 114749
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2556.293 ; gain = 0.000 ; free physical = 92163 ; free virtual = 113993
 INFO: [Netlist 29-17] Analyzing 45 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2613.152 ; gain = 0.000 ; free physical = 93373 ; free virtual = 114752
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2612.312 ; gain = 0.000 ; free physical = 92191 ; free virtual = 114022
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: f48aa47b
+Synth Design complete | Checksum: 521d6385
 INFO: [Common 17-83] Releasing license: Synthesis
-134 Infos, 214 Warnings, 0 Critical Warnings and 0 Errors encountered.
+132 Infos, 212 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:11 ; elapsed = 00:01:08 . Memory (MB): peak = 2613.152 ; gain = 1140.848 ; free physical = 93373 ; free virtual = 114752
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2136.552; main = 1744.554; forked = 439.024
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3652.750; main = 2613.156; forked = 1095.621
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00 . Memory (MB): peak = 2637.164 ; gain = 0.000 ; free physical = 93373 ; free virtual = 114752
+synth_design: Time (s): cpu = 00:01:15 ; elapsed = 00:01:12 . Memory (MB): peak = 2612.312 ; gain = 1139.871 ; free physical = 92191 ; free virtual = 114022
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2138.191; main = 1745.212; forked = 440.450
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3651.914; main = 2612.316; forked = 1095.625
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2636.324 ; gain = 0.000 ; free physical = 92198 ; free virtual = 114029
 INFO: [Common 17-1381] The checkpoint '/home/landaud1/other/Senior_proj/Physics-Gpu-2025/Master/Master_2/Master_2.runs/synth_1/top.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Apr  7 16:52:34 2025...
+INFO: [Common 17-206] Exiting Vivado at Mon Apr  7 21:00:34 2025...

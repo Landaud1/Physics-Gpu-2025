@@ -214,13 +214,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/delay_128_17.sv">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/imports/Physics-GPU-2025.srcs/sources_1/new/delay_64_125.sv">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../DJ/Physics-GPU-2025/Physics-GPU-2025.srcs/sources_1/new/delay_64_125.sv"/>

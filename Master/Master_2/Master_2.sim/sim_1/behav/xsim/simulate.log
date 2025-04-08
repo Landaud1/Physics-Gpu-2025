@@ -1209,3 +1209,11 @@ blk_mem_gen_v8_4_8 collision detected at time: 50721195, Instance: tb.t.de.ping_
 blk_mem_gen_v8_4_8 collision detected at time: 50734663, Instance: tb.t.de.ping_pong_switch.pong.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: a00, B read address: a00
 blk_mem_gen_v8_4_8 collision detected at time: 50748131, Instance: tb.t.de.ping_pong_switch.pong.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: a00, B read address: a00
 blk_mem_gen_v8_4_8 collision detected at time: 52700993, Instance: tb.t.pe.sum_ram.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: 0, B  read address: 0
+blk_mem_gen_v8_4_8 collision detected at time: 53158905, Instance: tb.t.sr.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: 0, B  read address: 1
+blk_mem_gen_v8_4_8 collision detected at time: 53643754, Instance: tb.t.sr.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: 0, B  read address: 1
+blk_mem_gen_v8_4_8 collision detected at time: 53751498, Instance: tb.t.pr.pping.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: 0, B read address: 0
+blk_mem_gen_v8_4_8 collision detected at time: 53751498, Instance: tb.t.pe.sum_ram.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: 0, B  read address: 0
+blk_mem_gen_v8_4_8 collision detected at time: 53764966, Instance: tb.t.pe.sum_ram.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: 1, B  read address: 1
+blk_mem_gen_v8_4_8 collision detected at time: 53778434, Instance: tb.t.pe.sum_ram.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: 2, B  read address: 2
+blk_mem_gen_v8_4_8 collision detected at time: 53791902, Instance: tb.t.pe.sum_ram.inst.native_mem_module.blk_mem_gen_v8_4_8_inst, A write address: 3, B  read address: 3
+INFO: xsimkernel Simulation Memory Usage: 169220 KB (Peak: 218084 KB), Simulation CPU Usage: 18960 ms
