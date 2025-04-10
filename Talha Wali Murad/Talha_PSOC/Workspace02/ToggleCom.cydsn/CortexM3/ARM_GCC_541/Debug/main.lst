@@ -1,0 +1,4499 @@
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.send_next_byte,"ax",%progbits
+  20              		.align	2
+  21              		.global	send_next_byte
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	send_next_byte, %function
+  25              	send_next_byte:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** #include "project.h"
+   2:main.c        **** #include "outfile.h"  // Includes pre-generated data arrays
+   3:main.c        **** 
+   4:main.c        **** // Handshake Signal Definitions
+   5:main.c        **** #define PSOC_FPGA_Write(x) PSOC_FPGA_Write(x)  // PSoC signals "I sent data"
+   6:main.c        **** #define FPGA_PSOC_Read() FPGA_PSOC_Read()      // FPGA signals "I received data"
+   7:main.c        **** #define SOFT_RESET_Write(x) SOFT_RESET_Write(x)  // Soft reset signal to FPGA
+   8:main.c        **** 
+   9:main.c        **** // 8-bit Data Output Port
+  10:main.c        **** #define DATA_PORT_Write(x) Data_Port_Write(x)  
+  11:main.c        **** 
+  12:main.c        **** uint16_t data_index = 0;  // Tracks which byte is being sent
+  13:main.c        **** uint16_t total_entries = sizeof(merged_ram) / sizeof(merged_ram[0]);  // Total struct entries
+  14:main.c        **** 
+  15:main.c        **** void send_next_byte(void);
+  16:main.c        **** 
+  17:main.c        **** int main(void) {
+  18:main.c        ****     CyGlobalIntEnable;  // Enable global interrupts
+  19:main.c        **** 
+  20:main.c        ****     // **Step 1: Assert Soft Reset to Reset FPGA**
+  21:main.c        ****     SOFT_RESET_Write(1);  // Set soft reset HIGH
+  22:main.c        ****     CyDelay(100);         // Wait 100ms for FPGA to reset
+  23:main.c        ****     SOFT_RESET_Write(0);  // Clear soft reset before starting
+  24:main.c        **** 
+  25:main.c        ****     // **Step 2: Ensure first address byte is already present at startup**
+  26:main.c        ****     send_next_byte();
+  27:main.c        **** 
+  28:main.c        ****     // **Step 3: Set initial handshake state to HIGH**
+  29:main.c        ****     PSOC_FPGA_Write(1);  
+  30:main.c        **** 
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 2
+
+
+  31:main.c        ****     for (;;) {  // Infinite loop waiting for FPGA handshakes
+  32:main.c        ****         if (FPGA_PSOC_Read() == PSOC_FPGA_Read()) {  // FPGA matches handshake, ready for next byte
+  33:main.c        ****             send_next_byte();  // Send next byte
+  34:main.c        ****         }
+  35:main.c        ****     }
+  36:main.c        ****     while(1);
+  37:main.c        **** }
+  38:main.c        **** 
+  39:main.c        **** // **Function: Send next byte from `merged_ram[]` using LSB → MSB**
+  40:main.c        **** void send_next_byte(void) {
+  28              		.loc 1 40 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  41:main.c        ****     if (data_index < total_entries * 6) {  // Each entry has 2 address + 4 data bytes
+  36              		.loc 1 41 0
+  37 0002 204B     		ldr	r3, .L7
+  38 0004 1B88     		ldrh	r3, [r3]
+  39 0006 204A     		ldr	r2, .L7+4
+  40 0008 1288     		ldrh	r2, [r2]
+  41 000a 02EB4202 		add	r2, r2, r2, lsl #1
+  42 000e 5100     		lsls	r1, r2, #1
+  43 0010 8B42     		cmp	r3, r1
+  44 0012 35DA     		bge	.L1
+  45              	.LBB2:
+  42:main.c        ****         uint16_t entry_index = data_index / 6;  // Which `merged_ram` entry
+  46              		.loc 1 42 0
+  47 0014 1D4A     		ldr	r2, .L7+8
+  48 0016 A2FB0312 		umull	r1, r2, r2, r3
+  49 001a 9208     		lsrs	r2, r2, #2
+  50 001c 91B2     		uxth	r1, r2
+  51              	.LVL0:
+  43:main.c        ****         uint8_t byte_index = data_index % 6;  // Position in entry
+  52              		.loc 1 43 0
+  53 001e 02EB4202 		add	r2, r2, r2, lsl #1
+  54 0022 5000     		lsls	r0, r2, #1
+  55 0024 1B1A     		subs	r3, r3, r0
+  56              	.LVL1:
+  44:main.c        **** 
+  45:main.c        ****         if (byte_index == 0) {  
+  57              		.loc 1 45 0
+  58 0026 13F0FF03 		ands	r3, r3, #255
+  59              	.LVL2:
+  60 002a 07D1     		bne	.L3
+  46:main.c        ****             DATA_PORT_Write(merged_ram[entry_index].address & 0xFF);  // **Send Lower Address Byte 
+  61              		.loc 1 46 0
+  62 002c 01EB4101 		add	r1, r1, r1, lsl #1
+  63              	.LVL3:
+  64 0030 4B00     		lsls	r3, r1, #1
+  65 0032 174A     		ldr	r2, .L7+12
+  66 0034 D05C     		ldrb	r0, [r2, r3]	@ zero_extendqisi2
+  67              	.LVL4:
+  68 0036 FFF7FEFF 		bl	Data_Port_Write
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 3
+
+
+  69              	.LVL5:
+  70 003a 16E0     		b	.L4
+  71              	.LVL6:
+  72              	.L3:
+  47:main.c        ****         } 
+  48:main.c        ****         else if (byte_index == 1) {  
+  73              		.loc 1 48 0
+  74 003c 012B     		cmp	r3, #1
+  75 003e 08D1     		bne	.L5
+  49:main.c        ****             DATA_PORT_Write((merged_ram[entry_index].address >> 8) & 0xFF);  // **Send Upper Addres
+  76              		.loc 1 49 0
+  77 0040 01EB4101 		add	r1, r1, r1, lsl #1
+  78              	.LVL7:
+  79 0044 4B00     		lsls	r3, r1, #1
+  80 0046 124A     		ldr	r2, .L7+12
+  81 0048 D05A     		ldrh	r0, [r2, r3]
+  82              	.LVL8:
+  83 004a 000A     		lsrs	r0, r0, #8
+  84 004c FFF7FEFF 		bl	Data_Port_Write
+  85              	.LVL9:
+  86 0050 0BE0     		b	.L4
+  87              	.LVL10:
+  88              	.L5:
+  89              	.LBB3:
+  50:main.c        ****         } 
+  51:main.c        ****         else {  
+  52:main.c        ****             uint8_t reversed_index = 5 - byte_index;  // Reverse data byte order
+  90              		.loc 1 52 0
+  91 0052 C3F10503 		rsb	r3, r3, #5
+  92 0056 DBB2     		uxtb	r3, r3
+  93              	.LVL11:
+  53:main.c        ****             DATA_PORT_Write(merged_ram[entry_index].data[reversed_index]);  // **Send Data Bytes (L
+  94              		.loc 1 53 0
+  95 0058 01EB4101 		add	r1, r1, r1, lsl #1
+  96              	.LVL12:
+  97 005c 4A00     		lsls	r2, r1, #1
+  98 005e 0C49     		ldr	r1, .L7+12
+  99 0060 0A44     		add	r2, r2, r1
+ 100 0062 1344     		add	r3, r3, r2
+ 101              	.LVL13:
+ 102 0064 9878     		ldrb	r0, [r3, #2]	@ zero_extendqisi2
+ 103              	.LVL14:
+ 104 0066 FFF7FEFF 		bl	Data_Port_Write
+ 105              	.LVL15:
+ 106              	.L4:
+ 107              	.LBE3:
+  54:main.c        ****         }
+  55:main.c        **** 
+  56:main.c        ****         // **Toggle Handshake (Flip PSOC_FPGA)**
+  57:main.c        ****         PSOC_FPGA_Write(!PSOC_FPGA_Read());  
+ 108              		.loc 1 57 0
+ 109 006a FFF7FEFF 		bl	PSOC_FPGA_Read
+ 110              	.LVL16:
+ 111 006e B0FA80F0 		clz	r0, r0
+ 112 0072 4009     		lsrs	r0, r0, #5
+ 113 0074 FFF7FEFF 		bl	PSOC_FPGA_Write
+ 114              	.LVL17:
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 4
+
+
+  58:main.c        **** 
+  59:main.c        ****         // **Move to Next Byte**
+  60:main.c        ****         data_index++;
+ 115              		.loc 1 60 0
+ 116 0078 024A     		ldr	r2, .L7
+ 117 007a 1388     		ldrh	r3, [r2]
+ 118 007c 0133     		adds	r3, r3, #1
+ 119 007e 1380     		strh	r3, [r2]	@ movhi
+ 120              	.L1:
+ 121 0080 08BD     		pop	{r3, pc}
+ 122              	.L8:
+ 123 0082 00BF     		.align	2
+ 124              	.L7:
+ 125 0084 00000000 		.word	.LANCHOR0
+ 126 0088 00000000 		.word	.LANCHOR1
+ 127 008c ABAAAAAA 		.word	-1431655765
+ 128 0090 00000000 		.word	.LANCHOR2
+ 129              	.LBE2:
+ 130              		.cfi_endproc
+ 131              	.LFE64:
+ 132              		.size	send_next_byte, .-send_next_byte
+ 133              		.section	.text.main,"ax",%progbits
+ 134              		.align	2
+ 135              		.global	main
+ 136              		.thumb
+ 137              		.thumb_func
+ 138              		.type	main, %function
+ 139              	main:
+ 140              	.LFB63:
+  17:main.c        ****     CyGlobalIntEnable;  // Enable global interrupts
+ 141              		.loc 1 17 0
+ 142              		.cfi_startproc
+ 143              		@ Volatile: function does not return.
+ 144              		@ args = 0, pretend = 0, frame = 0
+ 145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 146 0000 08B5     		push	{r3, lr}
+ 147              		.cfi_def_cfa_offset 8
+ 148              		.cfi_offset 3, -8
+ 149              		.cfi_offset 14, -4
+  18:main.c        **** 
+ 150              		.loc 1 18 0
+ 151              		.syntax unified
+ 152              	@ 18 "main.c" 1
+ 153 0002 62B6     		CPSIE   i
+ 154              	@ 0 "" 2
+  21:main.c        ****     CyDelay(100);         // Wait 100ms for FPGA to reset
+ 155              		.loc 1 21 0
+ 156              		.thumb
+ 157              		.syntax unified
+ 158 0004 0120     		movs	r0, #1
+ 159 0006 FFF7FEFF 		bl	SOFT_RESET_Write
+ 160              	.LVL18:
+  22:main.c        ****     SOFT_RESET_Write(0);  // Clear soft reset before starting
+ 161              		.loc 1 22 0
+ 162 000a 6420     		movs	r0, #100
+ 163 000c FFF7FEFF 		bl	CyDelay
+ 164              	.LVL19:
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 5
+
+
+  23:main.c        **** 
+ 165              		.loc 1 23 0
+ 166 0010 0020     		movs	r0, #0
+ 167 0012 FFF7FEFF 		bl	SOFT_RESET_Write
+ 168              	.LVL20:
+  26:main.c        **** 
+ 169              		.loc 1 26 0
+ 170 0016 FFF7FEFF 		bl	send_next_byte
+ 171              	.LVL21:
+  29:main.c        **** 
+ 172              		.loc 1 29 0
+ 173 001a 0120     		movs	r0, #1
+ 174 001c FFF7FEFF 		bl	PSOC_FPGA_Write
+ 175              	.LVL22:
+ 176              	.L10:
+  32:main.c        ****             send_next_byte();  // Send next byte
+ 177              		.loc 1 32 0
+ 178 0020 FFF7FEFF 		bl	FPGA_PSOC_Read
+ 179              	.LVL23:
+ 180 0024 0446     		mov	r4, r0
+ 181 0026 FFF7FEFF 		bl	PSOC_FPGA_Read
+ 182              	.LVL24:
+ 183 002a 8442     		cmp	r4, r0
+ 184 002c F8D1     		bne	.L10
+  33:main.c        ****         }
+ 185              		.loc 1 33 0
+ 186 002e FFF7FEFF 		bl	send_next_byte
+ 187              	.LVL25:
+ 188 0032 F5E7     		b	.L10
+ 189              		.cfi_endproc
+ 190              	.LFE63:
+ 191              		.size	main, .-main
+ 192              		.global	total_entries
+ 193              		.global	data_index
+ 194              		.global	merged_ram
+ 195              		.section	.rodata
+ 196              		.align	2
+ 197              		.set	.LANCHOR2,. + 0
+ 198              		.type	merged_ram, %object
+ 199              		.size	merged_ram, 3378
+ 200              	merged_ram:
+ 201 0000 0000     		.short	0
+ 202 0002 00       		.byte	0
+ 203 0003 00       		.byte	0
+ 204 0004 00       		.byte	0
+ 205 0005 00       		.byte	0
+ 206 0006 0100     		.short	1
+ 207 0008 00       		.byte	0
+ 208 0009 00       		.byte	0
+ 209 000a 00       		.byte	0
+ 210 000b 00       		.byte	0
+ 211 000c 0200     		.short	2
+ 212 000e 00       		.byte	0
+ 213 000f 00       		.byte	0
+ 214 0010 00       		.byte	0
+ 215 0011 00       		.byte	0
+ 216 0012 0300     		.short	3
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 6
+
+
+ 217 0014 00       		.byte	0
+ 218 0015 00       		.byte	0
+ 219 0016 00       		.byte	0
+ 220 0017 00       		.byte	0
+ 221 0018 0400     		.short	4
+ 222 001a 00       		.byte	0
+ 223 001b 00       		.byte	0
+ 224 001c 00       		.byte	0
+ 225 001d 00       		.byte	0
+ 226 001e 0500     		.short	5
+ 227 0020 00       		.byte	0
+ 228 0021 00       		.byte	0
+ 229 0022 00       		.byte	0
+ 230 0023 00       		.byte	0
+ 231 0024 0600     		.short	6
+ 232 0026 00       		.byte	0
+ 233 0027 00       		.byte	0
+ 234 0028 00       		.byte	0
+ 235 0029 00       		.byte	0
+ 236 002a 0700     		.short	7
+ 237 002c 00       		.byte	0
+ 238 002d 00       		.byte	0
+ 239 002e 00       		.byte	0
+ 240 002f 00       		.byte	0
+ 241 0030 0800     		.short	8
+ 242 0032 00       		.byte	0
+ 243 0033 00       		.byte	0
+ 244 0034 00       		.byte	0
+ 245 0035 00       		.byte	0
+ 246 0036 0900     		.short	9
+ 247 0038 00       		.byte	0
+ 248 0039 00       		.byte	0
+ 249 003a 00       		.byte	0
+ 250 003b 00       		.byte	0
+ 251 003c 0004     		.short	1024
+ 252 003e 00       		.byte	0
+ 253 003f 00       		.byte	0
+ 254 0040 00       		.byte	0
+ 255 0041 00       		.byte	0
+ 256 0042 0A00     		.short	10
+ 257 0044 40       		.byte	64
+ 258 0045 84       		.byte	-124
+ 259 0046 00       		.byte	0
+ 260 0047 00       		.byte	0
+ 261 0048 0B00     		.short	11
+ 262 004a 00       		.byte	0
+ 263 004b 00       		.byte	0
+ 264 004c 00       		.byte	0
+ 265 004d 00       		.byte	0
+ 266 004e 0C00     		.short	12
+ 267 0050 40       		.byte	64
+ 268 0051 76       		.byte	118
+ 269 0052 80       		.byte	-128
+ 270 0053 00       		.byte	0
+ 271 0054 0D00     		.short	13
+ 272 0056 00       		.byte	0
+ 273 0057 00       		.byte	0
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 7
+
+
+ 274 0058 00       		.byte	0
+ 275 0059 00       		.byte	0
+ 276 005a 0E00     		.short	14
+ 277 005c 00       		.byte	0
+ 278 005d 00       		.byte	0
+ 279 005e 00       		.byte	0
+ 280 005f 00       		.byte	0
+ 281 0060 0F00     		.short	15
+ 282 0062 00       		.byte	0
+ 283 0063 00       		.byte	0
+ 284 0064 00       		.byte	0
+ 285 0065 00       		.byte	0
+ 286 0066 1000     		.short	16
+ 287 0068 00       		.byte	0
+ 288 0069 00       		.byte	0
+ 289 006a 00       		.byte	0
+ 290 006b 00       		.byte	0
+ 291 006c 1100     		.short	17
+ 292 006e 00       		.byte	0
+ 293 006f 00       		.byte	0
+ 294 0070 00       		.byte	0
+ 295 0071 00       		.byte	0
+ 296 0072 1200     		.short	18
+ 297 0074 40       		.byte	64
+ 298 0075 8F       		.byte	-113
+ 299 0076 40       		.byte	64
+ 300 0077 00       		.byte	0
+ 301 0078 1300     		.short	19
+ 302 007a 00       		.byte	0
+ 303 007b 00       		.byte	0
+ 304 007c 00       		.byte	0
+ 305 007d 00       		.byte	0
+ 306 007e 0104     		.short	1025
+ 307 0080 00       		.byte	0
+ 308 0081 00       		.byte	0
+ 309 0082 00       		.byte	0
+ 310 0083 01       		.byte	1
+ 311 0084 1400     		.short	20
+ 312 0086 40       		.byte	64
+ 313 0087 76       		.byte	118
+ 314 0088 90       		.byte	-112
+ 315 0089 00       		.byte	0
+ 316 008a 1500     		.short	21
+ 317 008c 00       		.byte	0
+ 318 008d 00       		.byte	0
+ 319 008e 00       		.byte	0
+ 320 008f 00       		.byte	0
+ 321 0090 1600     		.short	22
+ 322 0092 40       		.byte	64
+ 323 0093 76       		.byte	118
+ 324 0094 80       		.byte	-128
+ 325 0095 00       		.byte	0
+ 326 0096 1700     		.short	23
+ 327 0098 00       		.byte	0
+ 328 0099 00       		.byte	0
+ 329 009a 00       		.byte	0
+ 330 009b 00       		.byte	0
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 8
+
+
+ 331 009c 1800     		.short	24
+ 332 009e 40       		.byte	64
+ 333 009f 86       		.byte	-122
+ 334 00a0 F6       		.byte	-10
+ 335 00a1 58       		.byte	88
+ 336 00a2 1900     		.short	25
+ 337 00a4 68       		.byte	104
+ 338 00a5 8E       		.byte	-114
+ 339 00a6 AD       		.byte	-83
+ 340 00a7 10       		.byte	16
+ 341 00a8 1A00     		.short	26
+ 342 00aa 40       		.byte	64
+ 343 00ab 7F       		.byte	127
+ 344 00ac D1       		.byte	-47
+ 345 00ad DE       		.byte	-34
+ 346 00ae 1B00     		.short	27
+ 347 00b0 C0       		.byte	-64
+ 348 00b1 22       		.byte	34
+ 349 00b2 EC       		.byte	-20
+ 350 00b3 14       		.byte	20
+ 351 00b4 1C00     		.short	28
+ 352 00b6 3F       		.byte	63
+ 353 00b7 74       		.byte	116
+ 354 00b8 7A       		.byte	122
+ 355 00b9 E1       		.byte	-31
+ 356 00ba 1D00     		.short	29
+ 357 00bc 47       		.byte	71
+ 358 00bd AE       		.byte	-82
+ 359 00be 14       		.byte	20
+ 360 00bf 7B       		.byte	123
+ 361 00c0 0204     		.short	1026
+ 362 00c2 00       		.byte	0
+ 363 00c3 00       		.byte	0
+ 364 00c4 04       		.byte	4
+ 365 00c5 42       		.byte	66
+ 366 00c6 1E00     		.short	30
+ 367 00c8 40       		.byte	64
+ 368 00c9 76       		.byte	118
+ 369 00ca 90       		.byte	-112
+ 370 00cb 00       		.byte	0
+ 371 00cc 1F00     		.short	31
+ 372 00ce 00       		.byte	0
+ 373 00cf 00       		.byte	0
+ 374 00d0 00       		.byte	0
+ 375 00d1 00       		.byte	0
+ 376 00d2 2000     		.short	32
+ 377 00d4 40       		.byte	64
+ 378 00d5 76       		.byte	118
+ 379 00d6 90       		.byte	-112
+ 380 00d7 00       		.byte	0
+ 381 00d8 2100     		.short	33
+ 382 00da 00       		.byte	0
+ 383 00db 00       		.byte	0
+ 384 00dc 00       		.byte	0
+ 385 00dd 00       		.byte	0
+ 386 00de 2200     		.short	34
+ 387 00e0 40       		.byte	64
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 9
+
+
+ 388 00e1 86       		.byte	-122
+ 389 00e2 F6       		.byte	-10
+ 390 00e3 58       		.byte	88
+ 391 00e4 2300     		.short	35
+ 392 00e6 68       		.byte	104
+ 393 00e7 8E       		.byte	-114
+ 394 00e8 AD       		.byte	-83
+ 395 00e9 10       		.byte	16
+ 396 00ea 2400     		.short	36
+ 397 00ec 40       		.byte	64
+ 398 00ed 7F       		.byte	127
+ 399 00ee DD       		.byte	-35
+ 400 00ef 31       		.byte	49
+ 401 00f0 2500     		.short	37
+ 402 00f2 11       		.byte	17
+ 403 00f3 85       		.byte	-123
+ 404 00f4 8B       		.byte	-117
+ 405 00f5 3A       		.byte	58
+ 406 00f6 2600     		.short	38
+ 407 00f8 3F       		.byte	63
+ 408 00f9 F0       		.byte	-16
+ 409 00fa 14       		.byte	20
+ 410 00fb 7A       		.byte	122
+ 411 00fc 2700     		.short	39
+ 412 00fe E1       		.byte	-31
+ 413 00ff 47       		.byte	71
+ 414 0100 AE       		.byte	-82
+ 415 0101 14       		.byte	20
+ 416 0102 0304     		.short	1027
+ 417 0104 00       		.byte	0
+ 418 0105 00       		.byte	0
+ 419 0106 05       		.byte	5
+ 420 0107 53       		.byte	83
+ 421 0108 2800     		.short	40
+ 422 010a 40       		.byte	64
+ 423 010b 76       		.byte	118
+ 424 010c A0       		.byte	-96
+ 425 010d 00       		.byte	0
+ 426 010e 2900     		.short	41
+ 427 0110 00       		.byte	0
+ 428 0111 00       		.byte	0
+ 429 0112 00       		.byte	0
+ 430 0113 00       		.byte	0
+ 431 0114 2A00     		.short	42
+ 432 0116 40       		.byte	64
+ 433 0117 76       		.byte	118
+ 434 0118 A0       		.byte	-96
+ 435 0119 00       		.byte	0
+ 436 011a 2B00     		.short	43
+ 437 011c 00       		.byte	0
+ 438 011d 00       		.byte	0
+ 439 011e 00       		.byte	0
+ 440 011f 00       		.byte	0
+ 441 0120 2C00     		.short	44
+ 442 0122 40       		.byte	64
+ 443 0123 86       		.byte	-122
+ 444 0124 FA       		.byte	-6
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 10
+
+
+ 445 0125 47       		.byte	71
+ 446 0126 2D00     		.short	45
+ 447 0128 A2       		.byte	-94
+ 448 0129 F2       		.byte	-14
+ 449 012a 99       		.byte	-103
+ 450 012b 7C       		.byte	124
+ 451 012c 2E00     		.short	46
+ 452 012e 40       		.byte	64
+ 453 012f 7F       		.byte	127
+ 454 0130 E8       		.byte	-24
+ 455 0131 87       		.byte	-121
+ 456 0132 2F00     		.short	47
+ 457 0134 64       		.byte	100
+ 458 0135 6C       		.byte	108
+ 459 0136 E5       		.byte	-27
+ 460 0137 63       		.byte	99
+ 461 0138 3000     		.short	48
+ 462 013a 40       		.byte	64
+ 463 013b 00       		.byte	0
+ 464 013c 0A       		.byte	10
+ 465 013d 3D       		.byte	61
+ 466 013e 3100     		.short	49
+ 467 0140 70       		.byte	112
+ 468 0141 A3       		.byte	-93
+ 469 0142 D7       		.byte	-41
+ 470 0143 0A       		.byte	10
+ 471 0144 0404     		.short	1028
+ 472 0146 00       		.byte	0
+ 473 0147 00       		.byte	0
+ 474 0148 06       		.byte	6
+ 475 0149 64       		.byte	100
+ 476 014a 3200     		.short	50
+ 477 014c 40       		.byte	64
+ 478 014d 76       		.byte	118
+ 479 014e B0       		.byte	-80
+ 480 014f 00       		.byte	0
+ 481 0150 3300     		.short	51
+ 482 0152 00       		.byte	0
+ 483 0153 00       		.byte	0
+ 484 0154 00       		.byte	0
+ 485 0155 00       		.byte	0
+ 486 0156 3400     		.short	52
+ 487 0158 40       		.byte	64
+ 488 0159 76       		.byte	118
+ 489 015a B0       		.byte	-80
+ 490 015b 00       		.byte	0
+ 491 015c 3500     		.short	53
+ 492 015e 00       		.byte	0
+ 493 015f 00       		.byte	0
+ 494 0160 00       		.byte	0
+ 495 0161 00       		.byte	0
+ 496 0162 3600     		.short	54
+ 497 0164 40       		.byte	64
+ 498 0165 86       		.byte	-122
+ 499 0166 FE       		.byte	-2
+ 500 0167 38       		.byte	56
+ 501 0168 3700     		.short	55
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 11
+
+
+ 502 016a F9       		.byte	-7
+ 503 016b 8C       		.byte	-116
+ 504 016c 59       		.byte	89
+ 505 016d 69       		.byte	105
+ 506 016e 3800     		.short	56
+ 507 0170 40       		.byte	64
+ 508 0171 7F       		.byte	127
+ 509 0172 F3       		.byte	-13
+ 510 0173 E1       		.byte	-31
+ 511 0174 3900     		.short	57
+ 512 0176 B4       		.byte	-76
+ 513 0177 95       		.byte	-107
+ 514 0178 60       		.byte	96
+ 515 0179 F3       		.byte	-13
+ 516 017a 3A00     		.short	58
+ 517 017c 40       		.byte	64
+ 518 017d 08       		.byte	8
+ 519 017e 0A       		.byte	10
+ 520 017f 3D       		.byte	61
+ 521 0180 3B00     		.short	59
+ 522 0182 70       		.byte	112
+ 523 0183 A3       		.byte	-93
+ 524 0184 D7       		.byte	-41
+ 525 0185 0A       		.byte	10
+ 526 0186 0504     		.short	1029
+ 527 0188 00       		.byte	0
+ 528 0189 00       		.byte	0
+ 529 018a 07       		.byte	7
+ 530 018b 75       		.byte	117
+ 531 018c 3C00     		.short	60
+ 532 018e 40       		.byte	64
+ 533 018f 76       		.byte	118
+ 534 0190 C0       		.byte	-64
+ 535 0191 00       		.byte	0
+ 536 0192 3D00     		.short	61
+ 537 0194 00       		.byte	0
+ 538 0195 00       		.byte	0
+ 539 0196 00       		.byte	0
+ 540 0197 00       		.byte	0
+ 541 0198 3E00     		.short	62
+ 542 019a 40       		.byte	64
+ 543 019b 76       		.byte	118
+ 544 019c C0       		.byte	-64
+ 545 019d 00       		.byte	0
+ 546 019e 3F00     		.short	63
+ 547 01a0 00       		.byte	0
+ 548 01a1 00       		.byte	0
+ 549 01a2 00       		.byte	0
+ 550 01a3 00       		.byte	0
+ 551 01a4 4000     		.short	64
+ 552 01a6 40       		.byte	64
+ 553 01a7 87       		.byte	-121
+ 554 01a8 02       		.byte	2
+ 555 01a9 2C       		.byte	44
+ 556 01aa 4100     		.short	65
+ 557 01ac 6B       		.byte	107
+ 558 01ad 46       		.byte	70
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 12
+
+
+ 559 01ae 36       		.byte	54
+ 560 01af D3       		.byte	-45
+ 561 01b0 4200     		.short	66
+ 562 01b2 40       		.byte	64
+ 563 01b3 7F       		.byte	127
+ 564 01b4 FF       		.byte	-1
+ 565 01b5 3F       		.byte	63
+ 566 01b6 4300     		.short	67
+ 567 01b8 FD       		.byte	-3
+ 568 01b9 BF       		.byte	-65
+ 569 01ba F2       		.byte	-14
+ 570 01bb 7A       		.byte	122
+ 571 01bc 4400     		.short	68
+ 572 01be 40       		.byte	64
+ 573 01bf 10       		.byte	16
+ 574 01c0 05       		.byte	5
+ 575 01c1 1E       		.byte	30
+ 576 01c2 4500     		.short	69
+ 577 01c4 B8       		.byte	-72
+ 578 01c5 51       		.byte	81
+ 579 01c6 EB       		.byte	-21
+ 580 01c7 85       		.byte	-123
+ 581 01c8 0604     		.short	1030
+ 582 01ca 00       		.byte	0
+ 583 01cb 00       		.byte	0
+ 584 01cc 08       		.byte	8
+ 585 01cd 86       		.byte	-122
+ 586 01ce 4600     		.short	70
+ 587 01d0 40       		.byte	64
+ 588 01d1 76       		.byte	118
+ 589 01d2 D0       		.byte	-48
+ 590 01d3 00       		.byte	0
+ 591 01d4 4700     		.short	71
+ 592 01d6 00       		.byte	0
+ 593 01d7 00       		.byte	0
+ 594 01d8 00       		.byte	0
+ 595 01d9 00       		.byte	0
+ 596 01da 4800     		.short	72
+ 597 01dc 40       		.byte	64
+ 598 01dd 76       		.byte	118
+ 599 01de D0       		.byte	-48
+ 600 01df 00       		.byte	0
+ 601 01e0 4900     		.short	73
+ 602 01e2 00       		.byte	0
+ 603 01e3 00       		.byte	0
+ 604 01e4 00       		.byte	0
+ 605 01e5 00       		.byte	0
+ 606 01e6 4A00     		.short	74
+ 607 01e8 40       		.byte	64
+ 608 01e9 87       		.byte	-121
+ 609 01ea 06       		.byte	6
+ 610 01eb 21       		.byte	33
+ 611 01ec 4B00     		.short	75
+ 612 01ee F7       		.byte	-9
+ 613 01ef 0A       		.byte	10
+ 614 01f0 A6       		.byte	-90
+ 615 01f1 4C       		.byte	76
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 13
+
+
+ 616 01f2 4C00     		.short	76
+ 617 01f4 40       		.byte	64
+ 618 01f5 80       		.byte	-128
+ 619 01f6 05       		.byte	5
+ 620 01f7 51       		.byte	81
+ 621 01f8 4D00     		.short	77
+ 622 01fa 1D       		.byte	29
+ 623 01fb D9       		.byte	-39
+ 624 01fc 0C       		.byte	12
+ 625 01fd FA       		.byte	-6
+ 626 01fe 4E00     		.short	78
+ 627 0200 40       		.byte	64
+ 628 0201 14       		.byte	20
+ 629 0202 05       		.byte	5
+ 630 0203 1E       		.byte	30
+ 631 0204 4F00     		.short	79
+ 632 0206 B8       		.byte	-72
+ 633 0207 51       		.byte	81
+ 634 0208 EB       		.byte	-21
+ 635 0209 85       		.byte	-123
+ 636 020a 0704     		.short	1031
+ 637 020c 00       		.byte	0
+ 638 020d 00       		.byte	0
+ 639 020e 09       		.byte	9
+ 640 020f 97       		.byte	-105
+ 641 0210 5000     		.short	80
+ 642 0212 40       		.byte	64
+ 643 0213 76       		.byte	118
+ 644 0214 E0       		.byte	-32
+ 645 0215 00       		.byte	0
+ 646 0216 5100     		.short	81
+ 647 0218 00       		.byte	0
+ 648 0219 00       		.byte	0
+ 649 021a 00       		.byte	0
+ 650 021b 00       		.byte	0
+ 651 021c 5200     		.short	82
+ 652 021e 40       		.byte	64
+ 653 021f 76       		.byte	118
+ 654 0220 E0       		.byte	-32
+ 655 0221 00       		.byte	0
+ 656 0222 5300     		.short	83
+ 657 0224 00       		.byte	0
+ 658 0225 00       		.byte	0
+ 659 0226 00       		.byte	0
+ 660 0227 00       		.byte	0
+ 661 0228 5400     		.short	84
+ 662 022a 40       		.byte	64
+ 663 022b 87       		.byte	-121
+ 664 022c 0A       		.byte	10
+ 665 022d 19       		.byte	25
+ 666 022e 5500     		.short	85
+ 667 0230 9B       		.byte	-101
+ 668 0231 C4       		.byte	-60
+ 669 0232 47       		.byte	71
+ 670 0233 A5       		.byte	-91
+ 671 0234 5600     		.short	86
+ 672 0236 40       		.byte	64
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 14
+
+
+ 673 0237 80       		.byte	-128
+ 674 0238 0B       		.byte	11
+ 675 0239 04       		.byte	4
+ 676 023a 5700     		.short	87
+ 677 023c 35       		.byte	53
+ 678 023d 1A       		.byte	26
+ 679 023e EF       		.byte	-17
+ 680 023f D8       		.byte	-40
+ 681 0240 5800     		.short	88
+ 682 0242 40       		.byte	64
+ 683 0243 18       		.byte	24
+ 684 0244 05       		.byte	5
+ 685 0245 1E       		.byte	30
+ 686 0246 5900     		.short	89
+ 687 0248 B8       		.byte	-72
+ 688 0249 51       		.byte	81
+ 689 024a EB       		.byte	-21
+ 690 024b 85       		.byte	-123
+ 691 024c 0804     		.short	1032
+ 692 024e 00       		.byte	0
+ 693 024f 00       		.byte	0
+ 694 0250 0A       		.byte	10
+ 695 0251 A8       		.byte	-88
+ 696 0252 5A00     		.short	90
+ 697 0254 40       		.byte	64
+ 698 0255 76       		.byte	118
+ 699 0256 F0       		.byte	-16
+ 700 0257 00       		.byte	0
+ 701 0258 5B00     		.short	91
+ 702 025a 00       		.byte	0
+ 703 025b 00       		.byte	0
+ 704 025c 00       		.byte	0
+ 705 025d 00       		.byte	0
+ 706 025e 5C00     		.short	92
+ 707 0260 40       		.byte	64
+ 708 0261 76       		.byte	118
+ 709 0262 F0       		.byte	-16
+ 710 0263 00       		.byte	0
+ 711 0264 5D00     		.short	93
+ 712 0266 00       		.byte	0
+ 713 0267 00       		.byte	0
+ 714 0268 00       		.byte	0
+ 715 0269 00       		.byte	0
+ 716 026a 5E00     		.short	94
+ 717 026c 40       		.byte	64
+ 718 026d 87       		.byte	-121
+ 719 026e 0E       		.byte	14
+ 720 026f 13       		.byte	19
+ 721 0270 5F00     		.short	95
+ 722 0272 58       		.byte	88
+ 723 0273 5D       		.byte	93
+ 724 0274 E6       		.byte	-26
+ 725 0275 E9       		.byte	-23
+ 726 0276 6000     		.short	96
+ 727 0278 40       		.byte	64
+ 728 0279 80       		.byte	-128
+ 729 027a 10       		.byte	16
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 15
+
+
+ 730 027b B9       		.byte	-71
+ 731 027c 6100     		.short	97
+ 732 027e 42       		.byte	66
+ 733 027f 8C       		.byte	-116
+ 734 0280 E9       		.byte	-23
+ 735 0281 0F       		.byte	15
+ 736 0282 6200     		.short	98
+ 737 0284 40       		.byte	64
+ 738 0285 1C       		.byte	28
+ 739 0286 05       		.byte	5
+ 740 0287 1E       		.byte	30
+ 741 0288 6300     		.short	99
+ 742 028a B8       		.byte	-72
+ 743 028b 51       		.byte	81
+ 744 028c EB       		.byte	-21
+ 745 028d 85       		.byte	-123
+ 746 028e 0904     		.short	1033
+ 747 0290 00       		.byte	0
+ 748 0291 00       		.byte	0
+ 749 0292 0B       		.byte	11
+ 750 0293 B9       		.byte	-71
+ 751 0294 6400     		.short	100
+ 752 0296 40       		.byte	64
+ 753 0297 77       		.byte	119
+ 754 0298 00       		.byte	0
+ 755 0299 00       		.byte	0
+ 756 029a 6500     		.short	101
+ 757 029c 00       		.byte	0
+ 758 029d 00       		.byte	0
+ 759 029e 00       		.byte	0
+ 760 029f 00       		.byte	0
+ 761 02a0 6600     		.short	102
+ 762 02a2 40       		.byte	64
+ 763 02a3 77       		.byte	119
+ 764 02a4 00       		.byte	0
+ 765 02a5 00       		.byte	0
+ 766 02a6 6700     		.short	103
+ 767 02a8 00       		.byte	0
+ 768 02a9 00       		.byte	0
+ 769 02aa 00       		.byte	0
+ 770 02ab 00       		.byte	0
+ 771 02ac 6800     		.short	104
+ 772 02ae 40       		.byte	64
+ 773 02af 87       		.byte	-121
+ 774 02b0 12       		.byte	18
+ 775 02b1 0F       		.byte	15
+ 776 02b2 6900     		.short	105
+ 777 02b4 2B       		.byte	43
+ 778 02b5 C2       		.byte	-62
+ 779 02b6 7D       		.byte	125
+ 780 02b7 2E       		.byte	46
+ 781 02b8 6A00     		.short	106
+ 782 02ba 40       		.byte	64
+ 783 02bb 80       		.byte	-128
+ 784 02bc 16       		.byte	22
+ 785 02bd 70       		.byte	112
+ 786 02be 6B00     		.short	107
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 16
+
+
+ 787 02c0 44       		.byte	68
+ 788 02c1 18       		.byte	24
+ 789 02c2 81       		.byte	-127
+ 790 02c3 0E       		.byte	14
+ 791 02c4 6C00     		.short	108
+ 792 02c6 40       		.byte	64
+ 793 02c7 20       		.byte	32
+ 794 02c8 02       		.byte	2
+ 795 02c9 8F       		.byte	-113
+ 796 02ca 6D00     		.short	109
+ 797 02cc 5C       		.byte	92
+ 798 02cd 28       		.byte	40
+ 799 02ce F5       		.byte	-11
+ 800 02cf C3       		.byte	-61
+ 801 02d0 0A04     		.short	1034
+ 802 02d2 00       		.byte	0
+ 803 02d3 00       		.byte	0
+ 804 02d4 0C       		.byte	12
+ 805 02d5 CA       		.byte	-54
+ 806 02d6 6E00     		.short	110
+ 807 02d8 40       		.byte	64
+ 808 02d9 77       		.byte	119
+ 809 02da 10       		.byte	16
+ 810 02db 00       		.byte	0
+ 811 02dc 6F00     		.short	111
+ 812 02de 00       		.byte	0
+ 813 02df 00       		.byte	0
+ 814 02e0 00       		.byte	0
+ 815 02e1 00       		.byte	0
+ 816 02e2 7000     		.short	112
+ 817 02e4 40       		.byte	64
+ 818 02e5 77       		.byte	119
+ 819 02e6 10       		.byte	16
+ 820 02e7 00       		.byte	0
+ 821 02e8 7100     		.short	113
+ 822 02ea 00       		.byte	0
+ 823 02eb 00       		.byte	0
+ 824 02ec 00       		.byte	0
+ 825 02ed 00       		.byte	0
+ 826 02ee 7200     		.short	114
+ 827 02f0 40       		.byte	64
+ 828 02f1 87       		.byte	-121
+ 829 02f2 16       		.byte	22
+ 830 02f3 0D       		.byte	13
+ 831 02f4 7300     		.short	115
+ 832 02f6 14       		.byte	20
+ 833 02f7 DD       		.byte	-35
+ 834 02f8 31       		.byte	49
+ 835 02f9 4F       		.byte	79
+ 836 02fa 7400     		.short	116
+ 837 02fc 40       		.byte	64
+ 838 02fd 80       		.byte	-128
+ 839 02fe 1C       		.byte	28
+ 840 02ff 29       		.byte	41
+ 841 0300 7500     		.short	117
+ 842 0302 37       		.byte	55
+ 843 0303 A9       		.byte	-87
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 17
+
+
+ 844 0304 80       		.byte	-128
+ 845 0305 5F       		.byte	95
+ 846 0306 7600     		.short	118
+ 847 0308 40       		.byte	64
+ 848 0309 22       		.byte	34
+ 849 030a 02       		.byte	2
+ 850 030b 8F       		.byte	-113
+ 851 030c 7700     		.short	119
+ 852 030e 5C       		.byte	92
+ 853 030f 28       		.byte	40
+ 854 0310 F5       		.byte	-11
+ 855 0311 C3       		.byte	-61
+ 856 0312 0B04     		.short	1035
+ 857 0314 00       		.byte	0
+ 858 0315 00       		.byte	0
+ 859 0316 0D       		.byte	13
+ 860 0317 DB       		.byte	-37
+ 861 0318 7800     		.short	120
+ 862 031a 40       		.byte	64
+ 863 031b 77       		.byte	119
+ 864 031c 20       		.byte	32
+ 865 031d 00       		.byte	0
+ 866 031e 7900     		.short	121
+ 867 0320 00       		.byte	0
+ 868 0321 00       		.byte	0
+ 869 0322 00       		.byte	0
+ 870 0323 00       		.byte	0
+ 871 0324 7A00     		.short	122
+ 872 0326 40       		.byte	64
+ 873 0327 77       		.byte	119
+ 874 0328 20       		.byte	32
+ 875 0329 00       		.byte	0
+ 876 032a 7B00     		.short	123
+ 877 032c 00       		.byte	0
+ 878 032d 00       		.byte	0
+ 879 032e 00       		.byte	0
+ 880 032f 00       		.byte	0
+ 881 0330 7C00     		.short	124
+ 882 0332 40       		.byte	64
+ 883 0333 87       		.byte	-121
+ 884 0334 1A       		.byte	26
+ 885 0335 0D       		.byte	13
+ 886 0336 7D00     		.short	125
+ 887 0338 12       		.byte	18
+ 888 0339 99       		.byte	-103
+ 889 033a 58       		.byte	88
+ 890 033b D0       		.byte	-48
+ 891 033c 7E00     		.short	126
+ 892 033e 40       		.byte	64
+ 893 033f 80       		.byte	-128
+ 894 0340 21       		.byte	33
+ 895 0341 E4       		.byte	-28
+ 896 0342 7F00     		.short	127
+ 897 0344 1B       		.byte	27
+ 898 0345 2D       		.byte	45
+ 899 0346 ED       		.byte	-19
+ 900 0347 DD       		.byte	-35
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 18
+
+
+ 901 0348 8000     		.short	128
+ 902 034a 40       		.byte	64
+ 903 034b 24       		.byte	36
+ 904 034c 02       		.byte	2
+ 905 034d 8F       		.byte	-113
+ 906 034e 8100     		.short	129
+ 907 0350 5C       		.byte	92
+ 908 0351 28       		.byte	40
+ 909 0352 F5       		.byte	-11
+ 910 0353 C3       		.byte	-61
+ 911 0354 0C04     		.short	1036
+ 912 0356 00       		.byte	0
+ 913 0357 00       		.byte	0
+ 914 0358 0E       		.byte	14
+ 915 0359 EC       		.byte	-20
+ 916 035a 8200     		.short	130
+ 917 035c 40       		.byte	64
+ 918 035d 77       		.byte	119
+ 919 035e 30       		.byte	48
+ 920 035f 00       		.byte	0
+ 921 0360 8300     		.short	131
+ 922 0362 00       		.byte	0
+ 923 0363 00       		.byte	0
+ 924 0364 00       		.byte	0
+ 925 0365 00       		.byte	0
+ 926 0366 8400     		.short	132
+ 927 0368 40       		.byte	64
+ 928 0369 77       		.byte	119
+ 929 036a 30       		.byte	48
+ 930 036b 00       		.byte	0
+ 931 036c 8500     		.short	133
+ 932 036e 00       		.byte	0
+ 933 036f 00       		.byte	0
+ 934 0370 00       		.byte	0
+ 935 0371 00       		.byte	0
+ 936 0372 8600     		.short	134
+ 937 0374 40       		.byte	64
+ 938 0375 87       		.byte	-121
+ 939 0376 1E       		.byte	30
+ 940 0377 0F       		.byte	15
+ 941 0378 8700     		.short	135
+ 942 037a 23       		.byte	35
+ 943 037b E2       		.byte	-30
+ 944 037c 78       		.byte	120
+ 945 037d BA       		.byte	-70
+ 946 037e 8800     		.short	136
+ 947 0380 40       		.byte	64
+ 948 0381 80       		.byte	-128
+ 949 0382 27       		.byte	39
+ 950 0383 A0       		.byte	-96
+ 951 0384 8900     		.short	137
+ 952 0386 EC       		.byte	-20
+ 953 0387 96       		.byte	-106
+ 954 0388 0D       		.byte	13
+ 955 0389 8F       		.byte	-113
+ 956 038a 8A00     		.short	138
+ 957 038c 40       		.byte	64
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 19
+
+
+ 958 038d 26       		.byte	38
+ 959 038e 02       		.byte	2
+ 960 038f 8F       		.byte	-113
+ 961 0390 8B00     		.short	139
+ 962 0392 5C       		.byte	92
+ 963 0393 28       		.byte	40
+ 964 0394 F5       		.byte	-11
+ 965 0395 C3       		.byte	-61
+ 966 0396 0D04     		.short	1037
+ 967 0398 00       		.byte	0
+ 968 0399 00       		.byte	0
+ 969 039a 0F       		.byte	15
+ 970 039b FD       		.byte	-3
+ 971 039c 8C00     		.short	140
+ 972 039e 40       		.byte	64
+ 973 039f 77       		.byte	119
+ 974 03a0 40       		.byte	64
+ 975 03a1 00       		.byte	0
+ 976 03a2 8D00     		.short	141
+ 977 03a4 00       		.byte	0
+ 978 03a5 00       		.byte	0
+ 979 03a6 00       		.byte	0
+ 980 03a7 00       		.byte	0
+ 981 03a8 8E00     		.short	142
+ 982 03aa 40       		.byte	64
+ 983 03ab 77       		.byte	119
+ 984 03ac 40       		.byte	64
+ 985 03ad 00       		.byte	0
+ 986 03ae 8F00     		.short	143
+ 987 03b0 00       		.byte	0
+ 988 03b1 00       		.byte	0
+ 989 03b2 00       		.byte	0
+ 990 03b3 00       		.byte	0
+ 991 03b4 9000     		.short	144
+ 992 03b6 40       		.byte	64
+ 993 03b7 87       		.byte	-121
+ 994 03b8 22       		.byte	34
+ 995 03b9 13       		.byte	19
+ 996 03ba 9100     		.short	145
+ 997 03bc 47       		.byte	71
+ 998 03bd A4       		.byte	-92
+ 999 03be 46       		.byte	70
+ 1000 03bf 66       		.byte	102
+ 1001 03c0 9200     		.short	146
+ 1002 03c2 40       		.byte	64
+ 1003 03c3 80       		.byte	-128
+ 1004 03c4 2D       		.byte	45
+ 1005 03c5 5F       		.byte	95
+ 1006 03c6 9300     		.short	147
+ 1007 03c8 A9       		.byte	-87
+ 1008 03c9 D4       		.byte	-44
+ 1009 03ca 5E       		.byte	94
+ 1010 03cb D5       		.byte	-43
+ 1011 03cc 9400     		.short	148
+ 1012 03ce 40       		.byte	64
+ 1013 03cf 28       		.byte	40
+ 1014 03d0 02       		.byte	2
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 20
+
+
+ 1015 03d1 8F       		.byte	-113
+ 1016 03d2 9500     		.short	149
+ 1017 03d4 5C       		.byte	92
+ 1018 03d5 28       		.byte	40
+ 1019 03d6 F5       		.byte	-11
+ 1020 03d7 C3       		.byte	-61
+ 1021 03d8 0E04     		.short	1038
+ 1022 03da 00       		.byte	0
+ 1023 03db 00       		.byte	0
+ 1024 03dc 00       		.byte	0
+ 1025 03dd 0E       		.byte	14
+ 1026 03de 9600     		.short	150
+ 1027 03e0 40       		.byte	64
+ 1028 03e1 77       		.byte	119
+ 1029 03e2 50       		.byte	80
+ 1030 03e3 00       		.byte	0
+ 1031 03e4 9700     		.short	151
+ 1032 03e6 00       		.byte	0
+ 1033 03e7 00       		.byte	0
+ 1034 03e8 00       		.byte	0
+ 1035 03e9 00       		.byte	0
+ 1036 03ea 9800     		.short	152
+ 1037 03ec 40       		.byte	64
+ 1038 03ed 77       		.byte	119
+ 1039 03ee 50       		.byte	80
+ 1040 03ef 00       		.byte	0
+ 1041 03f0 9900     		.short	153
+ 1042 03f2 00       		.byte	0
+ 1043 03f3 00       		.byte	0
+ 1044 03f4 00       		.byte	0
+ 1045 03f5 00       		.byte	0
+ 1046 03f6 9A00     		.short	154
+ 1047 03f8 40       		.byte	64
+ 1048 03f9 87       		.byte	-121
+ 1049 03fa 26       		.byte	38
+ 1050 03fb 19       		.byte	25
+ 1051 03fc 9B00     		.short	155
+ 1052 03fe 7C       		.byte	124
+ 1053 03ff CA       		.byte	-54
+ 1054 0400 A8       		.byte	-88
+ 1055 0401 33       		.byte	51
+ 1056 0402 9C00     		.short	156
+ 1057 0404 40       		.byte	64
+ 1058 0405 80       		.byte	-128
+ 1059 0406 33       		.byte	51
+ 1060 0407 20       		.byte	32
+ 1061 0408 9D00     		.short	157
+ 1062 040a 50       		.byte	80
+ 1063 040b DD       		.byte	-35
+ 1064 040c 9B       		.byte	-101
+ 1065 040d 1A       		.byte	26
+ 1066 040e 9E00     		.short	158
+ 1067 0410 40       		.byte	64
+ 1068 0411 2A       		.byte	42
+ 1069 0412 02       		.byte	2
+ 1070 0413 8F       		.byte	-113
+ 1071 0414 9F00     		.short	159
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 21
+
+
+ 1072 0416 5C       		.byte	92
+ 1073 0417 28       		.byte	40
+ 1074 0418 F5       		.byte	-11
+ 1075 0419 C3       		.byte	-61
+ 1076 041a 0F04     		.short	1039
+ 1077 041c 00       		.byte	0
+ 1078 041d 00       		.byte	0
+ 1079 041e 01       		.byte	1
+ 1080 041f 1F       		.byte	31
+ 1081 0420 A000     		.short	160
+ 1082 0422 40       		.byte	64
+ 1083 0423 77       		.byte	119
+ 1084 0424 60       		.byte	96
+ 1085 0425 00       		.byte	0
+ 1086 0426 A100     		.short	161
+ 1087 0428 00       		.byte	0
+ 1088 0429 00       		.byte	0
+ 1089 042a 00       		.byte	0
+ 1090 042b 00       		.byte	0
+ 1091 042c A200     		.short	162
+ 1092 042e 40       		.byte	64
+ 1093 042f 77       		.byte	119
+ 1094 0430 60       		.byte	96
+ 1095 0431 00       		.byte	0
+ 1096 0432 A300     		.short	163
+ 1097 0434 00       		.byte	0
+ 1098 0435 00       		.byte	0
+ 1099 0436 00       		.byte	0
+ 1100 0437 00       		.byte	0
+ 1101 0438 A400     		.short	164
+ 1102 043a 40       		.byte	64
+ 1103 043b 87       		.byte	-121
+ 1104 043c 2A       		.byte	42
+ 1105 043d 21       		.byte	33
+ 1106 043e A500     		.short	165
+ 1107 0440 C2       		.byte	-62
+ 1108 0441 41       		.byte	65
+ 1109 0442 B6       		.byte	-74
+ 1110 0443 6F       		.byte	111
+ 1111 0444 A600     		.short	166
+ 1112 0446 40       		.byte	64
+ 1113 0447 80       		.byte	-128
+ 1114 0448 38       		.byte	56
+ 1115 0449 E2       		.byte	-30
+ 1116 044a A700     		.short	167
+ 1117 044c DF       		.byte	-33
+ 1118 044d A8       		.byte	-88
+ 1119 044e B4       		.byte	-76
+ 1120 044f 43       		.byte	67
+ 1121 0450 A800     		.short	168
+ 1122 0452 40       		.byte	64
+ 1123 0453 2C       		.byte	44
+ 1124 0454 02       		.byte	2
+ 1125 0455 8F       		.byte	-113
+ 1126 0456 A900     		.short	169
+ 1127 0458 5C       		.byte	92
+ 1128 0459 28       		.byte	40
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 22
+
+
+ 1129 045a F5       		.byte	-11
+ 1130 045b C3       		.byte	-61
+ 1131 045c 1004     		.short	1040
+ 1132 045e 00       		.byte	0
+ 1133 045f 00       		.byte	0
+ 1134 0460 02       		.byte	2
+ 1135 0461 20       		.byte	32
+ 1136 0462 AA00     		.short	170
+ 1137 0464 40       		.byte	64
+ 1138 0465 77       		.byte	119
+ 1139 0466 70       		.byte	112
+ 1140 0467 00       		.byte	0
+ 1141 0468 AB00     		.short	171
+ 1142 046a 00       		.byte	0
+ 1143 046b 00       		.byte	0
+ 1144 046c 00       		.byte	0
+ 1145 046d 00       		.byte	0
+ 1146 046e AC00     		.short	172
+ 1147 0470 40       		.byte	64
+ 1148 0471 77       		.byte	119
+ 1149 0472 70       		.byte	112
+ 1150 0473 00       		.byte	0
+ 1151 0474 AD00     		.short	173
+ 1152 0476 00       		.byte	0
+ 1153 0477 00       		.byte	0
+ 1154 0478 00       		.byte	0
+ 1155 0479 00       		.byte	0
+ 1156 047a AE00     		.short	174
+ 1157 047c 40       		.byte	64
+ 1158 047d 87       		.byte	-121
+ 1159 047e 2E       		.byte	46
+ 1160 047f 2C       		.byte	44
+ 1161 0480 AF00     		.short	175
+ 1162 0482 16       		.byte	22
+ 1163 0483 F5       		.byte	-11
+ 1164 0484 BC       		.byte	-68
+ 1165 0485 0C       		.byte	12
+ 1166 0486 B000     		.short	176
+ 1167 0488 40       		.byte	64
+ 1168 0489 80       		.byte	-128
+ 1169 048a 3E       		.byte	62
+ 1170 048b A7       		.byte	-89
+ 1171 048c B100     		.short	177
+ 1172 048e 54       		.byte	84
+ 1173 048f 2E       		.byte	46
+ 1174 0490 D3       		.byte	-45
+ 1175 0491 0B       		.byte	11
+ 1176 0492 B200     		.short	178
+ 1177 0494 40       		.byte	64
+ 1178 0495 2E       		.byte	46
+ 1179 0496 02       		.byte	2
+ 1180 0497 8F       		.byte	-113
+ 1181 0498 B300     		.short	179
+ 1182 049a 5C       		.byte	92
+ 1183 049b 28       		.byte	40
+ 1184 049c F5       		.byte	-11
+ 1185 049d C3       		.byte	-61
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 23
+
+
+ 1186 049e 1104     		.short	1041
+ 1187 04a0 00       		.byte	0
+ 1188 04a1 00       		.byte	0
+ 1189 04a2 03       		.byte	3
+ 1190 04a3 31       		.byte	49
+ 1191 04a4 B400     		.short	180
+ 1192 04a6 40       		.byte	64
+ 1193 04a7 77       		.byte	119
+ 1194 04a8 80       		.byte	-128
+ 1195 04a9 00       		.byte	0
+ 1196 04aa B500     		.short	181
+ 1197 04ac 00       		.byte	0
+ 1198 04ad 00       		.byte	0
+ 1199 04ae 00       		.byte	0
+ 1200 04af 00       		.byte	0
+ 1201 04b0 B600     		.short	182
+ 1202 04b2 40       		.byte	64
+ 1203 04b3 77       		.byte	119
+ 1204 04b4 80       		.byte	-128
+ 1205 04b5 00       		.byte	0
+ 1206 04b6 B700     		.short	183
+ 1207 04b8 00       		.byte	0
+ 1208 04b9 00       		.byte	0
+ 1209 04ba 00       		.byte	0
+ 1210 04bb 00       		.byte	0
+ 1211 04bc B800     		.short	184
+ 1212 04be 40       		.byte	64
+ 1213 04bf 87       		.byte	-121
+ 1214 04c0 32       		.byte	50
+ 1215 04c1 38       		.byte	56
+ 1216 04c2 B900     		.short	185
+ 1217 04c4 79       		.byte	121
+ 1218 04c5 D3       		.byte	-45
+ 1219 04c6 37       		.byte	55
+ 1220 04c7 7D       		.byte	125
+ 1221 04c8 BA00     		.short	186
+ 1222 04ca 40       		.byte	64
+ 1223 04cb 80       		.byte	-128
+ 1224 04cc 44       		.byte	68
+ 1225 04cd 6D       		.byte	109
+ 1226 04ce BB00     		.short	187
+ 1227 04d0 AC       		.byte	-84
+ 1228 04d1 6B       		.byte	107
+ 1229 04d2 55       		.byte	85
+ 1230 04d3 97       		.byte	-105
+ 1231 04d4 BC00     		.short	188
+ 1232 04d6 40       		.byte	64
+ 1233 04d7 30       		.byte	48
+ 1234 04d8 01       		.byte	1
+ 1235 04d9 47       		.byte	71
+ 1236 04da BD00     		.short	189
+ 1237 04dc AE       		.byte	-82
+ 1238 04dd 14       		.byte	20
+ 1239 04de 7A       		.byte	122
+ 1240 04df E1       		.byte	-31
+ 1241 04e0 1204     		.short	1042
+ 1242 04e2 00       		.byte	0
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 24
+
+
+ 1243 04e3 00       		.byte	0
+ 1244 04e4 04       		.byte	4
+ 1245 04e5 42       		.byte	66
+ 1246 04e6 BE00     		.short	190
+ 1247 04e8 40       		.byte	64
+ 1248 04e9 77       		.byte	119
+ 1249 04ea 90       		.byte	-112
+ 1250 04eb 00       		.byte	0
+ 1251 04ec BF00     		.short	191
+ 1252 04ee 00       		.byte	0
+ 1253 04ef 00       		.byte	0
+ 1254 04f0 00       		.byte	0
+ 1255 04f1 00       		.byte	0
+ 1256 04f2 C000     		.short	192
+ 1257 04f4 40       		.byte	64
+ 1258 04f5 77       		.byte	119
+ 1259 04f6 90       		.byte	-112
+ 1260 04f7 00       		.byte	0
+ 1261 04f8 C100     		.short	193
+ 1262 04fa 00       		.byte	0
+ 1263 04fb 00       		.byte	0
+ 1264 04fc 00       		.byte	0
+ 1265 04fd 00       		.byte	0
+ 1266 04fe C200     		.short	194
+ 1267 0500 40       		.byte	64
+ 1268 0501 87       		.byte	-121
+ 1269 0502 36       		.byte	54
+ 1270 0503 46       		.byte	70
+ 1271 0504 C300     		.short	195
+ 1272 0506 E9       		.byte	-23
+ 1273 0507 C6       		.byte	-58
+ 1274 0508 DB       		.byte	-37
+ 1275 0509 68       		.byte	104
+ 1276 050a C400     		.short	196
+ 1277 050c 40       		.byte	64
+ 1278 050d 80       		.byte	-128
+ 1279 050e 4A       		.byte	74
+ 1280 050f 35       		.byte	53
+ 1281 0510 C500     		.short	197
+ 1282 0512 E6       		.byte	-26
+ 1283 0513 5B       		.byte	91
+ 1284 0514 CD       		.byte	-51
+ 1285 0515 DF       		.byte	-33
+ 1286 0516 C600     		.short	198
+ 1287 0518 40       		.byte	64
+ 1288 0519 31       		.byte	49
+ 1289 051a 01       		.byte	1
+ 1290 051b 47       		.byte	71
+ 1291 051c C700     		.short	199
+ 1292 051e AE       		.byte	-82
+ 1293 051f 14       		.byte	20
+ 1294 0520 7A       		.byte	122
+ 1295 0521 E1       		.byte	-31
+ 1296 0522 1304     		.short	1043
+ 1297 0524 00       		.byte	0
+ 1298 0525 00       		.byte	0
+ 1299 0526 05       		.byte	5
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 25
+
+
+ 1300 0527 53       		.byte	83
+ 1301 0528 C800     		.short	200
+ 1302 052a 40       		.byte	64
+ 1303 052b 77       		.byte	119
+ 1304 052c A0       		.byte	-96
+ 1305 052d 00       		.byte	0
+ 1306 052e C900     		.short	201
+ 1307 0530 00       		.byte	0
+ 1308 0531 00       		.byte	0
+ 1309 0532 00       		.byte	0
+ 1310 0533 00       		.byte	0
+ 1311 0534 CA00     		.short	202
+ 1312 0536 40       		.byte	64
+ 1313 0537 77       		.byte	119
+ 1314 0538 A0       		.byte	-96
+ 1315 0539 00       		.byte	0
+ 1316 053a CB00     		.short	203
+ 1317 053c 00       		.byte	0
+ 1318 053d 00       		.byte	0
+ 1319 053e 00       		.byte	0
+ 1320 053f 00       		.byte	0
+ 1321 0540 CC00     		.short	204
+ 1322 0542 40       		.byte	64
+ 1323 0543 87       		.byte	-121
+ 1324 0544 3A       		.byte	58
+ 1325 0545 57       		.byte	87
+ 1326 0546 CD00     		.short	205
+ 1327 0548 65       		.byte	101
+ 1328 0549 BD       		.byte	-67
+ 1329 054a 8F       		.byte	-113
+ 1330 054b 91       		.byte	-111
+ 1331 054c CE00     		.short	206
+ 1332 054e 40       		.byte	64
+ 1333 054f 80       		.byte	-128
+ 1334 0550 50       		.byte	80
+ 1335 0551 00       		.byte	0
+ 1336 0552 CF00     		.short	207
+ 1337 0554 00       		.byte	0
+ 1338 0555 00       		.byte	0
+ 1339 0556 00       		.byte	0
+ 1340 0557 00       		.byte	0
+ 1341 0558 D000     		.short	208
+ 1342 055a 40       		.byte	64
+ 1343 055b 32       		.byte	50
+ 1344 055c 01       		.byte	1
+ 1345 055d 47       		.byte	71
+ 1346 055e D100     		.short	209
+ 1347 0560 AE       		.byte	-82
+ 1348 0561 14       		.byte	20
+ 1349 0562 7A       		.byte	122
+ 1350 0563 E1       		.byte	-31
+ 1351 0564 1404     		.short	1044
+ 1352 0566 00       		.byte	0
+ 1353 0567 00       		.byte	0
+ 1354 0568 06       		.byte	6
+ 1355 0569 64       		.byte	100
+ 1356 056a D200     		.short	210
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 26
+
+
+ 1357 056c 40       		.byte	64
+ 1358 056d 77       		.byte	119
+ 1359 056e B0       		.byte	-80
+ 1360 056f 00       		.byte	0
+ 1361 0570 D300     		.short	211
+ 1362 0572 00       		.byte	0
+ 1363 0573 00       		.byte	0
+ 1364 0574 00       		.byte	0
+ 1365 0575 00       		.byte	0
+ 1366 0576 D400     		.short	212
+ 1367 0578 40       		.byte	64
+ 1368 0579 77       		.byte	119
+ 1369 057a B0       		.byte	-80
+ 1370 057b 00       		.byte	0
+ 1371 057c D500     		.short	213
+ 1372 057e 00       		.byte	0
+ 1373 057f 00       		.byte	0
+ 1374 0580 00       		.byte	0
+ 1375 0581 00       		.byte	0
+ 1376 0582 D600     		.short	214
+ 1377 0584 40       		.byte	64
+ 1378 0585 87       		.byte	-121
+ 1379 0586 3E       		.byte	62
+ 1380 0587 69       		.byte	105
+ 1381 0588 D700     		.short	215
+ 1382 058a EC       		.byte	-20
+ 1383 058b A4       		.byte	-92
+ 1384 058c 71       		.byte	113
+ 1385 058d 5E       		.byte	94
+ 1386 058e D800     		.short	216
+ 1387 0590 40       		.byte	64
+ 1388 0591 80       		.byte	-128
+ 1389 0592 55       		.byte	85
+ 1390 0593 CB       		.byte	-53
+ 1391 0594 D900     		.short	217
+ 1392 0596 F7       		.byte	-9
+ 1393 0597 59       		.byte	89
+ 1394 0598 E0       		.byte	-32
+ 1395 0599 C8       		.byte	-56
+ 1396 059a DA00     		.short	218
+ 1397 059c 40       		.byte	64
+ 1398 059d 33       		.byte	51
+ 1399 059e 01       		.byte	1
+ 1400 059f 47       		.byte	71
+ 1401 05a0 DB00     		.short	219
+ 1402 05a2 AE       		.byte	-82
+ 1403 05a3 14       		.byte	20
+ 1404 05a4 7A       		.byte	122
+ 1405 05a5 E1       		.byte	-31
+ 1406 05a6 1504     		.short	1045
+ 1407 05a8 00       		.byte	0
+ 1408 05a9 00       		.byte	0
+ 1409 05aa 07       		.byte	7
+ 1410 05ab 75       		.byte	117
+ 1411 05ac DC00     		.short	220
+ 1412 05ae 40       		.byte	64
+ 1413 05af 77       		.byte	119
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 27
+
+
+ 1414 05b0 C0       		.byte	-64
+ 1415 05b1 00       		.byte	0
+ 1416 05b2 DD00     		.short	221
+ 1417 05b4 00       		.byte	0
+ 1418 05b5 00       		.byte	0
+ 1419 05b6 00       		.byte	0
+ 1420 05b7 00       		.byte	0
+ 1421 05b8 DE00     		.short	222
+ 1422 05ba 40       		.byte	64
+ 1423 05bb 77       		.byte	119
+ 1424 05bc C0       		.byte	-64
+ 1425 05bd 00       		.byte	0
+ 1426 05be DF00     		.short	223
+ 1427 05c0 00       		.byte	0
+ 1428 05c1 00       		.byte	0
+ 1429 05c2 00       		.byte	0
+ 1430 05c3 00       		.byte	0
+ 1431 05c4 E000     		.short	224
+ 1432 05c6 40       		.byte	64
+ 1433 05c7 87       		.byte	-121
+ 1434 05c8 42       		.byte	66
+ 1435 05c9 7E       		.byte	126
+ 1436 05ca E100     		.short	225
+ 1437 05cc 7D       		.byte	125
+ 1438 05cd 68       		.byte	104
+ 1439 05ce D4       		.byte	-44
+ 1440 05cf E9       		.byte	-23
+ 1441 05d0 E200     		.short	226
+ 1442 05d2 40       		.byte	64
+ 1443 05d3 80       		.byte	-128
+ 1444 05d4 5B       		.byte	91
+ 1445 05d5 99       		.byte	-103
+ 1446 05d6 E300     		.short	227
+ 1447 05d8 CA       		.byte	-54
+ 1448 05d9 6D       		.byte	109
+ 1449 05da 94       		.byte	-108
+ 1450 05db 0D       		.byte	13
+ 1451 05dc E400     		.short	228
+ 1452 05de 40       		.byte	64
+ 1453 05df 34       		.byte	52
+ 1454 05e0 01       		.byte	1
+ 1455 05e1 47       		.byte	71
+ 1456 05e2 E500     		.short	229
+ 1457 05e4 AE       		.byte	-82
+ 1458 05e5 14       		.byte	20
+ 1459 05e6 7A       		.byte	122
+ 1460 05e7 E1       		.byte	-31
+ 1461 05e8 1604     		.short	1046
+ 1462 05ea 00       		.byte	0
+ 1463 05eb 00       		.byte	0
+ 1464 05ec 08       		.byte	8
+ 1465 05ed 86       		.byte	-122
+ 1466 05ee E600     		.short	230
+ 1467 05f0 40       		.byte	64
+ 1468 05f1 77       		.byte	119
+ 1469 05f2 D0       		.byte	-48
+ 1470 05f3 00       		.byte	0
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 28
+
+
+ 1471 05f4 E700     		.short	231
+ 1472 05f6 00       		.byte	0
+ 1473 05f7 00       		.byte	0
+ 1474 05f8 00       		.byte	0
+ 1475 05f9 00       		.byte	0
+ 1476 05fa E800     		.short	232
+ 1477 05fc 40       		.byte	64
+ 1478 05fd 77       		.byte	119
+ 1479 05fe D0       		.byte	-48
+ 1480 05ff 00       		.byte	0
+ 1481 0600 E900     		.short	233
+ 1482 0602 00       		.byte	0
+ 1483 0603 00       		.byte	0
+ 1484 0604 00       		.byte	0
+ 1485 0605 00       		.byte	0
+ 1486 0606 EA00     		.short	234
+ 1487 0608 40       		.byte	64
+ 1488 0609 87       		.byte	-121
+ 1489 060a 46       		.byte	70
+ 1490 060b 95       		.byte	-107
+ 1491 060c EB00     		.short	235
+ 1492 060e 16       		.byte	22
+ 1493 060f F8       		.byte	-8
+ 1494 0610 45       		.byte	69
+ 1495 0611 72       		.byte	114
+ 1496 0612 EC00     		.short	236
+ 1497 0614 40       		.byte	64
+ 1498 0615 80       		.byte	-128
+ 1499 0616 61       		.byte	97
+ 1500 0617 69       		.byte	105
+ 1501 0618 ED00     		.short	237
+ 1502 061a 77       		.byte	119
+ 1503 061b 41       		.byte	65
+ 1504 061c 6B       		.byte	107
+ 1505 061d 10       		.byte	16
+ 1506 061e EE00     		.short	238
+ 1507 0620 40       		.byte	64
+ 1508 0621 35       		.byte	53
+ 1509 0622 01       		.byte	1
+ 1510 0623 47       		.byte	71
+ 1511 0624 EF00     		.short	239
+ 1512 0626 AE       		.byte	-82
+ 1513 0627 14       		.byte	20
+ 1514 0628 7A       		.byte	122
+ 1515 0629 E1       		.byte	-31
+ 1516 062a 1704     		.short	1047
+ 1517 062c 00       		.byte	0
+ 1518 062d 00       		.byte	0
+ 1519 062e 09       		.byte	9
+ 1520 062f 97       		.byte	-105
+ 1521 0630 F000     		.short	240
+ 1522 0632 40       		.byte	64
+ 1523 0633 77       		.byte	119
+ 1524 0634 E0       		.byte	-32
+ 1525 0635 00       		.byte	0
+ 1526 0636 F100     		.short	241
+ 1527 0638 00       		.byte	0
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 29
+
+
+ 1528 0639 00       		.byte	0
+ 1529 063a 00       		.byte	0
+ 1530 063b 00       		.byte	0
+ 1531 063c F200     		.short	242
+ 1532 063e 40       		.byte	64
+ 1533 063f 77       		.byte	119
+ 1534 0640 E0       		.byte	-32
+ 1535 0641 00       		.byte	0
+ 1536 0642 F300     		.short	243
+ 1537 0644 00       		.byte	0
+ 1538 0645 00       		.byte	0
+ 1539 0646 00       		.byte	0
+ 1540 0647 00       		.byte	0
+ 1541 0648 F400     		.short	244
+ 1542 064a 40       		.byte	64
+ 1543 064b 87       		.byte	-121
+ 1544 064c 4A       		.byte	74
+ 1545 064d AD       		.byte	-83
+ 1546 064e F500     		.short	245
+ 1547 0650 B8       		.byte	-72
+ 1548 0651 40       		.byte	64
+ 1549 0652 86       		.byte	-122
+ 1550 0653 65       		.byte	101
+ 1551 0654 F600     		.short	246
+ 1552 0656 40       		.byte	64
+ 1553 0657 80       		.byte	-128
+ 1554 0658 67       		.byte	103
+ 1555 0659 3A       		.byte	58
+ 1556 065a F700     		.short	247
+ 1557 065c FB       		.byte	-5
+ 1558 065d DD       		.byte	-35
+ 1559 065e E2       		.byte	-30
+ 1560 065f D7       		.byte	-41
+ 1561 0660 F800     		.short	248
+ 1562 0662 40       		.byte	64
+ 1563 0663 36       		.byte	54
+ 1564 0664 01       		.byte	1
+ 1565 0665 47       		.byte	71
+ 1566 0666 F900     		.short	249
+ 1567 0668 AE       		.byte	-82
+ 1568 0669 14       		.byte	20
+ 1569 066a 7A       		.byte	122
+ 1570 066b E1       		.byte	-31
+ 1571 066c 1804     		.short	1048
+ 1572 066e 00       		.byte	0
+ 1573 066f 00       		.byte	0
+ 1574 0670 0A       		.byte	10
+ 1575 0671 A8       		.byte	-88
+ 1576 0672 FA00     		.short	250
+ 1577 0674 40       		.byte	64
+ 1578 0675 77       		.byte	119
+ 1579 0676 F0       		.byte	-16
+ 1580 0677 00       		.byte	0
+ 1581 0678 FB00     		.short	251
+ 1582 067a 00       		.byte	0
+ 1583 067b 00       		.byte	0
+ 1584 067c 00       		.byte	0
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 30
+
+
+ 1585 067d 00       		.byte	0
+ 1586 067e FC00     		.short	252
+ 1587 0680 40       		.byte	64
+ 1588 0681 77       		.byte	119
+ 1589 0682 F0       		.byte	-16
+ 1590 0683 00       		.byte	0
+ 1591 0684 FD00     		.short	253
+ 1592 0686 00       		.byte	0
+ 1593 0687 00       		.byte	0
+ 1594 0688 00       		.byte	0
+ 1595 0689 00       		.byte	0
+ 1596 068a FE00     		.short	254
+ 1597 068c 40       		.byte	64
+ 1598 068d 87       		.byte	-121
+ 1599 068e 4E       		.byte	78
+ 1600 068f C8       		.byte	-56
+ 1601 0690 FF00     		.short	255
+ 1602 0692 60       		.byte	96
+ 1603 0693 2F       		.byte	47
+ 1604 0694 93       		.byte	-109
+ 1605 0695 EB       		.byte	-21
+ 1606 0696 0001     		.short	256
+ 1607 0698 40       		.byte	64
+ 1608 0699 80       		.byte	-128
+ 1609 069a 6D       		.byte	109
+ 1610 069b 0E       		.byte	14
+ 1611 069c 0101     		.short	257
+ 1612 069e 56       		.byte	86
+ 1613 069f 4D       		.byte	77
+ 1614 06a0 A2       		.byte	-94
+ 1615 06a1 B0       		.byte	-80
+ 1616 06a2 0201     		.short	258
+ 1617 06a4 40       		.byte	64
+ 1618 06a5 37       		.byte	55
+ 1619 06a6 01       		.byte	1
+ 1620 06a7 47       		.byte	71
+ 1621 06a8 0301     		.short	259
+ 1622 06aa AE       		.byte	-82
+ 1623 06ab 14       		.byte	20
+ 1624 06ac 7A       		.byte	122
+ 1625 06ad E1       		.byte	-31
+ 1626 06ae 1904     		.short	1049
+ 1627 06b0 00       		.byte	0
+ 1628 06b1 00       		.byte	0
+ 1629 06b2 0B       		.byte	11
+ 1630 06b3 B9       		.byte	-71
+ 1631 06b4 0401     		.short	260
+ 1632 06b6 40       		.byte	64
+ 1633 06b7 78       		.byte	120
+ 1634 06b8 00       		.byte	0
+ 1635 06b9 00       		.byte	0
+ 1636 06ba 0501     		.short	261
+ 1637 06bc 00       		.byte	0
+ 1638 06bd 00       		.byte	0
+ 1639 06be 00       		.byte	0
+ 1640 06bf 00       		.byte	0
+ 1641 06c0 0601     		.short	262
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 31
+
+
+ 1642 06c2 40       		.byte	64
+ 1643 06c3 78       		.byte	120
+ 1644 06c4 00       		.byte	0
+ 1645 06c5 00       		.byte	0
+ 1646 06c6 0701     		.short	263
+ 1647 06c8 00       		.byte	0
+ 1648 06c9 00       		.byte	0
+ 1649 06ca 00       		.byte	0
+ 1650 06cb 00       		.byte	0
+ 1651 06cc 0801     		.short	264
+ 1652 06ce 40       		.byte	64
+ 1653 06cf 87       		.byte	-121
+ 1654 06d0 52       		.byte	82
+ 1655 06d1 E5       		.byte	-27
+ 1656 06d2 0901     		.short	265
+ 1657 06d4 0D       		.byte	13
+ 1658 06d5 B3       		.byte	-77
+ 1659 06d6 A3       		.byte	-93
+ 1660 06d7 A6       		.byte	-90
+ 1661 06d8 0A01     		.short	266
+ 1662 06da 40       		.byte	64
+ 1663 06db 80       		.byte	-128
+ 1664 06dc 72       		.byte	114
+ 1665 06dd E3       		.byte	-29
+ 1666 06de 0B01     		.short	267
+ 1667 06e0 84       		.byte	-124
+ 1668 06e1 9D       		.byte	-99
+ 1669 06e2 7A       		.byte	122
+ 1670 06e3 55       		.byte	85
+ 1671 06e4 0C01     		.short	268
+ 1672 06e6 40       		.byte	64
+ 1673 06e7 38       		.byte	56
+ 1674 06e8 01       		.byte	1
+ 1675 06e9 47       		.byte	71
+ 1676 06ea 0D01     		.short	269
+ 1677 06ec AE       		.byte	-82
+ 1678 06ed 14       		.byte	20
+ 1679 06ee 7A       		.byte	122
+ 1680 06ef E1       		.byte	-31
+ 1681 06f0 1A04     		.short	1050
+ 1682 06f2 00       		.byte	0
+ 1683 06f3 00       		.byte	0
+ 1684 06f4 0C       		.byte	12
+ 1685 06f5 CA       		.byte	-54
+ 1686 06f6 0E01     		.short	270
+ 1687 06f8 40       		.byte	64
+ 1688 06f9 78       		.byte	120
+ 1689 06fa 10       		.byte	16
+ 1690 06fb 00       		.byte	0
+ 1691 06fc 0F01     		.short	271
+ 1692 06fe 00       		.byte	0
+ 1693 06ff 00       		.byte	0
+ 1694 0700 00       		.byte	0
+ 1695 0701 00       		.byte	0
+ 1696 0702 1001     		.short	272
+ 1697 0704 40       		.byte	64
+ 1698 0705 78       		.byte	120
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 32
+
+
+ 1699 0706 10       		.byte	16
+ 1700 0707 00       		.byte	0
+ 1701 0708 1101     		.short	273
+ 1702 070a 00       		.byte	0
+ 1703 070b 00       		.byte	0
+ 1704 070c 00       		.byte	0
+ 1705 070d 00       		.byte	0
+ 1706 070e 1201     		.short	274
+ 1707 0710 40       		.byte	64
+ 1708 0711 87       		.byte	-121
+ 1709 0712 57       		.byte	87
+ 1710 0713 03       		.byte	3
+ 1711 0714 1301     		.short	275
+ 1712 0716 BF       		.byte	-65
+ 1713 0717 BB       		.byte	-69
+ 1714 0718 25       		.byte	37
+ 1715 0719 8A       		.byte	-118
+ 1716 071a 1401     		.short	276
+ 1717 071c 40       		.byte	64
+ 1718 071d 80       		.byte	-128
+ 1719 071e 78       		.byte	120
+ 1720 071f BA       		.byte	-70
+ 1721 0720 1501     		.short	277
+ 1722 0722 84       		.byte	-124
+ 1723 0723 DC       		.byte	-36
+ 1724 0724 60       		.byte	96
+ 1725 0725 82       		.byte	-126
+ 1726 0726 1601     		.short	278
+ 1727 0728 40       		.byte	64
+ 1728 0729 39       		.byte	57
+ 1729 072a 01       		.byte	1
+ 1730 072b 47       		.byte	71
+ 1731 072c 1701     		.short	279
+ 1732 072e AE       		.byte	-82
+ 1733 072f 14       		.byte	20
+ 1734 0730 7A       		.byte	122
+ 1735 0731 E1       		.byte	-31
+ 1736 0732 1B04     		.short	1051
+ 1737 0734 00       		.byte	0
+ 1738 0735 00       		.byte	0
+ 1739 0736 0D       		.byte	13
+ 1740 0737 DB       		.byte	-37
+ 1741 0738 1801     		.short	280
+ 1742 073a 40       		.byte	64
+ 1743 073b 78       		.byte	120
+ 1744 073c 20       		.byte	32
+ 1745 073d 00       		.byte	0
+ 1746 073e 1901     		.short	281
+ 1747 0740 00       		.byte	0
+ 1748 0741 00       		.byte	0
+ 1749 0742 00       		.byte	0
+ 1750 0743 00       		.byte	0
+ 1751 0744 1A01     		.short	282
+ 1752 0746 40       		.byte	64
+ 1753 0747 78       		.byte	120
+ 1754 0748 20       		.byte	32
+ 1755 0749 00       		.byte	0
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 33
+
+
+ 1756 074a 1B01     		.short	283
+ 1757 074c 00       		.byte	0
+ 1758 074d 00       		.byte	0
+ 1759 074e 00       		.byte	0
+ 1760 074f 00       		.byte	0
+ 1761 0750 1C01     		.short	284
+ 1762 0752 40       		.byte	64
+ 1763 0753 87       		.byte	-121
+ 1764 0754 5B       		.byte	91
+ 1765 0755 24       		.byte	36
+ 1766 0756 1D01     		.short	285
+ 1767 0758 75       		.byte	117
+ 1768 0759 34       		.byte	52
+ 1769 075a C4       		.byte	-60
+ 1770 075b 88       		.byte	-120
+ 1771 075c 1E01     		.short	286
+ 1772 075e 40       		.byte	64
+ 1773 075f 80       		.byte	-128
+ 1774 0760 7E       		.byte	126
+ 1775 0761 93       		.byte	-109
+ 1776 0762 1F01     		.short	287
+ 1777 0764 55       		.byte	85
+ 1778 0765 1B       		.byte	27
+ 1779 0766 71       		.byte	113
+ 1780 0767 19       		.byte	25
+ 1781 0768 2001     		.short	288
+ 1782 076a 40       		.byte	64
+ 1783 076b 3A       		.byte	58
+ 1784 076c 01       		.byte	1
+ 1785 076d 47       		.byte	71
+ 1786 076e 2101     		.short	289
+ 1787 0770 AE       		.byte	-82
+ 1788 0771 14       		.byte	20
+ 1789 0772 7A       		.byte	122
+ 1790 0773 E1       		.byte	-31
+ 1791 0774 1C04     		.short	1052
+ 1792 0776 00       		.byte	0
+ 1793 0777 00       		.byte	0
+ 1794 0778 0E       		.byte	14
+ 1795 0779 EC       		.byte	-20
+ 1796 077a 2201     		.short	290
+ 1797 077c 40       		.byte	64
+ 1798 077d 78       		.byte	120
+ 1799 077e 30       		.byte	48
+ 1800 077f 00       		.byte	0
+ 1801 0780 2301     		.short	291
+ 1802 0782 00       		.byte	0
+ 1803 0783 00       		.byte	0
+ 1804 0784 00       		.byte	0
+ 1805 0785 00       		.byte	0
+ 1806 0786 2401     		.short	292
+ 1807 0788 40       		.byte	64
+ 1808 0789 78       		.byte	120
+ 1809 078a 30       		.byte	48
+ 1810 078b 00       		.byte	0
+ 1811 078c 2501     		.short	293
+ 1812 078e 00       		.byte	0
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 34
+
+
+ 1813 078f 00       		.byte	0
+ 1814 0790 00       		.byte	0
+ 1815 0791 00       		.byte	0
+ 1816 0792 2601     		.short	294
+ 1817 0794 40       		.byte	64
+ 1818 0795 87       		.byte	-121
+ 1819 0796 5F       		.byte	95
+ 1820 0797 47       		.byte	71
+ 1821 0798 2701     		.short	295
+ 1822 079a 2D       		.byte	45
+ 1823 079b 0F       		.byte	15
+ 1824 079c 67       		.byte	103
+ 1825 079d 36       		.byte	54
+ 1826 079e 2801     		.short	296
+ 1827 07a0 40       		.byte	64
+ 1828 07a1 80       		.byte	-128
+ 1829 07a2 84       		.byte	-124
+ 1830 07a3 6D       		.byte	109
+ 1831 07a4 2901     		.short	297
+ 1832 07a6 F3       		.byte	-13
+ 1833 07a7 6D       		.byte	109
+ 1834 07a8 EB       		.byte	-21
+ 1835 07a9 91       		.byte	-111
+ 1836 07aa 2A01     		.short	298
+ 1837 07ac 40       		.byte	64
+ 1838 07ad 3B       		.byte	59
+ 1839 07ae 01       		.byte	1
+ 1840 07af 47       		.byte	71
+ 1841 07b0 2B01     		.short	299
+ 1842 07b2 AE       		.byte	-82
+ 1843 07b3 14       		.byte	20
+ 1844 07b4 7A       		.byte	122
+ 1845 07b5 E1       		.byte	-31
+ 1846 07b6 1D04     		.short	1053
+ 1847 07b8 00       		.byte	0
+ 1848 07b9 00       		.byte	0
+ 1849 07ba 0F       		.byte	15
+ 1850 07bb FD       		.byte	-3
+ 1851 07bc 2C01     		.short	300
+ 1852 07be 40       		.byte	64
+ 1853 07bf 78       		.byte	120
+ 1854 07c0 40       		.byte	64
+ 1855 07c1 00       		.byte	0
+ 1856 07c2 2D01     		.short	301
+ 1857 07c4 00       		.byte	0
+ 1858 07c5 00       		.byte	0
+ 1859 07c6 00       		.byte	0
+ 1860 07c7 00       		.byte	0
+ 1861 07c8 2E01     		.short	302
+ 1862 07ca 40       		.byte	64
+ 1863 07cb 78       		.byte	120
+ 1864 07cc 40       		.byte	64
+ 1865 07cd 00       		.byte	0
+ 1866 07ce 2F01     		.short	303
+ 1867 07d0 00       		.byte	0
+ 1868 07d1 00       		.byte	0
+ 1869 07d2 00       		.byte	0
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 35
+
+
+ 1870 07d3 00       		.byte	0
+ 1871 07d4 3001     		.short	304
+ 1872 07d6 40       		.byte	64
+ 1873 07d7 87       		.byte	-121
+ 1874 07d8 63       		.byte	99
+ 1875 07d9 6B       		.byte	107
+ 1876 07da 3101     		.short	305
+ 1877 07dc E6       		.byte	-26
+ 1878 07dd 3A       		.byte	58
+ 1879 07de 30       		.byte	48
+ 1880 07df 94       		.byte	-108
+ 1881 07e0 3201     		.short	306
+ 1882 07e2 40       		.byte	64
+ 1883 07e3 80       		.byte	-128
+ 1884 07e4 8A       		.byte	-118
+ 1885 07e5 4A       		.byte	74
+ 1886 07e6 3301     		.short	307
+ 1887 07e8 5D       		.byte	93
+ 1888 07e9 E9       		.byte	-23
+ 1889 07ea 31       		.byte	49
+ 1890 07eb 4D       		.byte	77
+ 1891 07ec 3401     		.short	308
+ 1892 07ee 40       		.byte	64
+ 1893 07ef 3C       		.byte	60
+ 1894 07f0 01       		.byte	1
+ 1895 07f1 47       		.byte	71
+ 1896 07f2 3501     		.short	309
+ 1897 07f4 AE       		.byte	-82
+ 1898 07f5 14       		.byte	20
+ 1899 07f6 7A       		.byte	122
+ 1900 07f7 E1       		.byte	-31
+ 1901 07f8 1E04     		.short	1054
+ 1902 07fa 00       		.byte	0
+ 1903 07fb 00       		.byte	0
+ 1904 07fc 00       		.byte	0
+ 1905 07fd 0E       		.byte	14
+ 1906 07fe 3601     		.short	310
+ 1907 0800 40       		.byte	64
+ 1908 0801 78       		.byte	120
+ 1909 0802 50       		.byte	80
+ 1910 0803 00       		.byte	0
+ 1911 0804 3701     		.short	311
+ 1912 0806 00       		.byte	0
+ 1913 0807 00       		.byte	0
+ 1914 0808 00       		.byte	0
+ 1915 0809 00       		.byte	0
+ 1916 080a 3801     		.short	312
+ 1917 080c 40       		.byte	64
+ 1918 080d 78       		.byte	120
+ 1919 080e 50       		.byte	80
+ 1920 080f 00       		.byte	0
+ 1921 0810 3901     		.short	313
+ 1922 0812 00       		.byte	0
+ 1923 0813 00       		.byte	0
+ 1924 0814 00       		.byte	0
+ 1925 0815 00       		.byte	0
+ 1926 0816 3A01     		.short	314
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 36
+
+
+ 1927 0818 40       		.byte	64
+ 1928 0819 87       		.byte	-121
+ 1929 081a 67       		.byte	103
+ 1930 081b 92       		.byte	-110
+ 1931 081c 3B01     		.short	315
+ 1932 081e 9F       		.byte	-97
+ 1933 081f A4       		.byte	-92
+ 1934 0820 80       		.byte	-128
+ 1935 0821 D2       		.byte	-46
+ 1936 0822 3C01     		.short	316
+ 1937 0824 40       		.byte	64
+ 1938 0825 80       		.byte	-128
+ 1939 0826 90       		.byte	-112
+ 1940 0827 28       		.byte	40
+ 1941 0828 3D01     		.short	317
+ 1942 082a 92       		.byte	-110
+ 1943 082b A4       		.byte	-92
+ 1944 082c C3       		.byte	-61
+ 1945 082d DD       		.byte	-35
+ 1946 082e 3E01     		.short	318
+ 1947 0830 40       		.byte	64
+ 1948 0831 3D       		.byte	61
+ 1949 0832 01       		.byte	1
+ 1950 0833 47       		.byte	71
+ 1951 0834 3F01     		.short	319
+ 1952 0836 AE       		.byte	-82
+ 1953 0837 14       		.byte	20
+ 1954 0838 7A       		.byte	122
+ 1955 0839 E1       		.byte	-31
+ 1956 083a 1F04     		.short	1055
+ 1957 083c 00       		.byte	0
+ 1958 083d 00       		.byte	0
+ 1959 083e 01       		.byte	1
+ 1960 083f 1F       		.byte	31
+ 1961 0840 4001     		.short	320
+ 1962 0842 40       		.byte	64
+ 1963 0843 78       		.byte	120
+ 1964 0844 60       		.byte	96
+ 1965 0845 00       		.byte	0
+ 1966 0846 4101     		.short	321
+ 1967 0848 00       		.byte	0
+ 1968 0849 00       		.byte	0
+ 1969 084a 00       		.byte	0
+ 1970 084b 00       		.byte	0
+ 1971 084c 4201     		.short	322
+ 1972 084e 40       		.byte	64
+ 1973 084f 78       		.byte	120
+ 1974 0850 60       		.byte	96
+ 1975 0851 00       		.byte	0
+ 1976 0852 4301     		.short	323
+ 1977 0854 00       		.byte	0
+ 1978 0855 00       		.byte	0
+ 1979 0856 00       		.byte	0
+ 1980 0857 00       		.byte	0
+ 1981 0858 4401     		.short	324
+ 1982 085a 40       		.byte	64
+ 1983 085b 87       		.byte	-121
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 37
+
+
+ 1984 085c 6B       		.byte	107
+ 1985 085d BB       		.byte	-69
+ 1986 085e 4501     		.short	325
+ 1987 0860 58       		.byte	88
+ 1988 0861 3D       		.byte	61
+ 1989 0862 F5       		.byte	-11
+ 1990 0863 CE       		.byte	-50
+ 1991 0864 4601     		.short	326
+ 1992 0866 40       		.byte	64
+ 1993 0867 80       		.byte	-128
+ 1994 0868 96       		.byte	-106
+ 1995 0869 08       		.byte	8
+ 1996 086a 4701     		.short	327
+ 1997 086c 8F       		.byte	-113
+ 1998 086d BA       		.byte	-70
+ 1999 086e 43       		.byte	67
+ 2000 086f 66       		.byte	102
+ 2001 0870 4801     		.short	328
+ 2002 0872 40       		.byte	64
+ 2003 0873 3E       		.byte	62
+ 2004 0874 01       		.byte	1
+ 2005 0875 47       		.byte	71
+ 2006 0876 4901     		.short	329
+ 2007 0878 AE       		.byte	-82
+ 2008 0879 14       		.byte	20
+ 2009 087a 7A       		.byte	122
+ 2010 087b E1       		.byte	-31
+ 2011 087c 2004     		.short	1056
+ 2012 087e 00       		.byte	0
+ 2013 087f 00       		.byte	0
+ 2014 0880 02       		.byte	2
+ 2015 0881 20       		.byte	32
+ 2016 0882 4A01     		.short	330
+ 2017 0884 40       		.byte	64
+ 2018 0885 78       		.byte	120
+ 2019 0886 70       		.byte	112
+ 2020 0887 00       		.byte	0
+ 2021 0888 4B01     		.short	331
+ 2022 088a 00       		.byte	0
+ 2023 088b 00       		.byte	0
+ 2024 088c 00       		.byte	0
+ 2025 088d 00       		.byte	0
+ 2026 088e 4C01     		.short	332
+ 2027 0890 40       		.byte	64
+ 2028 0891 78       		.byte	120
+ 2029 0892 70       		.byte	112
+ 2030 0893 00       		.byte	0
+ 2031 0894 4D01     		.short	333
+ 2032 0896 00       		.byte	0
+ 2033 0897 00       		.byte	0
+ 2034 0898 00       		.byte	0
+ 2035 0899 00       		.byte	0
+ 2036 089a 4E01     		.short	334
+ 2037 089c 40       		.byte	64
+ 2038 089d 87       		.byte	-121
+ 2039 089e 6F       		.byte	111
+ 2040 089f E6       		.byte	-26
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 38
+
+
+ 2041 08a0 4F01     		.short	335
+ 2042 08a2 0E       		.byte	14
+ 2043 08a3 F6       		.byte	-10
+ 2044 08a4 6C       		.byte	108
+ 2045 08a5 12       		.byte	18
+ 2046 08a6 5001     		.short	336
+ 2047 08a8 40       		.byte	64
+ 2048 08a9 80       		.byte	-128
+ 2049 08aa 9B       		.byte	-101
+ 2050 08ab EA       		.byte	-22
+ 2051 08ac 5101     		.short	337
+ 2052 08ae 53       		.byte	83
+ 2053 08af 45       		.byte	69
+ 2054 08b0 6C       		.byte	108
+ 2055 08b1 C3       		.byte	-61
+ 2056 08b2 5201     		.short	338
+ 2057 08b4 40       		.byte	64
+ 2058 08b5 3F       		.byte	63
+ 2059 08b6 01       		.byte	1
+ 2060 08b7 47       		.byte	71
+ 2061 08b8 5301     		.short	339
+ 2062 08ba AE       		.byte	-82
+ 2063 08bb 14       		.byte	20
+ 2064 08bc 7A       		.byte	122
+ 2065 08bd E1       		.byte	-31
+ 2066 08be 2104     		.short	1057
+ 2067 08c0 00       		.byte	0
+ 2068 08c1 00       		.byte	0
+ 2069 08c2 03       		.byte	3
+ 2070 08c3 31       		.byte	49
+ 2071 08c4 5401     		.short	340
+ 2072 08c6 40       		.byte	64
+ 2073 08c7 78       		.byte	120
+ 2074 08c8 80       		.byte	-128
+ 2075 08c9 00       		.byte	0
+ 2076 08ca 5501     		.short	341
+ 2077 08cc 00       		.byte	0
+ 2078 08cd 00       		.byte	0
+ 2079 08ce 00       		.byte	0
+ 2080 08cf 00       		.byte	0
+ 2081 08d0 5601     		.short	342
+ 2082 08d2 40       		.byte	64
+ 2083 08d3 78       		.byte	120
+ 2084 08d4 80       		.byte	-128
+ 2085 08d5 00       		.byte	0
+ 2086 08d6 5701     		.short	343
+ 2087 08d8 00       		.byte	0
+ 2088 08d9 00       		.byte	0
+ 2089 08da 00       		.byte	0
+ 2090 08db 00       		.byte	0
+ 2091 08dc 5801     		.short	344
+ 2092 08de 40       		.byte	64
+ 2093 08df 87       		.byte	-121
+ 2094 08e0 74       		.byte	116
+ 2095 08e1 12       		.byte	18
+ 2096 08e2 5901     		.short	345
+ 2097 08e4 C2       		.byte	-62
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 39
+
+
+ 2098 08e5 BD       		.byte	-67
+ 2099 08e6 FF       		.byte	-1
+ 2100 08e7 2C       		.byte	44
+ 2101 08e8 5A01     		.short	346
+ 2102 08ea 40       		.byte	64
+ 2103 08eb 80       		.byte	-128
+ 2104 08ec A1       		.byte	-95
+ 2105 08ed CD       		.byte	-51
+ 2106 08ee 5B01     		.short	347
+ 2107 08f0 DB       		.byte	-37
+ 2108 08f1 64       		.byte	100
+ 2109 08f2 17       		.byte	23
+ 2110 08f3 FF       		.byte	-1
+ 2111 08f4 5C01     		.short	348
+ 2112 08f6 40       		.byte	64
+ 2113 08f7 40       		.byte	64
+ 2114 08f8 00       		.byte	0
+ 2115 08f9 A3       		.byte	-93
+ 2116 08fa 5D01     		.short	349
+ 2117 08fc D7       		.byte	-41
+ 2118 08fd 0A       		.byte	10
+ 2119 08fe 3D       		.byte	61
+ 2120 08ff 71       		.byte	113
+ 2121 0900 2204     		.short	1058
+ 2122 0902 00       		.byte	0
+ 2123 0903 00       		.byte	0
+ 2124 0904 04       		.byte	4
+ 2125 0905 42       		.byte	66
+ 2126 0906 5E01     		.short	350
+ 2127 0908 40       		.byte	64
+ 2128 0909 78       		.byte	120
+ 2129 090a 90       		.byte	-112
+ 2130 090b 00       		.byte	0
+ 2131 090c 5F01     		.short	351
+ 2132 090e 00       		.byte	0
+ 2133 090f 00       		.byte	0
+ 2134 0910 00       		.byte	0
+ 2135 0911 00       		.byte	0
+ 2136 0912 6001     		.short	352
+ 2137 0914 40       		.byte	64
+ 2138 0915 78       		.byte	120
+ 2139 0916 90       		.byte	-112
+ 2140 0917 00       		.byte	0
+ 2141 0918 6101     		.short	353
+ 2142 091a 00       		.byte	0
+ 2143 091b 00       		.byte	0
+ 2144 091c 00       		.byte	0
+ 2145 091d 00       		.byte	0
+ 2146 091e 6201     		.short	354
+ 2147 0920 40       		.byte	64
+ 2148 0921 87       		.byte	-121
+ 2149 0922 78       		.byte	120
+ 2150 0923 41       		.byte	65
+ 2151 0924 6301     		.short	355
+ 2152 0926 72       		.byte	114
+ 2153 0927 85       		.byte	-123
+ 2154 0928 0A       		.byte	10
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 40
+
+
+ 2155 0929 AC       		.byte	-84
+ 2156 092a 6401     		.short	356
+ 2157 092c 40       		.byte	64
+ 2158 092d 80       		.byte	-128
+ 2159 092e A7       		.byte	-89
+ 2160 092f B3       		.byte	-77
+ 2161 0930 6501     		.short	357
+ 2162 0932 26       		.byte	38
+ 2163 0933 36       		.byte	54
+ 2164 0934 36       		.byte	54
+ 2165 0935 7B       		.byte	123
+ 2166 0936 6601     		.short	358
+ 2167 0938 40       		.byte	64
+ 2168 0939 40       		.byte	64
+ 2169 093a 80       		.byte	-128
+ 2170 093b A3       		.byte	-93
+ 2171 093c 6701     		.short	359
+ 2172 093e D7       		.byte	-41
+ 2173 093f 0A       		.byte	10
+ 2174 0940 3D       		.byte	61
+ 2175 0941 71       		.byte	113
+ 2176 0942 2304     		.short	1059
+ 2177 0944 00       		.byte	0
+ 2178 0945 00       		.byte	0
+ 2179 0946 05       		.byte	5
+ 2180 0947 53       		.byte	83
+ 2181 0948 6801     		.short	360
+ 2182 094a 40       		.byte	64
+ 2183 094b 78       		.byte	120
+ 2184 094c A0       		.byte	-96
+ 2185 094d 00       		.byte	0
+ 2186 094e 6901     		.short	361
+ 2187 0950 00       		.byte	0
+ 2188 0951 00       		.byte	0
+ 2189 0952 00       		.byte	0
+ 2190 0953 00       		.byte	0
+ 2191 0954 6A01     		.short	362
+ 2192 0956 40       		.byte	64
+ 2193 0957 78       		.byte	120
+ 2194 0958 A0       		.byte	-96
+ 2195 0959 00       		.byte	0
+ 2196 095a 6B01     		.short	363
+ 2197 095c 00       		.byte	0
+ 2198 095d 00       		.byte	0
+ 2199 095e 00       		.byte	0
+ 2200 095f 00       		.byte	0
+ 2201 0960 6C01     		.short	364
+ 2202 0962 40       		.byte	64
+ 2203 0963 87       		.byte	-121
+ 2204 0964 7C       		.byte	124
+ 2205 0965 72       		.byte	114
+ 2206 0966 6D01     		.short	365
+ 2207 0968 1D       		.byte	29
+ 2208 0969 3C       		.byte	60
+ 2209 096a 2A       		.byte	42
+ 2210 096b A2       		.byte	-94
+ 2211 096c 6E01     		.short	366
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 41
+
+
+ 2212 096e 40       		.byte	64
+ 2213 096f 80       		.byte	-128
+ 2214 0970 AD       		.byte	-83
+ 2215 0971 9A       		.byte	-102
+ 2216 0972 6F01     		.short	367
+ 2217 0974 31       		.byte	49
+ 2218 0975 DD       		.byte	-35
+ 2219 0976 D1       		.byte	-47
+ 2220 0977 58       		.byte	88
+ 2221 0978 7001     		.short	368
+ 2222 097a 40       		.byte	64
+ 2223 097b 41       		.byte	65
+ 2224 097c 00       		.byte	0
+ 2225 097d A3       		.byte	-93
+ 2226 097e 7101     		.short	369
+ 2227 0980 D7       		.byte	-41
+ 2228 0981 0A       		.byte	10
+ 2229 0982 3D       		.byte	61
+ 2230 0983 71       		.byte	113
+ 2231 0984 2404     		.short	1060
+ 2232 0986 00       		.byte	0
+ 2233 0987 00       		.byte	0
+ 2234 0988 06       		.byte	6
+ 2235 0989 64       		.byte	100
+ 2236 098a 7201     		.short	370
+ 2237 098c 40       		.byte	64
+ 2238 098d 78       		.byte	120
+ 2239 098e B0       		.byte	-80
+ 2240 098f 00       		.byte	0
+ 2241 0990 7301     		.short	371
+ 2242 0992 00       		.byte	0
+ 2243 0993 00       		.byte	0
+ 2244 0994 00       		.byte	0
+ 2245 0995 00       		.byte	0
+ 2246 0996 7401     		.short	372
+ 2247 0998 40       		.byte	64
+ 2248 0999 78       		.byte	120
+ 2249 099a B0       		.byte	-80
+ 2250 099b 00       		.byte	0
+ 2251 099c 7501     		.short	373
+ 2252 099e 00       		.byte	0
+ 2253 099f 00       		.byte	0
+ 2254 09a0 00       		.byte	0
+ 2255 09a1 00       		.byte	0
+ 2256 09a2 7601     		.short	374
+ 2257 09a4 40       		.byte	64
+ 2258 09a5 87       		.byte	-121
+ 2259 09a6 80       		.byte	-128
+ 2260 09a7 A4       		.byte	-92
+ 2261 09a8 7701     		.short	375
+ 2262 09aa C1       		.byte	-63
+ 2263 09ab D4       		.byte	-44
+ 2264 09ac 3C       		.byte	60
+ 2265 09ad 5D       		.byte	93
+ 2266 09ae 7801     		.short	376
+ 2267 09b0 40       		.byte	64
+ 2268 09b1 80       		.byte	-128
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 42
+
+
+ 2269 09b2 B3       		.byte	-77
+ 2270 09b3 82       		.byte	-126
+ 2271 09b4 7901     		.short	377
+ 2272 09b6 FC       		.byte	-4
+ 2273 09b7 7F       		.byte	127
+ 2274 09b8 07       		.byte	7
+ 2275 09b9 8D       		.byte	-115
+ 2276 09ba 7A01     		.short	378
+ 2277 09bc 40       		.byte	64
+ 2278 09bd 41       		.byte	65
+ 2279 09be 80       		.byte	-128
+ 2280 09bf A3       		.byte	-93
+ 2281 09c0 7B01     		.short	379
+ 2282 09c2 D7       		.byte	-41
+ 2283 09c3 0A       		.byte	10
+ 2284 09c4 3D       		.byte	61
+ 2285 09c5 71       		.byte	113
+ 2286 09c6 2504     		.short	1061
+ 2287 09c8 00       		.byte	0
+ 2288 09c9 00       		.byte	0
+ 2289 09ca 07       		.byte	7
+ 2290 09cb 75       		.byte	117
+ 2291 09cc 7C01     		.short	380
+ 2292 09ce 40       		.byte	64
+ 2293 09cf 78       		.byte	120
+ 2294 09d0 C0       		.byte	-64
+ 2295 09d1 00       		.byte	0
+ 2296 09d2 7D01     		.short	381
+ 2297 09d4 00       		.byte	0
+ 2298 09d5 00       		.byte	0
+ 2299 09d6 00       		.byte	0
+ 2300 09d7 00       		.byte	0
+ 2301 09d8 7E01     		.short	382
+ 2302 09da 40       		.byte	64
+ 2303 09db 78       		.byte	120
+ 2304 09dc C0       		.byte	-64
+ 2305 09dd 00       		.byte	0
+ 2306 09de 7F01     		.short	383
+ 2307 09e0 00       		.byte	0
+ 2308 09e1 00       		.byte	0
+ 2309 09e2 00       		.byte	0
+ 2310 09e3 00       		.byte	0
+ 2311 09e4 8001     		.short	384
+ 2312 09e6 40       		.byte	64
+ 2313 09e7 87       		.byte	-121
+ 2314 09e8 84       		.byte	-124
+ 2315 09e9 D9       		.byte	-39
+ 2316 09ea 8101     		.short	385
+ 2317 09ec 5F       		.byte	95
+ 2318 09ed 3E       		.byte	62
+ 2319 09ee 5F       		.byte	95
+ 2320 09ef 09       		.byte	9
+ 2321 09f0 8201     		.short	386
+ 2322 09f2 40       		.byte	64
+ 2323 09f3 80       		.byte	-128
+ 2324 09f4 B9       		.byte	-71
+ 2325 09f5 6D       		.byte	109
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 43
+
+
+ 2326 09f6 8301     		.short	387
+ 2327 09f8 84       		.byte	-124
+ 2328 09f9 40       		.byte	64
+ 2329 09fa 0C       		.byte	12
+ 2330 09fb 59       		.byte	89
+ 2331 09fc 8401     		.short	388
+ 2332 09fe 40       		.byte	64
+ 2333 09ff 42       		.byte	66
+ 2334 0a00 00       		.byte	0
+ 2335 0a01 A3       		.byte	-93
+ 2336 0a02 8501     		.short	389
+ 2337 0a04 D7       		.byte	-41
+ 2338 0a05 0A       		.byte	10
+ 2339 0a06 3D       		.byte	61
+ 2340 0a07 71       		.byte	113
+ 2341 0a08 2604     		.short	1062
+ 2342 0a0a 00       		.byte	0
+ 2343 0a0b 00       		.byte	0
+ 2344 0a0c 08       		.byte	8
+ 2345 0a0d 86       		.byte	-122
+ 2346 0a0e 8601     		.short	390
+ 2347 0a10 40       		.byte	64
+ 2348 0a11 78       		.byte	120
+ 2349 0a12 D0       		.byte	-48
+ 2350 0a13 00       		.byte	0
+ 2351 0a14 8701     		.short	391
+ 2352 0a16 00       		.byte	0
+ 2353 0a17 00       		.byte	0
+ 2354 0a18 00       		.byte	0
+ 2355 0a19 00       		.byte	0
+ 2356 0a1a 8801     		.short	392
+ 2357 0a1c 40       		.byte	64
+ 2358 0a1d 78       		.byte	120
+ 2359 0a1e D0       		.byte	-48
+ 2360 0a1f 00       		.byte	0
+ 2361 0a20 8901     		.short	393
+ 2362 0a22 00       		.byte	0
+ 2363 0a23 00       		.byte	0
+ 2364 0a24 00       		.byte	0
+ 2365 0a25 00       		.byte	0
+ 2366 0a26 8A01     		.short	394
+ 2367 0a28 40       		.byte	64
+ 2368 0a29 87       		.byte	-121
+ 2369 0a2a 89       		.byte	-119
+ 2370 0a2b 0F       		.byte	15
+ 2371 0a2c 8B01     		.short	395
+ 2372 0a2e F4       		.byte	-12
+ 2373 0a2f 6B       		.byte	107
+ 2374 0a30 F4       		.byte	-12
+ 2375 0a31 50       		.byte	80
+ 2376 0a32 8C01     		.short	396
+ 2377 0a34 40       		.byte	64
+ 2378 0a35 80       		.byte	-128
+ 2379 0a36 BF       		.byte	-65
+ 2380 0a37 59       		.byte	89
+ 2381 0a38 8D01     		.short	397
+ 2382 0a3a C7       		.byte	-57
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 44
+
+
+ 2383 0a3b 49       		.byte	73
+ 2384 0a3c 25       		.byte	37
+ 2385 0a3d 71       		.byte	113
+ 2386 0a3e 8E01     		.short	398
+ 2387 0a40 40       		.byte	64
+ 2388 0a41 42       		.byte	66
+ 2389 0a42 80       		.byte	-128
+ 2390 0a43 A3       		.byte	-93
+ 2391 0a44 8F01     		.short	399
+ 2392 0a46 D7       		.byte	-41
+ 2393 0a47 0A       		.byte	10
+ 2394 0a48 3D       		.byte	61
+ 2395 0a49 71       		.byte	113
+ 2396 0a4a 2704     		.short	1063
+ 2397 0a4c 00       		.byte	0
+ 2398 0a4d 00       		.byte	0
+ 2399 0a4e 09       		.byte	9
+ 2400 0a4f 97       		.byte	-105
+ 2401 0a50 9001     		.short	400
+ 2402 0a52 40       		.byte	64
+ 2403 0a53 78       		.byte	120
+ 2404 0a54 E0       		.byte	-32
+ 2405 0a55 00       		.byte	0
+ 2406 0a56 9101     		.short	401
+ 2407 0a58 00       		.byte	0
+ 2408 0a59 00       		.byte	0
+ 2409 0a5a 00       		.byte	0
+ 2410 0a5b 00       		.byte	0
+ 2411 0a5c 9201     		.short	402
+ 2412 0a5e 40       		.byte	64
+ 2413 0a5f 78       		.byte	120
+ 2414 0a60 E0       		.byte	-32
+ 2415 0a61 00       		.byte	0
+ 2416 0a62 9301     		.short	403
+ 2417 0a64 00       		.byte	0
+ 2418 0a65 00       		.byte	0
+ 2419 0a66 00       		.byte	0
+ 2420 0a67 00       		.byte	0
+ 2421 0a68 9401     		.short	404
+ 2422 0a6a 40       		.byte	64
+ 2423 0a6b 87       		.byte	-121
+ 2424 0a6c 8D       		.byte	-115
+ 2425 0a6d 48       		.byte	72
+ 2426 0a6e 9501     		.short	405
+ 2427 0a70 80       		.byte	-128
+ 2428 0a71 4E       		.byte	78
+ 2429 0a72 A1       		.byte	-95
+ 2430 0a73 2C       		.byte	44
+ 2431 0a74 9601     		.short	406
+ 2432 0a76 40       		.byte	64
+ 2433 0a77 80       		.byte	-128
+ 2434 0a78 C5       		.byte	-59
+ 2435 0a79 47       		.byte	71
+ 2436 0a7a 9701     		.short	407
+ 2437 0a7c C3       		.byte	-61
+ 2438 0a7d C4       		.byte	-60
+ 2439 0a7e A9       		.byte	-87
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 45
+
+
+ 2440 0a7f 37       		.byte	55
+ 2441 0a80 9801     		.short	408
+ 2442 0a82 40       		.byte	64
+ 2443 0a83 43       		.byte	67
+ 2444 0a84 00       		.byte	0
+ 2445 0a85 A3       		.byte	-93
+ 2446 0a86 9901     		.short	409
+ 2447 0a88 D7       		.byte	-41
+ 2448 0a89 0A       		.byte	10
+ 2449 0a8a 3D       		.byte	61
+ 2450 0a8b 71       		.byte	113
+ 2451 0a8c 2804     		.short	1064
+ 2452 0a8e 00       		.byte	0
+ 2453 0a8f 00       		.byte	0
+ 2454 0a90 0A       		.byte	10
+ 2455 0a91 A8       		.byte	-88
+ 2456 0a92 9A01     		.short	410
+ 2457 0a94 40       		.byte	64
+ 2458 0a95 78       		.byte	120
+ 2459 0a96 F0       		.byte	-16
+ 2460 0a97 00       		.byte	0
+ 2461 0a98 9B01     		.short	411
+ 2462 0a9a 00       		.byte	0
+ 2463 0a9b 00       		.byte	0
+ 2464 0a9c 00       		.byte	0
+ 2465 0a9d 00       		.byte	0
+ 2466 0a9e 9C01     		.short	412
+ 2467 0aa0 40       		.byte	64
+ 2468 0aa1 78       		.byte	120
+ 2469 0aa2 F0       		.byte	-16
+ 2470 0aa3 00       		.byte	0
+ 2471 0aa4 9D01     		.short	413
+ 2472 0aa6 00       		.byte	0
+ 2473 0aa7 00       		.byte	0
+ 2474 0aa8 00       		.byte	0
+ 2475 0aa9 00       		.byte	0
+ 2476 0aaa 9E01     		.short	414
+ 2477 0aac 40       		.byte	64
+ 2478 0aad 87       		.byte	-121
+ 2479 0aae 91       		.byte	-111
+ 2480 0aaf 83       		.byte	-125
+ 2481 0ab0 9F01     		.short	415
+ 2482 0ab2 01       		.byte	1
+ 2483 0ab3 D8       		.byte	-40
+ 2484 0ab4 4E       		.byte	78
+ 2485 0ab5 57       		.byte	87
+ 2486 0ab6 A001     		.short	416
+ 2487 0ab8 40       		.byte	64
+ 2488 0ab9 80       		.byte	-128
+ 2489 0aba CB       		.byte	-53
+ 2490 0abb 37       		.byte	55
+ 2491 0abc A101     		.short	417
+ 2492 0abe 77       		.byte	119
+ 2493 0abf DE       		.byte	-34
+ 2494 0ac0 FD       		.byte	-3
+ 2495 0ac1 05       		.byte	5
+ 2496 0ac2 A201     		.short	418
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 46
+
+
+ 2497 0ac4 40       		.byte	64
+ 2498 0ac5 43       		.byte	67
+ 2499 0ac6 80       		.byte	-128
+ 2500 0ac7 A3       		.byte	-93
+ 2501 0ac8 A301     		.short	419
+ 2502 0aca D7       		.byte	-41
+ 2503 0acb 0A       		.byte	10
+ 2504 0acc 3D       		.byte	61
+ 2505 0acd 71       		.byte	113
+ 2506 0ace 2904     		.short	1065
+ 2507 0ad0 00       		.byte	0
+ 2508 0ad1 00       		.byte	0
+ 2509 0ad2 0B       		.byte	11
+ 2510 0ad3 B9       		.byte	-71
+ 2511 0ad4 A401     		.short	420
+ 2512 0ad6 40       		.byte	64
+ 2513 0ad7 79       		.byte	121
+ 2514 0ad8 00       		.byte	0
+ 2515 0ad9 00       		.byte	0
+ 2516 0ada A501     		.short	421
+ 2517 0adc 00       		.byte	0
+ 2518 0add 00       		.byte	0
+ 2519 0ade 00       		.byte	0
+ 2520 0adf 00       		.byte	0
+ 2521 0ae0 A601     		.short	422
+ 2522 0ae2 40       		.byte	64
+ 2523 0ae3 79       		.byte	121
+ 2524 0ae4 00       		.byte	0
+ 2525 0ae5 00       		.byte	0
+ 2526 0ae6 A701     		.short	423
+ 2527 0ae8 00       		.byte	0
+ 2528 0ae9 00       		.byte	0
+ 2529 0aea 00       		.byte	0
+ 2530 0aeb 00       		.byte	0
+ 2531 0aec A801     		.short	424
+ 2532 0aee 40       		.byte	64
+ 2533 0aef 87       		.byte	-121
+ 2534 0af0 95       		.byte	-107
+ 2535 0af1 BF       		.byte	-65
+ 2536 0af2 A901     		.short	425
+ 2537 0af4 77       		.byte	119
+ 2538 0af5 FB       		.byte	-5
+ 2539 0af6 29       		.byte	41
+ 2540 0af7 0F       		.byte	15
+ 2541 0af8 AA01     		.short	426
+ 2542 0afa 40       		.byte	64
+ 2543 0afb 80       		.byte	-128
+ 2544 0afc D1       		.byte	-47
+ 2545 0afd 28       		.byte	40
+ 2546 0afe AB01     		.short	427
+ 2547 0b00 E1       		.byte	-31
+ 2548 0b01 C6       		.byte	-58
+ 2549 0b02 93       		.byte	-109
+ 2550 0b03 6D       		.byte	109
+ 2551 0b04 AC01     		.short	428
+ 2552 0b06 40       		.byte	64
+ 2553 0b07 44       		.byte	68
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 47
+
+
+ 2554 0b08 00       		.byte	0
+ 2555 0b09 A3       		.byte	-93
+ 2556 0b0a AD01     		.short	429
+ 2557 0b0c D7       		.byte	-41
+ 2558 0b0d 0A       		.byte	10
+ 2559 0b0e 3D       		.byte	61
+ 2560 0b0f 71       		.byte	113
+ 2561 0b10 2A04     		.short	1066
+ 2562 0b12 00       		.byte	0
+ 2563 0b13 00       		.byte	0
+ 2564 0b14 0C       		.byte	12
+ 2565 0b15 CA       		.byte	-54
+ 2566 0b16 AE01     		.short	430
+ 2567 0b18 40       		.byte	64
+ 2568 0b19 79       		.byte	121
+ 2569 0b1a 10       		.byte	16
+ 2570 0b1b 00       		.byte	0
+ 2571 0b1c AF01     		.short	431
+ 2572 0b1e 00       		.byte	0
+ 2573 0b1f 00       		.byte	0
+ 2574 0b20 00       		.byte	0
+ 2575 0b21 00       		.byte	0
+ 2576 0b22 B001     		.short	432
+ 2577 0b24 40       		.byte	64
+ 2578 0b25 79       		.byte	121
+ 2579 0b26 10       		.byte	16
+ 2580 0b27 00       		.byte	0
+ 2581 0b28 B101     		.short	433
+ 2582 0b2a 00       		.byte	0
+ 2583 0b2b 00       		.byte	0
+ 2584 0b2c 00       		.byte	0
+ 2585 0b2d 00       		.byte	0
+ 2586 0b2e B201     		.short	434
+ 2587 0b30 40       		.byte	64
+ 2588 0b31 87       		.byte	-121
+ 2589 0b32 99       		.byte	-103
+ 2590 0b33 FD       		.byte	-3
+ 2591 0b34 B301     		.short	435
+ 2592 0b36 E1       		.byte	-31
+ 2593 0b37 A9       		.byte	-87
+ 2594 0b38 A3       		.byte	-93
+ 2595 0b39 B5       		.byte	-75
+ 2596 0b3a B401     		.short	436
+ 2597 0b3c 40       		.byte	64
+ 2598 0b3d 80       		.byte	-128
+ 2599 0b3e D7       		.byte	-41
+ 2600 0b3f 1B       		.byte	27
+ 2601 0b40 B501     		.short	437
+ 2602 0b42 FF       		.byte	-1
+ 2603 0b43 AB       		.byte	-85
+ 2604 0b44 EA       		.byte	-22
+ 2605 0b45 73       		.byte	115
+ 2606 0b46 B601     		.short	438
+ 2607 0b48 40       		.byte	64
+ 2608 0b49 44       		.byte	68
+ 2609 0b4a 80       		.byte	-128
+ 2610 0b4b A3       		.byte	-93
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 48
+
+
+ 2611 0b4c B701     		.short	439
+ 2612 0b4e D7       		.byte	-41
+ 2613 0b4f 0A       		.byte	10
+ 2614 0b50 3D       		.byte	61
+ 2615 0b51 71       		.byte	113
+ 2616 0b52 2B04     		.short	1067
+ 2617 0b54 00       		.byte	0
+ 2618 0b55 00       		.byte	0
+ 2619 0b56 0D       		.byte	13
+ 2620 0b57 DB       		.byte	-37
+ 2621 0b58 B801     		.short	440
+ 2622 0b5a 40       		.byte	64
+ 2623 0b5b 79       		.byte	121
+ 2624 0b5c 20       		.byte	32
+ 2625 0b5d 00       		.byte	0
+ 2626 0b5e B901     		.short	441
+ 2627 0b60 00       		.byte	0
+ 2628 0b61 00       		.byte	0
+ 2629 0b62 00       		.byte	0
+ 2630 0b63 00       		.byte	0
+ 2631 0b64 BA01     		.short	442
+ 2632 0b66 40       		.byte	64
+ 2633 0b67 79       		.byte	121
+ 2634 0b68 20       		.byte	32
+ 2635 0b69 00       		.byte	0
+ 2636 0b6a BB01     		.short	443
+ 2637 0b6c 00       		.byte	0
+ 2638 0b6d 00       		.byte	0
+ 2639 0b6e 00       		.byte	0
+ 2640 0b6f 00       		.byte	0
+ 2641 0b70 BC01     		.short	444
+ 2642 0b72 40       		.byte	64
+ 2643 0b73 87       		.byte	-121
+ 2644 0b74 9E       		.byte	-98
+ 2645 0b75 3E       		.byte	62
+ 2646 0b76 BD01     		.short	445
+ 2647 0b78 3D       		.byte	61
+ 2648 0b79 D6       		.byte	-42
+ 2649 0b7a 76       		.byte	118
+ 2650 0b7b 57       		.byte	87
+ 2651 0b7c BE01     		.short	446
+ 2652 0b7e 40       		.byte	64
+ 2653 0b7f 80       		.byte	-128
+ 2654 0b80 DD       		.byte	-35
+ 2655 0b81 10       		.byte	16
+ 2656 0b82 BF01     		.short	447
+ 2657 0b84 CF       		.byte	-49
+ 2658 0b85 C1       		.byte	-63
+ 2659 0b86 89       		.byte	-119
+ 2660 0b87 BF       		.byte	-65
+ 2661 0b88 C001     		.short	448
+ 2662 0b8a 40       		.byte	64
+ 2663 0b8b 45       		.byte	69
+ 2664 0b8c 00       		.byte	0
+ 2665 0b8d A3       		.byte	-93
+ 2666 0b8e C101     		.short	449
+ 2667 0b90 D7       		.byte	-41
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 49
+
+
+ 2668 0b91 0A       		.byte	10
+ 2669 0b92 3D       		.byte	61
+ 2670 0b93 71       		.byte	113
+ 2671 0b94 2C04     		.short	1068
+ 2672 0b96 00       		.byte	0
+ 2673 0b97 00       		.byte	0
+ 2674 0b98 0E       		.byte	14
+ 2675 0b99 EC       		.byte	-20
+ 2676 0b9a C201     		.short	450
+ 2677 0b9c 40       		.byte	64
+ 2678 0b9d 79       		.byte	121
+ 2679 0b9e 30       		.byte	48
+ 2680 0b9f 00       		.byte	0
+ 2681 0ba0 C301     		.short	451
+ 2682 0ba2 00       		.byte	0
+ 2683 0ba3 00       		.byte	0
+ 2684 0ba4 00       		.byte	0
+ 2685 0ba5 00       		.byte	0
+ 2686 0ba6 C401     		.short	452
+ 2687 0ba8 40       		.byte	64
+ 2688 0ba9 79       		.byte	121
+ 2689 0baa 30       		.byte	48
+ 2690 0bab 00       		.byte	0
+ 2691 0bac C501     		.short	453
+ 2692 0bae 00       		.byte	0
+ 2693 0baf 00       		.byte	0
+ 2694 0bb0 00       		.byte	0
+ 2695 0bb1 00       		.byte	0
+ 2696 0bb2 C601     		.short	454
+ 2697 0bb4 40       		.byte	64
+ 2698 0bb5 87       		.byte	-121
+ 2699 0bb6 A2       		.byte	-94
+ 2700 0bb7 80       		.byte	-128
+ 2701 0bb8 C701     		.short	455
+ 2702 0bba 8B       		.byte	-117
+ 2703 0bbb 74       		.byte	116
+ 2704 0bbc 9F       		.byte	-97
+ 2705 0bbd 6B       		.byte	107
+ 2706 0bbe C801     		.short	456
+ 2707 0bc0 40       		.byte	64
+ 2708 0bc1 80       		.byte	-128
+ 2709 0bc2 E3       		.byte	-29
+ 2710 0bc3 07       		.byte	7
+ 2711 0bc4 C901     		.short	457
+ 2712 0bc6 50       		.byte	80
+ 2713 0bc7 3C       		.byte	60
+ 2714 0bc8 00       		.byte	0
+ 2715 0bc9 CF       		.byte	-49
+ 2716 0bca CA01     		.short	458
+ 2717 0bcc 40       		.byte	64
+ 2718 0bcd 45       		.byte	69
+ 2719 0bce 80       		.byte	-128
+ 2720 0bcf A3       		.byte	-93
+ 2721 0bd0 CB01     		.short	459
+ 2722 0bd2 D7       		.byte	-41
+ 2723 0bd3 0A       		.byte	10
+ 2724 0bd4 3D       		.byte	61
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 50
+
+
+ 2725 0bd5 71       		.byte	113
+ 2726 0bd6 2D04     		.short	1069
+ 2727 0bd8 00       		.byte	0
+ 2728 0bd9 00       		.byte	0
+ 2729 0bda 0F       		.byte	15
+ 2730 0bdb FD       		.byte	-3
+ 2731 0bdc CC01     		.short	460
+ 2732 0bde 40       		.byte	64
+ 2733 0bdf 79       		.byte	121
+ 2734 0be0 40       		.byte	64
+ 2735 0be1 00       		.byte	0
+ 2736 0be2 CD01     		.short	461
+ 2737 0be4 00       		.byte	0
+ 2738 0be5 00       		.byte	0
+ 2739 0be6 00       		.byte	0
+ 2740 0be7 00       		.byte	0
+ 2741 0be8 CE01     		.short	462
+ 2742 0bea 40       		.byte	64
+ 2743 0beb 79       		.byte	121
+ 2744 0bec 40       		.byte	64
+ 2745 0bed 00       		.byte	0
+ 2746 0bee CF01     		.short	463
+ 2747 0bf0 00       		.byte	0
+ 2748 0bf1 00       		.byte	0
+ 2749 0bf2 00       		.byte	0
+ 2750 0bf3 00       		.byte	0
+ 2751 0bf4 D001     		.short	464
+ 2752 0bf6 40       		.byte	64
+ 2753 0bf7 87       		.byte	-121
+ 2754 0bf8 A6       		.byte	-90
+ 2755 0bf9 C4       		.byte	-60
+ 2756 0bfa D101     		.short	465
+ 2757 0bfc C9       		.byte	-55
+ 2758 0bfd 77       		.byte	119
+ 2759 0bfe 64       		.byte	100
+ 2760 0bff 75       		.byte	117
+ 2761 0c00 D201     		.short	466
+ 2762 0c02 40       		.byte	64
+ 2763 0c03 80       		.byte	-128
+ 2764 0c04 E8       		.byte	-24
+ 2765 0c05 FF       		.byte	-1
+ 2766 0c06 D301     		.short	467
+ 2767 0c08 7F       		.byte	127
+ 2768 0c09 51       		.byte	81
+ 2769 0c0a E5       		.byte	-27
+ 2770 0c0b 5F       		.byte	95
+ 2771 0c0c D401     		.short	468
+ 2772 0c0e 40       		.byte	64
+ 2773 0c0f 46       		.byte	70
+ 2774 0c10 00       		.byte	0
+ 2775 0c11 A3       		.byte	-93
+ 2776 0c12 D501     		.short	469
+ 2777 0c14 D7       		.byte	-41
+ 2778 0c15 0A       		.byte	10
+ 2779 0c16 3D       		.byte	61
+ 2780 0c17 71       		.byte	113
+ 2781 0c18 2E04     		.short	1070
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 51
+
+
+ 2782 0c1a 00       		.byte	0
+ 2783 0c1b 00       		.byte	0
+ 2784 0c1c 00       		.byte	0
+ 2785 0c1d 0E       		.byte	14
+ 2786 0c1e D601     		.short	470
+ 2787 0c20 40       		.byte	64
+ 2788 0c21 79       		.byte	121
+ 2789 0c22 50       		.byte	80
+ 2790 0c23 00       		.byte	0
+ 2791 0c24 D701     		.short	471
+ 2792 0c26 00       		.byte	0
+ 2793 0c27 00       		.byte	0
+ 2794 0c28 00       		.byte	0
+ 2795 0c29 00       		.byte	0
+ 2796 0c2a D801     		.short	472
+ 2797 0c2c 40       		.byte	64
+ 2798 0c2d 79       		.byte	121
+ 2799 0c2e 50       		.byte	80
+ 2800 0c2f 00       		.byte	0
+ 2801 0c30 D901     		.short	473
+ 2802 0c32 00       		.byte	0
+ 2803 0c33 00       		.byte	0
+ 2804 0c34 00       		.byte	0
+ 2805 0c35 00       		.byte	0
+ 2806 0c36 DA01     		.short	474
+ 2807 0c38 40       		.byte	64
+ 2808 0c39 87       		.byte	-121
+ 2809 0c3a AB       		.byte	-85
+ 2810 0c3b 0A       		.byte	10
+ 2811 0c3c DB01     		.short	475
+ 2812 0c3e F6       		.byte	-10
+ 2813 0c3f D2       		.byte	-46
+ 2814 0c40 52       		.byte	82
+ 2815 0c41 69       		.byte	105
+ 2816 0c42 DC01     		.short	476
+ 2817 0c44 40       		.byte	64
+ 2818 0c45 80       		.byte	-128
+ 2819 0c46 EE       		.byte	-18
+ 2820 0c47 F9       		.byte	-7
+ 2821 0c48 DD01     		.short	477
+ 2822 0c4a 5B       		.byte	91
+ 2823 0c4b 3B       		.byte	59
+ 2824 0c4c D1       		.byte	-47
+ 2825 0c4d 5C       		.byte	92
+ 2826 0c4e DE01     		.short	478
+ 2827 0c50 40       		.byte	64
+ 2828 0c51 46       		.byte	70
+ 2829 0c52 80       		.byte	-128
+ 2830 0c53 A3       		.byte	-93
+ 2831 0c54 DF01     		.short	479
+ 2832 0c56 D7       		.byte	-41
+ 2833 0c57 0A       		.byte	10
+ 2834 0c58 3D       		.byte	61
+ 2835 0c59 71       		.byte	113
+ 2836 0c5a 2F04     		.short	1071
+ 2837 0c5c 00       		.byte	0
+ 2838 0c5d 00       		.byte	0
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 52
+
+
+ 2839 0c5e 01       		.byte	1
+ 2840 0c5f 1F       		.byte	31
+ 2841 0c60 E001     		.short	480
+ 2842 0c62 40       		.byte	64
+ 2843 0c63 79       		.byte	121
+ 2844 0c64 60       		.byte	96
+ 2845 0c65 00       		.byte	0
+ 2846 0c66 E101     		.short	481
+ 2847 0c68 00       		.byte	0
+ 2848 0c69 00       		.byte	0
+ 2849 0c6a 00       		.byte	0
+ 2850 0c6b 00       		.byte	0
+ 2851 0c6c E201     		.short	482
+ 2852 0c6e 40       		.byte	64
+ 2853 0c6f 79       		.byte	121
+ 2854 0c70 60       		.byte	96
+ 2855 0c71 00       		.byte	0
+ 2856 0c72 E301     		.short	483
+ 2857 0c74 00       		.byte	0
+ 2858 0c75 00       		.byte	0
+ 2859 0c76 00       		.byte	0
+ 2860 0c77 00       		.byte	0
+ 2861 0c78 E401     		.short	484
+ 2862 0c7a 40       		.byte	64
+ 2863 0c7b 87       		.byte	-121
+ 2864 0c7c AF       		.byte	-81
+ 2865 0c7d 53       		.byte	83
+ 2866 0c7e E501     		.short	485
+ 2867 0c80 12       		.byte	18
+ 2868 0c81 79       		.byte	121
+ 2869 0c82 3E       		.byte	62
+ 2870 0c83 9E       		.byte	-98
+ 2871 0c84 E601     		.short	486
+ 2872 0c86 40       		.byte	64
+ 2873 0c87 80       		.byte	-128
+ 2874 0c88 F4       		.byte	-12
+ 2875 0c89 F4       		.byte	-12
+ 2876 0c8a E701     		.short	487
+ 2877 0c8c E2       		.byte	-30
+ 2878 0c8d 34       		.byte	52
+ 2879 0c8e 61       		.byte	97
+ 2880 0c8f 56       		.byte	86
+ 2881 0c90 E801     		.short	488
+ 2882 0c92 40       		.byte	64
+ 2883 0c93 47       		.byte	71
+ 2884 0c94 00       		.byte	0
+ 2885 0c95 A3       		.byte	-93
+ 2886 0c96 E901     		.short	489
+ 2887 0c98 D7       		.byte	-41
+ 2888 0c99 0A       		.byte	10
+ 2889 0c9a 3D       		.byte	61
+ 2890 0c9b 71       		.byte	113
+ 2891 0c9c 3004     		.short	1072
+ 2892 0c9e 00       		.byte	0
+ 2893 0c9f 00       		.byte	0
+ 2894 0ca0 02       		.byte	2
+ 2895 0ca1 20       		.byte	32
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 53
+
+
+ 2896 0ca2 EA01     		.short	490
+ 2897 0ca4 40       		.byte	64
+ 2898 0ca5 79       		.byte	121
+ 2899 0ca6 70       		.byte	112
+ 2900 0ca7 00       		.byte	0
+ 2901 0ca8 EB01     		.short	491
+ 2902 0caa 00       		.byte	0
+ 2903 0cab 00       		.byte	0
+ 2904 0cac 00       		.byte	0
+ 2905 0cad 00       		.byte	0
+ 2906 0cae EC01     		.short	492
+ 2907 0cb0 40       		.byte	64
+ 2908 0cb1 79       		.byte	121
+ 2909 0cb2 70       		.byte	112
+ 2910 0cb3 00       		.byte	0
+ 2911 0cb4 ED01     		.short	493
+ 2912 0cb6 00       		.byte	0
+ 2913 0cb7 00       		.byte	0
+ 2914 0cb8 00       		.byte	0
+ 2915 0cb9 00       		.byte	0
+ 2916 0cba EE01     		.short	494
+ 2917 0cbc 40       		.byte	64
+ 2918 0cbd 87       		.byte	-121
+ 2919 0cbe B3       		.byte	-77
+ 2920 0cbf 9D       		.byte	-99
+ 2921 0cc0 EF01     		.short	495
+ 2922 0cc2 1B       		.byte	27
+ 2923 0cc3 60       		.byte	96
+ 2924 0cc4 47       		.byte	71
+ 2925 0cc5 10       		.byte	16
+ 2926 0cc6 F001     		.short	496
+ 2927 0cc8 40       		.byte	64
+ 2928 0cc9 80       		.byte	-128
+ 2929 0cca FA       		.byte	-6
+ 2930 0ccb F2       		.byte	-14
+ 2931 0ccc F101     		.short	497
+ 2932 0cce 12       		.byte	18
+ 2933 0ccf 78       		.byte	120
+ 2934 0cd0 32       		.byte	50
+ 2935 0cd1 8B       		.byte	-117
+ 2936 0cd2 F201     		.short	498
+ 2937 0cd4 40       		.byte	64
+ 2938 0cd5 47       		.byte	71
+ 2939 0cd6 80       		.byte	-128
+ 2940 0cd7 A3       		.byte	-93
+ 2941 0cd8 F301     		.short	499
+ 2942 0cda D7       		.byte	-41
+ 2943 0cdb 0A       		.byte	10
+ 2944 0cdc 3D       		.byte	61
+ 2945 0cdd 71       		.byte	113
+ 2946 0cde 3104     		.short	1073
+ 2947 0ce0 00       		.byte	0
+ 2948 0ce1 00       		.byte	0
+ 2949 0ce2 03       		.byte	3
+ 2950 0ce3 31       		.byte	49
+ 2951 0ce4 F401     		.short	500
+ 2952 0ce6 40       		.byte	64
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 54
+
+
+ 2953 0ce7 79       		.byte	121
+ 2954 0ce8 80       		.byte	-128
+ 2955 0ce9 00       		.byte	0
+ 2956 0cea F501     		.short	501
+ 2957 0cec 00       		.byte	0
+ 2958 0ced 00       		.byte	0
+ 2959 0cee 00       		.byte	0
+ 2960 0cef 00       		.byte	0
+ 2961 0cf0 F601     		.short	502
+ 2962 0cf2 40       		.byte	64
+ 2963 0cf3 79       		.byte	121
+ 2964 0cf4 80       		.byte	-128
+ 2965 0cf5 00       		.byte	0
+ 2966 0cf6 F701     		.short	503
+ 2967 0cf8 00       		.byte	0
+ 2968 0cf9 00       		.byte	0
+ 2969 0cfa 00       		.byte	0
+ 2970 0cfb 00       		.byte	0
+ 2971 0cfc F801     		.short	504
+ 2972 0cfe 40       		.byte	64
+ 2973 0cff 87       		.byte	-121
+ 2974 0d00 B7       		.byte	-73
+ 2975 0d01 E9       		.byte	-23
+ 2976 0d02 F901     		.short	505
+ 2977 0d04 10       		.byte	16
+ 2978 0d05 7B       		.byte	123
+ 2979 0d06 D3       		.byte	-45
+ 2980 0d07 42       		.byte	66
+ 2981 0d08 FA01     		.short	506
+ 2982 0d0a 40       		.byte	64
+ 2983 0d0b 81       		.byte	-127
+ 2984 0d0c 00       		.byte	0
+ 2985 0d0d F0       		.byte	-16
+ 2986 0d0e FB01     		.short	507
+ 2987 0d10 EA       		.byte	-22
+ 2988 0d11 45       		.byte	69
+ 2989 0d12 E1       		.byte	-31
+ 2990 0d13 1F       		.byte	31
+ 2991 0d14 FC01     		.short	508
+ 2992 0d16 40       		.byte	64
+ 2993 0d17 48       		.byte	72
+ 2994 0d18 00       		.byte	0
+ 2995 0d19 A3       		.byte	-93
+ 2996 0d1a FD01     		.short	509
+ 2997 0d1c D7       		.byte	-41
+ 2998 0d1d 0A       		.byte	10
+ 2999 0d1e 3D       		.byte	61
+ 3000 0d1f 71       		.byte	113
+ 3001 0d20 3204     		.short	1074
+ 3002 0d22 00       		.byte	0
+ 3003 0d23 00       		.byte	0
+ 3004 0d24 04       		.byte	4
+ 3005 0d25 42       		.byte	66
+ 3006 0d26 0080     		.short	-32768
+ 3007 0d28 00       		.byte	0
+ 3008 0d29 00       		.byte	0
+ 3009 0d2a 00       		.byte	0
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 55
+
+
+ 3010 0d2b 33       		.byte	51
+ 3011 0d2c 0180     		.short	-32767
+ 3012 0d2e 00       		.byte	0
+ 3013 0d2f 00       		.byte	0
+ 3014 0d30 00       		.byte	0
+ 3015 0d31 01       		.byte	1
+ 3016              		.data
+ 3017              		.align	1
+ 3018              		.set	.LANCHOR1,. + 0
+ 3019              		.type	total_entries, %object
+ 3020              		.size	total_entries, 2
+ 3021              	total_entries:
+ 3022 0000 3302     		.short	563
+ 3023              		.bss
+ 3024              		.align	1
+ 3025              		.set	.LANCHOR0,. + 0
+ 3026              		.type	data_index, %object
+ 3027              		.size	data_index, 2
+ 3028              	data_index:
+ 3029 0000 0000     		.space	2
+ 3030              		.text
+ 3031              	.Letext0:
+ 3032              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 3033              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 3034              		.file 4 "outfile.h"
+ 3035              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 3036              		.file 6 "Generated_Source\\PSoC5/Data_Port.h"
+ 3037              		.file 7 "Generated_Source\\PSoC5/PSOC_FPGA.h"
+ 3038              		.file 8 "Generated_Source\\PSoC5/SOFT_RESET.h"
+ 3039              		.file 9 "Generated_Source\\PSoC5/CyLib.h"
+ 3040              		.file 10 "Generated_Source\\PSoC5/FPGA_PSOC.h"
+ 3041              		.section	.debug_info,"",%progbits
+ 3042              	.Ldebug_info0:
+ 3043 0000 B2020000 		.4byte	0x2b2
+ 3044 0004 0400     		.2byte	0x4
+ 3045 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 3046 000a 04       		.byte	0x4
+ 3047 000b 01       		.uleb128 0x1
+ 3048 000c 4C000000 		.4byte	.LASF35
+ 3049 0010 0C       		.byte	0xc
+ 3050 0011 BB010000 		.4byte	.LASF36
+ 3051 0015 E8010000 		.4byte	.LASF37
+ 3052 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 3053 001d 00000000 		.4byte	0
+ 3054 0021 00000000 		.4byte	.Ldebug_line0
+ 3055 0025 02       		.uleb128 0x2
+ 3056 0026 08       		.byte	0x8
+ 3057 0027 07       		.byte	0x7
+ 3058 0028 5A010000 		.4byte	.LASF0
+ 3059 002c 02       		.uleb128 0x2
+ 3060 002d 04       		.byte	0x4
+ 3061 002e 07       		.byte	0x7
+ 3062 002f 36010000 		.4byte	.LASF1
+ 3063 0033 02       		.uleb128 0x2
+ 3064 0034 02       		.byte	0x2
+ 3065 0035 07       		.byte	0x7
+ 3066 0036 EC000000 		.4byte	.LASF2
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 56
+
+
+ 3067 003a 02       		.uleb128 0x2
+ 3068 003b 01       		.byte	0x1
+ 3069 003c 06       		.byte	0x6
+ 3070 003d 62020000 		.4byte	.LASF3
+ 3071 0041 03       		.uleb128 0x3
+ 3072 0042 00000000 		.4byte	.LASF6
+ 3073 0046 02       		.byte	0x2
+ 3074 0047 1D       		.byte	0x1d
+ 3075 0048 4C000000 		.4byte	0x4c
+ 3076 004c 02       		.uleb128 0x2
+ 3077 004d 01       		.byte	0x1
+ 3078 004e 08       		.byte	0x8
+ 3079 004f 3E000000 		.4byte	.LASF4
+ 3080 0053 02       		.uleb128 0x2
+ 3081 0054 02       		.byte	0x2
+ 3082 0055 05       		.byte	0x5
+ 3083 0056 DE010000 		.4byte	.LASF5
+ 3084 005a 03       		.uleb128 0x3
+ 3085 005b 0C010000 		.4byte	.LASF7
+ 3086 005f 02       		.byte	0x2
+ 3087 0060 2B       		.byte	0x2b
+ 3088 0061 33000000 		.4byte	0x33
+ 3089 0065 03       		.uleb128 0x3
+ 3090 0066 0A000000 		.4byte	.LASF8
+ 3091 006a 02       		.byte	0x2
+ 3092 006b 3F       		.byte	0x3f
+ 3093 006c 70000000 		.4byte	0x70
+ 3094 0070 02       		.uleb128 0x2
+ 3095 0071 04       		.byte	0x4
+ 3096 0072 05       		.byte	0x5
+ 3097 0073 3C020000 		.4byte	.LASF9
+ 3098 0077 02       		.uleb128 0x2
+ 3099 0078 04       		.byte	0x4
+ 3100 0079 07       		.byte	0x7
+ 3101 007a DA000000 		.4byte	.LASF10
+ 3102 007e 02       		.uleb128 0x2
+ 3103 007f 08       		.byte	0x8
+ 3104 0080 05       		.byte	0x5
+ 3105 0081 AD010000 		.4byte	.LASF11
+ 3106 0085 04       		.uleb128 0x4
+ 3107 0086 04       		.byte	0x4
+ 3108 0087 05       		.byte	0x5
+ 3109 0088 696E7400 		.ascii	"int\000"
+ 3110 008c 03       		.uleb128 0x3
+ 3111 008d 71010000 		.4byte	.LASF12
+ 3112 0091 03       		.byte	0x3
+ 3113 0092 18       		.byte	0x18
+ 3114 0093 41000000 		.4byte	0x41
+ 3115 0097 03       		.uleb128 0x3
+ 3116 0098 33020000 		.4byte	.LASF13
+ 3117 009c 03       		.byte	0x3
+ 3118 009d 24       		.byte	0x24
+ 3119 009e 5A000000 		.4byte	0x5a
+ 3120 00a2 03       		.uleb128 0x3
+ 3121 00a3 2B000000 		.4byte	.LASF14
+ 3122 00a7 03       		.byte	0x3
+ 3123 00a8 2C       		.byte	0x2c
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 57
+
+
+ 3124 00a9 65000000 		.4byte	0x65
+ 3125 00ad 02       		.uleb128 0x2
+ 3126 00ae 04       		.byte	0x4
+ 3127 00af 04       		.byte	0x4
+ 3128 00b0 33000000 		.4byte	.LASF15
+ 3129 00b4 02       		.uleb128 0x2
+ 3130 00b5 08       		.byte	0x8
+ 3131 00b6 04       		.byte	0x4
+ 3132 00b7 24000000 		.4byte	.LASF16
+ 3133 00bb 02       		.uleb128 0x2
+ 3134 00bc 01       		.byte	0x1
+ 3135 00bd 08       		.byte	0x8
+ 3136 00be C2010000 		.4byte	.LASF17
+ 3137 00c2 02       		.uleb128 0x2
+ 3138 00c3 04       		.byte	0x4
+ 3139 00c4 07       		.byte	0x7
+ 3140 00c5 A4010000 		.4byte	.LASF18
+ 3141 00c9 02       		.uleb128 0x2
+ 3142 00ca 08       		.byte	0x8
+ 3143 00cb 04       		.byte	0x4
+ 3144 00cc 89010000 		.4byte	.LASF19
+ 3145 00d0 05       		.uleb128 0x5
+ 3146 00d1 06       		.byte	0x6
+ 3147 00d2 04       		.byte	0x4
+ 3148 00d3 09       		.byte	0x9
+ 3149 00d4 F1000000 		.4byte	0xf1
+ 3150 00d8 06       		.uleb128 0x6
+ 3151 00d9 52010000 		.4byte	.LASF20
+ 3152 00dd 04       		.byte	0x4
+ 3153 00de 0A       		.byte	0xa
+ 3154 00df 97000000 		.4byte	0x97
+ 3155 00e3 00       		.byte	0
+ 3156 00e4 06       		.uleb128 0x6
+ 3157 00e5 39000000 		.4byte	.LASF21
+ 3158 00e9 04       		.byte	0x4
+ 3159 00ea 0B       		.byte	0xb
+ 3160 00eb F1000000 		.4byte	0xf1
+ 3161 00ef 02       		.byte	0x2
+ 3162 00f0 00       		.byte	0
+ 3163 00f1 07       		.uleb128 0x7
+ 3164 00f2 8C000000 		.4byte	0x8c
+ 3165 00f6 01010000 		.4byte	0x101
+ 3166 00fa 08       		.uleb128 0x8
+ 3167 00fb C2000000 		.4byte	0xc2
+ 3168 00ff 03       		.byte	0x3
+ 3169 0100 00       		.byte	0
+ 3170 0101 09       		.uleb128 0x9
+ 3171 0102 17010000 		.4byte	.LASF38
+ 3172 0106 01       		.byte	0x1
+ 3173 0107 28       		.byte	0x28
+ 3174 0108 00000000 		.4byte	.LFB64
+ 3175 010c 94000000 		.4byte	.LFE64-.LFB64
+ 3176 0110 01       		.uleb128 0x1
+ 3177 0111 9C       		.byte	0x9c
+ 3178 0112 89010000 		.4byte	0x189
+ 3179 0116 0A       		.uleb128 0xa
+ 3180 0117 14000000 		.4byte	.LBB2
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 58
+
+
+ 3181 011b 80000000 		.4byte	.LBE2-.LBB2
+ 3182 011f 0B       		.uleb128 0xb
+ 3183 0120 D2010000 		.4byte	.LASF22
+ 3184 0124 01       		.byte	0x1
+ 3185 0125 2A       		.byte	0x2a
+ 3186 0126 97000000 		.4byte	0x97
+ 3187 012a 00000000 		.4byte	.LLST0
+ 3188 012e 0B       		.uleb128 0xb
+ 3189 012f 2B010000 		.4byte	.LASF23
+ 3190 0133 01       		.byte	0x1
+ 3191 0134 2B       		.byte	0x2b
+ 3192 0135 8C000000 		.4byte	0x8c
+ 3193 0139 AA000000 		.4byte	.LLST1
+ 3194 013d 0C       		.uleb128 0xc
+ 3195 013e 52000000 		.4byte	.LBB3
+ 3196 0142 18000000 		.4byte	.LBE3-.LBB3
+ 3197 0146 63010000 		.4byte	0x163
+ 3198 014a 0B       		.uleb128 0xb
+ 3199 014b 43010000 		.4byte	.LASF24
+ 3200 014f 01       		.byte	0x1
+ 3201 0150 34       		.byte	0x34
+ 3202 0151 8C000000 		.4byte	0x8c
+ 3203 0155 B9010000 		.4byte	.LLST2
+ 3204 0159 0D       		.uleb128 0xd
+ 3205 015a 6A000000 		.4byte	.LVL15
+ 3206 015e 73020000 		.4byte	0x273
+ 3207 0162 00       		.byte	0
+ 3208 0163 0D       		.uleb128 0xd
+ 3209 0164 3A000000 		.4byte	.LVL5
+ 3210 0168 73020000 		.4byte	0x273
+ 3211 016c 0D       		.uleb128 0xd
+ 3212 016d 50000000 		.4byte	.LVL9
+ 3213 0171 73020000 		.4byte	0x273
+ 3214 0175 0D       		.uleb128 0xd
+ 3215 0176 6E000000 		.4byte	.LVL16
+ 3216 017a 7E020000 		.4byte	0x27e
+ 3217 017e 0D       		.uleb128 0xd
+ 3218 017f 78000000 		.4byte	.LVL17
+ 3219 0183 89020000 		.4byte	0x289
+ 3220 0187 00       		.byte	0
+ 3221 0188 00       		.byte	0
+ 3222 0189 0E       		.uleb128 0xe
+ 3223 018a 26010000 		.4byte	.LASF39
+ 3224 018e 01       		.byte	0x1
+ 3225 018f 11       		.byte	0x11
+ 3226 0190 85000000 		.4byte	0x85
+ 3227 0194 00000000 		.4byte	.LFB63
+ 3228 0198 34000000 		.4byte	.LFE63-.LFB63
+ 3229 019c 01       		.uleb128 0x1
+ 3230 019d 9C       		.byte	0x9c
+ 3231 019e 14020000 		.4byte	0x214
+ 3232 01a2 0F       		.uleb128 0xf
+ 3233 01a3 0A000000 		.4byte	.LVL18
+ 3234 01a7 94020000 		.4byte	0x294
+ 3235 01ab B5010000 		.4byte	0x1b5
+ 3236 01af 10       		.uleb128 0x10
+ 3237 01b0 01       		.uleb128 0x1
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 59
+
+
+ 3238 01b1 50       		.byte	0x50
+ 3239 01b2 01       		.uleb128 0x1
+ 3240 01b3 31       		.byte	0x31
+ 3241 01b4 00       		.byte	0
+ 3242 01b5 0F       		.uleb128 0xf
+ 3243 01b6 10000000 		.4byte	.LVL19
+ 3244 01ba 9F020000 		.4byte	0x29f
+ 3245 01be C9010000 		.4byte	0x1c9
+ 3246 01c2 10       		.uleb128 0x10
+ 3247 01c3 01       		.uleb128 0x1
+ 3248 01c4 50       		.byte	0x50
+ 3249 01c5 02       		.uleb128 0x2
+ 3250 01c6 08       		.byte	0x8
+ 3251 01c7 64       		.byte	0x64
+ 3252 01c8 00       		.byte	0
+ 3253 01c9 0F       		.uleb128 0xf
+ 3254 01ca 16000000 		.4byte	.LVL20
+ 3255 01ce 94020000 		.4byte	0x294
+ 3256 01d2 DC010000 		.4byte	0x1dc
+ 3257 01d6 10       		.uleb128 0x10
+ 3258 01d7 01       		.uleb128 0x1
+ 3259 01d8 50       		.byte	0x50
+ 3260 01d9 01       		.uleb128 0x1
+ 3261 01da 30       		.byte	0x30
+ 3262 01db 00       		.byte	0
+ 3263 01dc 0D       		.uleb128 0xd
+ 3264 01dd 1A000000 		.4byte	.LVL21
+ 3265 01e1 01010000 		.4byte	0x101
+ 3266 01e5 0F       		.uleb128 0xf
+ 3267 01e6 20000000 		.4byte	.LVL22
+ 3268 01ea 89020000 		.4byte	0x289
+ 3269 01ee F8010000 		.4byte	0x1f8
+ 3270 01f2 10       		.uleb128 0x10
+ 3271 01f3 01       		.uleb128 0x1
+ 3272 01f4 50       		.byte	0x50
+ 3273 01f5 01       		.uleb128 0x1
+ 3274 01f6 31       		.byte	0x31
+ 3275 01f7 00       		.byte	0
+ 3276 01f8 0D       		.uleb128 0xd
+ 3277 01f9 24000000 		.4byte	.LVL23
+ 3278 01fd AA020000 		.4byte	0x2aa
+ 3279 0201 0D       		.uleb128 0xd
+ 3280 0202 2A000000 		.4byte	.LVL24
+ 3281 0206 7E020000 		.4byte	0x27e
+ 3282 020a 0D       		.uleb128 0xd
+ 3283 020b 32000000 		.4byte	.LVL25
+ 3284 020f 01010000 		.4byte	0x101
+ 3285 0213 00       		.byte	0
+ 3286 0214 11       		.uleb128 0x11
+ 3287 0215 FF000000 		.4byte	.LASF25
+ 3288 0219 05       		.byte	0x5
+ 3289 021a 1207     		.2byte	0x712
+ 3290 021c 20020000 		.4byte	0x220
+ 3291 0220 12       		.uleb128 0x12
+ 3292 0221 A2000000 		.4byte	0xa2
+ 3293 0225 07       		.uleb128 0x7
+ 3294 0226 36020000 		.4byte	0x236
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 60
+
+
+ 3295 022a 36020000 		.4byte	0x236
+ 3296 022e 13       		.uleb128 0x13
+ 3297 022f C2000000 		.4byte	0xc2
+ 3298 0233 3202     		.2byte	0x232
+ 3299 0235 00       		.byte	0
+ 3300 0236 14       		.uleb128 0x14
+ 3301 0237 D0000000 		.4byte	0xd0
+ 3302 023b 15       		.uleb128 0x15
+ 3303 023c 87020000 		.4byte	.LASF26
+ 3304 0240 04       		.byte	0x4
+ 3305 0241 0C       		.byte	0xc
+ 3306 0242 4C020000 		.4byte	0x24c
+ 3307 0246 05       		.uleb128 0x5
+ 3308 0247 03       		.byte	0x3
+ 3309 0248 00000000 		.4byte	merged_ram
+ 3310 024c 14       		.uleb128 0x14
+ 3311 024d 25020000 		.4byte	0x225
+ 3312 0251 15       		.uleb128 0x15
+ 3313 0252 C7010000 		.4byte	.LASF27
+ 3314 0256 01       		.byte	0x1
+ 3315 0257 0C       		.byte	0xc
+ 3316 0258 97000000 		.4byte	0x97
+ 3317 025c 05       		.uleb128 0x5
+ 3318 025d 03       		.byte	0x3
+ 3319 025e 00000000 		.4byte	data_index
+ 3320 0262 15       		.uleb128 0x15
+ 3321 0263 54020000 		.4byte	.LASF28
+ 3322 0267 01       		.byte	0x1
+ 3323 0268 0D       		.byte	0xd
+ 3324 0269 97000000 		.4byte	0x97
+ 3325 026d 05       		.uleb128 0x5
+ 3326 026e 03       		.byte	0x3
+ 3327 026f 00000000 		.4byte	total_entries
+ 3328 0273 16       		.uleb128 0x16
+ 3329 0274 79010000 		.4byte	.LASF29
+ 3330 0278 79010000 		.4byte	.LASF29
+ 3331 027c 06       		.byte	0x6
+ 3332 027d 26       		.byte	0x26
+ 3333 027e 16       		.uleb128 0x16
+ 3334 027f 95010000 		.4byte	.LASF30
+ 3335 0283 95010000 		.4byte	.LASF30
+ 3336 0287 07       		.byte	0x7
+ 3337 0288 29       		.byte	0x29
+ 3338 0289 16       		.uleb128 0x16
+ 3339 028a 14000000 		.4byte	.LASF31
+ 3340 028e 14000000 		.4byte	.LASF31
+ 3341 0292 07       		.byte	0x7
+ 3342 0293 26       		.byte	0x26
+ 3343 0294 16       		.uleb128 0x16
+ 3344 0295 6E020000 		.4byte	.LASF32
+ 3345 0299 6E020000 		.4byte	.LASF32
+ 3346 029d 08       		.byte	0x8
+ 3347 029e 26       		.byte	0x26
+ 3348 029f 16       		.uleb128 0x16
+ 3349 02a0 7F020000 		.4byte	.LASF33
+ 3350 02a4 7F020000 		.4byte	.LASF33
+ 3351 02a8 09       		.byte	0x9
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 61
+
+
+ 3352 02a9 76       		.byte	0x76
+ 3353 02aa 16       		.uleb128 0x16
+ 3354 02ab 45020000 		.4byte	.LASF34
+ 3355 02af 45020000 		.4byte	.LASF34
+ 3356 02b3 0A       		.byte	0xa
+ 3357 02b4 29       		.byte	0x29
+ 3358 02b5 00       		.byte	0
+ 3359              		.section	.debug_abbrev,"",%progbits
+ 3360              	.Ldebug_abbrev0:
+ 3361 0000 01       		.uleb128 0x1
+ 3362 0001 11       		.uleb128 0x11
+ 3363 0002 01       		.byte	0x1
+ 3364 0003 25       		.uleb128 0x25
+ 3365 0004 0E       		.uleb128 0xe
+ 3366 0005 13       		.uleb128 0x13
+ 3367 0006 0B       		.uleb128 0xb
+ 3368 0007 03       		.uleb128 0x3
+ 3369 0008 0E       		.uleb128 0xe
+ 3370 0009 1B       		.uleb128 0x1b
+ 3371 000a 0E       		.uleb128 0xe
+ 3372 000b 55       		.uleb128 0x55
+ 3373 000c 17       		.uleb128 0x17
+ 3374 000d 11       		.uleb128 0x11
+ 3375 000e 01       		.uleb128 0x1
+ 3376 000f 10       		.uleb128 0x10
+ 3377 0010 17       		.uleb128 0x17
+ 3378 0011 00       		.byte	0
+ 3379 0012 00       		.byte	0
+ 3380 0013 02       		.uleb128 0x2
+ 3381 0014 24       		.uleb128 0x24
+ 3382 0015 00       		.byte	0
+ 3383 0016 0B       		.uleb128 0xb
+ 3384 0017 0B       		.uleb128 0xb
+ 3385 0018 3E       		.uleb128 0x3e
+ 3386 0019 0B       		.uleb128 0xb
+ 3387 001a 03       		.uleb128 0x3
+ 3388 001b 0E       		.uleb128 0xe
+ 3389 001c 00       		.byte	0
+ 3390 001d 00       		.byte	0
+ 3391 001e 03       		.uleb128 0x3
+ 3392 001f 16       		.uleb128 0x16
+ 3393 0020 00       		.byte	0
+ 3394 0021 03       		.uleb128 0x3
+ 3395 0022 0E       		.uleb128 0xe
+ 3396 0023 3A       		.uleb128 0x3a
+ 3397 0024 0B       		.uleb128 0xb
+ 3398 0025 3B       		.uleb128 0x3b
+ 3399 0026 0B       		.uleb128 0xb
+ 3400 0027 49       		.uleb128 0x49
+ 3401 0028 13       		.uleb128 0x13
+ 3402 0029 00       		.byte	0
+ 3403 002a 00       		.byte	0
+ 3404 002b 04       		.uleb128 0x4
+ 3405 002c 24       		.uleb128 0x24
+ 3406 002d 00       		.byte	0
+ 3407 002e 0B       		.uleb128 0xb
+ 3408 002f 0B       		.uleb128 0xb
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 62
+
+
+ 3409 0030 3E       		.uleb128 0x3e
+ 3410 0031 0B       		.uleb128 0xb
+ 3411 0032 03       		.uleb128 0x3
+ 3412 0033 08       		.uleb128 0x8
+ 3413 0034 00       		.byte	0
+ 3414 0035 00       		.byte	0
+ 3415 0036 05       		.uleb128 0x5
+ 3416 0037 13       		.uleb128 0x13
+ 3417 0038 01       		.byte	0x1
+ 3418 0039 0B       		.uleb128 0xb
+ 3419 003a 0B       		.uleb128 0xb
+ 3420 003b 3A       		.uleb128 0x3a
+ 3421 003c 0B       		.uleb128 0xb
+ 3422 003d 3B       		.uleb128 0x3b
+ 3423 003e 0B       		.uleb128 0xb
+ 3424 003f 01       		.uleb128 0x1
+ 3425 0040 13       		.uleb128 0x13
+ 3426 0041 00       		.byte	0
+ 3427 0042 00       		.byte	0
+ 3428 0043 06       		.uleb128 0x6
+ 3429 0044 0D       		.uleb128 0xd
+ 3430 0045 00       		.byte	0
+ 3431 0046 03       		.uleb128 0x3
+ 3432 0047 0E       		.uleb128 0xe
+ 3433 0048 3A       		.uleb128 0x3a
+ 3434 0049 0B       		.uleb128 0xb
+ 3435 004a 3B       		.uleb128 0x3b
+ 3436 004b 0B       		.uleb128 0xb
+ 3437 004c 49       		.uleb128 0x49
+ 3438 004d 13       		.uleb128 0x13
+ 3439 004e 38       		.uleb128 0x38
+ 3440 004f 0B       		.uleb128 0xb
+ 3441 0050 00       		.byte	0
+ 3442 0051 00       		.byte	0
+ 3443 0052 07       		.uleb128 0x7
+ 3444 0053 01       		.uleb128 0x1
+ 3445 0054 01       		.byte	0x1
+ 3446 0055 49       		.uleb128 0x49
+ 3447 0056 13       		.uleb128 0x13
+ 3448 0057 01       		.uleb128 0x1
+ 3449 0058 13       		.uleb128 0x13
+ 3450 0059 00       		.byte	0
+ 3451 005a 00       		.byte	0
+ 3452 005b 08       		.uleb128 0x8
+ 3453 005c 21       		.uleb128 0x21
+ 3454 005d 00       		.byte	0
+ 3455 005e 49       		.uleb128 0x49
+ 3456 005f 13       		.uleb128 0x13
+ 3457 0060 2F       		.uleb128 0x2f
+ 3458 0061 0B       		.uleb128 0xb
+ 3459 0062 00       		.byte	0
+ 3460 0063 00       		.byte	0
+ 3461 0064 09       		.uleb128 0x9
+ 3462 0065 2E       		.uleb128 0x2e
+ 3463 0066 01       		.byte	0x1
+ 3464 0067 3F       		.uleb128 0x3f
+ 3465 0068 19       		.uleb128 0x19
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 63
+
+
+ 3466 0069 03       		.uleb128 0x3
+ 3467 006a 0E       		.uleb128 0xe
+ 3468 006b 3A       		.uleb128 0x3a
+ 3469 006c 0B       		.uleb128 0xb
+ 3470 006d 3B       		.uleb128 0x3b
+ 3471 006e 0B       		.uleb128 0xb
+ 3472 006f 27       		.uleb128 0x27
+ 3473 0070 19       		.uleb128 0x19
+ 3474 0071 11       		.uleb128 0x11
+ 3475 0072 01       		.uleb128 0x1
+ 3476 0073 12       		.uleb128 0x12
+ 3477 0074 06       		.uleb128 0x6
+ 3478 0075 40       		.uleb128 0x40
+ 3479 0076 18       		.uleb128 0x18
+ 3480 0077 9742     		.uleb128 0x2117
+ 3481 0079 19       		.uleb128 0x19
+ 3482 007a 01       		.uleb128 0x1
+ 3483 007b 13       		.uleb128 0x13
+ 3484 007c 00       		.byte	0
+ 3485 007d 00       		.byte	0
+ 3486 007e 0A       		.uleb128 0xa
+ 3487 007f 0B       		.uleb128 0xb
+ 3488 0080 01       		.byte	0x1
+ 3489 0081 11       		.uleb128 0x11
+ 3490 0082 01       		.uleb128 0x1
+ 3491 0083 12       		.uleb128 0x12
+ 3492 0084 06       		.uleb128 0x6
+ 3493 0085 00       		.byte	0
+ 3494 0086 00       		.byte	0
+ 3495 0087 0B       		.uleb128 0xb
+ 3496 0088 34       		.uleb128 0x34
+ 3497 0089 00       		.byte	0
+ 3498 008a 03       		.uleb128 0x3
+ 3499 008b 0E       		.uleb128 0xe
+ 3500 008c 3A       		.uleb128 0x3a
+ 3501 008d 0B       		.uleb128 0xb
+ 3502 008e 3B       		.uleb128 0x3b
+ 3503 008f 0B       		.uleb128 0xb
+ 3504 0090 49       		.uleb128 0x49
+ 3505 0091 13       		.uleb128 0x13
+ 3506 0092 02       		.uleb128 0x2
+ 3507 0093 17       		.uleb128 0x17
+ 3508 0094 00       		.byte	0
+ 3509 0095 00       		.byte	0
+ 3510 0096 0C       		.uleb128 0xc
+ 3511 0097 0B       		.uleb128 0xb
+ 3512 0098 01       		.byte	0x1
+ 3513 0099 11       		.uleb128 0x11
+ 3514 009a 01       		.uleb128 0x1
+ 3515 009b 12       		.uleb128 0x12
+ 3516 009c 06       		.uleb128 0x6
+ 3517 009d 01       		.uleb128 0x1
+ 3518 009e 13       		.uleb128 0x13
+ 3519 009f 00       		.byte	0
+ 3520 00a0 00       		.byte	0
+ 3521 00a1 0D       		.uleb128 0xd
+ 3522 00a2 898201   		.uleb128 0x4109
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 64
+
+
+ 3523 00a5 00       		.byte	0
+ 3524 00a6 11       		.uleb128 0x11
+ 3525 00a7 01       		.uleb128 0x1
+ 3526 00a8 31       		.uleb128 0x31
+ 3527 00a9 13       		.uleb128 0x13
+ 3528 00aa 00       		.byte	0
+ 3529 00ab 00       		.byte	0
+ 3530 00ac 0E       		.uleb128 0xe
+ 3531 00ad 2E       		.uleb128 0x2e
+ 3532 00ae 01       		.byte	0x1
+ 3533 00af 3F       		.uleb128 0x3f
+ 3534 00b0 19       		.uleb128 0x19
+ 3535 00b1 03       		.uleb128 0x3
+ 3536 00b2 0E       		.uleb128 0xe
+ 3537 00b3 3A       		.uleb128 0x3a
+ 3538 00b4 0B       		.uleb128 0xb
+ 3539 00b5 3B       		.uleb128 0x3b
+ 3540 00b6 0B       		.uleb128 0xb
+ 3541 00b7 27       		.uleb128 0x27
+ 3542 00b8 19       		.uleb128 0x19
+ 3543 00b9 49       		.uleb128 0x49
+ 3544 00ba 13       		.uleb128 0x13
+ 3545 00bb 8701     		.uleb128 0x87
+ 3546 00bd 19       		.uleb128 0x19
+ 3547 00be 11       		.uleb128 0x11
+ 3548 00bf 01       		.uleb128 0x1
+ 3549 00c0 12       		.uleb128 0x12
+ 3550 00c1 06       		.uleb128 0x6
+ 3551 00c2 40       		.uleb128 0x40
+ 3552 00c3 18       		.uleb128 0x18
+ 3553 00c4 9742     		.uleb128 0x2117
+ 3554 00c6 19       		.uleb128 0x19
+ 3555 00c7 01       		.uleb128 0x1
+ 3556 00c8 13       		.uleb128 0x13
+ 3557 00c9 00       		.byte	0
+ 3558 00ca 00       		.byte	0
+ 3559 00cb 0F       		.uleb128 0xf
+ 3560 00cc 898201   		.uleb128 0x4109
+ 3561 00cf 01       		.byte	0x1
+ 3562 00d0 11       		.uleb128 0x11
+ 3563 00d1 01       		.uleb128 0x1
+ 3564 00d2 31       		.uleb128 0x31
+ 3565 00d3 13       		.uleb128 0x13
+ 3566 00d4 01       		.uleb128 0x1
+ 3567 00d5 13       		.uleb128 0x13
+ 3568 00d6 00       		.byte	0
+ 3569 00d7 00       		.byte	0
+ 3570 00d8 10       		.uleb128 0x10
+ 3571 00d9 8A8201   		.uleb128 0x410a
+ 3572 00dc 00       		.byte	0
+ 3573 00dd 02       		.uleb128 0x2
+ 3574 00de 18       		.uleb128 0x18
+ 3575 00df 9142     		.uleb128 0x2111
+ 3576 00e1 18       		.uleb128 0x18
+ 3577 00e2 00       		.byte	0
+ 3578 00e3 00       		.byte	0
+ 3579 00e4 11       		.uleb128 0x11
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 65
+
+
+ 3580 00e5 34       		.uleb128 0x34
+ 3581 00e6 00       		.byte	0
+ 3582 00e7 03       		.uleb128 0x3
+ 3583 00e8 0E       		.uleb128 0xe
+ 3584 00e9 3A       		.uleb128 0x3a
+ 3585 00ea 0B       		.uleb128 0xb
+ 3586 00eb 3B       		.uleb128 0x3b
+ 3587 00ec 05       		.uleb128 0x5
+ 3588 00ed 49       		.uleb128 0x49
+ 3589 00ee 13       		.uleb128 0x13
+ 3590 00ef 3F       		.uleb128 0x3f
+ 3591 00f0 19       		.uleb128 0x19
+ 3592 00f1 3C       		.uleb128 0x3c
+ 3593 00f2 19       		.uleb128 0x19
+ 3594 00f3 00       		.byte	0
+ 3595 00f4 00       		.byte	0
+ 3596 00f5 12       		.uleb128 0x12
+ 3597 00f6 35       		.uleb128 0x35
+ 3598 00f7 00       		.byte	0
+ 3599 00f8 49       		.uleb128 0x49
+ 3600 00f9 13       		.uleb128 0x13
+ 3601 00fa 00       		.byte	0
+ 3602 00fb 00       		.byte	0
+ 3603 00fc 13       		.uleb128 0x13
+ 3604 00fd 21       		.uleb128 0x21
+ 3605 00fe 00       		.byte	0
+ 3606 00ff 49       		.uleb128 0x49
+ 3607 0100 13       		.uleb128 0x13
+ 3608 0101 2F       		.uleb128 0x2f
+ 3609 0102 05       		.uleb128 0x5
+ 3610 0103 00       		.byte	0
+ 3611 0104 00       		.byte	0
+ 3612 0105 14       		.uleb128 0x14
+ 3613 0106 26       		.uleb128 0x26
+ 3614 0107 00       		.byte	0
+ 3615 0108 49       		.uleb128 0x49
+ 3616 0109 13       		.uleb128 0x13
+ 3617 010a 00       		.byte	0
+ 3618 010b 00       		.byte	0
+ 3619 010c 15       		.uleb128 0x15
+ 3620 010d 34       		.uleb128 0x34
+ 3621 010e 00       		.byte	0
+ 3622 010f 03       		.uleb128 0x3
+ 3623 0110 0E       		.uleb128 0xe
+ 3624 0111 3A       		.uleb128 0x3a
+ 3625 0112 0B       		.uleb128 0xb
+ 3626 0113 3B       		.uleb128 0x3b
+ 3627 0114 0B       		.uleb128 0xb
+ 3628 0115 49       		.uleb128 0x49
+ 3629 0116 13       		.uleb128 0x13
+ 3630 0117 3F       		.uleb128 0x3f
+ 3631 0118 19       		.uleb128 0x19
+ 3632 0119 02       		.uleb128 0x2
+ 3633 011a 18       		.uleb128 0x18
+ 3634 011b 00       		.byte	0
+ 3635 011c 00       		.byte	0
+ 3636 011d 16       		.uleb128 0x16
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 66
+
+
+ 3637 011e 2E       		.uleb128 0x2e
+ 3638 011f 00       		.byte	0
+ 3639 0120 3F       		.uleb128 0x3f
+ 3640 0121 19       		.uleb128 0x19
+ 3641 0122 3C       		.uleb128 0x3c
+ 3642 0123 19       		.uleb128 0x19
+ 3643 0124 6E       		.uleb128 0x6e
+ 3644 0125 0E       		.uleb128 0xe
+ 3645 0126 03       		.uleb128 0x3
+ 3646 0127 0E       		.uleb128 0xe
+ 3647 0128 3A       		.uleb128 0x3a
+ 3648 0129 0B       		.uleb128 0xb
+ 3649 012a 3B       		.uleb128 0x3b
+ 3650 012b 0B       		.uleb128 0xb
+ 3651 012c 00       		.byte	0
+ 3652 012d 00       		.byte	0
+ 3653 012e 00       		.byte	0
+ 3654              		.section	.debug_loc,"",%progbits
+ 3655              	.Ldebug_loc0:
+ 3656              	.LLST0:
+ 3657 0000 1E000000 		.4byte	.LVL0
+ 3658 0004 30000000 		.4byte	.LVL3
+ 3659 0008 0100     		.2byte	0x1
+ 3660 000a 51       		.byte	0x51
+ 3661 000b 30000000 		.4byte	.LVL3
+ 3662 000f 39000000 		.4byte	.LVL5-1
+ 3663 0013 2100     		.2byte	0x21
+ 3664 0015 03       		.byte	0x3
+ 3665 0016 00000000 		.4byte	data_index
+ 3666 001a 94       		.byte	0x94
+ 3667 001b 02       		.byte	0x2
+ 3668 001c F7       		.byte	0xf7
+ 3669 001d 33       		.uleb128 0x33
+ 3670 001e F7       		.byte	0xf7
+ 3671 001f 25       		.uleb128 0x25
+ 3672 0020 F4       		.byte	0xf4
+ 3673 0021 25       		.uleb128 0x25
+ 3674 0022 08       		.byte	0x8
+ 3675 0023 ABAAAAAA 		.8byte	0xaaaaaaab
+ 3675      00000000 
+ 3676 002b 1E       		.byte	0x1e
+ 3677 002c 08       		.byte	0x8
+ 3678 002d 20       		.byte	0x20
+ 3679 002e F7       		.byte	0xf7
+ 3680 002f 25       		.uleb128 0x25
+ 3681 0030 25       		.byte	0x25
+ 3682 0031 F7       		.byte	0xf7
+ 3683 0032 2C       		.uleb128 0x2c
+ 3684 0033 32       		.byte	0x32
+ 3685 0034 25       		.byte	0x25
+ 3686 0035 9F       		.byte	0x9f
+ 3687 0036 3C000000 		.4byte	.LVL6
+ 3688 003a 44000000 		.4byte	.LVL7
+ 3689 003e 0100     		.2byte	0x1
+ 3690 0040 51       		.byte	0x51
+ 3691 0041 44000000 		.4byte	.LVL7
+ 3692 0045 4F000000 		.4byte	.LVL9-1
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 67
+
+
+ 3693 0049 2100     		.2byte	0x21
+ 3694 004b 03       		.byte	0x3
+ 3695 004c 00000000 		.4byte	data_index
+ 3696 0050 94       		.byte	0x94
+ 3697 0051 02       		.byte	0x2
+ 3698 0052 F7       		.byte	0xf7
+ 3699 0053 33       		.uleb128 0x33
+ 3700 0054 F7       		.byte	0xf7
+ 3701 0055 25       		.uleb128 0x25
+ 3702 0056 F4       		.byte	0xf4
+ 3703 0057 25       		.uleb128 0x25
+ 3704 0058 08       		.byte	0x8
+ 3705 0059 ABAAAAAA 		.8byte	0xaaaaaaab
+ 3705      00000000 
+ 3706 0061 1E       		.byte	0x1e
+ 3707 0062 08       		.byte	0x8
+ 3708 0063 20       		.byte	0x20
+ 3709 0064 F7       		.byte	0xf7
+ 3710 0065 25       		.uleb128 0x25
+ 3711 0066 25       		.byte	0x25
+ 3712 0067 F7       		.byte	0xf7
+ 3713 0068 2C       		.uleb128 0x2c
+ 3714 0069 32       		.byte	0x32
+ 3715 006a 25       		.byte	0x25
+ 3716 006b 9F       		.byte	0x9f
+ 3717 006c 52000000 		.4byte	.LVL10
+ 3718 0070 5C000000 		.4byte	.LVL12
+ 3719 0074 0100     		.2byte	0x1
+ 3720 0076 51       		.byte	0x51
+ 3721 0077 5C000000 		.4byte	.LVL12
+ 3722 007b 69000000 		.4byte	.LVL15-1
+ 3723 007f 2100     		.2byte	0x21
+ 3724 0081 03       		.byte	0x3
+ 3725 0082 00000000 		.4byte	data_index
+ 3726 0086 94       		.byte	0x94
+ 3727 0087 02       		.byte	0x2
+ 3728 0088 F7       		.byte	0xf7
+ 3729 0089 33       		.uleb128 0x33
+ 3730 008a F7       		.byte	0xf7
+ 3731 008b 25       		.uleb128 0x25
+ 3732 008c F4       		.byte	0xf4
+ 3733 008d 25       		.uleb128 0x25
+ 3734 008e 08       		.byte	0x8
+ 3735 008f ABAAAAAA 		.8byte	0xaaaaaaab
+ 3735      00000000 
+ 3736 0097 1E       		.byte	0x1e
+ 3737 0098 08       		.byte	0x8
+ 3738 0099 20       		.byte	0x20
+ 3739 009a F7       		.byte	0xf7
+ 3740 009b 25       		.uleb128 0x25
+ 3741 009c 25       		.byte	0x25
+ 3742 009d F7       		.byte	0xf7
+ 3743 009e 2C       		.uleb128 0x2c
+ 3744 009f 32       		.byte	0x32
+ 3745 00a0 25       		.byte	0x25
+ 3746 00a1 9F       		.byte	0x9f
+ 3747 00a2 00000000 		.4byte	0
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 68
+
+
+ 3748 00a6 00000000 		.4byte	0
+ 3749              	.LLST1:
+ 3750 00aa 26000000 		.4byte	.LVL1
+ 3751 00ae 2A000000 		.4byte	.LVL2
+ 3752 00b2 0100     		.2byte	0x1
+ 3753 00b4 53       		.byte	0x53
+ 3754 00b5 2A000000 		.4byte	.LVL2
+ 3755 00b9 36000000 		.4byte	.LVL4
+ 3756 00bd 0F00     		.2byte	0xf
+ 3757 00bf 03       		.byte	0x3
+ 3758 00c0 00000000 		.4byte	data_index
+ 3759 00c4 94       		.byte	0x94
+ 3760 00c5 02       		.byte	0x2
+ 3761 00c6 0A       		.byte	0xa
+ 3762 00c7 FFFF     		.2byte	0xffff
+ 3763 00c9 1A       		.byte	0x1a
+ 3764 00ca 70       		.byte	0x70
+ 3765 00cb 00       		.sleb128 0
+ 3766 00cc 1C       		.byte	0x1c
+ 3767 00cd 9F       		.byte	0x9f
+ 3768 00ce 36000000 		.4byte	.LVL4
+ 3769 00d2 39000000 		.4byte	.LVL5-1
+ 3770 00d6 3100     		.2byte	0x31
+ 3771 00d8 03       		.byte	0x3
+ 3772 00d9 00000000 		.4byte	data_index
+ 3773 00dd 94       		.byte	0x94
+ 3774 00de 02       		.byte	0x2
+ 3775 00df 0A       		.byte	0xa
+ 3776 00e0 FFFF     		.2byte	0xffff
+ 3777 00e2 1A       		.byte	0x1a
+ 3778 00e3 03       		.byte	0x3
+ 3779 00e4 00000000 		.4byte	data_index
+ 3780 00e8 94       		.byte	0x94
+ 3781 00e9 02       		.byte	0x2
+ 3782 00ea F7       		.byte	0xf7
+ 3783 00eb 33       		.uleb128 0x33
+ 3784 00ec F7       		.byte	0xf7
+ 3785 00ed 25       		.uleb128 0x25
+ 3786 00ee F4       		.byte	0xf4
+ 3787 00ef 25       		.uleb128 0x25
+ 3788 00f0 08       		.byte	0x8
+ 3789 00f1 ABAAAAAA 		.8byte	0xaaaaaaab
+ 3789      00000000 
+ 3790 00f9 1E       		.byte	0x1e
+ 3791 00fa 08       		.byte	0x8
+ 3792 00fb 20       		.byte	0x20
+ 3793 00fc F7       		.byte	0xf7
+ 3794 00fd 25       		.uleb128 0x25
+ 3795 00fe 25       		.byte	0x25
+ 3796 00ff F7       		.byte	0xf7
+ 3797 0100 2C       		.uleb128 0x2c
+ 3798 0101 32       		.byte	0x32
+ 3799 0102 25       		.byte	0x25
+ 3800 0103 33       		.byte	0x33
+ 3801 0104 1E       		.byte	0x1e
+ 3802 0105 31       		.byte	0x31
+ 3803 0106 24       		.byte	0x24
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 69
+
+
+ 3804 0107 1C       		.byte	0x1c
+ 3805 0108 9F       		.byte	0x9f
+ 3806 0109 3C000000 		.4byte	.LVL6
+ 3807 010d 4A000000 		.4byte	.LVL8
+ 3808 0111 0F00     		.2byte	0xf
+ 3809 0113 03       		.byte	0x3
+ 3810 0114 00000000 		.4byte	data_index
+ 3811 0118 94       		.byte	0x94
+ 3812 0119 02       		.byte	0x2
+ 3813 011a 0A       		.byte	0xa
+ 3814 011b FFFF     		.2byte	0xffff
+ 3815 011d 1A       		.byte	0x1a
+ 3816 011e 70       		.byte	0x70
+ 3817 011f 00       		.sleb128 0
+ 3818 0120 1C       		.byte	0x1c
+ 3819 0121 9F       		.byte	0x9f
+ 3820 0122 4A000000 		.4byte	.LVL8
+ 3821 0126 4F000000 		.4byte	.LVL9-1
+ 3822 012a 3100     		.2byte	0x31
+ 3823 012c 03       		.byte	0x3
+ 3824 012d 00000000 		.4byte	data_index
+ 3825 0131 94       		.byte	0x94
+ 3826 0132 02       		.byte	0x2
+ 3827 0133 0A       		.byte	0xa
+ 3828 0134 FFFF     		.2byte	0xffff
+ 3829 0136 1A       		.byte	0x1a
+ 3830 0137 03       		.byte	0x3
+ 3831 0138 00000000 		.4byte	data_index
+ 3832 013c 94       		.byte	0x94
+ 3833 013d 02       		.byte	0x2
+ 3834 013e F7       		.byte	0xf7
+ 3835 013f 33       		.uleb128 0x33
+ 3836 0140 F7       		.byte	0xf7
+ 3837 0141 25       		.uleb128 0x25
+ 3838 0142 F4       		.byte	0xf4
+ 3839 0143 25       		.uleb128 0x25
+ 3840 0144 08       		.byte	0x8
+ 3841 0145 ABAAAAAA 		.8byte	0xaaaaaaab
+ 3841      00000000 
+ 3842 014d 1E       		.byte	0x1e
+ 3843 014e 08       		.byte	0x8
+ 3844 014f 20       		.byte	0x20
+ 3845 0150 F7       		.byte	0xf7
+ 3846 0151 25       		.uleb128 0x25
+ 3847 0152 25       		.byte	0x25
+ 3848 0153 F7       		.byte	0xf7
+ 3849 0154 2C       		.uleb128 0x2c
+ 3850 0155 32       		.byte	0x32
+ 3851 0156 25       		.byte	0x25
+ 3852 0157 33       		.byte	0x33
+ 3853 0158 1E       		.byte	0x1e
+ 3854 0159 31       		.byte	0x31
+ 3855 015a 24       		.byte	0x24
+ 3856 015b 1C       		.byte	0x1c
+ 3857 015c 9F       		.byte	0x9f
+ 3858 015d 52000000 		.4byte	.LVL10
+ 3859 0161 66000000 		.4byte	.LVL14
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 70
+
+
+ 3860 0165 0F00     		.2byte	0xf
+ 3861 0167 03       		.byte	0x3
+ 3862 0168 00000000 		.4byte	data_index
+ 3863 016c 94       		.byte	0x94
+ 3864 016d 02       		.byte	0x2
+ 3865 016e 0A       		.byte	0xa
+ 3866 016f FFFF     		.2byte	0xffff
+ 3867 0171 1A       		.byte	0x1a
+ 3868 0172 70       		.byte	0x70
+ 3869 0173 00       		.sleb128 0
+ 3870 0174 1C       		.byte	0x1c
+ 3871 0175 9F       		.byte	0x9f
+ 3872 0176 66000000 		.4byte	.LVL14
+ 3873 017a 69000000 		.4byte	.LVL15-1
+ 3874 017e 3100     		.2byte	0x31
+ 3875 0180 03       		.byte	0x3
+ 3876 0181 00000000 		.4byte	data_index
+ 3877 0185 94       		.byte	0x94
+ 3878 0186 02       		.byte	0x2
+ 3879 0187 0A       		.byte	0xa
+ 3880 0188 FFFF     		.2byte	0xffff
+ 3881 018a 1A       		.byte	0x1a
+ 3882 018b 03       		.byte	0x3
+ 3883 018c 00000000 		.4byte	data_index
+ 3884 0190 94       		.byte	0x94
+ 3885 0191 02       		.byte	0x2
+ 3886 0192 F7       		.byte	0xf7
+ 3887 0193 33       		.uleb128 0x33
+ 3888 0194 F7       		.byte	0xf7
+ 3889 0195 25       		.uleb128 0x25
+ 3890 0196 F4       		.byte	0xf4
+ 3891 0197 25       		.uleb128 0x25
+ 3892 0198 08       		.byte	0x8
+ 3893 0199 ABAAAAAA 		.8byte	0xaaaaaaab
+ 3893      00000000 
+ 3894 01a1 1E       		.byte	0x1e
+ 3895 01a2 08       		.byte	0x8
+ 3896 01a3 20       		.byte	0x20
+ 3897 01a4 F7       		.byte	0xf7
+ 3898 01a5 25       		.uleb128 0x25
+ 3899 01a6 25       		.byte	0x25
+ 3900 01a7 F7       		.byte	0xf7
+ 3901 01a8 2C       		.uleb128 0x2c
+ 3902 01a9 32       		.byte	0x32
+ 3903 01aa 25       		.byte	0x25
+ 3904 01ab 33       		.byte	0x33
+ 3905 01ac 1E       		.byte	0x1e
+ 3906 01ad 31       		.byte	0x31
+ 3907 01ae 24       		.byte	0x24
+ 3908 01af 1C       		.byte	0x1c
+ 3909 01b0 9F       		.byte	0x9f
+ 3910 01b1 00000000 		.4byte	0
+ 3911 01b5 00000000 		.4byte	0
+ 3912              	.LLST2:
+ 3913 01b9 58000000 		.4byte	.LVL11
+ 3914 01bd 64000000 		.4byte	.LVL13
+ 3915 01c1 0100     		.2byte	0x1
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 71
+
+
+ 3916 01c3 53       		.byte	0x53
+ 3917 01c4 64000000 		.4byte	.LVL13
+ 3918 01c8 66000000 		.4byte	.LVL14
+ 3919 01cc 1400     		.2byte	0x14
+ 3920 01ce 35       		.byte	0x35
+ 3921 01cf 03       		.byte	0x3
+ 3922 01d0 00000000 		.4byte	data_index
+ 3923 01d4 94       		.byte	0x94
+ 3924 01d5 02       		.byte	0x2
+ 3925 01d6 0A       		.byte	0xa
+ 3926 01d7 FFFF     		.2byte	0xffff
+ 3927 01d9 1A       		.byte	0x1a
+ 3928 01da 70       		.byte	0x70
+ 3929 01db 00       		.sleb128 0
+ 3930 01dc 1C       		.byte	0x1c
+ 3931 01dd 08       		.byte	0x8
+ 3932 01de FF       		.byte	0xff
+ 3933 01df 1A       		.byte	0x1a
+ 3934 01e0 1C       		.byte	0x1c
+ 3935 01e1 9F       		.byte	0x9f
+ 3936 01e2 66000000 		.4byte	.LVL14
+ 3937 01e6 69000000 		.4byte	.LVL15-1
+ 3938 01ea 3600     		.2byte	0x36
+ 3939 01ec 35       		.byte	0x35
+ 3940 01ed 03       		.byte	0x3
+ 3941 01ee 00000000 		.4byte	data_index
+ 3942 01f2 94       		.byte	0x94
+ 3943 01f3 02       		.byte	0x2
+ 3944 01f4 0A       		.byte	0xa
+ 3945 01f5 FFFF     		.2byte	0xffff
+ 3946 01f7 1A       		.byte	0x1a
+ 3947 01f8 03       		.byte	0x3
+ 3948 01f9 00000000 		.4byte	data_index
+ 3949 01fd 94       		.byte	0x94
+ 3950 01fe 02       		.byte	0x2
+ 3951 01ff F7       		.byte	0xf7
+ 3952 0200 33       		.uleb128 0x33
+ 3953 0201 F7       		.byte	0xf7
+ 3954 0202 25       		.uleb128 0x25
+ 3955 0203 F4       		.byte	0xf4
+ 3956 0204 25       		.uleb128 0x25
+ 3957 0205 08       		.byte	0x8
+ 3958 0206 ABAAAAAA 		.8byte	0xaaaaaaab
+ 3958      00000000 
+ 3959 020e 1E       		.byte	0x1e
+ 3960 020f 08       		.byte	0x8
+ 3961 0210 20       		.byte	0x20
+ 3962 0211 F7       		.byte	0xf7
+ 3963 0212 25       		.uleb128 0x25
+ 3964 0213 25       		.byte	0x25
+ 3965 0214 F7       		.byte	0xf7
+ 3966 0215 2C       		.uleb128 0x2c
+ 3967 0216 32       		.byte	0x32
+ 3968 0217 25       		.byte	0x25
+ 3969 0218 33       		.byte	0x33
+ 3970 0219 1E       		.byte	0x1e
+ 3971 021a 31       		.byte	0x31
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 72
+
+
+ 3972 021b 24       		.byte	0x24
+ 3973 021c 1C       		.byte	0x1c
+ 3974 021d 08       		.byte	0x8
+ 3975 021e FF       		.byte	0xff
+ 3976 021f 1A       		.byte	0x1a
+ 3977 0220 1C       		.byte	0x1c
+ 3978 0221 9F       		.byte	0x9f
+ 3979 0222 00000000 		.4byte	0
+ 3980 0226 00000000 		.4byte	0
+ 3981              		.section	.debug_aranges,"",%progbits
+ 3982 0000 24000000 		.4byte	0x24
+ 3983 0004 0200     		.2byte	0x2
+ 3984 0006 00000000 		.4byte	.Ldebug_info0
+ 3985 000a 04       		.byte	0x4
+ 3986 000b 00       		.byte	0
+ 3987 000c 0000     		.2byte	0
+ 3988 000e 0000     		.2byte	0
+ 3989 0010 00000000 		.4byte	.LFB64
+ 3990 0014 94000000 		.4byte	.LFE64-.LFB64
+ 3991 0018 00000000 		.4byte	.LFB63
+ 3992 001c 34000000 		.4byte	.LFE63-.LFB63
+ 3993 0020 00000000 		.4byte	0
+ 3994 0024 00000000 		.4byte	0
+ 3995              		.section	.debug_ranges,"",%progbits
+ 3996              	.Ldebug_ranges0:
+ 3997 0000 00000000 		.4byte	.LFB64
+ 3998 0004 94000000 		.4byte	.LFE64
+ 3999 0008 00000000 		.4byte	.LFB63
+ 4000 000c 34000000 		.4byte	.LFE63
+ 4001 0010 00000000 		.4byte	0
+ 4002 0014 00000000 		.4byte	0
+ 4003              		.section	.debug_line,"",%progbits
+ 4004              	.Ldebug_line0:
+ 4005 0000 CB010000 		.section	.debug_str,"MS",%progbits,1
+ 4005      02009401 
+ 4005      00000201 
+ 4005      FB0E0D00 
+ 4005      01010101 
+ 4006              	.LASF6:
+ 4007 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 4007      6E74385F 
+ 4007      7400
+ 4008              	.LASF8:
+ 4009 000a 5F5F696E 		.ascii	"__int32_t\000"
+ 4009      7433325F 
+ 4009      7400
+ 4010              	.LASF31:
+ 4011 0014 50534F43 		.ascii	"PSOC_FPGA_Write\000"
+ 4011      5F465047 
+ 4011      415F5772 
+ 4011      69746500 
+ 4012              	.LASF16:
+ 4013 0024 646F7562 		.ascii	"double\000"
+ 4013      6C6500
+ 4014              	.LASF14:
+ 4015 002b 696E7433 		.ascii	"int32_t\000"
+ 4015      325F7400 
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 73
+
+
+ 4016              	.LASF15:
+ 4017 0033 666C6F61 		.ascii	"float\000"
+ 4017      7400
+ 4018              	.LASF21:
+ 4019 0039 64617461 		.ascii	"data\000"
+ 4019      00
+ 4020              	.LASF4:
+ 4021 003e 756E7369 		.ascii	"unsigned char\000"
+ 4021      676E6564 
+ 4021      20636861 
+ 4021      7200
+ 4022              	.LASF35:
+ 4023 004c 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 4023      43313120 
+ 4023      352E342E 
+ 4023      31203230 
+ 4023      31363036 
+ 4024 007f 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 4024      20726576 
+ 4024      6973696F 
+ 4024      6E203233 
+ 4024      37373135 
+ 4025 00b2 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 4025      66756E63 
+ 4025      74696F6E 
+ 4025      2D736563 
+ 4025      74696F6E 
+ 4026              	.LASF10:
+ 4027 00da 6C6F6E67 		.ascii	"long unsigned int\000"
+ 4027      20756E73 
+ 4027      69676E65 
+ 4027      6420696E 
+ 4027      7400
+ 4028              	.LASF2:
+ 4029 00ec 73686F72 		.ascii	"short unsigned int\000"
+ 4029      7420756E 
+ 4029      7369676E 
+ 4029      65642069 
+ 4029      6E7400
+ 4030              	.LASF25:
+ 4031 00ff 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 4031      52784275 
+ 4031      66666572 
+ 4031      00
+ 4032              	.LASF7:
+ 4033 010c 5F5F7569 		.ascii	"__uint16_t\000"
+ 4033      6E743136 
+ 4033      5F7400
+ 4034              	.LASF38:
+ 4035 0117 73656E64 		.ascii	"send_next_byte\000"
+ 4035      5F6E6578 
+ 4035      745F6279 
+ 4035      746500
+ 4036              	.LASF39:
+ 4037 0126 6D61696E 		.ascii	"main\000"
+ 4037      00
+ 4038              	.LASF23:
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 74
+
+
+ 4039 012b 62797465 		.ascii	"byte_index\000"
+ 4039      5F696E64 
+ 4039      657800
+ 4040              	.LASF1:
+ 4041 0136 756E7369 		.ascii	"unsigned int\000"
+ 4041      676E6564 
+ 4041      20696E74 
+ 4041      00
+ 4042              	.LASF24:
+ 4043 0143 72657665 		.ascii	"reversed_index\000"
+ 4043      72736564 
+ 4043      5F696E64 
+ 4043      657800
+ 4044              	.LASF20:
+ 4045 0152 61646472 		.ascii	"address\000"
+ 4045      65737300 
+ 4046              	.LASF0:
+ 4047 015a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 4047      206C6F6E 
+ 4047      6720756E 
+ 4047      7369676E 
+ 4047      65642069 
+ 4048              	.LASF12:
+ 4049 0171 75696E74 		.ascii	"uint8_t\000"
+ 4049      385F7400 
+ 4050              	.LASF29:
+ 4051 0179 44617461 		.ascii	"Data_Port_Write\000"
+ 4051      5F506F72 
+ 4051      745F5772 
+ 4051      69746500 
+ 4052              	.LASF19:
+ 4053 0189 6C6F6E67 		.ascii	"long double\000"
+ 4053      20646F75 
+ 4053      626C6500 
+ 4054              	.LASF30:
+ 4055 0195 50534F43 		.ascii	"PSOC_FPGA_Read\000"
+ 4055      5F465047 
+ 4055      415F5265 
+ 4055      616400
+ 4056              	.LASF18:
+ 4057 01a4 73697A65 		.ascii	"sizetype\000"
+ 4057      74797065 
+ 4057      00
+ 4058              	.LASF11:
+ 4059 01ad 6C6F6E67 		.ascii	"long long int\000"
+ 4059      206C6F6E 
+ 4059      6720696E 
+ 4059      7400
+ 4060              	.LASF36:
+ 4061 01bb 6D61696E 		.ascii	"main.c\000"
+ 4061      2E6300
+ 4062              	.LASF17:
+ 4063 01c2 63686172 		.ascii	"char\000"
+ 4063      00
+ 4064              	.LASF27:
+ 4065 01c7 64617461 		.ascii	"data_index\000"
+ 4065      5F696E64 
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\ccfqTpgY.s 			page 75
+
+
+ 4065      657800
+ 4066              	.LASF22:
+ 4067 01d2 656E7472 		.ascii	"entry_index\000"
+ 4067      795F696E 
+ 4067      64657800 
+ 4068              	.LASF5:
+ 4069 01de 73686F72 		.ascii	"short int\000"
+ 4069      7420696E 
+ 4069      7400
+ 4070              	.LASF37:
+ 4071 01e8 433A5C55 		.ascii	"C:\\Users\\twmur\\OneDrive\\Documents\\PSoC Creator"
+ 4071      73657273 
+ 4071      5C74776D 
+ 4071      75725C4F 
+ 4071      6E654472 
+ 4072 0216 5C576F72 		.ascii	"\\Workspace02\\ToggleCom.cydsn\000"
+ 4072      6B737061 
+ 4072      63653032 
+ 4072      5C546F67 
+ 4072      676C6543 
+ 4073              	.LASF13:
+ 4074 0233 75696E74 		.ascii	"uint16_t\000"
+ 4074      31365F74 
+ 4074      00
+ 4075              	.LASF9:
+ 4076 023c 6C6F6E67 		.ascii	"long int\000"
+ 4076      20696E74 
+ 4076      00
+ 4077              	.LASF34:
+ 4078 0245 46504741 		.ascii	"FPGA_PSOC_Read\000"
+ 4078      5F50534F 
+ 4078      435F5265 
+ 4078      616400
+ 4079              	.LASF28:
+ 4080 0254 746F7461 		.ascii	"total_entries\000"
+ 4080      6C5F656E 
+ 4080      74726965 
+ 4080      7300
+ 4081              	.LASF3:
+ 4082 0262 7369676E 		.ascii	"signed char\000"
+ 4082      65642063 
+ 4082      68617200 
+ 4083              	.LASF32:
+ 4084 026e 534F4654 		.ascii	"SOFT_RESET_Write\000"
+ 4084      5F524553 
+ 4084      45545F57 
+ 4084      72697465 
+ 4084      00
+ 4085              	.LASF33:
+ 4086 027f 43794465 		.ascii	"CyDelay\000"
+ 4086      6C617900 
+ 4087              	.LASF26:
+ 4088 0287 6D657267 		.ascii	"merged_ram\000"
+ 4088      65645F72 
+ 4088      616D00
+ 4089              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

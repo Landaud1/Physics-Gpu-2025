@@ -1,0 +1,1417 @@
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	state_ram
+  20              		.section	.rodata
+  21              		.align	2
+  22              		.type	state_ram, %object
+  23              		.size	state_ram, 180
+  24              	state_ram:
+  25 0000 0000     		.short	0
+  26 0002 40       		.byte	64
+  27 0003 09       		.byte	9
+  28 0004 21       		.byte	33
+  29 0005 FB       		.byte	-5
+  30 0006 0100     		.short	1
+  31 0008 54       		.byte	84
+  32 0009 0F       		.byte	15
+  33 000a D0       		.byte	-48
+  34 000b C2       		.byte	-62
+  35 000c 0200     		.short	2
+  36 000e 40       		.byte	64
+  37 000f 0C       		.byte	12
+  38 0010 C4       		.byte	-60
+  39 0011 E3       		.byte	-29
+  40 0012 0300     		.short	3
+  41 0014 0F       		.byte	15
+  42 0015 BC       		.byte	-68
+  43 0016 6A       		.byte	106
+  44 0017 7E       		.byte	126
+  45 0018 00000000 		.space	156
+  45      00000000 
+  45      00000000 
+  45      00000000 
+  45      00000000 
+  46              		.global	attribute_ram
+  47              		.align	2
+  48              		.type	attribute_ram, %object
+  49              		.size	attribute_ram, 12
+  50              	attribute_ram:
+  51 00b4 0004     		.short	1024
+  52 00b6 12       		.byte	18
+  53 00b7 34       		.byte	52
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 2
+
+
+  54 00b8 0104     		.short	1025
+  55 00ba 56       		.byte	86
+  56 00bb 78       		.byte	120
+  57 00bc 0204     		.short	1026
+  58 00be 9A       		.byte	-102
+  59 00bf BC       		.byte	-68
+  60              		.section	.text.main,"ax",%progbits
+  61              		.align	2
+  62              		.global	main
+  63              		.code	16
+  64              		.thumb_func
+  65              		.type	main, %function
+  66              	main:
+  67              	.LFB35:
+  68              		.file 1 "main.c"
+   1:main.c        **** #include "project.h"
+   2:main.c        **** #include "outfile.h"  // Includes pre-generated data arrays
+   3:main.c        **** 
+   4:main.c        **** #define NUM_STATE_ENTRIES (NUM_BODIES * 10)  // Each body has 5 doubles, split into 10 parts
+   5:main.c        **** #define NUM_ATTR_ENTRIES (NUM_BODIES)        // Each body has 1 attribute entry
+   6:main.c        **** 
+   7:main.c        **** // Handshaking signal pins
+   8:main.c        **** #define PSOC_FPGA_Write(x) Pin_PSOC_FPGA_Write(x)  // PSoC signals "I sent data"
+   9:main.c        **** #define FPGA_PSOC_Read() Pin_FPGA_PSOC_Read()      // FPGA responds "I received data"
+  10:main.c        **** #define BUTTON_Read() Pin_Button_Read()            // Button input for stepping
+  11:main.c        **** 
+  12:main.c        **** // 8-bit Data Output Port (8 LEDs represent one byte)
+  13:main.c        **** #define DATA_PORT_Write(x) Data_Port_Write(x)  
+  14:main.c        **** 
+  15:main.c        **** uint8_t send_byte(uint16_t address, uint8_t data_byte);
+  16:main.c        **** 
+  17:main.c        **** int main(void)
+  18:main.c        **** {
+  69              		.loc 1 18 0
+  70              		.cfi_startproc
+  71              		@ args = 0, pretend = 0, frame = 32
+  72              		@ frame_needed = 1, uses_anonymous_args = 0
+  73 0000 80B5     		push	{r7, lr}
+  74              		.cfi_def_cfa_offset 8
+  75              		.cfi_offset 7, -8
+  76              		.cfi_offset 14, -4
+  77 0002 88B0     		sub	sp, sp, #32
+  78              		.cfi_def_cfa_offset 40
+  79 0004 00AF     		add	r7, sp, #0
+  80              		.cfi_def_cfa_register 7
+  19:main.c        ****     CyGlobalIntEnable;  // Enable global interrupts
+  81              		.loc 1 19 0
+  82              		.syntax divided
+  83              	@ 19 "main.c" 1
+  84 0006 62B6     		CPSIE   i
+  85              	@ 0 "" 2
+  20:main.c        **** 
+  21:main.c        ****     // Initialize handshaking signal
+  22:main.c        ****     PSOC_FPGA_Write(0);  // Start with handshake low
+  86              		.loc 1 22 0
+  87              		.thumb
+  88              		.syntax unified
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 3
+
+
+  89 0008 0020     		movs	r0, #0
+  90 000a FFF7FEFF 		bl	Pin_PSOC_FPGA_Write
+  91              	.LBB2:
+  23:main.c        **** 
+  24:main.c        ****     for (int i = 0; i < NUM_STATE_ENTRIES; i++) {
+  92              		.loc 1 24 0
+  93 000e 0023     		movs	r3, #0
+  94 0010 FB61     		str	r3, [r7, #28]
+  95 0012 54E0     		b	.L2
+  96              	.L11:
+  97              	.LBB3:
+  25:main.c        ****         for (int j = 0; j < 2; j++) {  // Send both address bytes (LSB first)
+  98              		.loc 1 25 0
+  99 0014 0023     		movs	r3, #0
+ 100 0016 BB61     		str	r3, [r7, #24]
+ 101 0018 2AE0     		b	.L3
+ 102              	.L7:
+ 103              	.LBB4:
+  26:main.c        ****             uint8_t addr_byte = (j == 0) ? (state_ram[i].address & 0xFF) : (state_ram[i].address >>
+ 104              		.loc 1 26 0
+ 105 001a BB69     		ldr	r3, [r7, #24]
+ 106 001c 002B     		cmp	r3, #0
+ 107 001e 08D1     		bne	.L4
+ 108              		.loc 1 26 0 is_stmt 0 discriminator 1
+ 109 0020 4F49     		ldr	r1, .L23
+ 110 0022 FA69     		ldr	r2, [r7, #28]
+ 111 0024 1300     		movs	r3, r2
+ 112 0026 5B00     		lsls	r3, r3, #1
+ 113 0028 9B18     		adds	r3, r3, r2
+ 114 002a 5B00     		lsls	r3, r3, #1
+ 115 002c 5B5A     		ldrh	r3, [r3, r1]
+ 116 002e DBB2     		uxtb	r3, r3
+ 117 0030 09E0     		b	.L5
+ 118              	.L4:
+ 119              		.loc 1 26 0 discriminator 2
+ 120 0032 4B49     		ldr	r1, .L23
+ 121 0034 FA69     		ldr	r2, [r7, #28]
+ 122 0036 1300     		movs	r3, r2
+ 123 0038 5B00     		lsls	r3, r3, #1
+ 124 003a 9B18     		adds	r3, r3, r2
+ 125 003c 5B00     		lsls	r3, r3, #1
+ 126 003e 5B5A     		ldrh	r3, [r3, r1]
+ 127 0040 1B0A     		lsrs	r3, r3, #8
+ 128 0042 9BB2     		uxth	r3, r3
+ 129 0044 DBB2     		uxtb	r3, r3
+ 130              	.L5:
+ 131              		.loc 1 26 0 discriminator 4
+ 132 0046 FA1D     		adds	r2, r7, #7
+ 133 0048 1370     		strb	r3, [r2]
+  27:main.c        ****             while (!send_byte(state_ram[i].address, addr_byte));  // Wait for button press & handsh
+ 134              		.loc 1 27 0 is_stmt 1 discriminator 4
+ 135 004a C046     		nop
+ 136              	.L6:
+ 137              		.loc 1 27 0 is_stmt 0 discriminator 1
+ 138 004c 4449     		ldr	r1, .L23
+ 139 004e FA69     		ldr	r2, [r7, #28]
+ 140 0050 1300     		movs	r3, r2
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 4
+
+
+ 141 0052 5B00     		lsls	r3, r3, #1
+ 142 0054 9B18     		adds	r3, r3, r2
+ 143 0056 5B00     		lsls	r3, r3, #1
+ 144 0058 5A5A     		ldrh	r2, [r3, r1]
+ 145 005a FB1D     		adds	r3, r7, #7
+ 146 005c 1B78     		ldrb	r3, [r3]
+ 147 005e 1900     		movs	r1, r3
+ 148 0060 1000     		movs	r0, r2
+ 149 0062 FFF7FEFF 		bl	send_byte
+ 150 0066 031E     		subs	r3, r0, #0
+ 151 0068 F0D0     		beq	.L6
+ 152              	.LBE4:
+  25:main.c        ****         for (int j = 0; j < 2; j++) {  // Send both address bytes (LSB first)
+ 153              		.loc 1 25 0 is_stmt 1 discriminator 2
+ 154 006a BB69     		ldr	r3, [r7, #24]
+ 155 006c 0133     		adds	r3, r3, #1
+ 156 006e BB61     		str	r3, [r7, #24]
+ 157              	.L3:
+  25:main.c        ****         for (int j = 0; j < 2; j++) {  // Send both address bytes (LSB first)
+ 158              		.loc 1 25 0 is_stmt 0 discriminator 1
+ 159 0070 BB69     		ldr	r3, [r7, #24]
+ 160 0072 012B     		cmp	r3, #1
+ 161 0074 D1DD     		ble	.L7
+ 162              	.LBE3:
+ 163              	.LBB5:
+  28:main.c        ****         }
+  29:main.c        ****         for (int k = 0; k < 4; k++) {  // Send 4-byte data chunk
+ 164              		.loc 1 29 0 is_stmt 1
+ 165 0076 0023     		movs	r3, #0
+ 166 0078 7B61     		str	r3, [r7, #20]
+ 167 007a 1AE0     		b	.L8
+ 168              	.L10:
+  30:main.c        ****             while (!send_byte(state_ram[i].address, state_ram[i].data[k]));
+ 169              		.loc 1 30 0
+ 170 007c C046     		nop
+ 171              	.L9:
+ 172              		.loc 1 30 0 is_stmt 0 discriminator 1
+ 173 007e 3849     		ldr	r1, .L23
+ 174 0080 FA69     		ldr	r2, [r7, #28]
+ 175 0082 1300     		movs	r3, r2
+ 176 0084 5B00     		lsls	r3, r3, #1
+ 177 0086 9B18     		adds	r3, r3, r2
+ 178 0088 5B00     		lsls	r3, r3, #1
+ 179 008a 585A     		ldrh	r0, [r3, r1]
+ 180 008c 3449     		ldr	r1, .L23
+ 181 008e FA69     		ldr	r2, [r7, #28]
+ 182 0090 1300     		movs	r3, r2
+ 183 0092 5B00     		lsls	r3, r3, #1
+ 184 0094 9B18     		adds	r3, r3, r2
+ 185 0096 5B00     		lsls	r3, r3, #1
+ 186 0098 CA18     		adds	r2, r1, r3
+ 187 009a 7B69     		ldr	r3, [r7, #20]
+ 188 009c D318     		adds	r3, r2, r3
+ 189 009e 0233     		adds	r3, r3, #2
+ 190 00a0 1B78     		ldrb	r3, [r3]
+ 191 00a2 1900     		movs	r1, r3
+ 192 00a4 FFF7FEFF 		bl	send_byte
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 5
+
+
+ 193 00a8 031E     		subs	r3, r0, #0
+ 194 00aa E8D0     		beq	.L9
+  29:main.c        ****             while (!send_byte(state_ram[i].address, state_ram[i].data[k]));
+ 195              		.loc 1 29 0 is_stmt 1 discriminator 2
+ 196 00ac 7B69     		ldr	r3, [r7, #20]
+ 197 00ae 0133     		adds	r3, r3, #1
+ 198 00b0 7B61     		str	r3, [r7, #20]
+ 199              	.L8:
+  29:main.c        ****             while (!send_byte(state_ram[i].address, state_ram[i].data[k]));
+ 200              		.loc 1 29 0 is_stmt 0 discriminator 1
+ 201 00b2 7B69     		ldr	r3, [r7, #20]
+ 202 00b4 032B     		cmp	r3, #3
+ 203 00b6 E1DD     		ble	.L10
+ 204              	.LBE5:
+  24:main.c        ****         for (int j = 0; j < 2; j++) {  // Send both address bytes (LSB first)
+ 205              		.loc 1 24 0 is_stmt 1 discriminator 2
+ 206 00b8 FB69     		ldr	r3, [r7, #28]
+ 207 00ba 0133     		adds	r3, r3, #1
+ 208 00bc FB61     		str	r3, [r7, #28]
+ 209              	.L2:
+  24:main.c        ****         for (int j = 0; j < 2; j++) {  // Send both address bytes (LSB first)
+ 210              		.loc 1 24 0 is_stmt 0 discriminator 1
+ 211 00be FB69     		ldr	r3, [r7, #28]
+ 212 00c0 1D2B     		cmp	r3, #29
+ 213 00c2 A7DD     		ble	.L11
+ 214              	.LBE2:
+ 215              	.LBB6:
+  31:main.c        ****         }
+  32:main.c        ****     }
+  33:main.c        **** 
+  34:main.c        ****     for (int i = 0; i < NUM_ATTR_ENTRIES; i++) {
+ 216              		.loc 1 34 0 is_stmt 1
+ 217 00c4 0023     		movs	r3, #0
+ 218 00c6 3B61     		str	r3, [r7, #16]
+ 219 00c8 45E0     		b	.L12
+ 220              	.L21:
+ 221              	.LBB7:
+  35:main.c        ****         for (int j = 0; j < 2; j++) {  // Send both address bytes (LSB first)
+ 222              		.loc 1 35 0
+ 223 00ca 0023     		movs	r3, #0
+ 224 00cc FB60     		str	r3, [r7, #12]
+ 225 00ce 21E0     		b	.L13
+ 226              	.L17:
+ 227              	.LBB8:
+  36:main.c        ****             uint8_t addr_byte = (j == 0) ? (attribute_ram[i].address & 0xFF) : (attribute_ram[i].ad
+ 228              		.loc 1 36 0
+ 229 00d0 FB68     		ldr	r3, [r7, #12]
+ 230 00d2 002B     		cmp	r3, #0
+ 231 00d4 05D1     		bne	.L14
+ 232              		.loc 1 36 0 is_stmt 0 discriminator 1
+ 233 00d6 234B     		ldr	r3, .L23+4
+ 234 00d8 3A69     		ldr	r2, [r7, #16]
+ 235 00da 9200     		lsls	r2, r2, #2
+ 236 00dc D35A     		ldrh	r3, [r2, r3]
+ 237 00de DBB2     		uxtb	r3, r3
+ 238 00e0 06E0     		b	.L15
+ 239              	.L14:
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 6
+
+
+ 240              		.loc 1 36 0 discriminator 2
+ 241 00e2 204B     		ldr	r3, .L23+4
+ 242 00e4 3A69     		ldr	r2, [r7, #16]
+ 243 00e6 9200     		lsls	r2, r2, #2
+ 244 00e8 D35A     		ldrh	r3, [r2, r3]
+ 245 00ea 1B0A     		lsrs	r3, r3, #8
+ 246 00ec 9BB2     		uxth	r3, r3
+ 247 00ee DBB2     		uxtb	r3, r3
+ 248              	.L15:
+ 249              		.loc 1 36 0 discriminator 4
+ 250 00f0 BA1D     		adds	r2, r7, #6
+ 251 00f2 1370     		strb	r3, [r2]
+  37:main.c        ****             while (!send_byte(attribute_ram[i].address, addr_byte));
+ 252              		.loc 1 37 0 is_stmt 1 discriminator 4
+ 253 00f4 C046     		nop
+ 254              	.L16:
+ 255              		.loc 1 37 0 is_stmt 0 discriminator 1
+ 256 00f6 1B4B     		ldr	r3, .L23+4
+ 257 00f8 3A69     		ldr	r2, [r7, #16]
+ 258 00fa 9200     		lsls	r2, r2, #2
+ 259 00fc D25A     		ldrh	r2, [r2, r3]
+ 260 00fe BB1D     		adds	r3, r7, #6
+ 261 0100 1B78     		ldrb	r3, [r3]
+ 262 0102 1900     		movs	r1, r3
+ 263 0104 1000     		movs	r0, r2
+ 264 0106 FFF7FEFF 		bl	send_byte
+ 265 010a 031E     		subs	r3, r0, #0
+ 266 010c F3D0     		beq	.L16
+ 267              	.LBE8:
+  35:main.c        ****         for (int j = 0; j < 2; j++) {  // Send both address bytes (LSB first)
+ 268              		.loc 1 35 0 is_stmt 1 discriminator 2
+ 269 010e FB68     		ldr	r3, [r7, #12]
+ 270 0110 0133     		adds	r3, r3, #1
+ 271 0112 FB60     		str	r3, [r7, #12]
+ 272              	.L13:
+  35:main.c        ****         for (int j = 0; j < 2; j++) {  // Send both address bytes (LSB first)
+ 273              		.loc 1 35 0 is_stmt 0 discriminator 1
+ 274 0114 FB68     		ldr	r3, [r7, #12]
+ 275 0116 012B     		cmp	r3, #1
+ 276 0118 DADD     		ble	.L17
+ 277              	.LBE7:
+ 278              	.LBB9:
+  38:main.c        ****         }
+  39:main.c        ****         for (int k = 0; k < 2; k++) {  // Send 2-byte packed attribute data
+ 279              		.loc 1 39 0 is_stmt 1
+ 280 011a 0023     		movs	r3, #0
+ 281 011c BB60     		str	r3, [r7, #8]
+ 282 011e 14E0     		b	.L18
+ 283              	.L20:
+  40:main.c        ****             while (!send_byte(attribute_ram[i].address, attribute_ram[i].data[k]));
+ 284              		.loc 1 40 0
+ 285 0120 C046     		nop
+ 286              	.L19:
+ 287              		.loc 1 40 0 is_stmt 0 discriminator 1
+ 288 0122 104B     		ldr	r3, .L23+4
+ 289 0124 3A69     		ldr	r2, [r7, #16]
+ 290 0126 9200     		lsls	r2, r2, #2
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 7
+
+
+ 291 0128 D05A     		ldrh	r0, [r2, r3]
+ 292 012a 0E4A     		ldr	r2, .L23+4
+ 293 012c 3B69     		ldr	r3, [r7, #16]
+ 294 012e 9B00     		lsls	r3, r3, #2
+ 295 0130 D218     		adds	r2, r2, r3
+ 296 0132 BB68     		ldr	r3, [r7, #8]
+ 297 0134 D318     		adds	r3, r2, r3
+ 298 0136 0233     		adds	r3, r3, #2
+ 299 0138 1B78     		ldrb	r3, [r3]
+ 300 013a 1900     		movs	r1, r3
+ 301 013c FFF7FEFF 		bl	send_byte
+ 302 0140 031E     		subs	r3, r0, #0
+ 303 0142 EED0     		beq	.L19
+  39:main.c        ****             while (!send_byte(attribute_ram[i].address, attribute_ram[i].data[k]));
+ 304              		.loc 1 39 0 is_stmt 1 discriminator 2
+ 305 0144 BB68     		ldr	r3, [r7, #8]
+ 306 0146 0133     		adds	r3, r3, #1
+ 307 0148 BB60     		str	r3, [r7, #8]
+ 308              	.L18:
+  39:main.c        ****             while (!send_byte(attribute_ram[i].address, attribute_ram[i].data[k]));
+ 309              		.loc 1 39 0 is_stmt 0 discriminator 1
+ 310 014a BB68     		ldr	r3, [r7, #8]
+ 311 014c 012B     		cmp	r3, #1
+ 312 014e E7DD     		ble	.L20
+ 313              	.LBE9:
+  34:main.c        ****         for (int j = 0; j < 2; j++) {  // Send both address bytes (LSB first)
+ 314              		.loc 1 34 0 is_stmt 1 discriminator 2
+ 315 0150 3B69     		ldr	r3, [r7, #16]
+ 316 0152 0133     		adds	r3, r3, #1
+ 317 0154 3B61     		str	r3, [r7, #16]
+ 318              	.L12:
+  34:main.c        ****         for (int j = 0; j < 2; j++) {  // Send both address bytes (LSB first)
+ 319              		.loc 1 34 0 is_stmt 0 discriminator 1
+ 320 0156 3B69     		ldr	r3, [r7, #16]
+ 321 0158 022B     		cmp	r3, #2
+ 322 015a B6DD     		ble	.L21
+ 323              	.L22:
+ 324              	.LBE6:
+  41:main.c        ****         }
+  42:main.c        ****     }
+  43:main.c        **** 
+  44:main.c        ****     for (;;) { /* Infinite loop after transmission */ }
+ 325              		.loc 1 44 0 is_stmt 1 discriminator 1
+ 326 015c FEE7     		b	.L22
+ 327              	.L24:
+ 328 015e C046     		.align	2
+ 329              	.L23:
+ 330 0160 00000000 		.word	state_ram
+ 331 0164 00000000 		.word	attribute_ram
+ 332              		.cfi_endproc
+ 333              	.LFE35:
+ 334              		.size	main, .-main
+ 335              		.section	.text.send_byte,"ax",%progbits
+ 336              		.align	2
+ 337              		.global	send_byte
+ 338              		.code	16
+ 339              		.thumb_func
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 8
+
+
+ 340              		.type	send_byte, %function
+ 341              	send_byte:
+ 342              	.LFB36:
+  45:main.c        **** }
+  46:main.c        **** 
+  47:main.c        **** // **Function: Send one byte and wait for button press & handshake toggle**
+  48:main.c        **** uint8_t send_byte(uint16_t address, uint8_t data_byte) {
+ 343              		.loc 1 48 0
+ 344              		.cfi_startproc
+ 345              		@ args = 0, pretend = 0, frame = 8
+ 346              		@ frame_needed = 1, uses_anonymous_args = 0
+ 347 0000 90B5     		push	{r4, r7, lr}
+ 348              		.cfi_def_cfa_offset 12
+ 349              		.cfi_offset 4, -12
+ 350              		.cfi_offset 7, -8
+ 351              		.cfi_offset 14, -4
+ 352 0002 83B0     		sub	sp, sp, #12
+ 353              		.cfi_def_cfa_offset 24
+ 354 0004 00AF     		add	r7, sp, #0
+ 355              		.cfi_def_cfa_register 7
+ 356 0006 0200     		movs	r2, r0
+ 357 0008 BB1D     		adds	r3, r7, #6
+ 358 000a 1A80     		strh	r2, [r3]
+ 359 000c 7B1D     		adds	r3, r7, #5
+ 360 000e 0A1C     		adds	r2, r1, #0
+ 361 0010 1A70     		strb	r2, [r3]
+ 362              	.LBB10:
+  49:main.c        ****     // **Step 1: Wait for Button Press**
+  50:main.c        ****     while (BUTTON_Read() == 1);  // Wait for button press
+ 363              		.loc 1 50 0
+ 364 0012 C046     		nop
+ 365              	.L26:
+ 366              		.loc 1 50 0 is_stmt 0 discriminator 1
+ 367 0014 FFF7FEFF 		bl	Pin_Button_Read
+ 368 0018 0300     		movs	r3, r0
+ 369 001a 012B     		cmp	r3, #1
+ 370 001c FAD0     		beq	.L26
+ 371              	.LBE10:
+  51:main.c        ****     CyDelay(50);  // Debounce
+ 372              		.loc 1 51 0 is_stmt 1
+ 373 001e 3220     		movs	r0, #50
+ 374 0020 FFF7FEFF 		bl	CyDelay
+ 375              	.LBB11:
+  52:main.c        ****     while (BUTTON_Read() == 0);  // Wait for button release
+ 376              		.loc 1 52 0
+ 377 0024 C046     		nop
+ 378              	.L27:
+ 379              		.loc 1 52 0 is_stmt 0 discriminator 1
+ 380 0026 FFF7FEFF 		bl	Pin_Button_Read
+ 381 002a 031E     		subs	r3, r0, #0
+ 382 002c FBD0     		beq	.L27
+ 383              	.LBE11:
+  53:main.c        **** 
+  54:main.c        ****     // **Step 2: Send Data**
+  55:main.c        ****     DATA_PORT_Write(data_byte);  // Output the byte
+ 384              		.loc 1 55 0 is_stmt 1
+ 385 002e 7B1D     		adds	r3, r7, #5
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 9
+
+
+ 386 0030 1B78     		ldrb	r3, [r3]
+ 387 0032 1800     		movs	r0, r3
+ 388 0034 FFF7FEFF 		bl	Data_Port_Write
+  56:main.c        **** 
+  57:main.c        ****     // **Step 3: Toggle Handshake**
+  58:main.c        ****     PSOC_FPGA_Write(!PSOC_FPGA_Read());  // Toggle handshake line
+ 389              		.loc 1 58 0
+ 390 0038 FFF7FEFF 		bl	PSOC_FPGA_Read
+ 391 003c 0300     		movs	r3, r0
+ 392 003e 5A42     		rsbs	r2, r3, #0
+ 393 0040 5341     		adcs	r3, r3, r2
+ 394 0042 DBB2     		uxtb	r3, r3
+ 395 0044 1800     		movs	r0, r3
+ 396 0046 FFF7FEFF 		bl	Pin_PSOC_FPGA_Write
+ 397              	.LBB12:
+  59:main.c        **** 
+  60:main.c        ****     // **Step 4: Wait for FPGA Response**
+  61:main.c        ****     while (FPGA_PSOC_Read() != PSOC_FPGA_Read());  // Wait for FPGA to match handshake
+ 398              		.loc 1 61 0
+ 399 004a C046     		nop
+ 400              	.L28:
+ 401              		.loc 1 61 0 is_stmt 0 discriminator 1
+ 402 004c FFF7FEFF 		bl	Pin_FPGA_PSOC_Read
+ 403 0050 0400     		movs	r4, r0
+ 404 0052 FFF7FEFF 		bl	PSOC_FPGA_Read
+ 405 0056 0300     		movs	r3, r0
+ 406 0058 9C42     		cmp	r4, r3
+ 407 005a F7D1     		bne	.L28
+ 408              	.LBE12:
+  62:main.c        **** 
+  63:main.c        ****     return 1;  // Indicate success
+ 409              		.loc 1 63 0 is_stmt 1
+ 410 005c 0123     		movs	r3, #1
+  64:main.c        **** }
+ 411              		.loc 1 64 0
+ 412 005e 1800     		movs	r0, r3
+ 413 0060 BD46     		mov	sp, r7
+ 414 0062 03B0     		add	sp, sp, #12
+ 415              		@ sp needed
+ 416 0064 90BD     		pop	{r4, r7, pc}
+ 417              		.cfi_endproc
+ 418              	.LFE36:
+ 419              		.size	send_byte, .-send_byte
+ 420 0066 C046     		.text
+ 421              	.Letext0:
+ 422              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 423              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 424              		.file 4 "outfile.h"
+ 425              		.section	.debug_info,"",%progbits
+ 426              	.Ldebug_info0:
+ 427 0000 10030000 		.4byte	0x310
+ 428 0004 0400     		.2byte	0x4
+ 429 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 430 000a 04       		.byte	0x4
+ 431 000b 01       		.uleb128 0x1
+ 432 000c B6000000 		.4byte	.LASF31
+ 433 0010 0C       		.byte	0xc
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 10
+
+
+ 434 0011 D3010000 		.4byte	.LASF32
+ 435 0015 0A000000 		.4byte	.LASF33
+ 436 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 437 001d 00000000 		.4byte	0
+ 438 0021 00000000 		.4byte	.Ldebug_line0
+ 439 0025 02       		.uleb128 0x2
+ 440 0026 01       		.byte	0x1
+ 441 0027 06       		.byte	0x6
+ 442 0028 1B020000 		.4byte	.LASF0
+ 443 002c 03       		.uleb128 0x3
+ 444 002d 00000000 		.4byte	.LASF3
+ 445 0031 02       		.byte	0x2
+ 446 0032 1D       		.byte	0x1d
+ 447 0033 37000000 		.4byte	0x37
+ 448 0037 02       		.uleb128 0x2
+ 449 0038 01       		.byte	0x1
+ 450 0039 08       		.byte	0x8
+ 451 003a 69000000 		.4byte	.LASF1
+ 452 003e 02       		.uleb128 0x2
+ 453 003f 02       		.byte	0x2
+ 454 0040 05       		.byte	0x5
+ 455 0041 F3010000 		.4byte	.LASF2
+ 456 0045 03       		.uleb128 0x3
+ 457 0046 44010000 		.4byte	.LASF4
+ 458 004a 02       		.byte	0x2
+ 459 004b 2B       		.byte	0x2b
+ 460 004c 50000000 		.4byte	0x50
+ 461 0050 02       		.uleb128 0x2
+ 462 0051 02       		.byte	0x2
+ 463 0052 07       		.byte	0x7
+ 464 0053 99000000 		.4byte	.LASF5
+ 465 0057 02       		.uleb128 0x2
+ 466 0058 04       		.byte	0x4
+ 467 0059 05       		.byte	0x5
+ 468 005a 06020000 		.4byte	.LASF6
+ 469 005e 02       		.uleb128 0x2
+ 470 005f 04       		.byte	0x4
+ 471 0060 07       		.byte	0x7
+ 472 0061 77000000 		.4byte	.LASF7
+ 473 0065 02       		.uleb128 0x2
+ 474 0066 08       		.byte	0x8
+ 475 0067 05       		.byte	0x5
+ 476 0068 C5010000 		.4byte	.LASF8
+ 477 006c 02       		.uleb128 0x2
+ 478 006d 08       		.byte	0x8
+ 479 006e 07       		.byte	0x7
+ 480 006f 70010000 		.4byte	.LASF9
+ 481 0073 04       		.uleb128 0x4
+ 482 0074 04       		.byte	0x4
+ 483 0075 05       		.byte	0x5
+ 484 0076 696E7400 		.ascii	"int\000"
+ 485 007a 02       		.uleb128 0x2
+ 486 007b 04       		.byte	0x4
+ 487 007c 07       		.byte	0x7
+ 488 007d 5B010000 		.4byte	.LASF10
+ 489 0081 03       		.uleb128 0x3
+ 490 0082 87010000 		.4byte	.LASF11
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 11
+
+
+ 491 0086 03       		.byte	0x3
+ 492 0087 18       		.byte	0x18
+ 493 0088 2C000000 		.4byte	0x2c
+ 494 008c 03       		.uleb128 0x3
+ 495 008d FD010000 		.4byte	.LASF12
+ 496 0091 03       		.byte	0x3
+ 497 0092 24       		.byte	0x24
+ 498 0093 45000000 		.4byte	0x45
+ 499 0097 02       		.uleb128 0x2
+ 500 0098 04       		.byte	0x4
+ 501 0099 04       		.byte	0x4
+ 502 009a 5E000000 		.4byte	.LASF13
+ 503 009e 02       		.uleb128 0x2
+ 504 009f 08       		.byte	0x8
+ 505 00a0 04       		.byte	0x4
+ 506 00a1 4F010000 		.4byte	.LASF14
+ 507 00a5 02       		.uleb128 0x2
+ 508 00a6 01       		.byte	0x1
+ 509 00a7 08       		.byte	0x8
+ 510 00a8 DA010000 		.4byte	.LASF15
+ 511 00ac 02       		.uleb128 0x2
+ 512 00ad 04       		.byte	0x4
+ 513 00ae 07       		.byte	0x7
+ 514 00af BC010000 		.4byte	.LASF16
+ 515 00b3 02       		.uleb128 0x2
+ 516 00b4 08       		.byte	0x8
+ 517 00b5 04       		.byte	0x4
+ 518 00b6 0F020000 		.4byte	.LASF17
+ 519 00ba 05       		.uleb128 0x5
+ 520 00bb 06       		.byte	0x6
+ 521 00bc 04       		.byte	0x4
+ 522 00bd 07       		.byte	0x7
+ 523 00be DB000000 		.4byte	0xdb
+ 524 00c2 06       		.uleb128 0x6
+ 525 00c3 68010000 		.4byte	.LASF18
+ 526 00c7 04       		.byte	0x4
+ 527 00c8 08       		.byte	0x8
+ 528 00c9 8C000000 		.4byte	0x8c
+ 529 00cd 00       		.byte	0
+ 530 00ce 06       		.uleb128 0x6
+ 531 00cf 64000000 		.4byte	.LASF19
+ 532 00d3 04       		.byte	0x4
+ 533 00d4 09       		.byte	0x9
+ 534 00d5 DB000000 		.4byte	0xdb
+ 535 00d9 02       		.byte	0x2
+ 536 00da 00       		.byte	0
+ 537 00db 07       		.uleb128 0x7
+ 538 00dc 81000000 		.4byte	0x81
+ 539 00e0 EB000000 		.4byte	0xeb
+ 540 00e4 08       		.uleb128 0x8
+ 541 00e5 AC000000 		.4byte	0xac
+ 542 00e9 03       		.byte	0x3
+ 543 00ea 00       		.byte	0
+ 544 00eb 05       		.uleb128 0x5
+ 545 00ec 04       		.byte	0x4
+ 546 00ed 04       		.byte	0x4
+ 547 00ee 12       		.byte	0x12
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 12
+
+
+ 548 00ef 0C010000 		.4byte	0x10c
+ 549 00f3 06       		.uleb128 0x6
+ 550 00f4 68010000 		.4byte	.LASF18
+ 551 00f8 04       		.byte	0x4
+ 552 00f9 13       		.byte	0x13
+ 553 00fa 8C000000 		.4byte	0x8c
+ 554 00fe 00       		.byte	0
+ 555 00ff 06       		.uleb128 0x6
+ 556 0100 64000000 		.4byte	.LASF19
+ 557 0104 04       		.byte	0x4
+ 558 0105 14       		.byte	0x14
+ 559 0106 0C010000 		.4byte	0x10c
+ 560 010a 02       		.byte	0x2
+ 561 010b 00       		.byte	0
+ 562 010c 07       		.uleb128 0x7
+ 563 010d 81000000 		.4byte	0x81
+ 564 0111 1C010000 		.4byte	0x11c
+ 565 0115 08       		.uleb128 0x8
+ 566 0116 AC000000 		.4byte	0xac
+ 567 011a 01       		.byte	0x1
+ 568 011b 00       		.byte	0
+ 569 011c 09       		.uleb128 0x9
+ 570 011d 56010000 		.4byte	.LASF21
+ 571 0121 01       		.byte	0x1
+ 572 0122 11       		.byte	0x11
+ 573 0123 73000000 		.4byte	0x73
+ 574 0127 00000000 		.4byte	.LFB35
+ 575 012b 68010000 		.4byte	.LFE35-.LFB35
+ 576 012f 01       		.uleb128 0x1
+ 577 0130 9C       		.byte	0x9c
+ 578 0131 07020000 		.4byte	0x207
+ 579 0135 0A       		.uleb128 0xa
+ 580 0136 DF010000 		.4byte	.LASF24
+ 581 013a 01       		.byte	0x1
+ 582 013b 16       		.byte	0x16
+ 583 013c 73000000 		.4byte	0x73
+ 584 0140 46010000 		.4byte	0x146
+ 585 0144 0B       		.uleb128 0xb
+ 586 0145 00       		.byte	0
+ 587 0146 0C       		.uleb128 0xc
+ 588 0147 0E000000 		.4byte	.LBB2
+ 589 014b B6000000 		.4byte	.LBE2-.LBB2
+ 590 014f A8010000 		.4byte	0x1a8
+ 591 0153 0D       		.uleb128 0xd
+ 592 0154 6900     		.ascii	"i\000"
+ 593 0156 01       		.byte	0x1
+ 594 0157 18       		.byte	0x18
+ 595 0158 73000000 		.4byte	0x73
+ 596 015c 02       		.uleb128 0x2
+ 597 015d 91       		.byte	0x91
+ 598 015e 74       		.sleb128 -12
+ 599 015f 0C       		.uleb128 0xc
+ 600 0160 14000000 		.4byte	.LBB3
+ 601 0164 62000000 		.4byte	.LBE3-.LBB3
+ 602 0168 91010000 		.4byte	0x191
+ 603 016c 0D       		.uleb128 0xd
+ 604 016d 6A00     		.ascii	"j\000"
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 13
+
+
+ 605 016f 01       		.byte	0x1
+ 606 0170 19       		.byte	0x19
+ 607 0171 73000000 		.4byte	0x73
+ 608 0175 02       		.uleb128 0x2
+ 609 0176 91       		.byte	0x91
+ 610 0177 70       		.sleb128 -16
+ 611 0178 0E       		.uleb128 0xe
+ 612 0179 1A000000 		.4byte	.LBB4
+ 613 017d 50000000 		.4byte	.LBE4-.LBB4
+ 614 0181 0F       		.uleb128 0xf
+ 615 0182 54000000 		.4byte	.LASF20
+ 616 0186 01       		.byte	0x1
+ 617 0187 1A       		.byte	0x1a
+ 618 0188 81000000 		.4byte	0x81
+ 619 018c 02       		.uleb128 0x2
+ 620 018d 91       		.byte	0x91
+ 621 018e 5F       		.sleb128 -33
+ 622 018f 00       		.byte	0
+ 623 0190 00       		.byte	0
+ 624 0191 0E       		.uleb128 0xe
+ 625 0192 76000000 		.4byte	.LBB5
+ 626 0196 42000000 		.4byte	.LBE5-.LBB5
+ 627 019a 0D       		.uleb128 0xd
+ 628 019b 6B00     		.ascii	"k\000"
+ 629 019d 01       		.byte	0x1
+ 630 019e 1D       		.byte	0x1d
+ 631 019f 73000000 		.4byte	0x73
+ 632 01a3 02       		.uleb128 0x2
+ 633 01a4 91       		.byte	0x91
+ 634 01a5 6C       		.sleb128 -20
+ 635 01a6 00       		.byte	0
+ 636 01a7 00       		.byte	0
+ 637 01a8 0E       		.uleb128 0xe
+ 638 01a9 C4000000 		.4byte	.LBB6
+ 639 01ad 98000000 		.4byte	.LBE6-.LBB6
+ 640 01b1 0D       		.uleb128 0xd
+ 641 01b2 6900     		.ascii	"i\000"
+ 642 01b4 01       		.byte	0x1
+ 643 01b5 22       		.byte	0x22
+ 644 01b6 73000000 		.4byte	0x73
+ 645 01ba 02       		.uleb128 0x2
+ 646 01bb 91       		.byte	0x91
+ 647 01bc 68       		.sleb128 -24
+ 648 01bd 0C       		.uleb128 0xc
+ 649 01be CA000000 		.4byte	.LBB7
+ 650 01c2 50000000 		.4byte	.LBE7-.LBB7
+ 651 01c6 EF010000 		.4byte	0x1ef
+ 652 01ca 0D       		.uleb128 0xd
+ 653 01cb 6A00     		.ascii	"j\000"
+ 654 01cd 01       		.byte	0x1
+ 655 01ce 23       		.byte	0x23
+ 656 01cf 73000000 		.4byte	0x73
+ 657 01d3 02       		.uleb128 0x2
+ 658 01d4 91       		.byte	0x91
+ 659 01d5 64       		.sleb128 -28
+ 660 01d6 0E       		.uleb128 0xe
+ 661 01d7 D0000000 		.4byte	.LBB8
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 14
+
+
+ 662 01db 3E000000 		.4byte	.LBE8-.LBB8
+ 663 01df 0F       		.uleb128 0xf
+ 664 01e0 54000000 		.4byte	.LASF20
+ 665 01e4 01       		.byte	0x1
+ 666 01e5 24       		.byte	0x24
+ 667 01e6 81000000 		.4byte	0x81
+ 668 01ea 02       		.uleb128 0x2
+ 669 01eb 91       		.byte	0x91
+ 670 01ec 5E       		.sleb128 -34
+ 671 01ed 00       		.byte	0
+ 672 01ee 00       		.byte	0
+ 673 01ef 0E       		.uleb128 0xe
+ 674 01f0 1A010000 		.4byte	.LBB9
+ 675 01f4 36000000 		.4byte	.LBE9-.LBB9
+ 676 01f8 0D       		.uleb128 0xd
+ 677 01f9 6B00     		.ascii	"k\000"
+ 678 01fb 01       		.byte	0x1
+ 679 01fc 27       		.byte	0x27
+ 680 01fd 73000000 		.4byte	0x73
+ 681 0201 02       		.uleb128 0x2
+ 682 0202 91       		.byte	0x91
+ 683 0203 60       		.sleb128 -32
+ 684 0204 00       		.byte	0
+ 685 0205 00       		.byte	0
+ 686 0206 00       		.byte	0
+ 687 0207 09       		.uleb128 0x9
+ 688 0208 AC000000 		.4byte	.LASF22
+ 689 020c 01       		.byte	0x1
+ 690 020d 30       		.byte	0x30
+ 691 020e 81000000 		.4byte	0x81
+ 692 0212 00000000 		.4byte	.LFB36
+ 693 0216 66000000 		.4byte	.LFE36-.LFB36
+ 694 021a 01       		.uleb128 0x1
+ 695 021b 9C       		.byte	0x9c
+ 696 021c BD020000 		.4byte	0x2bd
+ 697 0220 10       		.uleb128 0x10
+ 698 0221 68010000 		.4byte	.LASF18
+ 699 0225 01       		.byte	0x1
+ 700 0226 30       		.byte	0x30
+ 701 0227 8C000000 		.4byte	0x8c
+ 702 022b 02       		.uleb128 0x2
+ 703 022c 91       		.byte	0x91
+ 704 022d 6E       		.sleb128 -18
+ 705 022e 10       		.uleb128 0x10
+ 706 022f 31020000 		.4byte	.LASF23
+ 707 0233 01       		.byte	0x1
+ 708 0234 30       		.byte	0x30
+ 709 0235 81000000 		.4byte	0x81
+ 710 0239 02       		.uleb128 0x2
+ 711 023a 91       		.byte	0x91
+ 712 023b 6D       		.sleb128 -19
+ 713 023c 0A       		.uleb128 0xa
+ 714 023d 8F010000 		.4byte	.LASF25
+ 715 0241 01       		.byte	0x1
+ 716 0242 37       		.byte	0x37
+ 717 0243 73000000 		.4byte	0x73
+ 718 0247 4D020000 		.4byte	0x24d
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 15
+
+
+ 719 024b 0B       		.uleb128 0xb
+ 720 024c 00       		.byte	0
+ 721 024d 0A       		.uleb128 0xa
+ 722 024e DF010000 		.4byte	.LASF24
+ 723 0252 01       		.byte	0x1
+ 724 0253 16       		.byte	0x16
+ 725 0254 73000000 		.4byte	0x73
+ 726 0258 5E020000 		.4byte	0x25e
+ 727 025c 0B       		.uleb128 0xb
+ 728 025d 00       		.byte	0
+ 729 025e 0A       		.uleb128 0xa
+ 730 025f AD010000 		.4byte	.LASF26
+ 731 0263 01       		.byte	0x1
+ 732 0264 3A       		.byte	0x3a
+ 733 0265 73000000 		.4byte	0x73
+ 734 0269 6F020000 		.4byte	0x26f
+ 735 026d 0B       		.uleb128 0xb
+ 736 026e 00       		.byte	0
+ 737 026f 0C       		.uleb128 0xc
+ 738 0270 12000000 		.4byte	.LBB10
+ 739 0274 0C000000 		.4byte	.LBE10-.LBB10
+ 740 0278 8A020000 		.4byte	0x28a
+ 741 027c 11       		.uleb128 0x11
+ 742 027d 89000000 		.4byte	.LASF27
+ 743 0281 01       		.byte	0x1
+ 744 0282 32       		.byte	0x32
+ 745 0283 73000000 		.4byte	0x73
+ 746 0287 0B       		.uleb128 0xb
+ 747 0288 00       		.byte	0
+ 748 0289 00       		.byte	0
+ 749 028a 0C       		.uleb128 0xc
+ 750 028b 24000000 		.4byte	.LBB11
+ 751 028f 0A000000 		.4byte	.LBE11-.LBB11
+ 752 0293 A5020000 		.4byte	0x2a5
+ 753 0297 11       		.uleb128 0x11
+ 754 0298 89000000 		.4byte	.LASF27
+ 755 029c 01       		.byte	0x1
+ 756 029d 32       		.byte	0x32
+ 757 029e 73000000 		.4byte	0x73
+ 758 02a2 0B       		.uleb128 0xb
+ 759 02a3 00       		.byte	0
+ 760 02a4 00       		.byte	0
+ 761 02a5 0E       		.uleb128 0xe
+ 762 02a6 4A000000 		.4byte	.LBB12
+ 763 02aa 12000000 		.4byte	.LBE12-.LBB12
+ 764 02ae 11       		.uleb128 0x11
+ 765 02af 3B020000 		.4byte	.LASF28
+ 766 02b3 01       		.byte	0x1
+ 767 02b4 3D       		.byte	0x3d
+ 768 02b5 73000000 		.4byte	0x73
+ 769 02b9 0B       		.uleb128 0xb
+ 770 02ba 00       		.byte	0
+ 771 02bb 00       		.byte	0
+ 772 02bc 00       		.byte	0
+ 773 02bd 07       		.uleb128 0x7
+ 774 02be CD020000 		.4byte	0x2cd
+ 775 02c2 CD020000 		.4byte	0x2cd
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 16
+
+
+ 776 02c6 08       		.uleb128 0x8
+ 777 02c7 AC000000 		.4byte	0xac
+ 778 02cb 1D       		.byte	0x1d
+ 779 02cc 00       		.byte	0
+ 780 02cd 12       		.uleb128 0x12
+ 781 02ce BA000000 		.4byte	0xba
+ 782 02d2 13       		.uleb128 0x13
+ 783 02d3 27020000 		.4byte	.LASF29
+ 784 02d7 04       		.byte	0x4
+ 785 02d8 0A       		.byte	0xa
+ 786 02d9 E3020000 		.4byte	0x2e3
+ 787 02dd 05       		.uleb128 0x5
+ 788 02de 03       		.byte	0x3
+ 789 02df 00000000 		.4byte	state_ram
+ 790 02e3 12       		.uleb128 0x12
+ 791 02e4 BD020000 		.4byte	0x2bd
+ 792 02e8 07       		.uleb128 0x7
+ 793 02e9 F8020000 		.4byte	0x2f8
+ 794 02ed F8020000 		.4byte	0x2f8
+ 795 02f1 08       		.uleb128 0x8
+ 796 02f2 AC000000 		.4byte	0xac
+ 797 02f6 02       		.byte	0x2
+ 798 02f7 00       		.byte	0
+ 799 02f8 12       		.uleb128 0x12
+ 800 02f9 EB000000 		.4byte	0xeb
+ 801 02fd 13       		.uleb128 0x13
+ 802 02fe 9F010000 		.4byte	.LASF30
+ 803 0302 04       		.byte	0x4
+ 804 0303 15       		.byte	0x15
+ 805 0304 0E030000 		.4byte	0x30e
+ 806 0308 05       		.uleb128 0x5
+ 807 0309 03       		.byte	0x3
+ 808 030a 00000000 		.4byte	attribute_ram
+ 809 030e 12       		.uleb128 0x12
+ 810 030f E8020000 		.4byte	0x2e8
+ 811 0313 00       		.byte	0
+ 812              		.section	.debug_abbrev,"",%progbits
+ 813              	.Ldebug_abbrev0:
+ 814 0000 01       		.uleb128 0x1
+ 815 0001 11       		.uleb128 0x11
+ 816 0002 01       		.byte	0x1
+ 817 0003 25       		.uleb128 0x25
+ 818 0004 0E       		.uleb128 0xe
+ 819 0005 13       		.uleb128 0x13
+ 820 0006 0B       		.uleb128 0xb
+ 821 0007 03       		.uleb128 0x3
+ 822 0008 0E       		.uleb128 0xe
+ 823 0009 1B       		.uleb128 0x1b
+ 824 000a 0E       		.uleb128 0xe
+ 825 000b 55       		.uleb128 0x55
+ 826 000c 17       		.uleb128 0x17
+ 827 000d 11       		.uleb128 0x11
+ 828 000e 01       		.uleb128 0x1
+ 829 000f 10       		.uleb128 0x10
+ 830 0010 17       		.uleb128 0x17
+ 831 0011 00       		.byte	0
+ 832 0012 00       		.byte	0
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 17
+
+
+ 833 0013 02       		.uleb128 0x2
+ 834 0014 24       		.uleb128 0x24
+ 835 0015 00       		.byte	0
+ 836 0016 0B       		.uleb128 0xb
+ 837 0017 0B       		.uleb128 0xb
+ 838 0018 3E       		.uleb128 0x3e
+ 839 0019 0B       		.uleb128 0xb
+ 840 001a 03       		.uleb128 0x3
+ 841 001b 0E       		.uleb128 0xe
+ 842 001c 00       		.byte	0
+ 843 001d 00       		.byte	0
+ 844 001e 03       		.uleb128 0x3
+ 845 001f 16       		.uleb128 0x16
+ 846 0020 00       		.byte	0
+ 847 0021 03       		.uleb128 0x3
+ 848 0022 0E       		.uleb128 0xe
+ 849 0023 3A       		.uleb128 0x3a
+ 850 0024 0B       		.uleb128 0xb
+ 851 0025 3B       		.uleb128 0x3b
+ 852 0026 0B       		.uleb128 0xb
+ 853 0027 49       		.uleb128 0x49
+ 854 0028 13       		.uleb128 0x13
+ 855 0029 00       		.byte	0
+ 856 002a 00       		.byte	0
+ 857 002b 04       		.uleb128 0x4
+ 858 002c 24       		.uleb128 0x24
+ 859 002d 00       		.byte	0
+ 860 002e 0B       		.uleb128 0xb
+ 861 002f 0B       		.uleb128 0xb
+ 862 0030 3E       		.uleb128 0x3e
+ 863 0031 0B       		.uleb128 0xb
+ 864 0032 03       		.uleb128 0x3
+ 865 0033 08       		.uleb128 0x8
+ 866 0034 00       		.byte	0
+ 867 0035 00       		.byte	0
+ 868 0036 05       		.uleb128 0x5
+ 869 0037 13       		.uleb128 0x13
+ 870 0038 01       		.byte	0x1
+ 871 0039 0B       		.uleb128 0xb
+ 872 003a 0B       		.uleb128 0xb
+ 873 003b 3A       		.uleb128 0x3a
+ 874 003c 0B       		.uleb128 0xb
+ 875 003d 3B       		.uleb128 0x3b
+ 876 003e 0B       		.uleb128 0xb
+ 877 003f 01       		.uleb128 0x1
+ 878 0040 13       		.uleb128 0x13
+ 879 0041 00       		.byte	0
+ 880 0042 00       		.byte	0
+ 881 0043 06       		.uleb128 0x6
+ 882 0044 0D       		.uleb128 0xd
+ 883 0045 00       		.byte	0
+ 884 0046 03       		.uleb128 0x3
+ 885 0047 0E       		.uleb128 0xe
+ 886 0048 3A       		.uleb128 0x3a
+ 887 0049 0B       		.uleb128 0xb
+ 888 004a 3B       		.uleb128 0x3b
+ 889 004b 0B       		.uleb128 0xb
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 18
+
+
+ 890 004c 49       		.uleb128 0x49
+ 891 004d 13       		.uleb128 0x13
+ 892 004e 38       		.uleb128 0x38
+ 893 004f 0B       		.uleb128 0xb
+ 894 0050 00       		.byte	0
+ 895 0051 00       		.byte	0
+ 896 0052 07       		.uleb128 0x7
+ 897 0053 01       		.uleb128 0x1
+ 898 0054 01       		.byte	0x1
+ 899 0055 49       		.uleb128 0x49
+ 900 0056 13       		.uleb128 0x13
+ 901 0057 01       		.uleb128 0x1
+ 902 0058 13       		.uleb128 0x13
+ 903 0059 00       		.byte	0
+ 904 005a 00       		.byte	0
+ 905 005b 08       		.uleb128 0x8
+ 906 005c 21       		.uleb128 0x21
+ 907 005d 00       		.byte	0
+ 908 005e 49       		.uleb128 0x49
+ 909 005f 13       		.uleb128 0x13
+ 910 0060 2F       		.uleb128 0x2f
+ 911 0061 0B       		.uleb128 0xb
+ 912 0062 00       		.byte	0
+ 913 0063 00       		.byte	0
+ 914 0064 09       		.uleb128 0x9
+ 915 0065 2E       		.uleb128 0x2e
+ 916 0066 01       		.byte	0x1
+ 917 0067 3F       		.uleb128 0x3f
+ 918 0068 19       		.uleb128 0x19
+ 919 0069 03       		.uleb128 0x3
+ 920 006a 0E       		.uleb128 0xe
+ 921 006b 3A       		.uleb128 0x3a
+ 922 006c 0B       		.uleb128 0xb
+ 923 006d 3B       		.uleb128 0x3b
+ 924 006e 0B       		.uleb128 0xb
+ 925 006f 27       		.uleb128 0x27
+ 926 0070 19       		.uleb128 0x19
+ 927 0071 49       		.uleb128 0x49
+ 928 0072 13       		.uleb128 0x13
+ 929 0073 11       		.uleb128 0x11
+ 930 0074 01       		.uleb128 0x1
+ 931 0075 12       		.uleb128 0x12
+ 932 0076 06       		.uleb128 0x6
+ 933 0077 40       		.uleb128 0x40
+ 934 0078 18       		.uleb128 0x18
+ 935 0079 9642     		.uleb128 0x2116
+ 936 007b 19       		.uleb128 0x19
+ 937 007c 01       		.uleb128 0x1
+ 938 007d 13       		.uleb128 0x13
+ 939 007e 00       		.byte	0
+ 940 007f 00       		.byte	0
+ 941 0080 0A       		.uleb128 0xa
+ 942 0081 2E       		.uleb128 0x2e
+ 943 0082 01       		.byte	0x1
+ 944 0083 3F       		.uleb128 0x3f
+ 945 0084 19       		.uleb128 0x19
+ 946 0085 03       		.uleb128 0x3
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 19
+
+
+ 947 0086 0E       		.uleb128 0xe
+ 948 0087 3A       		.uleb128 0x3a
+ 949 0088 0B       		.uleb128 0xb
+ 950 0089 3B       		.uleb128 0x3b
+ 951 008a 0B       		.uleb128 0xb
+ 952 008b 49       		.uleb128 0x49
+ 953 008c 13       		.uleb128 0x13
+ 954 008d 3C       		.uleb128 0x3c
+ 955 008e 19       		.uleb128 0x19
+ 956 008f 01       		.uleb128 0x1
+ 957 0090 13       		.uleb128 0x13
+ 958 0091 00       		.byte	0
+ 959 0092 00       		.byte	0
+ 960 0093 0B       		.uleb128 0xb
+ 961 0094 18       		.uleb128 0x18
+ 962 0095 00       		.byte	0
+ 963 0096 00       		.byte	0
+ 964 0097 00       		.byte	0
+ 965 0098 0C       		.uleb128 0xc
+ 966 0099 0B       		.uleb128 0xb
+ 967 009a 01       		.byte	0x1
+ 968 009b 11       		.uleb128 0x11
+ 969 009c 01       		.uleb128 0x1
+ 970 009d 12       		.uleb128 0x12
+ 971 009e 06       		.uleb128 0x6
+ 972 009f 01       		.uleb128 0x1
+ 973 00a0 13       		.uleb128 0x13
+ 974 00a1 00       		.byte	0
+ 975 00a2 00       		.byte	0
+ 976 00a3 0D       		.uleb128 0xd
+ 977 00a4 34       		.uleb128 0x34
+ 978 00a5 00       		.byte	0
+ 979 00a6 03       		.uleb128 0x3
+ 980 00a7 08       		.uleb128 0x8
+ 981 00a8 3A       		.uleb128 0x3a
+ 982 00a9 0B       		.uleb128 0xb
+ 983 00aa 3B       		.uleb128 0x3b
+ 984 00ab 0B       		.uleb128 0xb
+ 985 00ac 49       		.uleb128 0x49
+ 986 00ad 13       		.uleb128 0x13
+ 987 00ae 02       		.uleb128 0x2
+ 988 00af 18       		.uleb128 0x18
+ 989 00b0 00       		.byte	0
+ 990 00b1 00       		.byte	0
+ 991 00b2 0E       		.uleb128 0xe
+ 992 00b3 0B       		.uleb128 0xb
+ 993 00b4 01       		.byte	0x1
+ 994 00b5 11       		.uleb128 0x11
+ 995 00b6 01       		.uleb128 0x1
+ 996 00b7 12       		.uleb128 0x12
+ 997 00b8 06       		.uleb128 0x6
+ 998 00b9 00       		.byte	0
+ 999 00ba 00       		.byte	0
+ 1000 00bb 0F       		.uleb128 0xf
+ 1001 00bc 34       		.uleb128 0x34
+ 1002 00bd 00       		.byte	0
+ 1003 00be 03       		.uleb128 0x3
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 20
+
+
+ 1004 00bf 0E       		.uleb128 0xe
+ 1005 00c0 3A       		.uleb128 0x3a
+ 1006 00c1 0B       		.uleb128 0xb
+ 1007 00c2 3B       		.uleb128 0x3b
+ 1008 00c3 0B       		.uleb128 0xb
+ 1009 00c4 49       		.uleb128 0x49
+ 1010 00c5 13       		.uleb128 0x13
+ 1011 00c6 02       		.uleb128 0x2
+ 1012 00c7 18       		.uleb128 0x18
+ 1013 00c8 00       		.byte	0
+ 1014 00c9 00       		.byte	0
+ 1015 00ca 10       		.uleb128 0x10
+ 1016 00cb 05       		.uleb128 0x5
+ 1017 00cc 00       		.byte	0
+ 1018 00cd 03       		.uleb128 0x3
+ 1019 00ce 0E       		.uleb128 0xe
+ 1020 00cf 3A       		.uleb128 0x3a
+ 1021 00d0 0B       		.uleb128 0xb
+ 1022 00d1 3B       		.uleb128 0x3b
+ 1023 00d2 0B       		.uleb128 0xb
+ 1024 00d3 49       		.uleb128 0x49
+ 1025 00d4 13       		.uleb128 0x13
+ 1026 00d5 02       		.uleb128 0x2
+ 1027 00d6 18       		.uleb128 0x18
+ 1028 00d7 00       		.byte	0
+ 1029 00d8 00       		.byte	0
+ 1030 00d9 11       		.uleb128 0x11
+ 1031 00da 2E       		.uleb128 0x2e
+ 1032 00db 01       		.byte	0x1
+ 1033 00dc 3F       		.uleb128 0x3f
+ 1034 00dd 19       		.uleb128 0x19
+ 1035 00de 03       		.uleb128 0x3
+ 1036 00df 0E       		.uleb128 0xe
+ 1037 00e0 3A       		.uleb128 0x3a
+ 1038 00e1 0B       		.uleb128 0xb
+ 1039 00e2 3B       		.uleb128 0x3b
+ 1040 00e3 0B       		.uleb128 0xb
+ 1041 00e4 49       		.uleb128 0x49
+ 1042 00e5 13       		.uleb128 0x13
+ 1043 00e6 3C       		.uleb128 0x3c
+ 1044 00e7 19       		.uleb128 0x19
+ 1045 00e8 00       		.byte	0
+ 1046 00e9 00       		.byte	0
+ 1047 00ea 12       		.uleb128 0x12
+ 1048 00eb 26       		.uleb128 0x26
+ 1049 00ec 00       		.byte	0
+ 1050 00ed 49       		.uleb128 0x49
+ 1051 00ee 13       		.uleb128 0x13
+ 1052 00ef 00       		.byte	0
+ 1053 00f0 00       		.byte	0
+ 1054 00f1 13       		.uleb128 0x13
+ 1055 00f2 34       		.uleb128 0x34
+ 1056 00f3 00       		.byte	0
+ 1057 00f4 03       		.uleb128 0x3
+ 1058 00f5 0E       		.uleb128 0xe
+ 1059 00f6 3A       		.uleb128 0x3a
+ 1060 00f7 0B       		.uleb128 0xb
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 21
+
+
+ 1061 00f8 3B       		.uleb128 0x3b
+ 1062 00f9 0B       		.uleb128 0xb
+ 1063 00fa 49       		.uleb128 0x49
+ 1064 00fb 13       		.uleb128 0x13
+ 1065 00fc 3F       		.uleb128 0x3f
+ 1066 00fd 19       		.uleb128 0x19
+ 1067 00fe 02       		.uleb128 0x2
+ 1068 00ff 18       		.uleb128 0x18
+ 1069 0100 00       		.byte	0
+ 1070 0101 00       		.byte	0
+ 1071 0102 00       		.byte	0
+ 1072              		.section	.debug_aranges,"",%progbits
+ 1073 0000 24000000 		.4byte	0x24
+ 1074 0004 0200     		.2byte	0x2
+ 1075 0006 00000000 		.4byte	.Ldebug_info0
+ 1076 000a 04       		.byte	0x4
+ 1077 000b 00       		.byte	0
+ 1078 000c 0000     		.2byte	0
+ 1079 000e 0000     		.2byte	0
+ 1080 0010 00000000 		.4byte	.LFB35
+ 1081 0014 68010000 		.4byte	.LFE35-.LFB35
+ 1082 0018 00000000 		.4byte	.LFB36
+ 1083 001c 66000000 		.4byte	.LFE36-.LFB36
+ 1084 0020 00000000 		.4byte	0
+ 1085 0024 00000000 		.4byte	0
+ 1086              		.section	.debug_ranges,"",%progbits
+ 1087              	.Ldebug_ranges0:
+ 1088 0000 00000000 		.4byte	.LFB35
+ 1089 0004 68010000 		.4byte	.LFE35
+ 1090 0008 00000000 		.4byte	.LFB36
+ 1091 000c 66000000 		.4byte	.LFE36
+ 1092 0010 00000000 		.4byte	0
+ 1093 0014 00000000 		.4byte	0
+ 1094              		.section	.debug_line,"",%progbits
+ 1095              	.Ldebug_line0:
+ 1096 0000 0E020000 		.section	.debug_str,"MS",%progbits,1
+ 1096      02002701 
+ 1096      00000201 
+ 1096      FB0E0D00 
+ 1096      01010101 
+ 1097              	.LASF3:
+ 1098 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 1098      6E74385F 
+ 1098      7400
+ 1099              	.LASF33:
+ 1100 000a 433A5C55 		.ascii	"C:\\Users\\twmur\\OneDrive\\Documents\\PSoC Creator"
+ 1100      73657273 
+ 1100      5C74776D 
+ 1100      75725C4F 
+ 1100      6E654472 
+ 1101 0038 5C576F72 		.ascii	"\\Workspace02\\RoughCom.cydsn\000"
+ 1101      6B737061 
+ 1101      63653032 
+ 1101      5C526F75 
+ 1101      6768436F 
+ 1102              	.LASF20:
+ 1103 0054 61646472 		.ascii	"addr_byte\000"
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 22
+
+
+ 1103      5F627974 
+ 1103      6500
+ 1104              	.LASF13:
+ 1105 005e 666C6F61 		.ascii	"float\000"
+ 1105      7400
+ 1106              	.LASF19:
+ 1107 0064 64617461 		.ascii	"data\000"
+ 1107      00
+ 1108              	.LASF1:
+ 1109 0069 756E7369 		.ascii	"unsigned char\000"
+ 1109      676E6564 
+ 1109      20636861 
+ 1109      7200
+ 1110              	.LASF7:
+ 1111 0077 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1111      20756E73 
+ 1111      69676E65 
+ 1111      6420696E 
+ 1111      7400
+ 1112              	.LASF27:
+ 1113 0089 50696E5F 		.ascii	"Pin_Button_Read\000"
+ 1113      42757474 
+ 1113      6F6E5F52 
+ 1113      65616400 
+ 1114              	.LASF5:
+ 1115 0099 73686F72 		.ascii	"short unsigned int\000"
+ 1115      7420756E 
+ 1115      7369676E 
+ 1115      65642069 
+ 1115      6E7400
+ 1116              	.LASF22:
+ 1117 00ac 73656E64 		.ascii	"send_byte\000"
+ 1117      5F627974 
+ 1117      6500
+ 1118              	.LASF31:
+ 1119 00b6 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1119      43313120 
+ 1119      352E342E 
+ 1119      31203230 
+ 1119      31363036 
+ 1120 00e9 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1120      20726576 
+ 1120      6973696F 
+ 1120      6E203233 
+ 1120      37373135 
+ 1121 011c 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1121      66756E63 
+ 1121      74696F6E 
+ 1121      2D736563 
+ 1121      74696F6E 
+ 1122              	.LASF4:
+ 1123 0144 5F5F7569 		.ascii	"__uint16_t\000"
+ 1123      6E743136 
+ 1123      5F7400
+ 1124              	.LASF14:
+ 1125 014f 646F7562 		.ascii	"double\000"
+ 1125      6C6500
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 23
+
+
+ 1126              	.LASF21:
+ 1127 0156 6D61696E 		.ascii	"main\000"
+ 1127      00
+ 1128              	.LASF10:
+ 1129 015b 756E7369 		.ascii	"unsigned int\000"
+ 1129      676E6564 
+ 1129      20696E74 
+ 1129      00
+ 1130              	.LASF18:
+ 1131 0168 61646472 		.ascii	"address\000"
+ 1131      65737300 
+ 1132              	.LASF9:
+ 1133 0170 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1133      206C6F6E 
+ 1133      6720756E 
+ 1133      7369676E 
+ 1133      65642069 
+ 1134              	.LASF11:
+ 1135 0187 75696E74 		.ascii	"uint8_t\000"
+ 1135      385F7400 
+ 1136              	.LASF25:
+ 1137 018f 44617461 		.ascii	"Data_Port_Write\000"
+ 1137      5F506F72 
+ 1137      745F5772 
+ 1137      69746500 
+ 1138              	.LASF30:
+ 1139 019f 61747472 		.ascii	"attribute_ram\000"
+ 1139      69627574 
+ 1139      655F7261 
+ 1139      6D00
+ 1140              	.LASF26:
+ 1141 01ad 50534F43 		.ascii	"PSOC_FPGA_Read\000"
+ 1141      5F465047 
+ 1141      415F5265 
+ 1141      616400
+ 1142              	.LASF16:
+ 1143 01bc 73697A65 		.ascii	"sizetype\000"
+ 1143      74797065 
+ 1143      00
+ 1144              	.LASF8:
+ 1145 01c5 6C6F6E67 		.ascii	"long long int\000"
+ 1145      206C6F6E 
+ 1145      6720696E 
+ 1145      7400
+ 1146              	.LASF32:
+ 1147 01d3 6D61696E 		.ascii	"main.c\000"
+ 1147      2E6300
+ 1148              	.LASF15:
+ 1149 01da 63686172 		.ascii	"char\000"
+ 1149      00
+ 1150              	.LASF24:
+ 1151 01df 50696E5F 		.ascii	"Pin_PSOC_FPGA_Write\000"
+ 1151      50534F43 
+ 1151      5F465047 
+ 1151      415F5772 
+ 1151      69746500 
+ 1152              	.LASF2:
+ARM GAS  C:\Users\twmur\AppData\Local\Temp\cc1Fq75W.s 			page 24
+
+
+ 1153 01f3 73686F72 		.ascii	"short int\000"
+ 1153      7420696E 
+ 1153      7400
+ 1154              	.LASF12:
+ 1155 01fd 75696E74 		.ascii	"uint16_t\000"
+ 1155      31365F74 
+ 1155      00
+ 1156              	.LASF6:
+ 1157 0206 6C6F6E67 		.ascii	"long int\000"
+ 1157      20696E74 
+ 1157      00
+ 1158              	.LASF17:
+ 1159 020f 6C6F6E67 		.ascii	"long double\000"
+ 1159      20646F75 
+ 1159      626C6500 
+ 1160              	.LASF0:
+ 1161 021b 7369676E 		.ascii	"signed char\000"
+ 1161      65642063 
+ 1161      68617200 
+ 1162              	.LASF29:
+ 1163 0227 73746174 		.ascii	"state_ram\000"
+ 1163      655F7261 
+ 1163      6D00
+ 1164              	.LASF23:
+ 1165 0231 64617461 		.ascii	"data_byte\000"
+ 1165      5F627974 
+ 1165      6500
+ 1166              	.LASF28:
+ 1167 023b 50696E5F 		.ascii	"Pin_FPGA_PSOC_Read\000"
+ 1167      46504741 
+ 1167      5F50534F 
+ 1167      435F5265 
+ 1167      616400
+ 1168              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

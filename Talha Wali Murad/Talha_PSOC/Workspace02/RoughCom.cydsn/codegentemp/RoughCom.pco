@@ -1,0 +1,19 @@
+# RoughCom
+# 2025-03-12 19:02:27Z
+
+# IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 0
+# IO_1@[IOP=(1)][IoId=(1)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 1
+set_location "ClockBlock" clockblockcell -1 -1 0
+set_io "Data_Port(0)" iocell 2 0
+set_io "Data_Port(1)" iocell 2 1
+set_io "Data_Port(2)" iocell 2 2
+set_io "Data_Port(3)" iocell 2 3
+set_io "Data_Port(4)" iocell 2 4
+set_io "Data_Port(5)" iocell 2 5
+set_io "Data_Port(6)" iocell 2 6
+set_io "Data_Port(7)" iocell 2 7
+set_location "Button" logicalport -1 -1 6
+set_io "Button(0)" iocell 6 1
+set_location "isr_Button" interrupt -1 -1 10

@@ -1,0 +1,6 @@
+C:\Users\impler\Documents\SP25\Talha_PSOC\ToggleCom.cydsn\ToggleCom.cyprj|da15724a-a96b-42c3-bcc2-c8eefcdaba1d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|fbe1b5a2-81dd-4b66-80aa-05b949814d2a
+C:\Users\impler\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|21a8fca5-055d-49ac-aae1-0d6527000a43
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|27cc48e5-df02-4332-8123-9647fb917bbc
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|3e4eb235-d676-4e3a-a64e-a23e4a8fd277
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|2e5426c1-8866-491d-b34e-673801b7f2fa

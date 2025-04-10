@@ -1,0 +1,7 @@
+C:\Users\twmur\OneDrive\Documents\PSoC Creator\Workspace02\RoughCom.cydsn\RoughCom.cyprj|1576fd7e-d458-4966-b178-1cdf69443dd2
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|88fcc779-48f9-4147-88de-89f69aad00fe
+C:\Users\twmur\OneDrive\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|43ac512c-33a5-4ecf-8582-fc1b4637603c
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|a148f3c9-76de-466a-8dae-cf5f2b121709
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|7a0cff47-00d3-460e-949b-67262b4af2f3
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|d8942647-b392-4011-8cc4-5dc1e26181f4
+C:\Users\twmur\OneDrive\Documents\PSoC Creator\Workspace02\ToggleCom.cydsn\ToggleCom.cyprj|cbad8559-e5b1-4654-a707-365883d8ef47
